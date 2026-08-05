@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f8f9fa] text-[#1a1c29] overflow-hidden;
+  }
+}
+
+.text-gradient-purple-orange {
+  background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 30%, #ec4899 70%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes manualMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.manual-marquee {
+  animation: manualMarquee 30s linear infinite;
+}
