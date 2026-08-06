@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-[#f8f9fa] text-[#1a1c29] overflow-hidden;
+    @apply bg-[#f8f9fa] text-[#1a1c29];
   }
 }
 
