@@ -51,15 +51,17 @@ function App() {
           </div>
         </div>
         
-        <button className="flex flex-col items-center justify-center px-6 py-2 md:py-2.5 rounded-full bg-[#11131c] text-white shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden border border-white/10 shrink-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <button className="group relative flex items-center justify-center px-5 md:px-7 py-2.5 md:py-3 rounded-md font-bold text-white transition-all duration-300 active:scale-95 overflow-hidden shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(147,51,234,0.5)] shrink-0">
+          {/* Animated Rainbow Background */}
+          <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,#ff0000,#ff8000,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000)] transition-colors duration-500" />
           
-          <div className="flex items-center gap-2 relative z-10">
-            <span className="font-bold tracking-[0.2em] text-[10px] md:text-[12px] text-white">REGISTER NOW</span>
-            <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          {/* Inner dark container (creates the animated border effect) */}
+          <div className="absolute inset-[2px] rounded-[4px] bg-[#11131c] transition-colors" />
+          
+          <div className="relative z-10 flex items-center gap-2">
+            <span className="font-bold tracking-widest text-[11px] md:text-sm text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">REGISTER NOW</span>
+            <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
           </div>
-          
-          <span className="text-[7px] md:text-[9px] text-gray-400 font-medium tracking-widest relative z-10 mt-0.5 uppercase">www.globaltalenthunt.com</span>
         </button>
       </header>
 
@@ -85,7 +87,7 @@ function App() {
               </div>
               <div className="py-2">
                 <p className="text-[10px] md:text-sm font-semibold tracking-wider text-gray-500 uppercase">FIRST PRIZE</p>
-                <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-[#1e2335] leading-none mt-1 flex items-baseline gap-3">
+                <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 leading-none mt-1 flex items-baseline gap-3">
                   {currency === 'INR' ? '₹9,00,000' : '$10,000'}
                 </h2>
               </div>
@@ -107,17 +109,31 @@ function App() {
       {/* BOTTOM SECTION */}
       <footer className="relative z-10 px-8 lg:px-16 pb-6 shrink-0 w-full max-w-7xl mx-auto flex flex-col gap-4">
         
-        {/* Powered By with Marquee */}
-        <div className="w-full bg-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm overflow-hidden flex flex-col">
-          <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase">POWERED BY</p>
-          <div className="flex w-full overflow-hidden relative bg-white">
-            <div className="flex w-max manual-marquee space-x-8 md:space-x-12 items-center pr-8 md:pr-12 hover:[animation-play-state:paused]">
-              {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, i) => (
-                <div key={i} className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center shrink-0">
-                  <img src={src} alt="Partner Logo" className="max-w-full max-h-full object-contain transition-opacity mix-blend-multiply" />
+        {/* Powered By Section */}
+        <div className="mt-4 bg-white border border-gray-200 rounded-xl md:rounded-2xl p-4 shadow-sm relative z-20 mx-auto w-full">
+          <p className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-gray-400 mb-3 uppercase text-center md:text-left ml-2">POWERED BY</p>
+          <div className="flex justify-between items-center w-full px-2 md:px-4">
+            {PARTNERS.map((logo, i) => {
+              const isDarkBg = ['XOXO', 'Young'].some(name => logo.includes(name));
+              let heightClass = 'h-8 md:h-10 lg:h-12';
+              let scaleClass = 'transition-transform duration-300 hover:scale-110';
+              
+              if (logo.includes('JobFinderAI') || logo.includes('MoreYeahs')) {
+                heightClass = 'h-16 md:h-24 lg:h-28'; // Much taller base height instead of transform scale
+              } else if (logo.includes('AWS')) {
+                heightClass = 'h-10 md:h-12 lg:h-16';
+              }
+
+              return (
+                <div key={i} className={`flex items-center justify-center shrink-0 ${heightClass} ${scaleClass}`}>
+                  <img 
+                    src={logo} 
+                    alt={`Partner ${i}`} 
+                    className={`h-full w-auto object-contain mix-blend-multiply opacity-80 hover:opacity-100 transition-opacity ${isDarkBg ? 'invert grayscale' : ''}`} 
+                  />
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
 
