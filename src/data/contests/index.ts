@@ -2,9 +2,9 @@ import type { ContestConfig } from '../../types/contest';
 
 export const CONTESTS: ContestConfig[] = [
   {
-    id: 'ai-app-creation',
+    id: 'ai-innovation-contest',
     status: 'OPEN',
-    title: 'AI App Creation',
+    title: 'AI Innovation Contest',
     subtitle: 'Build the future with Artificial Intelligence.',
     category: 'Software Engineering',
     difficulty: 'Advanced',
@@ -18,17 +18,20 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: 'AI',
 
     seo: {
-      title: 'AI App Creation | Global Talent Hunt',
+      title: 'AI Innovation Contest | Global Talent Hunt',
       description: 'Build the future with Generative AI.',
       ogImage: ''
     },
+    registrationFee: 500,
+    currency: 'INR',
+    paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$25,000+' },
-      { label: 'Registration', value: 'Free' },
+      { label: 'Registration', value: '₹500' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Welcome to the ultimate AI App Creation challenge. In this contest, you are tasked with building the next generation of applications utilizing cutting-edge Generative AI tools. Show the world what AI can do when placed in the hands of visionary developers.',
+    description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications utilizing cutting-edge Generative AI tools. Whether you are architecting a revolutionary productivity tool, an autonomous smart assistant, or an entirely new software paradigm, we want to see how you leverage LLMs and APIs to solve high-impact, real-world problems. Show the world what AI can achieve in the hands of visionary developers.',
     whyParticipate: [
       { title: 'Build an incredible portfolio', description: 'Deploy a cutting edge AI app that will wow top employers.' },
       { title: 'Showcase your AI skills', description: 'Demonstrate your ability to leverage LLMs and AI APIs in real-world scenarios.' },
@@ -37,7 +40,7 @@ export const CONTESTS: ContestConfig[] = [
     ],
     timeline: [
       { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Fill Google Form', date: 'Step 2', description: 'Submit your details.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
       { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
       { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
       { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
@@ -71,10 +74,11 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Cash Prize', value: '$10,000' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' },
-          { title: 'Gaming PC', description: 'Runner up' },
-          { title: 'PlayStation 5', description: 'Runner up' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       },
       {
@@ -92,9 +96,9 @@ export const CONTESTS: ContestConfig[] = [
     }
   },
   {
-    id: 'job-application-contest',
+    id: 'career-accelerator-contest',
     status: 'OPEN',
-    title: 'Job Contest',
+    title: 'Career Accelerator Contest',
     subtitle: 'Optimize your career.',
     category: 'Career',
     difficulty: 'All Levels',
@@ -107,11 +111,25 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: 'JOB',
 
-    seo: { title: 'Job Contest', description: '', ogImage: '' },
-    statistics: [],
-    description: 'Optimize your resume and interview skills.',
+    seo: { title: 'Career Accelerator Contest', description: '', ogImage: '' },
+    registrationFee: 200,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Registration', value: '₹200' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
+    description: 'Powered by JobFinderAI, this challenge is designed to revolutionize the global recruitment industry. Your mission is to architect an outstanding AI-driven job application ecosystem or a hyper-intelligent resume generator. Maximize application success rates by leveraging smart data matching, automated tailoring, and predictive hiring algorithms. Build the future of hiring and redefine how talent meets opportunity.',
     whyParticipate: [],
-    timeline: [],
+    timeline: [
+      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
+      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
+      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
+      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
+      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+    ],
     judgingCriteria: [],
     eligibility: [],
     faqs: [],
@@ -128,17 +146,24 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Premium Mentorship', value: '1-on-1' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       }
     ],
-    registration: { mode: 'COMING_SOON', buttonText: 'COMING SOON' }
+    registration: {
+      mode: 'EMBEDDED_FORM',
+      url: 'https://docs.google.com/forms/placeholder',
+      buttonText: 'REGISTER NOW'
+    }
   },
   {
-    id: '3d-asset-creation',
+    id: '3d-asset-design-contest',
     status: 'OPEN',
-    title: '3D Asset Creation',
+    title: '3D Asset Design Contest',
     subtitle: 'Build the metaverse.',
     category: 'Design',
     difficulty: 'Intermediate',
@@ -151,11 +176,25 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: '3D_ASSET',
 
-    seo: { title: '3D Asset', description: '', ogImage: '' },
-    statistics: [],
-    description: '',
+    seo: { title: '3D Asset Design Contest', description: '', ogImage: '' },
+    registrationFee: 200,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Registration', value: '₹200' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
+    description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools to forge stunning, production-ready 3D assets. From sci-fi vehicles and intricate fantasy props to hyper-realistic architectural elements, your challenge is to demonstrate how AI can drastically accelerate texturing, unwrapping, and conceptual phases while maintaining flawless, industry-standard topology.',
     whyParticipate: [],
-    timeline: [],
+    timeline: [
+      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
+      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
+      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
+      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
+      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+    ],
     judgingCriteria: [],
     eligibility: [],
     faqs: [],
@@ -172,18 +211,24 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Cash Prize', value: '$5,000' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' },
-          { title: 'PlayStation 5', description: 'Runner up' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       }
     ],
-    registration: { mode: 'COMING_SOON', buttonText: 'COMING SOON' }
+    registration: {
+      mode: 'EMBEDDED_FORM',
+      url: 'https://docs.google.com/forms/placeholder',
+      buttonText: 'REGISTER NOW'
+    }
   },
   {
-    id: '3d-character-modeling',
+    id: 'digital-character-design-contest',
     status: 'OPEN',
-    title: 'Character Modeling',
+    title: 'Digital Character Design Contest',
     subtitle: 'Bring digital humans to life.',
     category: 'Design',
     difficulty: 'Advanced',
@@ -196,11 +241,25 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: '3D_CHARACTER',
 
-    seo: { title: '3D Character', description: '', ogImage: '' },
-    statistics: [],
-    description: '',
+    seo: { title: 'Digital Character Design Contest', description: '', ogImage: '' },
+    registrationFee: 200,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Registration', value: '₹200' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
+    description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. Sculpt, texture, and rig a next-gen 3D character that belongs in a AAA game or blockbuster film. We demand incredible attention to detail across anatomy, clothing, and micro-expressions. Integrate cutting-edge AI workflows for concept generation and advanced material creation to bring your vision to life.',
     whyParticipate: [],
-    timeline: [],
+    timeline: [
+      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
+      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
+      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
+      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
+      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+    ],
     judgingCriteria: [],
     eligibility: [],
     faqs: [],
@@ -217,18 +276,24 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Gaming PC', value: 'RTX 4090' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' },
-          { title: 'Cash Prize', description: '$2,000 for runner up' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       }
     ],
-    registration: { mode: 'COMING_SOON', buttonText: 'COMING SOON' }
+    registration: {
+      mode: 'EMBEDDED_FORM',
+      url: 'https://docs.google.com/forms/placeholder',
+      buttonText: 'REGISTER NOW'
+    }
   },
   {
-    id: 'ui-ux-design',
+    id: 'web-experience-design-contest',
     status: 'OPEN',
-    title: 'UI/UX Design',
+    title: 'Web Experience Design Contest',
     subtitle: 'Craft perfect interfaces.',
     category: 'Design',
     difficulty: 'All Levels',
@@ -241,11 +306,25 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: 'UI_UX',
 
-    seo: { title: 'UI/UX Design', description: '', ogImage: '' },
-    statistics: [],
-    description: '',
+    seo: { title: 'Web Experience Design Contest', description: '', ogImage: '' },
+    registrationFee: 200,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Registration', value: '₹200' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
+    description: 'Design the future of the web. Your challenge is to craft stunning, user-centric interfaces and breathtaking web experiences that redefine modern digital standards. Focus on premium aesthetics like glassmorphism, fluid micro-interactions, flawless typography scales, and highly accessible color palettes. Evolve your wireframes into hyper-polished, high-fidelity prototypes that leave users in absolute awe of your digital craftsmanship.',
     whyParticipate: [],
-    timeline: [],
+    timeline: [
+      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
+      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
+      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
+      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
+      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+    ],
     judgingCriteria: [],
     eligibility: [],
     faqs: [],
@@ -262,18 +341,24 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Cash Prize', value: '$8,000' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' },
-          { title: 'MacBook Pro M3', description: 'Runner up' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       }
     ],
-    registration: { mode: 'COMING_SOON', buttonText: 'COMING SOON' }
+    registration: {
+      mode: 'EMBEDDED_FORM',
+      url: 'https://docs.google.com/forms/placeholder',
+      buttonText: 'REGISTER NOW'
+    }
   },
   {
-    id: 'momentum-edu',
+    id: 'ai-education-innovation-contest',
     status: 'COMING_SOON',
-    title: 'Momentum Edu+',
+    title: 'AI Education Innovation Contest',
     subtitle: 'The future of learning.',
     category: 'Education',
     difficulty: 'All Levels',
@@ -286,11 +371,25 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: 'EDU',
 
-    seo: { title: 'Momentum Edu+', description: '', ogImage: '' },
-    statistics: [],
+    seo: { title: 'AI Education Innovation Contest', description: '', ogImage: '' },
+    registrationFee: 200,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Registration', value: '₹200' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
     description: '',
     whyParticipate: [],
-    timeline: [],
+    timeline: [
+      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
+      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
+      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
+      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
+      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
+      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+    ],
     judgingCriteria: [],
     eligibility: [],
     faqs: [],
@@ -307,8 +406,11 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP WINNERS RECEIVE',
         theme: 'dark',
         items: [
-          { title: 'Grand Prize', value: 'TBA' },
-          { title: '$5,000 AWS Credits', description: 'Top 5 Winners' }
+          { title: '1ST PRIZE', value: '$10,000' },
+          { title: '2ND PRIZE', value: '$2,000' },
+          { title: '3RD PRIZE', value: '$1,000' },
+          { title: '4TH PRIZE', value: '$500' },
+          { title: '5TH PRIZE', value: '$250' }
         ]
       }
     ],

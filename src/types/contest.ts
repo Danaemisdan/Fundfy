@@ -42,6 +42,11 @@ export interface ContestConfig {
 
   seo: SEOConfig;
   
+  // Registration Payment Data
+  registrationFee: number;
+  currency: string;
+  paymentRequired: boolean;
+
   // Hero Statistics
   statistics: {
     label: string;

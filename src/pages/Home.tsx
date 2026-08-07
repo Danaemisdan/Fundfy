@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
@@ -55,16 +56,14 @@ function Home() {
             </div>
           </div>
           
-          <button className="flex flex-col items-center justify-center px-6 py-2 md:py-2.5 rounded-full bg-[#11131c] text-white shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden border border-white/10 shrink-0">
+          <Link to="/register" className="flex items-center justify-center px-6 py-3 md:py-3.5 bg-[#11131c] text-white shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden border border-white/10 shrink-0">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
             <div className="flex items-center gap-2 relative z-10">
               <span className="font-bold tracking-[0.2em] text-[10px] md:text-[12px] text-white">REGISTER NOW</span>
               <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </div>
-            
-            <span className="text-[7px] md:text-[9px] text-gray-400 font-medium tracking-widest relative z-10 mt-0.5 uppercase">www.globaltalenthunt.com</span>
-          </button>
+          </Link>
         </header>
 
         {/* MAIN CONTENT */}
@@ -111,17 +110,15 @@ function Home() {
         {/* BOTTOM SECTION */}
         <footer className="relative z-10 px-8 lg:px-16 pb-6 shrink-0 w-full max-w-7xl mx-auto flex flex-col gap-4">
           
-          {/* Powered By with Marquee */}
-          <div className="w-full bg-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm overflow-hidden flex flex-col">
-            <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase">POWERED BY</p>
-            <div className="flex w-full overflow-hidden relative bg-white">
-              <div className="flex w-max manual-marquee space-x-8 md:space-x-12 items-center pr-8 md:pr-12 hover:[animation-play-state:paused]">
-                {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, i) => (
-                  <div key={i} className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center shrink-0">
-                    <img src={src} alt="Partner Logo" className="max-w-full max-h-full object-contain transition-opacity mix-blend-multiply" />
-                  </div>
-                ))}
-              </div>
+          {/* Powered By - Static */}
+          <div className="w-full bg-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm flex flex-col">
+            <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase text-center md:text-left">POWERED BY</p>
+            <div className="grid grid-cols-4 md:flex md:flex-wrap md:justify-between items-center gap-6 md:gap-4 w-full px-2">
+              {PARTNERS.map((src, i) => (
+                <div key={i} className="h-10 md:h-12 lg:h-16 flex items-center justify-center shrink-0">
+                  <img src={src} alt="Partner Logo" className="h-full w-auto max-w-[80px] md:max-w-[130px] object-contain mix-blend-multiply" />
+                </div>
+              ))}
             </div>
           </div>
 

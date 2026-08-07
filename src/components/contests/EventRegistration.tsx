@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function EventRegistration({ data, theme }: { data: any, theme: any }) {
@@ -5,30 +6,15 @@ export default function EventRegistration({ data, theme }: { data: any, theme: a
   const renderContent = () => {
     switch (data.registration.mode) {
       case 'EMBEDDED_FORM':
-        return (
-          <div className="w-full max-w-4xl mx-auto h-[800px] bg-white rounded-3xl overflow-hidden shadow-2xl relative">
-            {/* Elegant placeholder for the iframe when loading or if invalid URL */}
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-50 text-gray-400 font-medium">
-              Loading Registration Form...
-            </div>
-            <iframe 
-              src={data.registration.url} 
-              className="relative z-10 w-full h-full border-0"
-              title="Registration Form"
-            />
-          </div>
-        );
       case 'EXTERNAL_URL':
         return (
           <div className="flex justify-center">
-            <a 
-              href={data.registration.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              to={`/register?contest=${data.id}`}
               className={`px-12 py-6 bg-white text-black rounded-full font-bold tracking-[0.2em] text-sm uppercase hover:scale-105 transition-transform duration-300 shadow-2xl shadow-${theme.primaryAccent}/20`}
             >
               {data.registration.buttonText}
-            </a>
+            </Link>
           </div>
         );
       case 'COMING_SOON':

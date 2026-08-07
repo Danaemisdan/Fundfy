@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CONTESTS } from '../../data/contests';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function PlaceholderArtwork({ type, theme }: { type: string, theme: any }) {
   // Return CSS-based intentional artwork depending on the contest type
@@ -64,83 +66,151 @@ function PlaceholderArtwork({ type, theme }: { type: string, theme: any }) {
 
 export default function ContestShowcase() {
   const navigate = useNavigate();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % CONTESTS.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + CONTESTS.length) % CONTESTS.length);
+  };
+
+  const getOffset = (index: number) => {
+    const diff = index - activeIndex;
+    const half = Math.floor(CONTESTS.length / 2);
+    if (diff > half) return diff - CONTESTS.length;
+    if (diff < -half) return diff + CONTESTS.length;
+    return diff;
+  };
 
   return (
-    <section className="w-full bg-[#050505] text-white pt-24 pb-32 relative z-10">
+    <section className="w-full bg-[#050505] text-white pt-24 pb-32 relative z-10 overflow-hidden">
       
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 mb-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 mb-16 relative z-20">
         <h2 className="text-4xl md:text-7xl font-futuristic font-bold tracking-tighter">
           CHOOSE YOUR<br/>
           <span className="text-gray-500">CHALLENGE.</span>
         </h2>
       </div>
 
-      {/* Contest Grid */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {CONTESTS.map((contest) => (
-          <div 
-            key={contest.id}
-            onClick={() => navigate(`/contests/${contest.id}`)}
-            className="w-full bg-[#111] rounded-3xl border border-white/10 overflow-hidden relative group cursor-pointer flex flex-col"
-          >
-            {/* Artwork Top Half */}
-            <div className="h-[250px] relative overflow-hidden bg-black">
-              <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700">
-                <img 
-                  src={`/contests/${contest.id}.jpg`} 
-                  alt={contest.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                  onError={(e) => {
-                    // Fallback to placeholder if image is missing
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    const placeholder = (e.target as HTMLElement).nextElementSibling as HTMLElement;
-                    if (placeholder) placeholder.style.display = 'block';
-                  }}
-                />
-                <div style={{ display: 'none' }} className="w-full h-full">
-                  <PlaceholderArtwork type={contest.artworkType} theme={contest.theme} />
-                </div>
-              </div>
-              
-              <div className="absolute top-4 left-4 z-10">
-                <span className={`px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full ${contest.status === 'OPEN' ? 'bg-white/10 text-white backdrop-blur-md' : 'bg-white/5 text-gray-400 backdrop-blur-md'}`}>
-                  {contest.status === 'OPEN' ? 'OPEN NOW' : 'COMING SOON'}
-                </span>
-              </div>
-            </div>
-
-            {/* Content Bottom Half */}
-            <div className="flex-1 p-6 flex flex-col relative z-10 bg-[#111]">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">{contest.category}</span>
-                <span className="text-[10px] font-bold tracking-widest text-gray-600">{contest.difficulty}</span>
-              </div>
-              
-              <h3 className="text-2xl font-futuristic font-bold tracking-tight mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                {contest.title}
-              </h3>
-              <p className="text-sm text-gray-400 font-medium mb-8">
-                {contest.subtitle}
-              </p>
-
-              <div className="mt-auto pt-6 border-t border-white/10 flex justify-between items-center">
-                <div>
-                  <span className="text-[9px] uppercase tracking-widest text-gray-500 block mb-1">Prize Pool</span>
-                  <span className={`text-sm md:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r ${contest.theme.accentGradient}`}>
-                    {contest.prizeHighlight}
-                  </span>
+      {/* Contest Carousel */}
+      <div className="relative w-full h-[550px] flex items-center justify-center mt-8">
+        {CONTESTS.map((contest, index) => {
+          const offset = getOffset(index);
+          const isActive = offset === 0;
+          const isVisible = Math.abs(offset) <= 2;
+          
+          return (
+            <motion.div
+              key={contest.id}
+              initial={false}
+              animate={{
+                x: `calc(${offset * 105}% + ${offset * 20}px)`,
+                scale: isActive ? 1 : 0.85,
+                opacity: isVisible ? (isActive ? 1 : 0.4) : 0,
+                zIndex: isActive ? 30 : 20 - Math.abs(offset),
+              }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                pointerEvents: isVisible && Math.abs(offset) <= 1 ? 'auto' : 'none'
+              }}
+              className={`absolute w-[85%] max-w-[340px] md:max-w-[400px] h-[520px] bg-[#111] rounded-3xl border border-white/10 overflow-hidden group flex flex-col shadow-2xl ${
+                isActive ? 'cursor-pointer' : 'cursor-pointer'
+              }`}
+              onClick={() => {
+                if (isActive) {
+                  navigate(`/contests/${contest.id}`);
+                } else if (Math.abs(offset) === 1) {
+                  setActiveIndex(index);
+                }
+              }}
+            >
+              {/* Artwork Top Half */}
+              <div className="h-[250px] relative overflow-hidden bg-black">
+                <div className={`absolute inset-0 transition-transform duration-700 ${isActive ? 'group-hover:scale-105' : ''}`}>
+                  <img 
+                    src={`/contests/${contest.id}.jpg`} 
+                    alt={contest.title}
+                    className={`w-full h-full object-cover transition-opacity duration-500 ${isActive ? 'opacity-80 group-hover:opacity-100' : 'opacity-50'}`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                      const placeholder = (e.target as HTMLElement).nextElementSibling as HTMLElement;
+                      if (placeholder) placeholder.style.display = 'block';
+                    }}
+                  />
+                  <div style={{ display: 'none' }} className="w-full h-full">
+                    <PlaceholderArtwork type={contest.artworkType} theme={contest.theme} />
+                  </div>
                 </div>
                 
-                <button className="text-[10px] font-bold tracking-[0.2em] uppercase border border-white/20 px-4 py-2 rounded-full group-hover:bg-white group-hover:text-black transition-colors duration-300">
-                  VIEW
-                </button>
+                <div className="absolute top-4 left-4 z-10">
+                  <span className={`px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full ${contest.status === 'OPEN' ? 'bg-white/10 text-white backdrop-blur-md' : 'bg-white/5 text-gray-400 backdrop-blur-md'}`}>
+                    {contest.status === 'OPEN' ? 'OPEN NOW' : 'COMING SOON'}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            {/* Hover Glow */}
-            <div className={`absolute inset-0 bg-gradient-to-t ${contest.theme.accentGradient} opacity-0 group-hover:opacity-[0.05] pointer-events-none transition-opacity duration-500`} />
-          </div>
-        ))}
+              {/* Content Bottom Half */}
+              <div className="flex-1 p-6 flex flex-col relative z-10 bg-[#111]">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-500">{contest.category}</span>
+                  <span className="text-[10px] font-bold tracking-widest text-gray-600">{contest.difficulty}</span>
+                </div>
+                
+                <h3 className={`text-2xl font-futuristic font-bold tracking-tight mb-2 transition-all ${isActive ? 'group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400' : 'text-gray-300'}`}>
+                  {contest.title}
+                </h3>
+                <p className="text-sm text-gray-400 font-medium mb-8">
+                  {contest.subtitle}
+                </p>
+
+                <div className="mt-auto pt-6 border-t border-white/10 flex justify-between items-center">
+                  <div>
+                    <span className="text-[9px] uppercase tracking-widest text-gray-500 block mb-1">Prize Pool</span>
+                    <span className={`text-sm md:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r ${contest.theme.accentGradient}`}>
+                      {contest.prizeHighlight}
+                    </span>
+                  </div>
+                  
+                  <button className={`text-[10px] font-bold tracking-[0.2em] uppercase border px-4 py-2 rounded-full transition-colors duration-300 ${isActive ? 'border-white/20 group-hover:bg-white group-hover:text-black' : 'border-white/5 text-gray-500'}`}>
+                    {isActive ? 'VIEW' : 'SELECT'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Hover Glow */}
+              {isActive && (
+                <div className={`absolute inset-0 bg-gradient-to-t ${contest.theme.accentGradient} opacity-0 group-hover:opacity-[0.05] pointer-events-none transition-opacity duration-500`} />
+              )}
+            </motion.div>
+          )
+        })}
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-center gap-8 mt-12 relative z-20">
+        <button 
+          onClick={handlePrev}
+          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5 ml-[-2px]" />
+        </button>
+        <div className="flex gap-2">
+          {CONTESTS.map((_, i) => (
+            <button 
+              key={i} 
+              onClick={() => setActiveIndex(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'bg-white w-6' : 'bg-white/20 w-2 hover:bg-white/50'}`} 
+            />
+          ))}
+        </div>
+        <button 
+          onClick={handleNext}
+          className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"
+        >
+          <ChevronRight className="w-5 h-5 mr-[-2px]" />
+        </button>
       </div>
 
     </section>

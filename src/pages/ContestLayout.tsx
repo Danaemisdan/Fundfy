@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { getContestConfig } from '../data/contests';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -18,6 +18,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 
 export default function ContestLayout() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const config = getContestConfig(id || '');
 
   const { scrollYProgress } = useScroll();
@@ -60,9 +61,7 @@ export default function ContestLayout() {
   }
 
   const handleRegisterClick = () => {
-    if (config.registration.url) {
-      window.open(config.registration.url, '_blank');
-    }
+    navigate(`/register?contest=${config.id}`);
   };
 
   return (
@@ -74,7 +73,7 @@ export default function ContestLayout() {
       />
 
       <Header 
-        registrationUrl={config.registration.url || '#'} 
+        registrationUrl={`/register?contest=${config.id}`}
         buttonText={config.registration.buttonText} 
         onRegisterClick={handleRegisterClick}
       />
