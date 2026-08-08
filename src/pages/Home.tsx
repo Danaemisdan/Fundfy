@@ -111,7 +111,7 @@ function Home() {
                 <div className="py-2">
                   <p className="text-[10px] md:text-sm font-semibold tracking-wider text-gray-500 uppercase">FIRST PRIZE</p>
                   <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-[#1e2335] leading-none mt-1 flex items-baseline gap-3">
-                    {currency === 'INR' ? '₹9,00,000' : '$10,000'}
+                    {currency === 'INR' ? '₹50,00,000' : '$10,000'}
                   </h2>
                 </div>
               </div>
