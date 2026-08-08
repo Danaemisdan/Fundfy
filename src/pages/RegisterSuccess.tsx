@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
-import { CheckCircle2, ArrowRight, Receipt, User, Trophy, Mail } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Receipt, User, Trophy, Mail, PhoneCall, Timer, MessageSquare } from 'lucide-react';
 
 export default function RegisterSuccess() {
   const location = useLocation();
@@ -38,6 +38,29 @@ export default function RegisterSuccess() {
     if (amt === 0) return 'Free';
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency }).format(amt);
   };
+
+  const [timeLeft, setTimeLeft] = React.useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  React.useEffect(() => {
+    // Target date: August 20, 2026
+    const targetDate = new Date('2026-08-20T00:00:00Z').getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-purple-200 flex flex-col items-center justify-center p-6">
@@ -91,9 +114,65 @@ export default function RegisterSuccess() {
           
         </div>
 
-        <div className="flex items-center gap-3 text-sm font-medium text-gray-600 mb-12 bg-blue-50/50 text-blue-800 px-6 py-3 rounded-full border border-blue-100">
-          <Mail className="w-4 h-4 text-blue-500" />
-          A confirmation email has been sent to {displayState.email}
+        <div className="w-full mb-12">
+          <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-[2rem] p-8 md:p-10 text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="flex flex-col items-center text-center relative z-10">
+              <Timer className="w-10 h-10 text-purple-300 mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold mb-2">Contest Starts In</h3>
+              <p className="text-purple-200 text-sm mb-8 font-medium">August 20, 2026</p>
+              
+              <div className="flex gap-4 md:gap-6 justify-center">
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
+                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.days}</span>
+                  </div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Days</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
+                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.hours}</span>
+                  </div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Hours</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
+                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.minutes}</span>
+                  </div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Mins</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
+                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.seconds}</span>
+                  </div>
+                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Secs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 w-full mb-12">
+          <div className="flex items-center gap-4 bg-green-50/50 p-5 rounded-2xl border border-green-100">
+            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+              <MessageSquare className="w-5 h-5 text-green-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 text-sm">WhatsApp & Email Updates</h4>
+              <p className="text-sm text-gray-500 font-medium mt-1">You will be notified on WhatsApp and Email ({displayState.email}) with all contest details.</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4 bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
+            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+              <PhoneCall className="w-5 h-5 text-blue-600" />
+            </div>
+            <div>
+              <h4 className="font-bold text-gray-900 text-sm">We've got your back</h4>
+              <p className="text-sm text-gray-500 font-medium mt-1">If you miss the notification and don't join on time, our team will personally call you!</p>
+            </div>
+          </div>
         </div>
 
         {/* Actions */}

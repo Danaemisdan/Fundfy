@@ -1,0 +1,113 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { LogOut, Copy, Users, Trophy, Wallet, CheckCircle2 } from 'lucide-react';
+import { MotionButton } from '../components/ui/MotionButton';
+
+export default function Dashboard() {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const [copied, setCopied] = React.useState(false);
+
+  // If not logged in, redirect to sign in
+  React.useEffect(() => {
+    if (!user) {
+      navigate('/signin');
+    }
+  }, [user, navigate]);
+
+  if (!user) return null;
+
+  // Generate a mock referral link based on user ID
+  const referralLink = `https://fundfy.app/register?ref=${user.id.substring(0, 8)}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(referralLink);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  return (
+    <div className="min-h-screen bg-[#fafafa] p-6 lg:p-12 font-sans selection:bg-purple-200">
+      <div className="max-w-6xl mx-auto space-y-8">
+        
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-6 md:p-8 rounded-[2rem] border border-gray-200 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+              {user.email?.charAt(0).toUpperCase()}
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">Welcome back!</h1>
+              <p className="text-gray-500 font-medium text-sm">{user.email}</p>
+            </div>
+          </div>
+          <button 
+            onClick={handleSignOut}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 text-gray-600 font-bold text-xs uppercase tracking-widest hover:bg-gray-50 hover:text-red-500 transition-colors self-start md:self-auto"
+          >
+            <LogOut className="w-4 h-4" /> Sign Out
+          </button>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
+              <Users className="w-24 h-24" />
+            </div>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Successful Referrals</span>
+            <span className="text-5xl font-black text-gray-900 tracking-tighter">0</span>
+          </div>
+
+          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
+              <Wallet className="w-24 h-24" />
+            </div>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Earned Rewards</span>
+            <span className="text-5xl font-black text-gray-900 tracking-tighter">₹0</span>
+          </div>
+
+          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
+              <Trophy className="w-24 h-24" />
+            </div>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Your Ranking</span>
+            <span className="text-5xl font-black text-gray-900 tracking-tighter">#--</span>
+          </div>
+        </div>
+
+        {/* Referral Section */}
+        <div className="bg-[#11131c] text-white p-8 md:p-12 rounded-[2rem] relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="max-w-2xl relative z-10">
+            <h2 className="text-3xl font-bold mb-4">Invite Friends & Earn</h2>
+            <p className="text-gray-400 text-lg mb-8">
+              Share your unique referral link. When someone registers for the Global Talent Hunt 2026 using your link, you'll earn exclusive rewards and climb the leaderboard!
+            </p>
+
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-2 flex flex-col sm:flex-row gap-4 items-center">
+              <code className="text-purple-300 font-mono text-sm pl-4 truncate w-full sm:w-auto flex-1">
+                {referralLink}
+              </code>
+              <button 
+                onClick={handleCopy}
+                className="w-full sm:w-auto bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-xl font-bold tracking-widest uppercase text-xs transition-colors flex items-center justify-center gap-2 shrink-0"
+              >
+                {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                {copied ? 'Copied!' : 'Copy Link'}
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

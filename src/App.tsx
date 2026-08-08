@@ -6,6 +6,9 @@ import SplashScreen from './components/SplashScreen';
 
 import Register from './pages/Register';
 import RegisterSuccess from './pages/RegisterSuccess';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './contexts/AuthContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,7 +42,7 @@ function App() {
   }, [showSplash]);
 
   return (
-    <>
+    <AuthProvider>
       <ScrollToTop />
       {showSplash && <SplashScreen />}
       <Routes>
@@ -47,8 +50,10 @@ function App() {
         <Route path="/contests/:id" element={<ContestLayout />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/success" element={<RegisterSuccess />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 

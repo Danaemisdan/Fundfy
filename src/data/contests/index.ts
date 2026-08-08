@@ -22,7 +22,7 @@ export const CONTESTS: ContestConfig[] = [
       description: 'Build the future with Generative AI.',
       ogImage: ''
     },
-    registrationFee: 500,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
@@ -112,7 +112,7 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: 'JOB',
 
     seo: { title: 'Career Accelerator Contest', description: '', ogImage: '' },
-    registrationFee: 200,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
@@ -177,7 +177,7 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: '3D_ASSET',
 
     seo: { title: '3D Asset Design Contest', description: '', ogImage: '' },
-    registrationFee: 200,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
@@ -242,7 +242,7 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: '3D_CHARACTER',
 
     seo: { title: 'Digital Character Design Contest', description: '', ogImage: '' },
-    registrationFee: 200,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
@@ -307,7 +307,7 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: 'UI_UX',
 
     seo: { title: 'Web Experience Design Contest', description: '', ogImage: '' },
-    registrationFee: 200,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
@@ -372,7 +372,7 @@ export const CONTESTS: ContestConfig[] = [
     artworkType: 'EDU',
 
     seo: { title: 'AI Education Innovation Contest', description: '', ogImage: '' },
-    registrationFee: 200,
+    registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
     statistics: [
