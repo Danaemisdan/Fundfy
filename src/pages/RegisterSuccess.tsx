@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Receipt, User, Trophy, Mail, PhoneCall, Timer, MessageSquare } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export default function RegisterSuccess() {
   const location = useLocation();
@@ -61,6 +62,39 @@ export default function RegisterSuccess() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Tracking Entry Logic
+  React.useEffect(() => {
+    const trackEntry = async () => {
+      // Don't double track if they refresh the success page
+      if (sessionStorage.getItem('registration_tracked')) return;
+      
+      const referralCode = sessionStorage.getItem('referral_code');
+      const paymentId = razorpayPaymentId || razorpayPaymentLinkId || 'unknown_payment_id';
+      
+      try {
+        await supabase.from('registrations').insert({
+          user_name: displayState.firstName + ' ' + displayState.lastName,
+          user_email: displayState.email,
+          user_phone: displayState.phone || '',
+          amount_paid: displayState.amount,
+          payment_id: paymentId,
+          referral_code: referralCode
+        });
+        sessionStorage.setItem('registration_tracked', 'true');
+        
+        // Also increment the referrer's "entries" count in profiles directly if referralCode exists
+        if (referralCode) {
+           // We do not have a direct RPC for this, but the Dashboard will compute entries dynamically
+           // Or if RLS allows, we could update, but RLS on profiles update is restricted.
+           // Dynamic counting in Dashboard is safer!
+        }
+      } catch (err) {
+        console.error("Failed to save registration", err);
+      }
+    };
+    trackEntry();
+  }, [displayState, razorpayPaymentId, razorpayPaymentLinkId]);
 
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-purple-200 flex flex-col items-center justify-center p-6">

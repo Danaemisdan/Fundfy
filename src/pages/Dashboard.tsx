@@ -1,25 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LogOut, Copy, Users, Trophy, Wallet, CheckCircle2 } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { LogOut, Copy, Users, Trophy, Wallet, CheckCircle2, MousePointerClick, Loader2 } from 'lucide-react';
 import { MotionButton } from '../components/ui/MotionButton';
 
 export default function Dashboard() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    clicks: 0,
+    entries: 0,
+    earned: 0,
+    referralCode: ''
+  });
 
   // If not logged in, redirect to sign in
-  React.useEffect(() => {
+  useEffect(() => {
     if (!user) {
       navigate('/signin');
+      return;
     }
+
+    const fetchStats = async () => {
+      try {
+        // Fetch profile stats
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+
+        if (profile?.role === 'admin') {
+          navigate('/admin');
+          return;
+        }
+
+        const refCode = profile?.referral_code || '';
+        
+        // Fetch registration entries for this referral code
+        let entries = 0;
+        let earned = 0;
+        if (refCode) {
+          const { data: regs } = await supabase
+            .from('registrations')
+            .select('amount_paid')
+            .eq('referral_code', refCode);
+          
+          entries = regs?.length || 0;
+          const totalRevenue = regs?.reduce((sum, r) => sum + Number(r.amount_paid), 0) || 0;
+          earned = totalRevenue * (profile?.commission_rate || 0.20);
+        }
+
+        setStats({
+          clicks: profile?.clicks || 0,
+          entries: entries,
+          earned: earned,
+          referralCode: refCode
+        });
+
+      } catch (err) {
+        console.error("Error fetching dashboard stats", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
   }, [user, navigate]);
 
-  if (!user) return null;
+  if (!user || loading) return (
+    <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
+    </div>
+  );
 
   // Generate a mock referral link based on user ID
-  const referralLink = `https://fundfy.app/register?ref=${user.id.substring(0, 8)}`;
+  const referralLink = stats.referralCode ? `https://fundfy.app/register?ref=${stats.referralCode}` : 'Contact admin for your link';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(referralLink);
@@ -59,26 +118,26 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
+              <MousePointerClick className="w-24 h-24" />
+            </div>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Link Clicks</span>
+            <span className="text-5xl font-black text-gray-900 tracking-tighter">{stats.clicks}</span>
+          </div>
+
+          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
               <Users className="w-24 h-24" />
             </div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Successful Referrals</span>
-            <span className="text-5xl font-black text-gray-900 tracking-tighter">0</span>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Paid Entries</span>
+            <span className="text-5xl font-black text-gray-900 tracking-tighter">{stats.entries}</span>
           </div>
 
           <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <Wallet className="w-24 h-24" />
             </div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Earned Rewards</span>
-            <span className="text-5xl font-black text-gray-900 tracking-tighter">₹0</span>
-          </div>
-
-          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-5">
-              <Trophy className="w-24 h-24" />
-            </div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Your Ranking</span>
-            <span className="text-5xl font-black text-gray-900 tracking-tighter">#--</span>
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Earned Commission</span>
+            <span className="text-5xl font-black text-green-500 tracking-tighter">₹{stats.earned.toLocaleString()}</span>
           </div>
         </div>
 

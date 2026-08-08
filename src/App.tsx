@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import RegisterSuccess from './pages/RegisterSuccess';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
+import AdminDashboard from './pages/AdminDashboard';
 import { AuthProvider } from './contexts/AuthContext';
 
 function ScrollToTop() {
@@ -52,6 +53,7 @@ function App() {
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </AuthProvider>
   );

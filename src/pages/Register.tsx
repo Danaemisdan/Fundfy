@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { CONTESTS } from '../data/contests';
 import { paymentService } from '../services/payment';
+import { supabase } from '../lib/supabase';
 import type { ContestConfig } from '../types/contest';
 
 // We won't import the standard Header/Footer to keep this a focused onboarding flow,
@@ -25,6 +26,27 @@ export default function Register() {
     if (contestParam) {
       const valid = CONTESTS.find(c => c.id === contestParam && c.status !== 'COMING_SOON');
       if (valid) setSelectedContestIds([valid.id]);
+    }
+
+    // Referral Tracking Logic
+    const refParam = params.get('ref');
+    if (refParam) {
+      // Save for when they successfully pay
+      sessionStorage.setItem('referral_code', refParam);
+      
+      // Fire click increment
+      const incrementClick = async () => {
+        try {
+          await supabase.rpc('increment_click', { ref_code: refParam });
+        } catch (e) {
+          console.error("Failed to track click", e);
+        }
+      };
+      // We only want to fire it once per session to avoid refreshing abuse
+      if (!sessionStorage.getItem('click_tracked_' + refParam)) {
+        incrementClick();
+        sessionStorage.setItem('click_tracked_' + refParam, 'true');
+      }
     }
   }, [location.search]);
 
