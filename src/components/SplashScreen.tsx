@@ -73,7 +73,7 @@ export default function SplashScreen() {
                   >
                     <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-90" />
                     <img src="/Partners/JobFinderAI.png?v=3" alt="JobFinderAI" className="h-10 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
-                    <img src="/Partners/DiceArtfilms.png?v=3" alt="Dice Art Films" className="h-10 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
+                    <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-10 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
                     <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 md:h-14 lg:h-16 object-contain opacity-80" />
                   </motion.div>
                 </div>
