@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
 import { CheckCircle2, ArrowRight, Receipt, User, Trophy, Mail, PhoneCall, Timer, MessageSquare } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import emailjs from '@emailjs/browser';
 
 export default function RegisterSuccess() {
   const location = useLocation();
@@ -74,23 +75,38 @@ export default function RegisterSuccess() {
       
       try {
         await supabase.from('registrations').insert({
-          user_name: displayState.firstName + ' ' + displayState.lastName,
+          user_name: displayState.participantName,
           user_email: displayState.email,
-          user_phone: displayState.phone || '',
+          user_phone: '',
           amount_paid: displayState.amount,
           payment_id: paymentId,
           referral_code: referralCode
         });
         sessionStorage.setItem('registration_tracked', 'true');
         
-        // Also increment the referrer's "entries" count in profiles directly if referralCode exists
-        if (referralCode) {
-           // We do not have a direct RPC for this, but the Dashboard will compute entries dynamically
-           // Or if RLS allows, we could update, but RLS on profiles update is restricted.
-           // Dynamic counting in Dashboard is safer!
+        // --- EMAILJS AUTOMATED EMAIL ---
+        // You will need to create an EmailJS account and fill these inside your .env file
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (serviceId && templateId && publicKey && displayState.email !== 'your registered email') {
+          await emailjs.send(
+            serviceId,
+            templateId,
+            {
+              to_name: displayState.participantName,
+              to_email: displayState.email,
+              payment_id: paymentId,
+              amount: displayState.amount
+            },
+            publicKey
+          );
+          console.log("Welcome email sent successfully!");
         }
+
       } catch (err) {
-        console.error("Failed to save registration", err);
+        console.error("Failed to save registration or send email", err);
       }
     };
     trackEntry();
