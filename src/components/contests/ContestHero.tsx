@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { MotionButton } from '../ui/MotionButton';
 
 export default function ContestHero({ data, theme, onRegisterClick }: { data: any, theme: any, onRegisterClick: () => void }) {
   return (
@@ -48,14 +49,10 @@ export default function ContestHero({ data, theme, onRegisterClick }: { data: an
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <button 
+          <MotionButton 
             onClick={onRegisterClick}
-            className={`flex items-center gap-2 px-8 py-4 rounded-full bg-[#11131c] text-white shadow-xl hover:shadow-2xl hover:shadow-${theme.primaryAccent}/20 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden`}
-          >
-            <div className={`absolute inset-0 bg-gradient-to-r ${theme.accentGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-            <span className="relative z-10 font-bold tracking-[0.2em] text-xs">REGISTER NOW</span>
-            <ArrowUpRight className="relative z-10 w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-          </button>
+            label="REGISTER NOW"
+          />
         </motion.div>
       </div>
 

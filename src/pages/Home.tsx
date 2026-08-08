@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
 
 const PARTNERS = [
-  "/Partners/AWS.webp",
-  "/Partners/Aurora OS.png",
+  "/Partners/AWS_v2.png",
+  "/Partners/Epic_Games_logo.svg.webp",
+  "/Partners/Aurora OS.png?v=3",
   "/Partners/BrandForYou.png",
-  "/Partners/DiceArtFilms.png",
-  "/Partners/JobFinderAI.png",
-  "/Partners/MoreYeahs.jpeg",
-  "/Partners/XOXO Game Studios.png",
-  "/Partners/Young Coders.png"
+  "/Partners/DiceArtfilms.png?v=3",
+  "/Partners/JobFinderAI.png?v=3",
+  "/Partners/MoreYeahs.png?v=3",
+  "/Partners/XOXO_v2.png",
+  "/Partners/Young_v2.png",
+  "/Partners/TingoAI.png"
 ];
 
 function RightGlobe() {
@@ -25,6 +29,8 @@ function RightGlobe() {
 
 function Home() {
   const [currency, setCurrency] = useState<'INR' | 'USD'>('USD');
+  const navigate = useNavigate();
+  const delayBase = !sessionStorage.getItem('splashPlayed') ? 6.2 : 0;
 
   useEffect(() => {
     try {
@@ -48,38 +54,54 @@ function Home() {
 
         {/* HEADER */}
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
-          <div className="flex items-center gap-2 md:gap-3">
-            <GlobeIcon className="w-6 h-6 md:w-8 md:h-8 text-gray-700 shrink-0" strokeWidth={1} />
-            <div className="text-[10px] md:text-sm font-medium text-gray-600 leading-tight">
-              One World. Endless Talent.<br />
-              Limitless Opportunities.
+          <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
+            <div className="flex items-center gap-2 md:gap-3">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+              <span className="text-gray-300 font-light hidden md:block">|</span>
+              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
-          </div>
-          
-          <Link to="/register" className="flex items-center justify-center px-6 py-3 md:py-3.5 bg-[#11131c] text-white shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-0.5 transition-all duration-300 group relative overflow-hidden border border-white/10 shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="flex items-center gap-2 relative z-10">
-              <span className="font-bold tracking-[0.2em] text-[10px] md:text-[12px] text-white">REGISTER NOW</span>
-              <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <div className="w-[1px] h-6 bg-gray-300 hidden md:block opacity-50 ml-1"></div>
+            <div className="text-[7px] md:text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
+              PRESENTS<br />
+              <span className="text-gray-900 group-hover:text-purple-500 text-[8px] md:text-[10px]">GLOBAL TALENT HUNT 2026</span>
             </div>
           </Link>
+          
+          <MotionButton 
+            onClick={() => navigate('/register')}
+            label="REGISTER NOW"
+          />
         </header>
 
         {/* MAIN CONTENT */}
         <main className="relative z-10 flex-1 flex flex-col justify-center px-6 md:px-8 lg:px-16 w-full max-w-7xl mx-auto mt-4 md:mt-0">
           <div className="relative max-w-3xl">
-            <h1 className="font-futuristic font-bold text-6xl md:text-[9vh] lg:text-[11vh] leading-[0.9] tracking-tighter text-[#1e2335]">
+            <motion.h1 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: delayBase, ease: [0.16, 1, 0.3, 1] }}
+              className="font-futuristic font-bold text-6xl md:text-[9vh] lg:text-[11vh] leading-[0.9] tracking-tighter text-[#1e2335]"
+            >
               GLOBAL<br />
               <span className="text-gradient-purple-orange pr-2 pb-2 inline-block">TALENT</span><br />
               HUNT <span className="font-light text-gray-400 ml-1 md:ml-2">2026</span>
-            </h1>
+            </motion.h1>
             
-            <p className="mt-4 text-xs md:text-base lg:text-lg font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-600">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: delayBase + 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-4 text-xs md:text-base lg:text-lg font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-600"
+            >
               SHOWCASE. COMPETE. GET <span className="text-purple-600">DISCOVERED.</span>
-            </p>
+            </motion.p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5 relative z-20">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: delayBase + 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5 relative z-20"
+            >
               <div className="flex items-center gap-4 md:gap-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-2xl md:rounded-3xl pr-6 md:pr-8 shadow-sm">
                 <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 p-[2px] shrink-0">
                   <div className="w-full h-full bg-white/80 rounded-[14px] md:rounded-[22px] flex items-center justify-center backdrop-blur-sm">
@@ -103,22 +125,33 @@ function Home() {
                   GIVING AWAY <span className="text-orange-500 text-[11px] md:text-sm">$5,000</span> IN CREDITS
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </main>
 
         {/* BOTTOM SECTION */}
-        <footer className="relative z-10 px-8 lg:px-16 pb-6 shrink-0 w-full max-w-7xl mx-auto flex flex-col gap-4">
+        <motion.footer 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: delayBase + 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 px-8 lg:px-16 pb-6 shrink-0 w-full max-w-7xl mx-auto flex flex-col gap-4 mt-6 sm:mt-0"
+        >
           
           {/* Powered By - Static */}
-          <div className="w-full bg-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm flex flex-col">
-            <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="grid grid-cols-4 md:flex md:flex-wrap md:justify-between items-center gap-6 md:gap-4 w-full px-2">
-              {PARTNERS.map((src, i) => (
-                <div key={i} className="h-10 md:h-12 lg:h-16 flex items-center justify-center shrink-0">
-                  <img src={src} alt="Partner Logo" className="h-full w-auto max-w-[80px] md:max-w-[130px] object-contain mix-blend-multiply" />
-                </div>
-              ))}
+          <div className="w-full bg-white border border-gray-200 rounded-2xl p-6 md:p-8 lg:p-10 shadow-sm flex flex-col overflow-hidden">
+            <p className="text-[10px] md:text-xs font-bold text-gray-400 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
+            <div className="grid grid-cols-5 md:flex md:flex-nowrap justify-items-center md:justify-between items-center gap-y-6 gap-x-2 md:gap-2 lg:gap-4 w-full px-1 md:px-0">
+              {PARTNERS.map((src, i) => {
+                let scaleClass = '';
+                if (src.includes('TingoAI')) scaleClass = 'scale-75';
+                if (src.includes('AWS')) scaleClass = 'scale-[1.1]';
+                
+                return (
+                  <div key={i} className="h-8 sm:h-10 md:h-10 lg:h-12 flex items-center justify-center shrink-0 md:shrink w-full">
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-full md:max-w-[100px] lg:max-w-[140px] object-contain mix-blend-multiply ${scaleClass}`} />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -135,7 +168,7 @@ function Home() {
             <span>TALENT HAS NO BOUNDARIES.</span>
             <span className="text-purple-400">THIS IS YOUR STAGE.</span>
           </div>
-        </footer>
+        </motion.footer>
       </div>
 
       {/* NEW SECTION BELOW ORIGINAL HOMEPAGE */}

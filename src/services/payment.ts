@@ -40,27 +40,26 @@ export class PaymentService implements PaymentProvider, PaymentGateway {
     };
   }
 
-  // Mocks initializing the Razorpay checkout overlay
   async initializePayment(order: PaymentOrder, options: any): Promise<PaymentDetails> {
-    console.log(`[PaymentService] Initializing payment UI for order ${order.orderId}`, options);
+    console.log(`[PaymentService] Redirecting to direct payment link...`);
     
-    // Simulate user completing payment in overlay
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    // Instead of using the Razorpay API SDK which requires domain verification,
+    // we simply redirect the user to a pre-generated Razorpay Payment Link/Page!
+    // We can use a standard link or dynamically choose based on the amount.
     
-    return {
-      razorpay_payment_id: `pay_mock_${Math.random().toString(36).substring(7)}`,
-      razorpay_order_id: order.orderId,
-      razorpay_signature: `sign_mock_${Math.random().toString(36).substring(7)}`
-    };
+    // Default placeholder link (User can replace this with their actual Razorpay Payment Link)
+    const PAYMENT_LINK = import.meta.env.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/l/placeholder";
+    
+    // Redirect the browser to the payment link
+    window.location.href = PAYMENT_LINK;
+    
+    // Return a pending promise that never resolves, so the UI stays in "loading" state 
+    // while the browser redirects the user away.
+    return new Promise(() => {});
   }
 
-  // Mocks verifying the signature on the backend
+  // Mocks verifying the signature on the backend (not used in direct link flow unless redirect back is set up)
   async verifyPayment(details: PaymentDetails): Promise<boolean> {
-    console.log(`[PaymentService] Verifying payment signature`, details);
-    
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
     return true;
   }
 }

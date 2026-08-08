@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { getContestConfig } from '../data/contests';
 import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import { MotionButton } from '../components/ui/MotionButton';
 
 // Event Components
 import EventHero from '../components/contests/EventHero';
@@ -116,8 +116,6 @@ export default function ContestLayout() {
         <EventRegistration data={config} theme={config.theme} />
       </main>
 
-      <Footer />
-
       {/* Sticky Register Button (Only if not coming soon) */}
       {config.status !== 'COMING_SOON' && (
         <motion.div 
@@ -125,12 +123,10 @@ export default function ContestLayout() {
           animate={{ y: showSticky ? 0 : 100, opacity: showSticky ? 1 : 0 }}
           className="fixed bottom-6 right-6 z-50"
         >
-          <button 
+          <MotionButton 
             onClick={handleRegisterClick}
-            className={`flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden group`}
-          >
-            <span className="relative z-10 font-bold tracking-[0.2em] text-xs uppercase">{config.registration.buttonText}</span>
-          </button>
+            label={config.registration.buttonText}
+          />
         </motion.div>
       )}
     </div>

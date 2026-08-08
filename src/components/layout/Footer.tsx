@@ -2,14 +2,16 @@ import React from 'react';
 import { Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 
 const PARTNERS = [
-  "/Partners/AWS.webp",
-  "/Partners/Aurora OS.png",
+  "/Partners/AWS_v2.png",
+  "/Partners/Epic_Games_logo.svg.webp",
+  "/Partners/Aurora OS.png?v=3",
   "/Partners/BrandForYou.png",
-  "/Partners/DiceArtFilms.png",
-  "/Partners/JobFinderAI.png",
-  "/Partners/MoreYeahs.jpeg",
-  "/Partners/XOXO Game Studios.png",
-  "/Partners/Young Coders.png"
+  "/Partners/DiceArtfilms.png?v=3",
+  "/Partners/JobFinderAI.png?v=3",
+  "/Partners/MoreYeahs.png?v=3",
+  "/Partners/XOXO_v2.png",
+  "/Partners/Young_v2.png",
+  "/Partners/TingoAI.png"
 ];
 
 function Feature({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
@@ -35,11 +37,17 @@ export default function Footer() {
         <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase">POWERED BY</p>
         <div className="flex w-full overflow-hidden relative bg-white">
           <div className="flex w-max manual-marquee space-x-8 md:space-x-12 items-center pr-8 md:pr-12 hover:[animation-play-state:paused]">
-            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, i) => (
-              <div key={i} className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center shrink-0">
-                <img src={src} alt="Partner Logo" className="max-w-full max-h-full object-contain transition-opacity mix-blend-multiply" />
-              </div>
-            ))}
+            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, i) => {
+              let scaleClass = '';
+              if (src.includes('TingoAI')) scaleClass = 'scale-75';
+              if (src.includes('AWS')) scaleClass = 'scale-[1.1]';
+              
+              return (
+                <div key={i} className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center shrink-0">
+                  <img src={src} alt="Partner Logo" className={`max-w-full max-h-full object-contain transition-opacity mix-blend-multiply ${scaleClass}`} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

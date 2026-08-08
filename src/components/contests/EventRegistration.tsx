@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { MotionButton } from '../ui/MotionButton';
 
 export default function EventRegistration({ data, theme }: { data: any, theme: any }) {
+  const navigate = useNavigate();
   
   const renderContent = () => {
     switch (data.registration.mode) {
@@ -9,12 +11,10 @@ export default function EventRegistration({ data, theme }: { data: any, theme: a
       case 'EXTERNAL_URL':
         return (
           <div className="flex justify-center">
-            <Link 
-              to={`/register?contest=${data.id}`}
-              className={`px-12 py-6 bg-white text-black rounded-full font-bold tracking-[0.2em] text-sm uppercase hover:scale-105 transition-transform duration-300 shadow-2xl shadow-${theme.primaryAccent}/20`}
-            >
-              {data.registration.buttonText}
-            </Link>
+            <MotionButton 
+              onClick={() => navigate(`/register?contest=${data.id}`)}
+              label={data.registration.buttonText}
+            />
           </div>
         );
       case 'COMING_SOON':

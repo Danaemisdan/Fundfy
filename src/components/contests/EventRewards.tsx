@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Crown, Award, Trophy, ArrowRight } from 'lucide-react';
+import { MotionButton } from '../ui/MotionButton';
 
 export default function EventRewards({ data, theme, onRegisterClick }: { data: any, theme: any, onRegisterClick?: () => void }) {
   
@@ -131,13 +132,10 @@ export default function EventRewards({ data, theme, onRegisterClick }: { data: a
                 </p>
               </div>
 
-              <button 
+              <MotionButton 
                 onClick={onRegisterClick}
-                className="px-6 py-3 bg-white text-gray-900 text-[11px] font-bold tracking-widest uppercase rounded-full shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-0.5 transition-all flex items-center gap-2 shrink-0 w-full md:w-auto justify-center"
-              >
-                REGISTER NOW
-                <ArrowRight className="w-3 h-3 text-purple-600" />
-              </button>
+                label="REGISTER NOW"
+              />
             </div>
           </motion.div>
         )}

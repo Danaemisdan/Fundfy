@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { MotionButton } from '../ui/MotionButton';
 
 export default function ContestRegistration({ data, theme, onRegisterClick }: { data: any, theme: any, onRegisterClick: () => void }) {
   return (
@@ -22,19 +23,11 @@ export default function ContestRegistration({ data, theme, onRegisterClick }: { 
             {data.subtitle}
           </p>
 
-          <button 
+          <MotionButton 
             onClick={onRegisterClick}
-            className="flex flex-col items-center justify-center px-10 py-5 rounded-full bg-white text-[#11131c] shadow-2xl hover:shadow-white/20 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
-          >
-            <div className={`absolute inset-0 bg-gradient-to-r ${theme.accentGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-            
-            <div className="flex items-center gap-2 relative z-10">
-              <span className="font-bold tracking-[0.2em] text-sm md:text-base uppercase">REGISTER NOW</span>
-              <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-[#11131c] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </div>
-            
-            <span className="text-[9px] md:text-[10px] text-gray-500 font-bold tracking-[0.3em] relative z-10 mt-1 uppercase">Official Form</span>
-          </button>
+            label="REGISTER NOW"
+          />
+          <span className="text-[9px] md:text-[10px] text-gray-500 font-bold tracking-[0.3em] mt-3 uppercase">Official Form</span>
         </div>
       </motion.div>
     </section>

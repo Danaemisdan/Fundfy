@@ -14,10 +14,25 @@ export default function RegisterSuccess() {
     currency: string;
   };
 
-  // If accessed directly without state, redirect to register
-  if (!state) {
+  const searchParams = new URLSearchParams(location.search);
+  const razorpayPaymentId = searchParams.get('razorpay_payment_id');
+  const razorpayPaymentLinkId = searchParams.get('razorpay_payment_link_id');
+
+  // If accessed directly without state AND without Razorpay redirect params, redirect to register
+  if (!state && !razorpayPaymentId) {
     return <Navigate to="/register" replace />;
   }
+
+  // Use state if available (from mock flow), otherwise construct mock state from Razorpay params
+  const displayState = state || {
+    registrationId: razorpayPaymentId || `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+    contestName: 'Global Talent Hunt Registration',
+    participantName: 'Participant', // We don't have the name since it's a redirect, but we can just say "Participant"
+    email: 'your registered email',
+    paymentStatus: razorpayPaymentId ? 'Completed via Razorpay' : 'Completed',
+    amount: 0,
+    currency: 'INR'
+  };
 
   const formatCurrency = (amt: number, currency: string) => {
     if (amt === 0) return 'Free';
@@ -38,7 +53,7 @@ export default function RegisterSuccess() {
         </h1>
         
         <p className="text-lg md:text-xl text-gray-500 font-medium max-w-lg mb-12">
-          Welcome to the competition, {state.participantName.split(' ')[0]}. We're thrilled to have you onboard.
+          Welcome to the competition, {displayState.participantName !== 'Participant' ? displayState.participantName.split(' ')[0] : 'Participant'}. We're thrilled to have you onboard.
         </p>
 
         {/* Details Grid */}
@@ -48,21 +63,21 @@ export default function RegisterSuccess() {
             <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase flex items-center gap-2">
               <Trophy className="w-3 h-3" /> Contest
             </span>
-            <span className="text-base font-bold text-gray-900">{state.contestName}</span>
+            <span className="text-base font-bold text-gray-900">{displayState.contestName}</span>
           </div>
 
           <div className="flex flex-col gap-1">
             <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase flex items-center gap-2">
               <Receipt className="w-3 h-3" /> Registration ID
             </span>
-            <span className="text-base font-bold text-gray-900 font-mono tracking-wider">{state.registrationId}</span>
+            <span className="text-base font-bold text-gray-900 font-mono tracking-wider">{displayState.registrationId}</span>
           </div>
 
           <div className="flex flex-col gap-1">
             <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase flex items-center gap-2">
               <User className="w-3 h-3" /> Participant
             </span>
-            <span className="text-base font-bold text-gray-900">{state.participantName}</span>
+            <span className="text-base font-bold text-gray-900">{displayState.participantName}</span>
           </div>
 
           <div className="flex flex-col gap-1">
@@ -70,7 +85,7 @@ export default function RegisterSuccess() {
               <CreditCardIcon className="w-3 h-3" /> Payment Status
             </span>
             <span className="text-base font-bold text-gray-900">
-              {state.paymentStatus} <span className="text-gray-400 font-medium">({formatCurrency(state.amount, state.currency)})</span>
+              {displayState.paymentStatus} {displayState.amount > 0 && <span className="text-gray-400 font-medium">({formatCurrency(displayState.amount, displayState.currency)})</span>}
             </span>
           </div>
           
@@ -78,7 +93,7 @@ export default function RegisterSuccess() {
 
         <div className="flex items-center gap-3 text-sm font-medium text-gray-600 mb-12 bg-blue-50/50 text-blue-800 px-6 py-3 rounded-full border border-blue-100">
           <Mail className="w-4 h-4 text-blue-500" />
-          A confirmation email has been sent to {state.email}
+          A confirmation email has been sent to {displayState.email}
         </div>
 
         {/* Actions */}

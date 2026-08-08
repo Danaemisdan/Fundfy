@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CONTESTS } from '../../data/contests';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -67,6 +67,15 @@ function PlaceholderArtwork({ type, theme }: { type: string, theme: any }) {
 export default function ContestShowcase() {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CONTESTS.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % CONTESTS.length);
@@ -95,7 +104,11 @@ export default function ContestShowcase() {
       </div>
 
       {/* Contest Carousel */}
-      <div className="relative w-full h-[550px] flex items-center justify-center mt-8">
+      <div 
+        className="relative w-full h-[550px] flex items-center justify-center mt-8"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {CONTESTS.map((contest, index) => {
           const offset = getOffset(index);
           const isActive = offset === 0;

@@ -1,28 +1,63 @@
 from PIL import Image
 
-def process_image(path):
-    img = Image.open(path).convert("RGBA")
+def process_logos():
+    # 1. AWS
+    img = Image.open('public/Partners/AWS.webp').convert('RGBA')
     datas = img.getdata()
-    
     newData = []
     for r, g, b, a in datas:
-        lum = (r * 0.299 + g * 0.587 + b * 0.114)
-        if lum < 20:
-            newData.append((r, g, b, 0))
-        elif lum < 80:
-            alpha = int(((lum - 20) / 60.0) * 255)
-            # un-premultiply color if needed, but for black background this is fine
-            newData.append((int(r*255/alpha) if alpha > 0 else r, 
-                            int(g*255/alpha) if alpha > 0 else g, 
-                            int(b*255/alpha) if alpha > 0 else b, 
-                            alpha))
+        if r > 230 and g > 230 and b > 230:
+            newData.append((255, 255, 255, 0))
         else:
             newData.append((r, g, b, a))
-            
     img.putdata(newData)
-    img.save(path, "PNG")
-    print("Processed", path)
+    img.save('public/Partners/AWS.png', 'PNG')
 
-process_image("public/Partners/XOXO Game Studios.png")
-process_image("public/Partners/Young Coders.png")
-process_image("public/Partners/DiceArtFilms.png")
+    # 2. XOXO
+    img = Image.open('public/Partners/XOXO Game Studios.png').convert('RGBA')
+    datas = img.getdata()
+    newData = []
+    for r, g, b, a in datas:
+        if r < 40 and g < 40 and b < 40:
+            newData.append((0, 0, 0, 0))
+        elif r > 200 and g > 200 and b > 200:
+            newData.append((0, 0, 0, a))
+        else:
+            val = 255 - max(r,g,b)
+            newData.append((val, val, val, a))
+    img.putdata(newData)
+    img.save('public/Partners/XOXO.png', 'PNG')
+
+    # 3. Young Coders
+    img = Image.open('public/Partners/Young Coders.png').convert('RGBA')
+    datas = img.getdata()
+    newData = []
+    for r, g, b, a in datas:
+        if r < 40 and g < 40 and b < 40:
+            newData.append((0, 0, 0, 0))
+        elif r > 200 and g > 200 and b > 200:
+            newData.append((0, 0, 0, a))
+        else:
+            if r > g + 50 and r > b + 50:
+                newData.append((r, g, b, a))
+            else:
+                val = 255 - max(r,g,b)
+                newData.append((val, val, val, a))
+    img.putdata(newData)
+    img.save('public/Partners/Young.png', 'PNG')
+
+    # 4. Zoza
+    img = Image.open('public/Partners/Zoza.jpg').convert('RGBA')
+    datas = img.getdata()
+    newData = []
+    for r, g, b, a in datas:
+        diff = max(r, g, b) - min(r, g, b)
+        if diff < 30 and 40 < max(r, g, b) < 240:
+            newData.append((255, 255, 255, 0))
+        else:
+            newData.append((r, g, b, a))
+    img.putdata(newData)
+    img.save('public/Partners/Zoza.png', 'PNG')
+
+process_logos()
+print("All logos processed.")
