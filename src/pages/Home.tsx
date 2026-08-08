@@ -4,8 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
-import ContestShowcase from '../components/home/ContestShowcase';
-
 const PARTNERS = [
   "/Partners/AWS_v2.png",
   "/Partners/Epic_Games_logo.svg.webp",
@@ -109,9 +107,9 @@ function Home() {
                   </div>
                 </div>
                 <div className="py-2">
-                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-gray-500 uppercase">FIRST PRIZE</p>
+                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-gray-500 uppercase">PRIZE POOL</p>
                   <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-[#1e2335] leading-none mt-1 flex items-baseline gap-3">
-                    {currency === 'INR' ? '₹50,00,000' : '$10,000'}
+                    {currency === 'INR' ? '₹50 Lakhs' : '$10,000'}
                   </h2>
                 </div>
               </div>
@@ -170,9 +168,6 @@ function Home() {
           </div>
         </motion.footer>
       </div>
-
-      {/* NEW SECTION BELOW ORIGINAL HOMEPAGE */}
-      <ContestShowcase />
 
     </div>
   );
