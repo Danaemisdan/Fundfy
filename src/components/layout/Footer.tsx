@@ -6,7 +6,7 @@ const PARTNERS = [
   "/Partners/Epic_Games_logo.svg.webp",
   "/Partners/Aurora OS.png?v=3",
   "/Partners/BrandForYou.png",
-  "/Partners/DiceArtfilms.png?v=3",
+  "/Partners/DiceArtFilms.png?v=3",
   "/Partners/JobFinderAI.png?v=3",
   "/Partners/MoreYeahs.png?v=3",
   "/Partners/XOXO_v2.png",
