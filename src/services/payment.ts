@@ -40,17 +40,61 @@ export class PaymentService implements PaymentProvider, PaymentGateway {
     };
   }
 
+  // Initialize the real Razorpay checkout overlay
   async initializePayment(order: PaymentOrder, options: any): Promise<PaymentDetails> {
-    console.log(`[PaymentService] Opening payment modal...`);
+    console.log(`[PaymentService] Initializing Razorpay Checkout...`);
     
-    // Simulate user interacting with payment modal and successfully paying
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    return {
-      razorpay_payment_id: `pay_${Math.random().toString(36).substring(2, 9)}`,
-      razorpay_order_id: order.orderId,
-      razorpay_signature: "mock_signature"
-    };
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      
+      script.onload = () => {
+        const rzpOptions = {
+          key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_placeholder', // User must provide this in .env
+          amount: (order.amount * 100).toString(), // Razorpay expects amount in paise (subunits)
+          currency: order.currency,
+          name: "Global Talent Hunt",
+          description: "Contest Registration Fee",
+          // We can't pass order_id here since we don't have a secure backend to generate it, 
+          // but for simple capture without a backend, this basic integration works.
+          handler: function (response: any) {
+            resolve({
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_order_id: response.razorpay_order_id || order.orderId,
+              razorpay_signature: response.razorpay_signature || 'no_signature_needed'
+            });
+          },
+          prefill: {
+            name: options.name,
+            email: options.email,
+            contact: options.contact
+          },
+          theme: {
+            color: "#9333ea" // Match brand purple
+          },
+          modal: {
+            ondismiss: function() {
+              reject(new Error("Payment cancelled by user."));
+            }
+          }
+        };
+        
+        const rzp = new (window as any).Razorpay(rzpOptions);
+        
+        rzp.on('payment.failed', function (response: any) {
+          reject(new Error(response.error.description || "Payment failed"));
+        });
+        
+        rzp.open();
+      };
+      
+      script.onerror = () => {
+        reject(new Error("Failed to load Razorpay SDK. Please check your connection."));
+      };
+      
+      document.body.appendChild(script);
+    });
   }
 
   // Mocks verifying the signature on the backend (not used in direct link flow unless redirect back is set up)

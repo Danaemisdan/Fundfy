@@ -38,7 +38,7 @@ export default function SignIn() {
       <div className="w-full max-w-md glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden z-10">
         
         <div className="flex justify-center mb-8">
-          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0 invert" />
+          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-white text-center mb-2">
@@ -60,7 +60,7 @@ export default function SignIn() {
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 z-10 pointer-events-none" />
               <input
                 type="email"
                 value={email}
@@ -77,7 +77,7 @@ export default function SignIn() {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40 z-10 pointer-events-none" />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
@@ -89,7 +89,7 @@ export default function SignIn() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 focus:outline-none transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 focus:outline-none transition-colors z-10"
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>

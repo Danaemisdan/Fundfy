@@ -47,6 +47,14 @@
   @apply bg-white/5 border border-white/10 text-white placeholder:text-white/50 focus:bg-white/10 focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all outline-none;
 }
 
+.glass-input:-webkit-autofill,
+.glass-input:-webkit-autofill:hover, 
+.glass-input:-webkit-autofill:focus, 
+.glass-input:-webkit-autofill:active {
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* Animated Gradient Background */
 @keyframes bg-spin {
   to {
