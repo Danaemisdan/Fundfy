@@ -22,18 +22,20 @@ export default function Dashboard() {
 
   // If not logged in, redirect to sign in
   useEffect(() => {
-    if (!user) {
-      navigate('/signin');
-      return;
-    }
-
     const fetchStats = async () => {
       try {
+        const { data: { session } } = await supabase.auth.getSession();
+        const activeUser = session?.user || user;
+        if (!activeUser) {
+          navigate('/signin');
+          return;
+        }
+
         // Fetch profile stats
         const { data: profile } = await supabase
           .from('profiles')
           .select('*')
-          .eq('id', user.id)
+          .eq('id', activeUser.id)
           .single();
 
         if (profile?.role === 'admin') {
@@ -46,7 +48,7 @@ export default function Dashboard() {
         const { data: userRegs } = await supabase
           .from('registrations')
           .select('*')
-          .eq('email', user.email);
+          .eq('email', activeUser.email);
         setUserRegistrations(userRegs || []);
 
         const refCode = profile?.referral_code || '';

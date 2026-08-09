@@ -16,18 +16,20 @@ export default function AdminDashboard() {
   const [registrations, setRegistrations] = useState<any[]>([]);
 
   useEffect(() => {
-    if (!user) {
-      navigate('/signin');
-      return;
-    }
-
     const checkAdminAndFetchData = async () => {
       try {
+        const { data: { session } } = await supabase.auth.getSession();
+        const activeUser = session?.user || user;
+        if (!activeUser) {
+          navigate('/signin');
+          return;
+        }
+
         // 1. Check if Admin
         const { data: profile } = await supabase
           .from('profiles')
           .select('role')
-          .eq('id', user.id)
+          .eq('id', activeUser.id)
           .single();
 
         if (profile?.role !== 'admin') {
