@@ -10,6 +10,8 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isSignUp, setIsSignUp] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,12 +19,21 @@ export default function SignIn() {
     setError(null);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) throw error;
-      navigate('/dashboard');
+      if (isSignUp) {
+        const { error: signUpError } = await supabase.auth.signUp({
+          email,
+          password,
+        });
+        if (signUpError) throw signUpError;
+        setSuccess(true);
+      } else {
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (signInError) throw signInError;
+        navigate('/dashboard');
+      }
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -38,15 +49,21 @@ export default function SignIn() {
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex justify-center mb-8">
-          <img src="/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
+          <img src="/favicon.svg" alt="Fundfy" className="h-10 w-auto object-contain" />
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-gray-900 text-center mb-2">
           Partner Portal
         </h1>
         <p className="text-gray-500 text-center mb-8 font-medium">
-          Sign in to view your dashboard
+          {isSignUp ? 'Create your partner account' : 'Sign in to view your dashboard'}
         </p>
+
+        {success && (
+          <div className="bg-green-50 text-green-700 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-green-100">
+            Account created successfully! You can now sign in.
+          </div>
+        )}
 
         {error && (
           <div className="bg-red-50 text-red-600 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-red-100">
@@ -99,13 +116,23 @@ export default function SignIn() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  Sign In
+                  {isSignUp ? 'Create Account' : 'Sign In'}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </button>
           </div>
         </form>
+
+        <div className="mt-8 text-center">
+          <button 
+            type="button" 
+            onClick={() => { setIsSignUp(!isSignUp); setError(null); setSuccess(false); }} 
+            className="text-sm font-bold text-gray-500 hover:text-purple-600 transition-colors"
+          >
+            {isSignUp ? 'Already have an account? Sign In' : 'Need a partner account? Sign Up'}
+          </button>
+        </div>
       </div>
     </div>
   );
