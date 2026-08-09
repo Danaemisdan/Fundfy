@@ -87,13 +87,13 @@ function Home() {
         {/* HEADER */}
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-            <div className="flex items-center gap-2 md:gap-3">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+            <div className="flex items-center gap-1.5 md:gap-3">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
               <span className="text-gray-300 font-light hidden md:block">|</span>
-              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
             <div className="w-[1px] h-6 bg-gray-300 hidden md:block opacity-50 ml-1"></div>
-            <div className="text-[7px] md:text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
+            <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
               PRESENTS<br />
               <span className="text-gray-900 group-hover:text-purple-500 text-[8px] md:text-[10px]">GLOBAL TALENT HUNT 2026</span>
             </div>
