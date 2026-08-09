@@ -67,7 +67,7 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           <div className="flex flex-col items-center gap-3">
             <span className="text-[9px] font-bold tracking-[0.3em] text-gray-500 uppercase">Backed by industry leaders</span>
             <div className="flex items-center justify-center gap-6 md:gap-10 grayscale opacity-60">
-              <span className="font-bold text-xl md:text-2xl tracking-tighter">AWS</span>
+              <span className="font-bold text-xl md:text-2xl tracking-tighter">Amazon Web Services</span>
               <span className="font-bold text-xl md:text-2xl tracking-tight font-sans">Google Cloud</span>
               <span className="font-bold text-xl md:text-2xl tracking-widest font-serif">IBM</span>
             </div>
