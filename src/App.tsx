@@ -25,18 +25,11 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    if (sessionStorage.getItem('splashPlayed')) {
-      setShowSplash(false);
-      document.body.style.overflow = 'unset';
-      return;
-    }
-    
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
     
     const timer = setTimeout(() => {
       setShowSplash(false);
-      sessionStorage.setItem('splashPlayed', 'true');
       document.body.style.overflow = 'unset';
       window.scrollTo(0, 0);
     }, 7200);
