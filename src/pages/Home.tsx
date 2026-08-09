@@ -84,23 +84,23 @@ function Home() {
     <div className="w-full font-sans relative overflow-x-hidden bg-white">
       
       {/* ORIGINAL HOMEPAGE - 100vh EXACTLY AS IT WAS */}
-      <div className="h-screen w-full bg-[#f8f9fc] flex flex-col justify-between overflow-hidden relative rounded-b-[2rem] md:rounded-b-[3rem] shadow-2xl z-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-blue-50/50 pointer-events-none z-0" />
+      <div className="h-screen w-full bg-[#030303] animated-gradient-bg flex flex-col justify-between overflow-hidden relative rounded-b-[2rem] md:rounded-b-[3rem] shadow-2xl z-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 pointer-events-none z-0" />
         
         <RightGlobe />
 
         {/* HEADER */}
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-            <div className="flex items-center gap-1.5 md:gap-3">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
-              <span className="text-gray-300 font-light hidden md:block">|</span>
-              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+            <div className="flex items-center gap-1.5 md:gap-3 glass-card px-4 py-2 rounded-full">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform brightness-0 invert" />
+              <span className="text-white/30 font-light hidden md:block">|</span>
+              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform brightness-0 invert" />
             </div>
-            <div className="w-[1px] h-6 bg-gray-300 hidden md:block opacity-50 ml-1"></div>
-            <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
+            <div className="w-[1px] h-6 bg-white/30 hidden md:block opacity-50 ml-1"></div>
+            <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-400 leading-tight group-hover:text-purple-400 transition-colors uppercase tracking-[0.2em]">
               PRESENTS<br />
-              <span className="text-gray-900 group-hover:text-purple-500 text-[8px] md:text-[10px]">GLOBAL TALENT HUNT 2026</span>
+              <span className="text-white group-hover:text-purple-400 text-[8px] md:text-[10px]">GLOBAL TALENT HUNT 2026</span>
             </div>
           </Link>
           
@@ -117,20 +117,20 @@ function Home() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: delayBase, ease: [0.16, 1, 0.3, 1] }}
-              className="font-futuristic font-bold text-6xl md:text-[9vh] lg:text-[11vh] leading-[0.9] tracking-tighter text-[#1e2335]"
+              className="font-futuristic font-bold text-6xl md:text-[9vh] lg:text-[11vh] leading-[0.9] tracking-tighter text-white"
             >
               GLOBAL<br />
               <span className="text-gradient-purple-orange pr-2 pb-2 inline-block">TALENT</span><br />
-              HUNT <span className="font-light text-gray-400 ml-1 md:ml-2">2026</span>
+              HUNT <span className="font-light text-white/50 ml-1 md:ml-2">2026</span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: delayBase + 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 text-xs md:text-base lg:text-lg font-semibold tracking-[0.1em] md:tracking-[0.2em] text-gray-600"
+              className="mt-4 text-xs md:text-base lg:text-lg font-semibold tracking-[0.1em] md:tracking-[0.2em] text-white/70"
             >
-              SHOWCASE. COMPETE. GET <span className="text-purple-600">DISCOVERED.</span>
+              SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
             </motion.p>
 
             <motion.div 
@@ -139,27 +139,27 @@ function Home() {
               transition={{ duration: 0.8, delay: delayBase + 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5 relative z-20"
             >
-              <div className="flex items-center gap-4 md:gap-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-2xl md:rounded-3xl pr-6 md:pr-8 shadow-sm">
-                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 p-[2px] shrink-0">
-                  <div className="w-full h-full bg-white/80 rounded-[14px] md:rounded-[22px] flex items-center justify-center backdrop-blur-sm">
-                    <Trophy className="w-6 h-6 md:w-10 md:h-10 text-purple-600" strokeWidth={1.5} />
+              <div className="flex items-center gap-4 md:gap-5 glass-panel rounded-2xl md:rounded-3xl pr-6 md:pr-8">
+                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-white/10 p-[2px] shrink-0 border border-white/20">
+                  <div className="w-full h-full bg-black/20 rounded-[14px] md:rounded-[22px] flex items-center justify-center backdrop-blur-sm">
+                    <Trophy className="w-6 h-6 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
                 <div className="py-2">
-                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-gray-500 uppercase">PRIZE POOL</p>
-                  <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-[#1e2335] leading-none mt-1 flex items-baseline gap-3">
+                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">PRIZE POOL</p>
+                  <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-white leading-none mt-1 flex items-baseline gap-3">
                     {currency === 'INR' ? '₹50 Lakhs' : '$10,000'}
                   </h2>
                 </div>
               </div>
               
               {/* AWS Credits Pill */}
-              <div className="sm:ml-2 flex items-center gap-2 md:gap-3 bg-white/80 backdrop-blur-md border border-orange-200/50 rounded-full pr-3 md:pr-4 pl-1.5 py-1 shadow-sm hover:shadow transition-shadow">
-                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden">
-                  <img src="/Partners/AWS.webp" alt="AWS" className="w-full h-full object-contain mix-blend-multiply scale-[2.5]" />
+              <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
+                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden bg-white/10 rounded-full">
+                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[80%] h-[80%] object-contain brightness-0 invert" />
                 </div>
-                <p className="text-[10px] md:text-xs font-bold text-gray-700 tracking-wide mt-0.5">
-                  GIVING AWAY <span className="text-orange-500 text-[11px] md:text-sm">$5,000</span> IN CREDITS
+                <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
+                  GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">$5,000</span> IN CREDITS
                 </p>
               </div>
             </motion.div>
@@ -175,9 +175,9 @@ function Home() {
         >
           
           {/* Powered By - Static */}
-          <div className="w-full bg-white border border-gray-200 rounded-2xl p-6 md:p-8 lg:p-10 shadow-sm flex flex-col overflow-hidden">
-            <p className="text-[10px] md:text-xs font-bold text-gray-400 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-y-6 gap-x-4 md:gap-x-3 lg:gap-x-5 w-full px-2 md:px-0">
+          <div className="w-full glass-panel border-white/10 rounded-2xl p-6 md:p-8 lg:p-10 shadow-sm flex flex-col overflow-hidden">
+            <p className="text-[10px] md:text-xs font-bold text-white/50 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
+            <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-y-6 gap-x-4 md:gap-x-3 lg:gap-x-5 w-full px-2 md:px-0 opacity-80">
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
                 if (src.includes('TingoAI')) scaleClass = 'scale-75';
@@ -187,7 +187,7 @@ function Home() {
                 
                 return (
                   <div key={i} className="h-6 sm:h-7 md:h-8 lg:h-9 flex items-center justify-center shrink-0">
-                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[80px] md:max-w-[80px] lg:max-w-[95px] object-contain mix-blend-multiply ${scaleClass}`} />
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[80px] md:max-w-[80px] lg:max-w-[95px] object-contain brightness-0 invert ${scaleClass}`} />
                   </div>
                 );
               })}
@@ -195,11 +195,11 @@ function Home() {
           </div>
 
           {/* Features Row */}
-          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between gap-y-6 gap-x-4 p-4 md:p-6 lg:px-8 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm relative z-20">
-            <Feature icon={<Globe2 />} title="GLOBAL EXPOSURE" desc="Get seen by industry leaders worldwide." />
-            <Feature icon={<UserCheck />} title="EXPERT MENTORSHIP" desc="Learn and grow with the best." />
-            <Feature icon={<Gift />} title="AMAZING REWARDS" desc="Win cash prizes and exciting perks." />
-            <Feature icon={<Rocket />} title="CAREER BOOST" desc="Opportunities that take you further." />
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between gap-y-6 gap-x-4 p-4 md:p-6 lg:px-8 glass-card rounded-2xl relative z-20">
+            <Feature icon={<Globe2 className="text-purple-400" />} title="GLOBAL EXPOSURE" desc="Get seen by industry leaders worldwide." />
+            <Feature icon={<UserCheck className="text-purple-400" />} title="EXPERT MENTORSHIP" desc="Learn and grow with the best." />
+            <Feature icon={<Gift className="text-purple-400" />} title="AMAZING REWARDS" desc="Win cash prizes and exciting perks." />
+            <Feature icon={<Rocket className="text-purple-400" />} title="CAREER BOOST" desc="Opportunities that take you further." />
           </div>
 
           {/* Bottom Pill */}
@@ -221,13 +221,13 @@ function Home() {
 
 function Feature({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
   return (
-    <div className="flex items-start gap-3 max-w-[200px]">
-      <div className="text-gray-800 mt-1">
-        {React.cloneElement(icon as React.ReactElement, { strokeWidth: 1.5, className: 'w-5 h-5' } as any)}
+    <div className="flex flex-col gap-2">
+      <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-gray-100">
+        {React.cloneElement(icon as React.ReactElement, { className: 'w-4 h-4' } as any)}
       </div>
       <div>
-        <h4 className="text-[10px] md:text-xs font-bold text-gray-900 mb-0.5 tracking-wide">{title}</h4>
-        <p className="text-[10px] text-gray-500 leading-tight">{desc}</p>
+        <h3 className="text-xs font-bold text-white tracking-wider">{title}</h3>
+        <p className="text-[10px] text-white/50 mt-1">{desc}</p>
       </div>
     </div>
   );

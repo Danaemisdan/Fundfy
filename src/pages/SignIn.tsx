@@ -32,66 +32,64 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] flex flex-col items-center justify-center p-6">
-      <div className="w-full max-w-md bg-white border border-gray-200 rounded-[2rem] shadow-2xl p-8 md:p-12 relative overflow-hidden">
+    <div className="min-h-screen bg-[#030303] animated-gradient-bg flex flex-col items-center justify-center p-6 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 pointer-events-none z-0" />
+      
+      <div className="w-full max-w-md glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden z-10">
         
-        {/* Decorative background element */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-
         <div className="flex justify-center mb-8">
-          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
+          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0 invert" />
         </div>
 
-        <h1 className="text-2xl md:text-3xl font-sans font-bold text-gray-900 text-center mb-2">
+        <h1 className="text-2xl md:text-3xl font-sans font-bold text-white text-center mb-2">
           Welcome
         </h1>
-        <p className="text-gray-500 text-center mb-8 font-medium">
+        <p className="text-white/60 text-center mb-8 font-medium">
           Sign in to your account
         </p>
 
-
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-red-100">
+          <div className="bg-red-500/10 text-red-400 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-red-500/20 backdrop-blur-md">
             {error}
           </div>
         )}
 
         <form onSubmit={handleAuth} className="space-y-5">
           <div>
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 font-medium focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 transition-all outline-none"
+                className="w-full pl-12 pr-4 py-4 rounded-xl glass-input"
                 placeholder="you@example.com"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2">
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full pl-12 pr-12 py-4 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 font-medium focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 transition-all outline-none"
+                className="w-full pl-12 pr-12 py-4 rounded-xl glass-input"
                 placeholder="••••••••"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 focus:outline-none transition-colors"
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -102,13 +100,13 @@ export default function SignIn() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#11131c] text-white font-bold tracking-widest uppercase text-sm py-4 rounded-xl hover:bg-black transition-all flex items-center justify-center gap-2 group"
+              className="w-full bg-white text-black font-bold tracking-widest uppercase text-sm py-4 rounded-xl hover:bg-white/90 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
             >
               {loading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-5 h-5 animate-spin text-black" />
               ) : (
                 <>
-                  'Sign In'
+                  Sign In
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
@@ -116,12 +114,12 @@ export default function SignIn() {
           </div>
         </form>
 
-        <div className="mt-8 pt-8 border-t border-gray-100 text-center">
-          <p className="text-sm text-gray-500 mb-3 font-medium">Don't have an account yet?</p>
+        <div className="mt-8 pt-8 border-t border-white/10 text-center">
+          <p className="text-sm text-white/50 mb-3 font-medium">Don't have an account yet?</p>
           <button 
             type="button" 
             onClick={() => navigate('/register')}
-            className="w-full border-2 border-gray-200 text-gray-900 font-bold tracking-widest uppercase text-xs py-3 rounded-xl hover:border-purple-500 hover:text-purple-600 transition-colors"
+            className="w-full border border-white/20 bg-white/5 text-white font-bold tracking-widest uppercase text-xs py-3 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-md"
           >
             Register for Contest
           </button>

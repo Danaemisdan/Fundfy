@@ -198,28 +198,29 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] font-sans selection:bg-purple-200">
-      
+    <div className="min-h-screen bg-[#030303] animated-gradient-bg font-sans selection:bg-purple-200 relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 pointer-events-none z-0" />
+      <div className="relative z-10">
       {/* Minimal Brand Header */}
-      <header className="w-full bg-white border-b border-gray-100 py-6 px-6 md:px-12 sticky top-0 z-50 flex items-center justify-between shadow-sm">
+      <header className="w-full glass-panel border-b border-white/10 py-6 px-6 md:px-12 sticky top-0 z-50 flex items-center justify-between shadow-sm">
         <Link to="/" className="flex items-center gap-2 group">
-          <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" />
-          <span className="font-futuristic font-bold text-xl tracking-tighter text-[#1e2335]">
-            GLOBAL<span className="text-purple-600">TALENT</span>HUNT
+          <ArrowLeft className="w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
+          <span className="font-futuristic font-bold text-xl tracking-tighter text-white">
+            GLOBAL<span className="text-purple-400">TALENT</span>HUNT
           </span>
         </Link>
-        <div className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-400 tracking-widest uppercase">
-          <Lock className="w-4 h-4" /> Secure Registration
+        <div className="hidden md:flex items-center gap-2 text-xs font-bold text-white/40 tracking-widest uppercase">
+          <Lock className="w-4 h-4 text-white/40" /> Secure Registration
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-12 md:py-20">
         
         <div className="mb-12 max-w-2xl text-left">
-          <h1 className="text-4xl md:text-[40px] font-sans font-bold text-gray-900 tracking-tight mb-3">
+          <h1 className="text-4xl md:text-[40px] font-sans font-bold text-white tracking-tight mb-3">
             Register for Global Challenges
           </h1>
-          <p className="text-base text-gray-500 font-medium">
+          <p className="text-base text-white/70 font-medium">
             Join exciting competitions. Showcase your talent. Win big.
           </p>
         </div>
@@ -232,15 +233,15 @@ export default function Register() {
             <div className="lg:col-span-3 flex flex-col gap-6">
               
               {/* SECTION 1: CHOOSE CONTEST */}
-              <section className="bg-white p-6 md:p-8 rounded-3xl border border-gray-200 shadow-sm flex flex-col gap-6">
+              <section className="glass-panel p-6 md:p-8 rounded-3xl border border-white/10 shadow-sm flex flex-col gap-6">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xs font-bold tracking-[0.2em] text-gray-900 uppercase flex items-center gap-2">
-                      <span className="text-purple-600">01.</span> Select Contests
+                    <h2 className="text-xs font-bold tracking-[0.2em] text-white uppercase flex items-center gap-2">
+                      <span className="text-purple-400">01.</span> Select Contests
                     </h2>
-                    {errors.contest && <span className="text-xs font-semibold text-red-500">{errors.contest}</span>}
+                    {errors.contest && <span className="text-xs font-semibold text-red-400">{errors.contest}</span>}
                   </div>
-                  <p className="text-sm text-gray-500 font-medium">Choose the contest you want to participate in.</p>
+                  <p className="text-sm text-white/50 font-medium">Choose the contest you want to participate in.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -270,36 +271,36 @@ export default function Register() {
                         disabled={isComingSoon}
                         onClick={() => toggleContest(contest.id)}
                         className={`relative p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col group min-h-[160px]
-                          ${isComingSoon ? 'opacity-50 cursor-not-allowed bg-gray-50/50 border-gray-100' : 'cursor-pointer bg-white'}
-                          ${isSelected ? `border-purple-500 shadow-md shadow-purple-500/10` : 'border-gray-200 hover:border-gray-300'}
+                          ${isComingSoon ? 'opacity-50 cursor-not-allowed bg-white/5 border-white/5' : 'cursor-pointer glass-card'}
+                          ${isSelected ? `border-purple-500 shadow-md shadow-purple-500/10` : 'border-white/10 hover:border-white/20'}
                         `}
                       >
                         <div className="flex items-start gap-3 w-full mb-4">
                           <div className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 mt-1 transition-colors
-                            ${isSelected ? 'bg-purple-600 border-purple-600' : 'bg-white border-gray-300'}
+                            ${isSelected ? 'bg-purple-600 border-purple-600' : 'bg-white/5 border-white/20'}
                           `}>
                             {isSelected && <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />}
                           </div>
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isComingSoon ? 'bg-gray-100' : 'bg-blue-50'}`}>
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isComingSoon ? 'bg-white/5' : 'bg-white/10'}`}>
                             {getIcon()}
                           </div>
                         </div>
 
                         <div className="flex flex-col gap-0.5 mt-auto">
-                          <h3 className="text-[15px] font-bold text-gray-900 tracking-tight leading-tight">
+                          <h3 className="text-[15px] font-bold text-white tracking-tight leading-tight">
                             {contest.title}
                           </h3>
-                          <span className="text-xs text-gray-500 font-medium">
+                          <span className="text-xs text-white/50 font-medium">
                             {contest.category}
                           </span>
                           <div className="mt-2">
                             {hasReferral ? (
                               <div className="flex items-center gap-2">
-                                <span className="text-gray-400 line-through text-xs font-medium">₹200</span>
-                                <span className="text-green-600 font-bold text-sm">₹100</span>
+                                <span className="text-white/40 line-through text-xs font-medium">₹200</span>
+                                <span className="text-green-400 font-bold text-sm">₹100</span>
                               </div>
                             ) : (
-                              <span className="text-sm font-bold text-gray-900">₹200</span>
+                              <span className="text-sm font-bold text-white">₹200</span>
                             )}
                           </div>
                           {getBadge()}
@@ -309,21 +310,21 @@ export default function Register() {
                   })}
                 </div>
                 
-                <div className="flex items-center gap-2 text-xs font-medium text-gray-500 pt-4 border-t border-gray-100 mt-2">
+                <div className="flex items-center gap-2 text-xs font-medium text-white/50 pt-4 border-t border-white/10 mt-2">
                   <Info className="w-4 h-4" />
                   You can select multiple contests. Total fee will be calculated automatically.
                 </div>
               </section>
 
               {/* SECTION 2: PARTICIPANT DETAILS */}
-              <section className="bg-white p-6 md:p-8 rounded-3xl border border-gray-200 shadow-sm flex flex-col gap-6 mt-2">
+              <section className="glass-panel p-6 md:p-8 rounded-3xl border border-white/10 shadow-sm flex flex-col gap-6 mt-2">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-xs font-bold tracking-[0.2em] text-gray-900 uppercase flex items-center gap-2">
-                      <span className="text-purple-600">02.</span> Participant Details
+                    <h2 className="text-xs font-bold tracking-[0.2em] text-white uppercase flex items-center gap-2">
+                      <span className="text-purple-400">02.</span> Participant Details
                     </h2>
                   </div>
-                  <p className="text-sm text-gray-500 font-medium">Please fill in your details accurately.</p>
+                  <p className="text-sm text-white/50 font-medium">Please fill in your details accurately.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
@@ -476,102 +477,102 @@ export default function Register() {
                   </div>
                 )}
 
-                <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
+                <div className="glass-panel border-white/10 rounded-3xl p-6 md:p-8 shadow-sm flex flex-col gap-6">
                 
-                <h3 className="font-bold text-[11px] text-gray-900 uppercase tracking-[0.2em]">
+                <h3 className="font-bold text-[11px] text-white/70 uppercase tracking-[0.2em]">
                   Registration Summary
                 </h3>
                 
                 {selectedContests.length > 0 ? (
                   <>
-                    <div className="bg-[#0b0f19] rounded-2xl p-5 flex items-center gap-4 relative overflow-hidden shadow-lg shadow-black/10">
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex items-center gap-4 relative overflow-hidden shadow-lg shadow-black/10">
                       {/* Decorative gradient glow inside the card */}
-                      <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-purple-600/20 to-transparent blur-2xl" />
+                      <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-white/10 to-transparent blur-2xl" />
                       
                       <div className="flex flex-col justify-center relative z-10 h-full">
                         <span className="text-base font-bold text-white leading-tight">Selected Contests</span>
-                        <span className="text-xs font-medium text-gray-400 mt-0.5">{selectedContests.length} {selectedContests.length === 1 ? 'contest' : 'contests'} selected</span>
+                        <span className="text-xs font-medium text-white/50 mt-0.5">{selectedContests.length} {selectedContests.length === 1 ? 'contest' : 'contests'} selected</span>
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-4">
-                      <span className="text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">
+                      <span className="text-[10px] font-bold text-white/40 tracking-[0.2em] uppercase">
                         FEE BREAKDOWN
                       </span>
                       <div className="flex flex-col gap-3">
                         {selectedContests.map(c => (
                           <div key={c.id} className="flex flex-col gap-1">
                             <div className="flex justify-between items-start gap-4">
-                              <span className="text-sm font-bold text-gray-900 leading-tight">{c.title}</span>
+                              <span className="text-sm font-bold text-white leading-tight">{c.title}</span>
                               {hasReferral ? (
                                 <div className="flex flex-col items-end">
-                                  <span className="text-xs text-gray-400 line-through">₹200</span>
-                                  <span className="text-sm font-bold text-green-600 shrink-0">₹100</span>
+                                  <span className="text-xs text-white/40 line-through">₹200</span>
+                                  <span className="text-sm font-bold text-green-400 shrink-0">₹100</span>
                                 </div>
                               ) : (
-                                <span className="text-sm font-medium text-gray-600 shrink-0">₹200</span>
+                                <span className="text-sm font-medium text-white/60 shrink-0">₹200</span>
                               )}
                             </div>
                             {hasReferral && (
-                              <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest bg-green-50 w-fit px-2 py-0.5 rounded mt-1">50% Referral Discount Applied</span>
+                              <span className="text-[10px] font-bold text-green-400 uppercase tracking-widest bg-green-500/10 w-fit px-2 py-0.5 rounded mt-1">50% Referral Discount Applied</span>
                             )}
                           </div>
                         ))}
                         
                         <div className="flex justify-between items-center gap-4 mt-2">
-                          <span className="text-sm font-medium text-gray-500 flex items-center gap-1.5">
-                            Processing Fee <Info className="w-3.5 h-3.5 text-gray-400" />
+                          <span className="text-sm font-medium text-white/50 flex items-center gap-1.5">
+                            Processing Fee <Info className="w-3.5 h-3.5 text-white/40" />
                           </span>
-                          <span className="text-sm font-medium text-gray-500 shrink-0">₹0</span>
+                          <span className="text-sm font-medium text-white/50 shrink-0">₹0</span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-100 border-dashed" />
+                    <div className="border-t border-white/10 border-dashed" />
 
                     <div className="flex justify-between items-end gap-4">
-                      <span className="text-[10px] font-bold text-gray-900 tracking-[0.2em] uppercase mb-1.5">
+                      <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase mb-1.5">
                         TOTAL AMOUNT
                       </span>
-                      <span className="text-4xl font-sans font-bold text-gray-900 tracking-tight">
+                      <span className="text-4xl font-sans font-bold text-white tracking-tight">
                         ₹{fee}
                       </span>
                     </div>
 
-                    <div className="border-t border-gray-100 border-dashed" />
+                    <div className="border-t border-white/10 border-dashed" />
 
                     <div className="flex flex-col gap-4">
-                      <span className="text-[10px] font-bold text-gray-400 tracking-[0.2em] uppercase">
+                      <span className="text-[10px] font-bold text-white/40 tracking-[0.2em] uppercase">
                         YOUR REGISTRATION INCLUDES
                       </span>
                       <ul className="flex flex-col gap-3">
                         <li className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" strokeWidth={3} />
-                          <span className="text-sm font-medium text-gray-500">Lifetime JobFinderAI Premium</span>
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" strokeWidth={3} />
+                          <span className="text-sm font-medium text-white/50">Lifetime JobFinderAI Premium</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" strokeWidth={3} />
-                          <span className="text-sm font-medium text-gray-500">Official Participation Certificate</span>
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" strokeWidth={3} />
+                          <span className="text-sm font-medium text-white/50">Official Participation Certificate</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" strokeWidth={3} />
-                          <span className="text-sm font-medium text-gray-500">Access to Judging & Evaluation</span>
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" strokeWidth={3} />
+                          <span className="text-sm font-medium text-white/50">Access to Judging & Evaluation</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" strokeWidth={3} />
-                          <span className="text-sm font-medium text-gray-500">Eligibility for Grand Prizes</span>
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" strokeWidth={3} />
+                          <span className="text-sm font-medium text-white/50">Eligibility for Grand Prizes</span>
                         </li>
                         <li className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-green-500 shrink-0 mt-0.5" strokeWidth={3} />
-                          <span className="text-sm font-medium text-gray-500">Exclusive Updates & Opportunities</span>
+                          <Check className="w-4 h-4 text-green-400 shrink-0 mt-0.5" strokeWidth={3} />
+                          <span className="text-sm font-medium text-white/50">Exclusive Updates & Opportunities</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="flex flex-col gap-3 pt-6 border-t border-gray-100">
-                      <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">
-                        <Lock className="w-3.5 h-3.5 text-gray-400" />
-                        <span>Secure payments powered by <span className="text-purple-700 italic">Razorpay</span></span>
+                    <div className="flex flex-col gap-3 pt-6 border-t border-white/10">
+                      <div className="flex items-center gap-1.5 text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">
+                        <Lock className="w-3.5 h-3.5 text-white/40" />
+                        <span>Secure payments powered by <span className="text-purple-400 italic">Razorpay</span></span>
                       </div>
 
                       <button
@@ -579,13 +580,13 @@ export default function Register() {
                         disabled={isSubmitting || selectedContests.length === 0 || !termsAccepted}
                         className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300
                           ${isSubmitting || selectedContests.length === 0 || !termsAccepted
-                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                            : 'bg-purple-700 text-white hover:bg-purple-800 hover:shadow-xl hover:shadow-purple-700/20 hover:-translate-y-0.5'
+                            ? 'bg-white/10 text-white/40 cursor-not-allowed' 
+                            : 'bg-white text-black hover:bg-white/90 hover:shadow-xl hover:shadow-white/10 hover:-translate-y-0.5'
                           }
                         `}
                       >
                         {isSubmitting ? (
-                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <Loader2 className="w-5 h-5 animate-spin text-black" />
                         ) : (
                           <>
                             <span className="text-[13px] font-bold tracking-widest uppercase">PROCEED TO PAYMENT</span>
@@ -594,7 +595,7 @@ export default function Register() {
                         )}
                       </button>
                       
-                      <div className="text-center text-xs text-gray-400 mt-1">
+                      <div className="text-center text-xs text-white/40 mt-1">
                         You will be redirected to a secure payment page
                       </div>
                     </div>
@@ -625,6 +626,7 @@ export default function Register() {
       </AnimatePresence>
 
     </div>
+    </div>
   );
 }
 
@@ -632,8 +634,8 @@ export default function Register() {
 function InputField({ label, name, value, onChange, type = "text", error, required, placeholder, className = "" }: any) {
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      <label className="text-xs font-bold text-gray-700 uppercase tracking-wide flex justify-between">
-        {label} {required && <span className="text-red-500">*</span>}
+      <label className="text-xs font-bold text-white/50 uppercase tracking-wide flex justify-between">
+        {label} {required && <span className="text-red-400">*</span>}
       </label>
       <input
         type={type}
@@ -641,9 +643,9 @@ function InputField({ label, name, value, onChange, type = "text", error, requir
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-red-300 ring-4 ring-red-50 bg-white' : 'border-gray-200 bg-white focus:border-black focus:ring-4 focus:ring-gray-100'} text-gray-900 text-sm font-medium transition-all outline-none`}
+        className={`w-full px-4 py-3 rounded-xl ${error ? 'border border-red-500/50 bg-red-500/10 focus:border-red-400' : 'glass-input'} text-white text-sm font-medium`}
       />
-      {error && <span className="text-[10px] text-red-500 font-semibold">{error}</span>}
+      {error && <span className="text-[10px] text-red-400 font-semibold">{error}</span>}
     </div>
   );
 }
@@ -660,12 +662,12 @@ function Checkbox({ label, checked, onChange }: { label: string, checked: boolea
           className="peer sr-only"
         />
         <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center
-          ${checked ? 'bg-black border-black' : 'bg-white border-gray-300 group-hover:border-gray-400'}
+          ${checked ? 'bg-white border-white' : 'bg-white/5 border-white/20 group-hover:border-white/40'}
         `}>
-          <Check className={`w-3 h-3 text-white transition-opacity duration-200 ${checked ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
+          <Check className={`w-3 h-3 text-black transition-opacity duration-200 ${checked ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
         </div>
       </div>
-      <span className={`text-sm font-medium select-none transition-colors duration-200 ${checked ? 'text-gray-900' : 'text-gray-600 group-hover:text-gray-900'}`}>
+      <span className={`text-sm font-medium select-none transition-colors duration-200 ${checked ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
         {label}
       </span>
     </label>
