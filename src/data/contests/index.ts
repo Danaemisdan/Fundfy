@@ -398,7 +398,7 @@ export const CONTESTS: ContestConfig[] = [
   },
   {
     id: 'ai-education-innovation-contest',
-    status: 'COMING_SOON',
+    status: 'OPEN',
     title: 'AI Education Innovation Contest',
     subtitle: 'The future of learning.',
     category: 'Education',

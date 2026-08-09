@@ -19,9 +19,9 @@ export default function EventTimeline({ data }: { data: any }) {
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 transform md:-translate-x-1/2 rounded-full" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/20 transform md:-translate-x-1/2" />
           
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-16">
             {data.timeline.map((item: any, i: number) => {
               const isEven = i % 2 === 0;
               return (
@@ -34,18 +34,18 @@ export default function EventTimeline({ data }: { data: any }) {
                   className={`flex flex-col md:flex-row items-start md:items-center relative w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-[14px] md:left-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#050505] transform -translate-x-1/2 z-10 mt-1 md:mt-0" />
+                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-[4px] border-[#050505] rounded-none transform -translate-x-1/2 z-10 mt-1 md:mt-0" />
                   
                   {/* Date Block */}
                   <div className={`w-full md:w-1/2 flex ${isEven ? 'md:justify-start pl-12 md:pl-16' : 'md:justify-end pl-12 md:pl-0 md:pr-16'}`}>
-                    <span className="text-blue-400 font-bold tracking-widest text-sm uppercase bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                    <span className="text-white font-bold tracking-[0.2em] text-[10px] uppercase border-2 border-white/20 hover:border-white transition-colors px-4 py-2 bg-[#050505]">
                       {item.date}
                     </span>
                   </div>
                   
                   {/* Content Block */}
-                  <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-end md:text-right pl-12 md:pl-0 md:pr-16 mt-4 md:mt-0' : 'md:items-start md:text-left pl-12 md:pl-16 mt-4 md:mt-0'}`}>
-                    <h4 className="text-2xl font-bold text-white mb-2">{item.title}</h4>
+                  <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-end md:text-right pl-12 md:pl-0 md:pr-16 mt-6 md:mt-0' : 'md:items-start md:text-left pl-12 md:pl-16 mt-6 md:mt-0'}`}>
+                    <h4 className="text-3xl font-black text-white tracking-tight mb-2">{item.title}</h4>
                     <p className="text-gray-400 font-medium leading-relaxed max-w-sm">
                       {item.description}
                     </p>
