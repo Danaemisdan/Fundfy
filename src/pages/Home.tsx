@@ -92,9 +92,9 @@ function Home() {
         {/* HEADER */}
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-            <div className="flex items-center gap-1.5 md:gap-3 glass-card px-4 py-2 rounded-full">
+            <div className="flex items-center gap-1.5 md:gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
               <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
-              <span className="text-white/30 font-light hidden md:block">|</span>
+              <span className="text-black/20 font-light hidden md:block">|</span>
               <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
             <div className="w-[1px] h-6 bg-white/30 hidden md:block opacity-50 ml-1"></div>
@@ -155,7 +155,7 @@ function Home() {
               
               {/* AWS Credits Pill */}
               <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
-                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden bg-white/10 rounded-full">
+                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden bg-white/90 rounded-full shadow-inner">
                   <img src="/Partners/AWS.webp" alt="AWS" className="w-[80%] h-[80%] object-contain" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
@@ -175,9 +175,9 @@ function Home() {
         >
           
           {/* Powered By - Static */}
-          <div className="w-full glass-panel border-white/10 rounded-2xl p-6 md:p-8 lg:p-10 shadow-sm flex flex-col overflow-hidden">
-            <p className="text-[10px] md:text-xs font-bold text-white/50 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-y-6 gap-x-4 md:gap-x-3 lg:gap-x-5 w-full px-2 md:px-0 opacity-80">
+          <div className="w-full bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 lg:p-10 shadow-xl flex flex-col overflow-hidden">
+            <p className="text-[10px] md:text-xs font-bold text-black/50 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
+            <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-y-6 gap-x-4 md:gap-x-3 lg:gap-x-5 w-full px-2 md:px-0">
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
                 if (src.includes('TingoAI')) scaleClass = 'scale-75';
