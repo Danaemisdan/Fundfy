@@ -172,15 +172,17 @@ function Home() {
           {/* Powered By - Static */}
           <div className="w-full bg-white border border-gray-200 rounded-2xl p-6 md:p-8 lg:p-10 shadow-sm flex flex-col overflow-hidden">
             <p className="text-[10px] md:text-xs font-bold text-gray-400 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="grid grid-cols-5 md:flex md:flex-nowrap justify-items-center md:justify-between items-center gap-y-6 gap-x-2 md:gap-2 lg:gap-4 w-full px-1 md:px-0">
+            <div className="flex flex-wrap justify-center items-center gap-y-8 gap-x-6 md:gap-y-10 md:gap-x-12 w-full px-2 md:px-0">
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
                 if (src.includes('TingoAI')) scaleClass = 'scale-75';
-                if (src.includes('AWS')) scaleClass = 'scale-[1.1]';
+                if (src.includes('AWS')) scaleClass = 'scale-110';
+                if (src.includes('IBM')) scaleClass = 'scale-75';
+                if (src.includes('BrandForYou')) scaleClass = 'scale-125';
                 
                 return (
-                  <div key={i} className="h-8 sm:h-10 md:h-10 lg:h-12 flex items-center justify-center shrink-0 md:shrink w-full">
-                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-full md:max-w-[100px] lg:max-w-[140px] object-contain mix-blend-multiply ${scaleClass}`} />
+                  <div key={i} className="h-6 sm:h-8 md:h-10 lg:h-10 flex items-center justify-center shrink-0">
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[100px] md:max-w-[140px] object-contain mix-blend-multiply ${scaleClass}`} />
                   </div>
                 );
               })}
