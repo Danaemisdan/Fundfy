@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import { CONTESTS } from '../data/contests';
 import { ShieldAlert, Users, TrendingUp, IndianRupee, Loader2 } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -89,7 +90,7 @@ export default function AdminDashboard() {
   const computedReferrers = referrers.map(ref => {
     const refsEntries = registrations.filter(r => r.referral_code === ref.referral_code);
     const moneyEarned = refsEntries.reduce((sum, r) => sum + Number(r.amount_paid), 0);
-    const commission = moneyEarned * (ref.commission_rate || 0.20);
+    const commission = moneyEarned * (ref.commission_rate || 0.50);
     
     return {
       ...ref,
@@ -110,7 +111,7 @@ export default function AdminDashboard() {
     try {
       const { error } = await supabase
         .from('profiles')
-        .update({ role: 'referrer', referral_code: code, commission_rate: 0.20 })
+        .update({ role: 'referrer', referral_code: code, commission_rate: 0.50 })
         .eq('id', userId);
         
       if (error) throw error;
@@ -178,6 +179,7 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4">Paid Entries</th>
                   <th className="px-6 py-4">Commission Rate</th>
                   <th className="px-6 py-4 text-right">Owed (₹)</th>
+                  <th className="px-6 py-4 text-right">Links</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -188,12 +190,23 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4">{ref.clicks}</td>
                     <td className="px-6 py-4">{ref.actual_entries}</td>
                     <td className="px-6 py-4">{(ref.commission_rate * 100).toFixed(0)}%</td>
-                    <td className="px-6 py-4 text-right font-bold text-red-500">₹{ref.commission_earned.toLocaleString()}</td>
+                    
+                    <td className="px-6 py-4 text-right">
+                      <button 
+                        onClick={() => {
+                          const links = CONTESTS.map(c => `${c.title}: https://fundfy.app/register?contest=${c.id}&ref=${ref.referral_code}`).join('\n\n');
+                          alert(`Referral Links for ${ref.email}:\n\n${links}`);
+                        }}
+                        className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
+                      >
+                        View Links
+                      </button>
+                    </td>
                   </tr>
                 ))}
                 {computedReferrers.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-6 py-8 text-center text-gray-500">No referrers found.</td>
+                    <td colSpan={7} className="px-6 py-8 text-center text-gray-500">No referrers found.</td>
                   </tr>
                 )}
               </tbody>
@@ -287,7 +300,7 @@ export default function AdminDashboard() {
                 ))}
                 {registrations.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-6 py-8 text-center text-gray-500">No registrations found.</td>
+                    <td colSpan={7} className="px-6 py-8 text-center text-gray-500">No registrations found.</td>
                   </tr>
                 )}
               </tbody>

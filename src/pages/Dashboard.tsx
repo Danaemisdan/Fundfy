@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Copy, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import { CONTESTS } from '../data/contests';
 import { LogOut, Copy, Users, Trophy, Wallet, CheckCircle2, MousePointerClick, Loader2 } from 'lucide-react';
 import { MotionButton } from '../components/ui/MotionButton';
 import ContestShowcase from '../components/home/ContestShowcase';
@@ -192,8 +193,28 @@ export default function Dashboard() {
               Share your unique referral link. When someone registers for the Global Talent Hunt 2026 using your link, you'll earn exclusive rewards and climb the leaderboard!
             </p>
 
-            <div className="-mx-8 md:-mx-12 -mb-8 md:-mb-12 mt-4">
-              <ContestShowcase referrerMode={true} referralCode={stats.referralCode} />
+            <div className="mt-8 space-y-3">
+              <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4">Your Custom Links (Copy & Share)</h3>
+              {CONTESTS.map(contest => {
+                const link = `https://fundfy.app/register?contest=${contest.id}&ref=${stats.referralCode}`;
+                return (
+                  <div key={contest.id} className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white/10 transition-colors">
+                    <div>
+                      <h4 className="font-bold text-white mb-1">{contest.title}</h4>
+                      <code className="text-xs text-purple-300 select-all">{link}</code>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        navigator.clipboard.writeText(link);
+                        alert('Copied to clipboard!');
+                      }}
+                      className="shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-purple-600/20 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors"
+                    >
+                      <Copy className="w-4 h-4" />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
