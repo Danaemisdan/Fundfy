@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Copy, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import { CONTESTS } from '../data/contests';
