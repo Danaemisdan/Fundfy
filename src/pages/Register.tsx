@@ -292,9 +292,16 @@ export default function Register() {
                           <span className="text-xs text-gray-500 font-medium">
                             {contest.category}
                           </span>
-                          <span className="text-sm font-bold text-gray-900 mt-2">
-                            {feeText}
-                          </span>
+                          <div className="mt-2">
+                            {hasReferral ? (
+                              <div className="flex items-center gap-2">
+                                <span className="text-gray-400 line-through text-xs font-medium">₹200</span>
+                                <span className="text-green-600 font-bold text-sm">₹100</span>
+                              </div>
+                            ) : (
+                              <span className="text-sm font-bold text-gray-900">₹200</span>
+                            )}
+                          </div>
                           {getBadge()}
                         </div>
                       </button>
@@ -480,10 +487,6 @@ export default function Register() {
                     <div className="bg-[#0b0f19] rounded-2xl p-5 flex items-center gap-4 relative overflow-hidden shadow-lg shadow-black/10">
                       {/* Decorative gradient glow inside the card */}
                       <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-purple-600/20 to-transparent blur-2xl" />
-                      
-                      <div className="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center shrink-0 relative z-10">
-                        <img src="/favicon.svg" alt="Fundfy" className="w-6 h-6 object-contain" />
-                      </div>
                       
                       <div className="flex flex-col justify-center relative z-10 h-full">
                         <span className="text-base font-bold text-white leading-tight">Selected Contests</span>

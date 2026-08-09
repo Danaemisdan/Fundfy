@@ -59,7 +59,12 @@ function Home() {
     if (contestId) {
       navigate(`/contests/${contestId}${refCode ? `?ref=${refCode}` : ''}`);
     } else {
-      navigate('/register');
+      const el = document.getElementById('contests');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/register');
+      }
     }
   };
   const delayBase = !sessionStorage.getItem('splashPlayed') ? 6.2 : 0;
@@ -206,7 +211,7 @@ function Home() {
       </div>
 
       {/* CONTESTS SHOWCASE (Scroll down) */}
-      <div className="relative z-10 w-full bg-white">
+      <div id="contests" className="relative z-10 w-full bg-white">
         <ContestShowcase />
       </div>
 
