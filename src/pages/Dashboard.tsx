@@ -196,7 +196,7 @@ export default function Dashboard() {
             <div className="mt-8 space-y-3">
               <h3 className="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4">Your Custom Links (Copy & Share)</h3>
               {CONTESTS.map(contest => {
-                const link = `https://fundfy.app/register?contest=${contest.id}&ref=${stats.referralCode}`;
+                const link = `https://fundfy.app/?contest=${contest.id}&ref=${stats.referralCode}`;
                 return (
                   <div key={contest.id} className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white/10 transition-colors">
                     <div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
@@ -28,6 +28,17 @@ function RightGlobe() {
 function Home() {
   const [currency, setCurrency] = useState<'INR' | 'USD'>('USD');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const contestId = searchParams.get('contest');
+  const refCode = searchParams.get('ref');
+
+  const handleRegisterClick = () => {
+    if (contestId) {
+      navigate(`/contests/${contestId}${refCode ? `?ref=${refCode}` : ''}`);
+    } else {
+      navigate('/register');
+    }
+  };
   const delayBase = !sessionStorage.getItem('splashPlayed') ? 6.2 : 0;
 
   useEffect(() => {
@@ -66,7 +77,7 @@ function Home() {
           </Link>
           
           <MotionButton 
-            onClick={() => navigate('/register')}
+            onClick={handleRegisterClick}
             label="REGISTER NOW"
           />
         </header>

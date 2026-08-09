@@ -194,7 +194,7 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4 text-right">
                       <button 
                         onClick={() => {
-                          const links = CONTESTS.map(c => `${c.title}: https://fundfy.app/register?contest=${c.id}&ref=${ref.referral_code}`).join('\n\n');
+                          const links = CONTESTS.map(c => `${c.title}: https://fundfy.app/?contest=${c.id}&ref=${ref.referral_code}`).join('\n\n');
                           alert(`Referral Links for ${ref.email}:\n\n${links}`);
                         }}
                         className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
