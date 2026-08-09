@@ -27,7 +27,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹500' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -114,7 +114,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹200' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -190,7 +190,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹200' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -266,7 +266,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹200' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -342,7 +342,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹200' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -418,7 +418,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-      { label: 'Registration', value: '₹200' },
+
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -466,7 +466,7 @@ export const CONTESTS: ContestConfig[] = [
         ]
       }
     ],
-    registration: { mode: 'COMING_SOON', buttonText: 'COMING SOON' }
+    registration: { mode: 'EMBEDDED_FORM', buttonText: 'REGISTER NOW' }
   }
 ];
 
