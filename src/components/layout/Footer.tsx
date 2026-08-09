@@ -3,8 +3,9 @@ import { Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 
 const PARTNERS = [
   "/Partners/AWS_v2.png",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
   "/Partners/Epic_Games_logo.svg.webp",
-  "/Partners/Aurora OS.png?v=3",
   "/Partners/BrandForYou.png",
   "/Partners/DiceArtFilms_v2.png",
   "/Partners/JobFinderAI.png?v=3",

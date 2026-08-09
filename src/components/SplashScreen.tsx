@@ -47,11 +47,15 @@ export default function SplashScreen() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="flex items-center justify-center gap-12 md:gap-24"
+                    className="flex items-center justify-center gap-8 md:gap-16 w-full flex-wrap"
                   >
-                    <img src="/Partners/AWS_v2.png" alt="AWS" className="h-16 md:h-24 lg:h-32 object-contain mix-blend-multiply opacity-90" />
-                    <div className="w-[1px] h-20 bg-gray-300"></div>
-                    <img src="/Partners/Epic_Games_logo.svg.webp" alt="Epic Games" className="h-20 md:h-28 lg:h-36 object-contain mix-blend-multiply opacity-90" />
+                    <img src="/Partners/AWS_v2.png" alt="AWS" className="h-14 md:h-20 lg:h-28 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-14 md:h-20 lg:h-28 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-12 md:h-16 lg:h-24 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
+                    <img src="/Partners/Epic_Games_logo.svg.webp" alt="Epic Games" className="h-16 md:h-24 lg:h-32 object-contain mix-blend-multiply opacity-90" />
                   </motion.div>
                 </div>
 

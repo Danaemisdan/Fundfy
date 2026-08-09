@@ -5,10 +5,12 @@ import { supabase } from '../lib/supabase';
 import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
+import ContestShowcase from '../components/home/ContestShowcase';
 const PARTNERS = [
   "/Partners/AWS_v2.png",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
   "/Partners/Epic_Games_logo.svg.webp",
-  "/Partners/Aurora OS.png?v=3",
   "/Partners/BrandForYou.png",
   "/Partners/DiceArtFilms_v2.png",
   "/Partners/JobFinderAI.png?v=3",
@@ -199,6 +201,11 @@ function Home() {
             <span className="text-purple-400">THIS IS YOUR STAGE.</span>
           </div>
         </motion.footer>
+      </div>
+
+      {/* CONTESTS SHOWCASE (Scroll down) */}
+      <div className="relative z-10 w-full bg-[#050505]">
+        <ContestShowcase />
       </div>
 
     </div>
