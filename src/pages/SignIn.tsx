@@ -38,7 +38,9 @@ export default function SignIn() {
       <div className="w-full max-w-md glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden z-10">
         
         <div className="flex justify-center mb-8">
-          <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain" />
+          <div className="bg-white px-6 py-3 rounded-2xl shadow-lg">
+            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain" />
+          </div>
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-white text-center mb-2">
@@ -118,7 +120,7 @@ export default function SignIn() {
           <p className="text-sm text-white/50 mb-3 font-medium">Don't have an account yet?</p>
           <button 
             type="button" 
-            onClick={() => navigate('/register')}
+            onClick={() => navigate('/')}
             className="w-full border border-white/20 bg-white/5 text-white font-bold tracking-widest uppercase text-xs py-3 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all backdrop-blur-md"
           >
             Register for Contest
