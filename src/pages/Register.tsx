@@ -34,7 +34,13 @@ export default function Register() {
     const contestParam = params.get('contest');
     if (contestParam) {
       const valid = CONTESTS.find(c => c.id === contestParam && c.status !== 'COMING_SOON');
-      if (valid) setSelectedContestIds([valid.id]);
+      if (valid) {
+        setSelectedContestIds([valid.id]);
+      } else {
+        setSelectedContestIds([CONTESTS.filter(c => c.status !== 'COMING_SOON')[0].id]);
+      }
+    } else {
+      setSelectedContestIds([CONTESTS.filter(c => c.status !== 'COMING_SOON')[0].id]);
     }
 
     // Referral Tracking Logic
@@ -257,8 +263,7 @@ export default function Register() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {CONTESTS.map(contest => {
-                    const isSelected = selectedContestIds.includes(contest.id);
+                  {selectedContests.map(contest => {
                     const isComingSoon = contest.status === 'COMING_SOON';
                     const feeText = contest.registrationFee === 0 ? 'Free' : `₹${contest.registrationFee}`;
                     
@@ -277,23 +282,12 @@ export default function Register() {
                     };
 
                     return (
-                      <button
+                      <div
                         key={contest.id}
-                        type="button"
-                        disabled={isComingSoon}
-                        onClick={() => toggleContest(contest.id)}
-                        className={`relative p-5 rounded-2xl border text-left transition-all duration-300 flex flex-col group min-h-[160px]
-                          ${isComingSoon ? 'opacity-50 cursor-not-allowed bg-white border-white/5' : 'cursor-pointer glass-card'}
-                          ${isSelected ? `border-purple-500 shadow-md shadow-purple-500/10` : 'border-gray-200 hover:border-gray-300'}
-                        `}
+                        className="relative p-5 rounded-2xl border text-left flex flex-col min-h-[160px] bg-gray-50 border-purple-500 shadow-md shadow-purple-500/10"
                       >
                         <div className="flex items-start gap-3 w-full mb-4">
-                          <div className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 mt-1 transition-colors
-                            ${isSelected ? 'bg-purple-600 border-purple-600' : 'bg-white border-gray-300'}
-                          `}>
-                            {isSelected && <Check className="w-3.5 h-3.5 text-gray-900" strokeWidth={3} />}
-                          </div>
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isComingSoon ? 'bg-white' : 'bg-gray-100'}`}>
+                          <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-1 bg-white border border-gray-200">
                             {getIcon()}
                           </div>
                         </div>
@@ -317,14 +311,9 @@ export default function Register() {
                           </div>
                           {getBadge()}
                         </div>
-                      </button>
+                      </div>
                     );
                   })}
-                </div>
-                
-                <div className="flex items-center gap-2 text-xs font-medium text-gray-500 pt-4 border-t border-gray-200 mt-2">
-                  <Info className="w-4 h-4" />
-                  You can select multiple contests. Total fee will be calculated automatically.
                 </div>
               </section>
 
