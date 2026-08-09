@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import { LogOut, Copy, Users, Trophy, Wallet, CheckCircle2, MousePointerClick, Loader2 } from 'lucide-react';
 import { MotionButton } from '../components/ui/MotionButton';
+import ContestShowcase from '../components/home/ContestShowcase';
 
 export default function Dashboard() {
   const { user, signOut } = useAuth();
@@ -151,17 +152,8 @@ export default function Dashboard() {
               Share your unique referral link. When someone registers for the Global Talent Hunt 2026 using your link, you'll earn exclusive rewards and climb the leaderboard!
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-2 flex flex-col sm:flex-row gap-4 items-center">
-              <code className="text-purple-300 font-mono text-sm pl-4 truncate w-full sm:w-auto flex-1">
-                {referralLink}
-              </code>
-              <button 
-                onClick={handleCopy}
-                className="w-full sm:w-auto bg-purple-500 hover:bg-purple-600 text-white px-8 py-4 rounded-xl font-bold tracking-widest uppercase text-xs transition-colors flex items-center justify-center gap-2 shrink-0"
-              >
-                {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                {copied ? 'Copied!' : 'Copy Link'}
-              </button>
+            <div className="-mx-8 md:-mx-12 -mb-8 md:-mb-12 mt-4">
+              <ContestShowcase referrerMode={true} referralCode={stats.referralCode} />
             </div>
           </div>
         </div>

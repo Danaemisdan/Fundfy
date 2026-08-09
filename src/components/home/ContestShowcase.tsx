@@ -64,10 +64,11 @@ function PlaceholderArtwork({ type, theme }: { type: string, theme: any }) {
   }
 }
 
-export default function ContestShowcase() {
+export default function ContestShowcase({ referrerMode = false, referralCode = '' }: { referrerMode?: boolean, referralCode?: string }) {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   useEffect(() => {
     if (isPaused) return;
@@ -94,7 +95,7 @@ export default function ContestShowcase() {
   };
 
   return (
-    <section className="w-full bg-[#050505] text-white pt-24 pb-32 relative z-10 overflow-hidden">
+    <section className={`w-full text-white relative z-10 overflow-hidden ${referrerMode ? 'bg-transparent pt-12 pb-16' : 'bg-[#050505] pt-24 pb-32'}`}>
       
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 mb-16 relative z-20">
         <h2 className="text-4xl md:text-7xl font-futuristic font-bold tracking-tighter">
@@ -132,9 +133,16 @@ export default function ContestShowcase() {
                 isActive ? 'cursor-pointer' : 'cursor-pointer'
               }`}
               onClick={() => {
-                if (isActive) {
-                  navigate(`/contests/${contest.id}`);
-                } else if (Math.abs(offset) === 1) {
+                if (isActive && contest.status === 'OPEN') {
+                  if (referrerMode) {
+                    const link = `https://fundfy.app/contests/${contest.id}?ref=${referralCode}`;
+                    navigator.clipboard.writeText(link);
+                    setCopiedId(contest.id);
+                    setTimeout(() => setCopiedId(null), 2000);
+                  } else {
+                    navigate('/contests/' + contest.id);
+                  }
+                } else {
                   setActiveIndex(index);
                 }
               }}
@@ -187,7 +195,7 @@ export default function ContestShowcase() {
                   </div>
                   
                   <button className={`text-[10px] font-bold tracking-[0.2em] uppercase border px-4 py-2 rounded-full transition-colors duration-300 ${isActive ? 'border-white/20 group-hover:bg-white group-hover:text-black' : 'border-white/5 text-gray-500'}`}>
-                    {isActive ? 'VIEW' : 'SELECT'}
+                    {isActive ? (referrerMode ? (copiedId === contest.id ? 'COPIED!' : 'COPY LINK') : 'VIEW') : 'SELECT'}
                   </button>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { getContestConfig } from '../data/contests';
 import Header from '../components/layout/Header';
 import { MotionButton } from '../components/ui/MotionButton';
@@ -60,8 +60,13 @@ export default function ContestLayout() {
     return <Navigate to="/" replace />;
   }
 
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const ref = params.get('ref');
+  const registrationPath = `/register?contest=${config.id}${ref ? `&ref=${ref}` : ''}`;
+
   const handleRegisterClick = () => {
-    navigate(`/register?contest=${config.id}`);
+    navigate(registrationPath);
   };
 
   return (
@@ -73,7 +78,7 @@ export default function ContestLayout() {
       />
 
       <Header 
-        registrationUrl={`/register?contest=${config.id}`}
+        registrationUrl={registrationPath}
         buttonText={config.registration.buttonText} 
         onRegisterClick={handleRegisterClick}
       />

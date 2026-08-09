@@ -55,9 +55,7 @@ export default function Register() {
   }, [selectedContestIds]);
 
   const toggleContest = (id: string) => {
-    setSelectedContestIds(prev => 
-      prev.includes(id) ? prev.filter(cId => cId !== id) : [...prev, id]
-    );
+    setSelectedContestIds(prev => prev.includes(id) ? [] : [id]);
     if (errors.contest) setErrors(prev => ({ ...prev, contest: undefined } as any));
   };
 
@@ -114,8 +112,9 @@ export default function Register() {
     }
   };
 
-  const fee = selectedContests.reduce((sum, c) => sum + (c.registrationFee || 0), 0);
-  const currency = selectedContests[0]?.currency || 'INR';
+  const hasReferral = !!sessionStorage.getItem('referral_code') || new URLSearchParams(location.search).has('ref');
+  const fee = selectedContests.length > 0 ? (hasReferral ? 100 : 200) : 0;
+  const currency = 'INR';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -210,7 +209,7 @@ export default function Register() {
                     </h2>
                     {errors.contest && <span className="text-xs font-semibold text-red-500">{errors.contest}</span>}
                   </div>
-                  <p className="text-sm text-gray-500 font-medium">Choose one or more contests you want to participate in.</p>
+                  <p className="text-sm text-gray-500 font-medium">Choose the contest you want to participate in.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -466,9 +465,21 @@ export default function Register() {
                       </span>
                       <div className="flex flex-col gap-3">
                         {selectedContests.map(c => (
-                          <div key={c.id} className="flex justify-between items-start gap-4">
-                            <span className="text-sm font-bold text-gray-900 leading-tight">{c.title}</span>
-                            <span className="text-sm font-medium text-gray-600 shrink-0">₹{c.registrationFee}</span>
+                          <div key={c.id} className="flex flex-col gap-1">
+                            <div className="flex justify-between items-start gap-4">
+                              <span className="text-sm font-bold text-gray-900 leading-tight">{c.title}</span>
+                              {hasReferral ? (
+                                <div className="flex flex-col items-end">
+                                  <span className="text-xs text-gray-400 line-through">₹200</span>
+                                  <span className="text-sm font-bold text-green-600 shrink-0">₹100</span>
+                                </div>
+                              ) : (
+                                <span className="text-sm font-medium text-gray-600 shrink-0">₹200</span>
+                              )}
+                            </div>
+                            {hasReferral && (
+                              <span className="text-[10px] font-bold text-green-600 uppercase tracking-widest bg-green-50 w-fit px-2 py-0.5 rounded mt-1">50% Referral Discount Applied</span>
+                            )}
                           </div>
                         ))}
                         

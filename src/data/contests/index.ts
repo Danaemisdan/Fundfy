@@ -8,7 +8,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Build the future with Artificial Intelligence.',
     category: 'Software Engineering',
     difficulty: 'Advanced',
-    prizeHighlight: '$10,000 + AWS Credits',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'purple-600',
       secondaryAccent: 'blue-500',
@@ -26,7 +26,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$25,000+' },
+      { label: 'Prize Pool', value: '₹50 Lakhs' },
       { label: 'Registration', value: '₹500' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
@@ -66,26 +66,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
         ]
       },
       {
-        title: 'EXCLUSIVE EXPERIENCES',
+        title: 'EXCLUSIVE VIP EXPERIENCE',
         theme: 'premium',
         items: [
-          { title: 'Meet Akon', description: 'Once in a lifetime VIP experience.' }
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -102,7 +101,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Optimize your career.',
     category: 'Career',
     difficulty: 'All Levels',
-    prizeHighlight: 'Premium Mentorship',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'emerald-500',
       secondaryAccent: 'cyan-500',
@@ -138,19 +137,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
+        ]
+      },
+      {
+        title: 'EXCLUSIVE VIP EXPERIENCE',
+        theme: 'premium',
+        items: [
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -167,7 +172,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Build the metaverse.',
     category: 'Design',
     difficulty: 'Intermediate',
-    prizeHighlight: '$5,000',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'orange-500',
       secondaryAccent: 'rose-500',
@@ -203,19 +208,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
+        ]
+      },
+      {
+        title: 'EXCLUSIVE VIP EXPERIENCE',
+        theme: 'premium',
+        items: [
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -232,7 +243,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Bring digital humans to life.',
     category: 'Design',
     difficulty: 'Advanced',
-    prizeHighlight: 'RTX 4090 PC',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'pink-500',
       secondaryAccent: 'violet-500',
@@ -268,19 +279,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
+        ]
+      },
+      {
+        title: 'EXCLUSIVE VIP EXPERIENCE',
+        theme: 'premium',
+        items: [
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -297,7 +314,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Craft perfect interfaces.',
     category: 'Design',
     difficulty: 'All Levels',
-    prizeHighlight: '$8,000',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'yellow-400',
       secondaryAccent: 'orange-500',
@@ -333,19 +350,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
+        ]
+      },
+      {
+        title: 'EXCLUSIVE VIP EXPERIENCE',
+        theme: 'premium',
+        items: [
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -362,7 +385,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'The future of learning.',
     category: 'Education',
     difficulty: 'All Levels',
-    prizeHighlight: 'TBA',
+    prizeHighlight: '₹50 Lakhs Prize Pool',
     theme: {
       primaryAccent: 'blue-500',
       secondaryAccent: 'indigo-500',
@@ -398,19 +421,25 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: 'Digital Participation Certificate' }
+          { title: 'Verified Digital Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
         ]
       },
       {
-        title: 'TOP WINNERS RECEIVE',
+        title: 'PRIZE POOL & CAREER',
         theme: 'dark',
         items: [
-          { title: '1ST PRIZE', value: '$10,000' },
-          { title: '2ND PRIZE', value: '$2,000' },
-          { title: '3RD PRIZE', value: '$1,000' },
-          { title: '4TH PRIZE', value: '$500' },
-          { title: '5TH PRIZE', value: '$250' }
+          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
+          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
+          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
+        ]
+      },
+      {
+        title: 'EXCLUSIVE VIP EXPERIENCE',
+        theme: 'premium',
+        items: [
+          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
+          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
