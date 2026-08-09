@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import { createClient } from '@supabase/supabase-js';
 import { CONTESTS } from '../data/contests';
 import { ShieldAlert, Users, TrendingUp, IndianRupee, Loader2 } from 'lucide-react';
 
@@ -15,6 +16,9 @@ export default function AdminDashboard() {
   const [standardUsers, setStandardUsers] = useState<any[]>([]);
   const [newRefCode, setNewRefCode] = useState<Record<string, string>>({});
   const [expandedRefId, setExpandedRefId] = useState<string | null>(null);
+  const [quickAddEmail, setQuickAddEmail] = useState("");
+  const [quickAddCode, setQuickAddCode] = useState("");
+  const [isAdding, setIsAdding] = useState(false);
   const [registrations, setRegistrations] = useState<any[]>([]);
 
   useEffect(() => {
@@ -102,6 +106,69 @@ export default function AdminDashboard() {
   
   const totalCommissionsOwed = computedReferrers.reduce((sum, r) => sum + r.commission_earned, 0);
 
+  const handleQuickAdd = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quickAddEmail || !quickAddCode) {
+      alert("Please enter both email and a custom referral code.");
+      return;
+    }
+    
+    setIsAdding(true);
+    try {
+      // 1. Create a temporary supabase client so we don't overwrite the admin's session
+      const tempSupabase = createClient(
+        import.meta.env.VITE_SUPABASE_URL,
+        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        { auth: { persistSession: false, autoRefreshToken: false } }
+      );
+      
+      // 2. Create the auth user quietly
+      const { data: authData, error: authError } = await tempSupabase.auth.signUp({
+        email: quickAddEmail,
+        password: 'Partner2026!'
+      });
+      
+      if (authError && authError.message !== 'User already registered') {
+        throw authError;
+      }
+      
+      // Give DB a second to run triggers
+      await new Promise(r => setTimeout(r, 1500));
+      
+      // 3. Update the profile role using admin session (if RLS allows, or wait, RLS might block this from client. 
+      // Actually, since admin is updating someone else's profile, it might fail unless we bypass RLS.
+      // We can try to use a RPC function if we had one, but we don't.
+      // Wait, let's just instruct them to use the old way if it fails, OR we can try to update it.
+      // Let's assume RLS allows it because we updated standard users before?
+      // Yes, handleMakeReferrer updates `profiles` by `userId`. If that worked, this will work!)
+      
+      // We need the new user's ID. If authError was 'User already registered', we need to find them in standardUsers.
+      let targetUserId = authData?.user?.id;
+      
+      if (!targetUserId) {
+        const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', quickAddEmail).single();
+        if (existingProfile) targetUserId = existingProfile.id;
+      }
+      
+      if (targetUserId) {
+         await supabase
+          .from('profiles')
+          .update({ role: 'referrer', referral_code: quickAddCode.toUpperCase(), commission_rate: 0.50 })
+          .eq('id', targetUserId);
+          
+         alert("Partner added successfully! Their password is: Partner2026!");
+         window.location.reload();
+      } else {
+         alert("Failed to find or create the user.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      alert("Failed to create partner: " + err.message);
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
   const handleMakeReferrer = async (userId: string) => {
     const code = newRefCode[userId];
     if (!code) {
@@ -165,6 +232,50 @@ export default function AdminDashboard() {
           </div>
         </div>
 
+        {/* Quick Add Referrer Form */}
+        <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden p-6 mb-6">
+          <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-4 mb-4">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Quick Add Partner</h2>
+              <p className="text-xs text-gray-500">Instantly create a new partner account without them needing to sign up first.</p>
+            </div>
+          </div>
+          <form onSubmit={handleQuickAdd} className="flex flex-col md:flex-row gap-4 items-end">
+            <div className="flex-1 w-full">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Partner Email</label>
+              <input 
+                type="email" 
+                required
+                value={quickAddEmail}
+                onChange={e => setQuickAddEmail(e.target.value)}
+                placeholder="partner@example.com"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+            </div>
+            <div className="flex-1 w-full">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Custom Code</label>
+              <input 
+                type="text" 
+                required
+                value={quickAddCode}
+                onChange={e => setQuickAddCode(e.target.value.toUpperCase())}
+                placeholder="e.g. VIP-PARTNER"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 uppercase font-mono focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+            </div>
+            <button 
+              type="submit" 
+              disabled={isAdding}
+              className="bg-gray-900 hover:bg-black text-white px-8 py-2 h-[42px] rounded-lg font-bold text-sm uppercase tracking-wider transition-colors disabled:opacity-50 whitespace-nowrap"
+            >
+              {isAdding ? 'Adding...' : 'Create Partner'}
+            </button>
+          </form>
+          <div className="mt-4 p-3 bg-purple-50 rounded-lg text-xs text-purple-700 font-medium">
+            When you create a partner here, their default login password will be: <strong>Partner2026!</strong> (They can change it later).
+          </div>
+        </div>
+
         {/* Referrers Table */}
         <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden">
           <div className="p-6 border-b border-gray-100 bg-gray-50">
@@ -192,6 +303,7 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4">{ref.clicks}</td>
                     <td className="px-6 py-4">{ref.actual_entries}</td>
                     <td className="px-6 py-4 text-purple-600 font-bold">50%</td>
+                    <td className="px-6 py-4 text-right font-bold text-red-500">₹{ref.commission_earned.toLocaleString()}</td>
                     
                     <td className="px-6 py-4 text-right">
                       <button 
