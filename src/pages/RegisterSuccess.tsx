@@ -81,12 +81,31 @@ export default function RegisterSuccess() {
         await supabase.from('registrations').insert({
           user_name: displayState.participantName,
           user_email: displayState.email,
-          user_phone: `${displayState.phone} || PWD:${displayState.password}`,
+          user_phone: displayState.phone,
           amount_paid: displayState.amount,
           payment_id: paymentId,
           referral_code: referralCode
         });
         sessionStorage.setItem('registration_tracked', 'true');
+        
+        // Create account now that registration and payment are successful
+        if (displayState.password) {
+          try {
+            await supabase.auth.signUp({
+              email: displayState.email,
+              password: displayState.password,
+              options: {
+                data: {
+                  first_name: displayState.participantName.split(' ')[0],
+                  last_name: displayState.participantName.split(' ').slice(1).join(' '),
+                }
+              }
+            });
+          } catch (e) {
+            console.error("Auth signup silently failed/already exists", e);
+          }
+        }
+
         
         // --- EMAILJS AUTOMATED EMAIL ---
         // You will need to create an EmailJS account and fill these inside your .env file

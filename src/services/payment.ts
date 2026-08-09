@@ -41,22 +41,16 @@ export class PaymentService implements PaymentProvider, PaymentGateway {
   }
 
   async initializePayment(order: PaymentOrder, options: any): Promise<PaymentDetails> {
-    console.log(`[PaymentService] Redirecting to direct payment link...`);
+    console.log(`[PaymentService] Opening payment modal...`);
     
-    // Instead of using the Razorpay API SDK which requires domain verification,
-    // we simply redirect the user to a pre-generated Razorpay Payment Link/Page!
-    // We can use a standard link or dynamically choose based on the amount.
+    // Simulate user interacting with payment modal and successfully paying
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
-    const PAYMENT_LINK = order.amount === 100 
-      ? "https://rzp.io/rzp/xIyzuCr" 
-      : "https://rzp.io/rzp/JqDi7itA";
-    
-    // Redirect the browser to the payment link
-    window.location.href = PAYMENT_LINK;
-    
-    // Return a pending promise that never resolves, so the UI stays in "loading" state 
-    // while the browser redirects the user away.
-    return new Promise(() => {});
+    return {
+      razorpay_payment_id: `pay_${Math.random().toString(36).substring(2, 9)}`,
+      razorpay_order_id: order.orderId,
+      razorpay_signature: "mock_signature"
+    };
   }
 
   // Mocks verifying the signature on the backend (not used in direct link flow unless redirect back is set up)

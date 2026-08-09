@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, ArrowRight, Check, ShieldCheck, Lock, 
-  Info, AlertCircle, Loader2, Box, User, Monitor, Rocket, GraduationCap
+  Info, AlertCircle, Loader2, Box, User, Monitor, Rocket, GraduationCap, Eye, EyeOff
 } from 'lucide-react';
 import { CONTESTS } from '../data/contests';
 import { paymentService } from '../services/payment';
@@ -80,16 +80,17 @@ export default function Register() {
     lastName: '',
     email: '',
     password: '',
+    confirmPassword: '',
     phone: '',
-    country: '',
-    state: '',
-    city: '',
     role: '' as 'student' | 'professional' | '',
     collegeCompany: '',
     linkedin: '',
     portfolio: '',
     github: ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
@@ -108,9 +109,9 @@ export default function Register() {
     if (!formData.email.trim() || !emailRegex.test(formData.email)) newErrors.email = 'Valid email required';
     
     if (!formData.phone.trim()) newErrors.phone = 'Required';
-    if (!formData.country.trim()) newErrors.country = 'Required';
-    if (!formData.city.trim()) newErrors.city = 'Required';
     if (!formData.role) newErrors.role = 'Please select your role';
+    if (formData.password.length < 6) newErrors.password = 'Min 6 characters';
+    if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
     
     if (!termsAccepted) {
       newErrors.terms = 'You must accept the Terms & Conditions to proceed.';
@@ -138,36 +139,6 @@ export default function Register() {
 
     setIsSubmitting(true);
     try {
-      // 0. Create Supabase Auth Account
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
-        options: {
-          data: {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-          }
-        }
-      });
-
-      if (authError && authError.message !== 'User already registered') {
-        setErrors({ submit: 'Account creation failed: ' + authError.message });
-        setIsSubmitting(false);
-        return;
-      }
-      
-      if (authError && authError.message === 'User already registered') {
-        const { error: signInErr } = await supabase.auth.signInWithPassword({
-          email: formData.email,
-          password: formData.password
-        });
-        if (signInErr) {
-          setErrors({ submit: 'Email already registered. If this is you, please ensure your password is correct, or log in first.' });
-          setIsSubmitting(false);
-          return;
-        }
-      }
-
       // 1. Create Order via our abstracted payment service
       const receiptId = `rcpt_${Math.random().toString(36).substring(7)}`;
       const amount = fee;
@@ -192,6 +163,8 @@ export default function Register() {
             contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
             participantName: `${formData.firstName} ${formData.lastName}`,
             email: formData.email,
+            phone: formData.phone,
+            password: formData.password,
             paymentStatus: amount > 0 ? 'Completed' : 'Free Entry',
             amount,
             currency
@@ -333,8 +306,49 @@ export default function Register() {
                   <InputField label="Last Name" name="lastName" value={formData.lastName} onChange={handleInputChange} error={errors.lastName} required placeholder="Enter last name" />
                   
                   <InputField label="Email Address" type="email" name="email" value={formData.email} onChange={handleInputChange} error={errors.email} required placeholder="Enter email address" />
-                  <InputField label="Create Password" type="password" name="password" value={formData.password} onChange={handleInputChange} error={errors.password} required placeholder="Min 6 characters" />
                   
+                  {/* Password with Eye Toggle */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[10px] font-bold text-gray-700 uppercase tracking-wide flex justify-between">
+                      Create Password <span className="text-red-500">*</span>
+                    </label>
+                    <div className={`flex items-center rounded-xl border ${errors.password ? 'border-red-300 ring-4 ring-red-50 bg-white' : 'border-gray-200 bg-white focus-within:border-black focus-within:ring-4 focus-within:ring-gray-100'} transition-all overflow-hidden`}>
+                      <input
+                        type={showPassword ? 'text' : 'password'}
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        placeholder="Min 6 characters"
+                        className="w-full px-4 py-3 text-gray-900 text-sm font-medium outline-none bg-transparent"
+                      />
+                      <button type="button" onClick={() => setShowPassword(!showPassword)} className="pr-4 text-gray-400 hover:text-gray-700 focus:outline-none">
+                        {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                      </button>
+                    </div>
+                    {errors.password && <span className="text-[10px] text-red-500 font-semibold">{errors.password}</span>}
+                  </div>
+                  
+                  {/* Confirm Password with Eye Toggle */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[10px] font-bold text-gray-700 uppercase tracking-wide flex justify-between">
+                      Confirm Password <span className="text-red-500">*</span>
+                    </label>
+                    <div className={`flex items-center rounded-xl border ${errors.confirmPassword ? 'border-red-300 ring-4 ring-red-50 bg-white' : 'border-gray-200 bg-white focus-within:border-black focus-within:ring-4 focus-within:ring-gray-100'} transition-all overflow-hidden`}>
+                      <input
+                        type={showConfirmPassword ? 'text' : 'password'}
+                        name="confirmPassword"
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
+                        placeholder="Retype password"
+                        className="w-full px-4 py-3 text-gray-900 text-sm font-medium outline-none bg-transparent"
+                      />
+                      <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="pr-4 text-gray-400 hover:text-gray-700 focus:outline-none">
+                        {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                      </button>
+                    </div>
+                    {errors.confirmPassword && <span className="text-[10px] text-red-500 font-semibold">{errors.confirmPassword}</span>}
+                  </div>
+
                   {/* Phone Number Field */}
                   <div className="flex flex-col gap-2">
                     <label className="text-[10px] font-bold text-gray-700 uppercase tracking-wide flex justify-between">
@@ -356,52 +370,6 @@ export default function Register() {
                       />
                     </div>
                     {errors.phone && <span className="text-[10px] text-red-500 font-semibold">{errors.phone}</span>}
-                  </div>
-                  
-                  {/* Country, State, City Row */}
-                  <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="flex flex-col gap-2">
-                      <label className="text-[10px] font-bold text-gray-700 uppercase tracking-wide flex justify-between">
-                        Country <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <select 
-                          name="country" 
-                          value={formData.country || ''} 
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl border ${errors.country ? 'border-red-300 ring-4 ring-red-50' : 'border-gray-200 focus:border-black focus:ring-4 focus:ring-gray-100'} bg-white text-gray-900 text-sm font-medium transition-all outline-none appearance-none`}
-                        >
-                          <option value="" disabled>Select country</option>
-                          <option value="India">India</option>
-                          <option value="USA">USA</option>
-                          <option value="UK">UK</option>
-                        </select>
-                        <svg className="w-4 h-4 text-gray-400 absolute right-4 top-3.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                      </div>
-                      {errors.country && <span className="text-[10px] text-red-500 font-semibold">{errors.country}</span>}
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <label className="text-[10px] font-bold text-gray-700 uppercase tracking-wide flex justify-between">
-                        State <span className="text-red-500">*</span>
-                      </label>
-                      <div className="relative">
-                        <select 
-                          name="state" 
-                          value={(formData as any).state || ''} 
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl border ${(errors as any).state ? 'border-red-300 ring-4 ring-red-50' : 'border-gray-200 focus:border-black focus:ring-4 focus:ring-gray-100'} bg-white text-gray-900 text-sm font-medium transition-all outline-none appearance-none`}
-                        >
-                          <option value="" disabled>Select state</option>
-                          <option value="Maharashtra">Maharashtra</option>
-                          <option value="Karnataka">Karnataka</option>
-                          <option value="Delhi">Delhi</option>
-                        </select>
-                        <svg className="w-4 h-4 text-gray-400 absolute right-4 top-3.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                      </div>
-                    </div>
-
-                    <InputField label="City" name="city" value={formData.city} onChange={handleInputChange} error={errors.city} required placeholder="Enter city" />
                   </div>
 
                   {/* Role & College */}
