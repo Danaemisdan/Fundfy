@@ -194,7 +194,8 @@ export default function Dashboard() {
               <ContestShowcase referrerMode={true} referralCode={stats.referralCode} />
             </div>
           </div>
-          </>
+        </div>
+        </>
         )}
       </div>
     </div>
