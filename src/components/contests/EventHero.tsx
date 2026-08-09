@@ -1,6 +1,22 @@
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function EventHero({ data, theme, onRegisterClick }: { data: any, theme: any, onRegisterClick: () => void }) {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const hasReferral = !!sessionStorage.getItem('referral_code') || searchParams.has('ref');
+  
+  const [entries, setEntries] = useState(1243); // Start at a base number
+  
+  useEffect(() => {
+    // Fake live counter effect
+    const interval = setInterval(() => {
+      setEntries(prev => prev + Math.floor(Math.random() * 3));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={`relative w-full min-h-[90vh] bg-[#050505] text-white flex flex-col items-center justify-center pt-20 pb-10 overflow-hidden`}>
       
@@ -41,6 +57,31 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           {data.subtitle}
         </motion.p>
 
+        {/* Premium Sponsors & Live Counter */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex flex-col items-center gap-6"
+        >
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-[9px] font-bold tracking-[0.3em] text-gray-500 uppercase">Backed by industry leaders</span>
+            <div className="flex items-center justify-center gap-6 md:gap-10 grayscale opacity-60">
+              <span className="font-bold text-xl md:text-2xl tracking-tighter">Amazon AWS</span>
+              <span className="font-bold text-xl md:text-2xl tracking-widest font-mono">NVIDIA</span>
+              <span className="font-bold text-xl md:text-2xl italic">Microsoft</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3 px-6 py-3 rounded-full border border-green-500/30 bg-green-500/5 backdrop-blur-sm mt-4">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span className="text-sm font-bold text-green-400 tracking-wider"><span className="text-white text-lg">{entries.toLocaleString()}</span> CONTESTANTS REGISTERED</span>
+          </div>
+        </motion.div>
+
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,16 +103,31 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           transition={{ duration: 1, delay: 0.8 }}
           className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 border-t border-white/10 pt-8 mt-auto"
         >
-          {data.statistics.map((stat: any, idx: number) => (
-            <div key={idx} className="flex flex-col items-center justify-center text-center">
-              <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
-                {stat.label}
-              </span>
-              <span className={`text-xl md:text-2xl font-futuristic font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.accentGradient}`}>
-                {stat.value}
-              </span>
-            </div>
-          ))}
+          {data.statistics.map((stat: any, idx: number) => {
+            if (stat.label === 'Registration' && hasReferral) {
+              return (
+                <div key={idx} className="flex flex-col items-center justify-center text-center">
+                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
+                    {stat.label}
+                  </span>
+                  <span className={`text-xl md:text-2xl font-futuristic font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.accentGradient} flex items-center gap-2`}>
+                    <span className="line-through text-gray-500 opacity-60 text-sm">₹200</span>
+                    ₹100
+                  </span>
+                </div>
+              );
+            }
+            return (
+              <div key={idx} className="flex flex-col items-center justify-center text-center">
+                <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
+                  {stat.label}
+                </span>
+                <span className={`text-xl md:text-2xl font-futuristic font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.accentGradient}`}>
+                  {stat.value}
+                </span>
+              </div>
+            );
+          })}
         </motion.div>
 
       </div>
