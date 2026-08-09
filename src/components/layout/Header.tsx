@@ -6,7 +6,7 @@ import { MotionButton } from '../ui/MotionButton';
 export default function Header({ registrationUrl = "/register", buttonText = "REGISTER NOW", onRegisterClick }: { registrationUrl?: string, buttonText?: string, onRegisterClick?: () => void }) {
   const navigate = useNavigate();
   return (
-    <header className="relative z-50 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0 w-full max-w-7xl mx-auto">
+    <header className="relative z-50 flex flex-row justify-between items-center px-6 md:px-8 lg:px-12 py-4 shrink-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 shadow-sm">
       <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
         <div className="flex items-center gap-2 md:gap-3">
           <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
