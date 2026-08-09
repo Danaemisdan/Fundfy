@@ -90,7 +90,7 @@ export default function AdminDashboard() {
   const computedReferrers = referrers.map(ref => {
     const refsEntries = registrations.filter(r => r.referral_code === ref.referral_code);
     const moneyEarned = refsEntries.reduce((sum, r) => sum + Number(r.amount_paid), 0);
-    const commission = moneyEarned * (ref.commission_rate || 0.50);
+    const commission = moneyEarned * 0.50;
     
     return {
       ...ref,
@@ -184,25 +184,55 @@ export default function AdminDashboard() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {computedReferrers.map((ref, i) => (
-                  <tr key={i} className="hover:bg-gray-50/50">
+                  <React.Fragment key={i}>
+                  <tr className="hover:bg-gray-50/50">
                     <td className="px-6 py-4 font-medium text-gray-900">{ref.email}</td>
                     <td className="px-6 py-4"><code className="bg-gray-100 px-2 py-1 rounded text-purple-600">{ref.referral_code}</code></td>
                     <td className="px-6 py-4">{ref.clicks}</td>
                     <td className="px-6 py-4">{ref.actual_entries}</td>
-                    <td className="px-6 py-4">{(ref.commission_rate * 100).toFixed(0)}%</td>
+                    <td className="px-6 py-4 text-purple-600 font-bold">50%</td>
                     
                     <td className="px-6 py-4 text-right">
                       <button 
-                        onClick={() => {
-                          const links = CONTESTS.map(c => `${c.title}: https://fundfy.app/?contest=${c.id}&ref=${ref.referral_code}`).join('\n\n');
-                          alert(`Referral Links for ${ref.email}:\n\n${links}`);
-                        }}
+                        onClick={() => setExpandedRefId(expandedRefId === ref.id ? null : ref.id)}
                         className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
                       >
-                        View Links
+                        {expandedRefId === ref.id ? 'Hide Links' : 'View Links'}
                       </button>
                     </td>
                   </tr>
+                  {expandedRefId === ref.id && (
+                    <tr>
+                      <td colSpan={7} className="px-6 py-4 bg-gray-50/80 border-b border-gray-100">
+                        <div className="space-y-2">
+                          <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Copy Referral Links</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {CONTESTS.map(c => {
+                              const link = `https://fundfy.app/?contest=${c.id}&ref=${ref.referral_code}`;
+                              return (
+                                <div key={c.id} className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-bold text-gray-900 truncate">{c.title}</div>
+                                    <div className="text-[10px] text-gray-500 truncate">{link}</div>
+                                  </div>
+                                  <button
+                                    onClick={() => {
+                                      navigator.clipboard.writeText(link);
+                                    }}
+                                    className="shrink-0 p-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition-colors"
+                                    title="Copy Link"
+                                  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                  </React.Fragment>
                 ))}
                 {computedReferrers.length === 0 && (
                   <tr>

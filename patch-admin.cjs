@@ -1,118 +1,109 @@
 const fs = require('fs');
 const path = require('path');
 
-const adminPath = path.join(__dirname, 'src', 'pages', 'AdminDashboard.tsx');
-let adminContent = fs.readFileSync(adminPath, 'utf8');
+function patchAdminDashboard() {
+  const file = path.join(__dirname, 'src/pages/AdminDashboard.tsx');
+  let code = fs.readFileSync(file, 'utf8');
 
-// Add state
-const stateTarget = `  const [referrers, setReferrers] = useState<any[]>([]);`;
-const stateReplacement = `  const [referrers, setReferrers] = useState<any[]>([]);
-  const [standardUsers, setStandardUsers] = useState<any[]>([]);
-  const [newRefCode, setNewRefCode] = useState<Record<string, string>>({});`;
-adminContent = adminContent.replace(stateTarget, stateReplacement);
+  // 1. Force commission_rate to 0.50 in calculation
+  // Currently: const commission = moneyEarned * (ref.commission_rate || 0.50);
+  code = code.replace(
+    /const commission = moneyEarned \* \(ref\.commission_rate \|\| 0\.50\);/,
+    'const commission = moneyEarned * 0.50;'
+  );
 
-// Fetch users
-const fetchTarget = `        const { data: profilesData } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('role', 'referrer')
-          .order('created_at', { ascending: false });`;
-const fetchReplacement = `        const { data: profilesData } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('role', 'referrer')
-          .order('created_at', { ascending: false });
-          
-        const { data: usersData } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('role', 'user')
-          .order('created_at', { ascending: false });
-        
-        setStandardUsers(usersData || []);`;
-adminContent = adminContent.replace(fetchTarget, fetchReplacement);
+  // 2. Add state for expanded row
+  if (!code.includes('const [expandedRefId, setExpandedRefId] = useState<string | null>(null);')) {
+    code = code.replace(
+      'const [newRefCode, setNewRefCode] = useState<{ [key: string]: string }>({});',
+      'const [newRefCode, setNewRefCode] = useState<{ [key: string]: string }>({});\n  const [expandedRefId, setExpandedRefId] = useState<string | null>(null);'
+    );
+  }
 
-// Make referrer function
-const renderTarget = `  const totalCommissionsOwed = computedReferrers.reduce((sum, r) => sum + r.commission_earned, 0);`;
-const renderReplacement = `  const totalCommissionsOwed = computedReferrers.reduce((sum, r) => sum + r.commission_earned, 0);
+  // 3. Force display to 50% and fix row layout
+  const mapStart = '{computedReferrers.map((ref, i) => (';
+  const newMapStart = '{computedReferrers.map((ref, i) => (\n                  <React.Fragment key={i}>';
+  code = code.replace(mapStart, newMapStart);
+  
+  // Need to import React
+  if (!code.includes("import React, { useEffect, useState } from 'react';")) {
+    // Should be there already
+  }
 
-  const handleMakeReferrer = async (userId: string) => {
-    const code = newRefCode[userId];
-    if (!code) {
-      alert('Please enter a referral code first.');
-      return;
-    }
-    
-    try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ role: 'referrer', referral_code: code, commission_rate: 0.20 })
-        .eq('id', userId);
-        
-      if (error) throw error;
-      alert('User upgraded to Referrer!');
-      window.location.reload();
-    } catch (err) {
-      console.error(err);
-      alert('Failed to upgrade user');
-    }
-  };`;
-adminContent = adminContent.replace(renderTarget, renderReplacement);
-
-// Add table UI
-const tableTarget = `        {/* Global Registrations Table */}`;
-const tableReplacement = `        {/* Standard Users Management Table */}
-        <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-gray-100 bg-gray-50 flex flex-col md:flex-row md:justify-between items-start md:items-center gap-2">
-            <h2 className="text-lg font-bold text-gray-900">User Management (Make Referrers)</h2>
-            <span className="text-xs text-gray-500 font-medium">To generate a referrer account, tell the person to Sign Up on the platform, then assign them a code here.</span>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
-                <tr>
-                  <th className="px-6 py-4">User Email</th>
-                  <th className="px-6 py-4">Joined Date</th>
-                  <th className="px-6 py-4">Custom Referral Code</th>
-                  <th className="px-6 py-4 text-right">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {standardUsers.map((u, i) => (
-                  <tr key={i} className="hover:bg-gray-50/50">
-                    <td className="px-6 py-4 font-medium text-gray-900">{u.email}</td>
-                    <td className="px-6 py-4 text-gray-500">{new Date(u.created_at).toLocaleDateString()}</td>
-                    <td className="px-6 py-4">
-                      <input 
-                        type="text" 
-                        placeholder="e.g. VIP-AKON" 
-                        value={newRefCode[u.id] || ''}
-                        onChange={(e) => setNewRefCode(prev => ({ ...prev, [u.id]: e.target.value.toUpperCase() }))}
-                        className="border border-gray-300 rounded px-3 py-1.5 text-sm w-48 uppercase font-mono focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none"
-                      />
-                    </td>
-                    <td className="px-6 py-4 text-right">
+  // Replace the tr up to the end of tr
+  // Wait, I can just use a regex for the entire tr map body, but it's risky.
+  // Let's replace line by line.
+  
+  code = code.replace(
+    /<td className="px-6 py-4">\{\(ref\.commission_rate \* 100\)\.toFixed\(0\)\}%<\/td>/,
+    '<td className="px-6 py-4 text-purple-600 font-bold">50%</td>'
+  );
+  
+  // Wait, I need to replace the button and add the expanded row.
+  const oldButton = `<td className="px-6 py-4 text-right">
                       <button 
-                        onClick={() => handleMakeReferrer(u.id)}
-                        className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1.5 rounded font-bold text-xs uppercase tracking-wider transition-colors"
+                        onClick={() => {
+                          const links = CONTESTS.map(c => \`\${c.title}: https://fundfy.app/?contest=\${c.id}&ref=\${ref.referral_code}\`).join('\\n\\n');
+                          alert(\`Referral Links for \${ref.email}:\\n\\n\${links}\`);
+                        }}
+                        className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
                       >
-                        Make Referrer
+                        View Links
+                      </button>
+                    </td>
+                  </tr>`;
+                  
+  const newButton = `<td className="px-6 py-4 text-right">
+                      <button 
+                        onClick={() => setExpandedRefId(expandedRefId === ref.id ? null : ref.id)}
+                        className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
+                      >
+                        {expandedRefId === ref.id ? 'Hide Links' : 'View Links'}
                       </button>
                     </td>
                   </tr>
-                ))}
-                {standardUsers.length === 0 && (
-                  <tr>
-                    <td colSpan={4} className="px-6 py-8 text-center text-gray-500">No standard users found.</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                  {expandedRefId === ref.id && (
+                    <tr>
+                      <td colSpan={7} className="px-6 py-4 bg-gray-50/80 border-b border-gray-100">
+                        <div className="space-y-2">
+                          <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Copy Referral Links</h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {CONTESTS.map(c => {
+                              const link = \`https://fundfy.app/?contest=\${c.id}&ref=\${ref.referral_code}\`;
+                              return (
+                                <div key={c.id} className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm flex items-center justify-between gap-3">
+                                  <div className="min-w-0">
+                                    <div className="text-xs font-bold text-gray-900 truncate">{c.title}</div>
+                                    <div className="text-[10px] text-gray-500 truncate">{link}</div>
+                                  </div>
+                                  <button
+                                    onClick={() => {
+                                      navigator.clipboard.writeText(link);
+                                    }}
+                                    className="shrink-0 p-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition-colors"
+                                    title="Copy Link"
+                                  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                  </button>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                  </React.Fragment>`;
 
-        {/* Global Registrations Table */}`;
-adminContent = adminContent.replace(tableTarget, tableReplacement);
+  code = code.replace(oldButton, newButton);
+  code = code.replace(/<tr key=\{i\} className="hover:bg-gray-50\/50">/, '<tr className="hover:bg-gray-50/50">');
+  
+  // also missed the text right owed thing in the previous step? Let's make sure it's there.
+  // Actually, wait, does `<React.Fragment>` have the key? Yes, I added `<React.Fragment key={i}>`.
+  // The `tr` inside it shouldn't have `key={i}`.
 
-fs.writeFileSync(adminPath, adminContent, 'utf8');
-console.log('Successfully patched AdminDashboard.tsx');
+  fs.writeFileSync(file, code, 'utf8');
+}
+
+patchAdminDashboard();
+console.log('AdminDashboard patched!');
