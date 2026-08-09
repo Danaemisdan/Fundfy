@@ -197,8 +197,10 @@ export default function Register() {
             GLOBAL<span className="text-purple-400">TALENT</span>HUNT
           </span>
         </Link>
-        <div className="hidden md:flex items-center gap-2 text-xs font-bold text-gray-400 tracking-widest uppercase">
-          <Lock className="w-4 h-4 text-gray-400" /> Secure Registration
+        <div className="hidden md:flex items-center gap-2 md:gap-3">
+          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0" />
+          <span className="text-gray-300 font-light">|</span>
+          <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 md:h-9 w-auto object-contain shrink-0" />
         </div>
       </header>
 
