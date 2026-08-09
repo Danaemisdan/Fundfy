@@ -93,9 +93,9 @@ function Home() {
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
             <div className="flex items-center gap-1.5 md:gap-3 glass-card px-4 py-2 rounded-full">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform brightness-0 invert" />
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
               <span className="text-white/30 font-light hidden md:block">|</span>
-              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform brightness-0 invert" />
+              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
             <div className="w-[1px] h-6 bg-white/30 hidden md:block opacity-50 ml-1"></div>
             <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-400 leading-tight group-hover:text-purple-400 transition-colors uppercase tracking-[0.2em]">
@@ -156,7 +156,7 @@ function Home() {
               {/* AWS Credits Pill */}
               <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
                 <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden bg-white/10 rounded-full">
-                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[80%] h-[80%] object-contain brightness-0 invert" />
+                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[80%] h-[80%] object-contain" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
                   GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">$5,000</span> IN CREDITS
@@ -187,7 +187,7 @@ function Home() {
                 
                 return (
                   <div key={i} className="h-6 sm:h-7 md:h-8 lg:h-9 flex items-center justify-center shrink-0">
-                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[80px] md:max-w-[80px] lg:max-w-[95px] object-contain brightness-0 invert ${scaleClass}`} />
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[80px] md:max-w-[80px] lg:max-w-[95px] object-contain ${scaleClass}`} />
                   </div>
                 );
               })}
@@ -200,12 +200,6 @@ function Home() {
             <Feature icon={<UserCheck className="text-purple-400" />} title="EXPERT MENTORSHIP" desc="Learn and grow with the best." />
             <Feature icon={<Gift className="text-purple-400" />} title="AMAZING REWARDS" desc="Win cash prizes and exciting perks." />
             <Feature icon={<Rocket className="text-purple-400" />} title="CAREER BOOST" desc="Opportunities that take you further." />
-          </div>
-
-          {/* Bottom Pill */}
-          <div className="w-full bg-[#11131c] rounded-full py-3 md:py-4 flex items-center justify-center gap-4 text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/90 uppercase overflow-hidden relative">
-            <span>TALENT HAS NO BOUNDARIES.</span>
-            <span className="text-purple-400">THIS IS YOUR STAGE.</span>
           </div>
         </motion.footer>
       </div>
