@@ -14,6 +14,7 @@ export default function AdminDashboard() {
   const [referrers, setReferrers] = useState<any[]>([]);
   const [standardUsers, setStandardUsers] = useState<any[]>([]);
   const [newRefCode, setNewRefCode] = useState<Record<string, string>>({});
+  const [expandedRefId, setExpandedRefId] = useState<string | null>(null);
   const [registrations, setRegistrations] = useState<any[]>([]);
 
   useEffect(() => {
