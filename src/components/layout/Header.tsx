@@ -20,10 +20,15 @@ export default function Header({ registrationUrl = "/register", buttonText = "RE
         </div>
       </Link>
       
-      <MotionButton 
-        onClick={() => onRegisterClick ? onRegisterClick() : navigate(registrationUrl)}
-        label={buttonText}
-      />
+      <div className="flex items-center gap-4 md:gap-6">
+        <Link to="/signin" className="text-[10px] md:text-xs font-bold text-gray-500 hover:text-purple-600 transition-colors uppercase tracking-wider">
+          Login
+        </Link>
+        <MotionButton 
+          onClick={() => onRegisterClick ? onRegisterClick() : navigate(registrationUrl)}
+          label={buttonText}
+        />
+      </div>
     </header>
   );
 }
