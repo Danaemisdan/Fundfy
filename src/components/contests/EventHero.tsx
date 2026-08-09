@@ -110,7 +110,7 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
                   <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
                     {stat.label}
                   </span>
-                  <span className={`text-xl md:text-2xl font-futuristic font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.accentGradient} flex items-center gap-2`}>
+                  <span className="text-xl md:text-2xl font-futuristic font-bold text-white flex items-center gap-2">
                     <span className="line-through text-gray-500 opacity-60 text-sm">₹200</span>
                     ₹100
                   </span>
@@ -122,7 +122,7 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
                 <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
                   {stat.label}
                 </span>
-                <span className={`text-xl md:text-2xl font-futuristic font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.accentGradient}`}>
+                <span className="text-xl md:text-2xl font-futuristic font-bold text-white">
                   {stat.value}
                 </span>
               </div>
