@@ -156,7 +156,7 @@ function Home() {
               {/* AWS Credits Pill */}
               <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
                 <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center overflow-hidden bg-white/90 rounded-full shadow-inner">
-                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[80%] h-[80%] object-contain" />
+                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[85%] h-[85%] object-contain scale-125" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
                   GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">$5,000</span> IN CREDITS
@@ -181,13 +181,13 @@ function Home() {
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
                 if (src.includes('TingoAI')) scaleClass = 'scale-75';
-                if (src.includes('AWS')) scaleClass = 'scale-110';
-                if (src.includes('IBM')) scaleClass = 'scale-75';
+                if (src.includes('AWS')) scaleClass = 'scale-[1.3]';
+                if (src.includes('IBM')) scaleClass = 'scale-90';
                 if (src.includes('BrandForYou')) scaleClass = 'scale-125';
                 
                 return (
-                  <div key={i} className="h-6 sm:h-7 md:h-8 lg:h-9 flex items-center justify-center shrink-0">
-                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[80px] md:max-w-[80px] lg:max-w-[95px] object-contain ${scaleClass}`} />
+                  <div key={i} className="h-6 sm:h-7 md:h-8 lg:h-9 flex items-center justify-center shrink-0 px-2 md:px-0">
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[100px] md:max-w-[120px] lg:max-w-[140px] object-contain ${scaleClass}`} />
                   </div>
                 );
               })}
