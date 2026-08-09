@@ -53,10 +53,10 @@ export default function SignIn() {
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-gray-900 text-center mb-2">
-          Partner Portal
+          Welcome
         </h1>
         <p className="text-gray-500 text-center mb-8 font-medium">
-          {isSignUp ? 'Create your partner account' : 'Sign in to view your dashboard'}
+          {isSignUp ? 'Create your account' : 'Sign in to your account'}
         </p>
 
         {success && (
@@ -130,7 +130,7 @@ export default function SignIn() {
             onClick={() => { setIsSignUp(!isSignUp); setError(null); setSuccess(false); }} 
             className="text-sm font-bold text-gray-500 hover:text-purple-600 transition-colors"
           >
-            {isSignUp ? 'Already have an account? Sign In' : 'Need a partner account? Sign Up'}
+            {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
           </button>
         </div>
       </div>

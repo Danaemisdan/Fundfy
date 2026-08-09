@@ -11,6 +11,8 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [role, setRole] = useState<'user' | 'referrer' | 'admin'>('user');
+  const [userRegistrations, setUserRegistrations] = useState<any[]>([]);
   const [stats, setStats] = useState({
     clicks: 0,
     entries: 0,
@@ -38,6 +40,14 @@ export default function Dashboard() {
           navigate('/admin');
           return;
         }
+        
+        setRole(profile?.role || 'user');
+
+        const { data: userRegs } = await supabase
+          .from('registrations')
+          .select('*')
+          .eq('email', user.email);
+        setUserRegistrations(userRegs || []);
 
         const refCode = profile?.referral_code || '';
         
@@ -115,8 +125,36 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {role === 'user' ? (
+          <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm p-8">
+            <h2 className="text-xl font-bold mb-6">My Registrations</h2>
+            {userRegistrations.length > 0 ? (
+              <div className="flex flex-col gap-4">
+                {userRegistrations.map((reg, i) => (
+                  <div key={i} className="flex justify-between items-center p-4 border border-gray-100 rounded-xl bg-gray-50">
+                    <div>
+                      <h3 className="font-bold text-gray-900">{reg.contest_name}</h3>
+                      <p className="text-sm text-gray-500">Amount Paid: ₹{reg.amount_paid}</p>
+                    </div>
+                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider">
+                      {reg.payment_status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-gray-500 mb-4">You haven't registered for any contests yet.</p>
+                <button onClick={() => navigate('/')} className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold uppercase tracking-widest text-xs transition-colors">
+                  Explore Contests
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <MousePointerClick className="w-24 h-24" />
@@ -156,8 +194,8 @@ export default function Dashboard() {
               <ContestShowcase referrerMode={true} referralCode={stats.referralCode} />
             </div>
           </div>
-        </div>
-
+          </>
+        )}
       </div>
     </div>
   );
