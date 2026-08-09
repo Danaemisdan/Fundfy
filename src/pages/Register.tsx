@@ -145,7 +145,21 @@ export default function Register() {
       
       const order = await paymentService.createOrder(amount, currency, receiptId);
       
-      // 2. Initialize Payment Gateway (Mocking Razorpay flow)
+      // Save state to sessionStorage before redirecting away to Razorpay Link
+      const statePayload = {
+        registrationId: `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+        contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
+        participantName: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+        paymentStatus: amount > 0 ? 'Completed' : 'Free Entry',
+        amount,
+        currency
+      };
+      sessionStorage.setItem('pending_registration', JSON.stringify(statePayload));
+      
+      // 2. Initialize Payment Gateway (Redirects to Razorpay Link)
       const paymentDetails = await paymentService.initializePayment(order, {
         name: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
@@ -157,19 +171,7 @@ export default function Register() {
 
       if (isVerified) {
         // Success! Navigate to success page with state payload
-        navigate('/register/success', {
-          state: {
-            registrationId: `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
-            contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
-            participantName: `${formData.firstName} ${formData.lastName}`,
-            email: formData.email,
-            phone: formData.phone,
-            password: formData.password,
-            paymentStatus: amount > 0 ? 'Completed' : 'Free Entry',
-            amount,
-            currency
-          }
-        });
+        navigate('/register/success', { state: statePayload });
       } else {
         setErrors({ submit: 'Payment verification failed. Please try again.' });
       }

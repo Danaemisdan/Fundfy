@@ -38,7 +38,7 @@ export default function SignIn() {
       <div className="w-full max-w-md glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden z-10">
         
         <div className="flex justify-center mb-8">
-          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
+          <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain" />
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-white text-center mb-2">

@@ -22,13 +22,16 @@ export default function RegisterSuccess() {
   const razorpayPaymentId = searchParams.get('razorpay_payment_id');
   const razorpayPaymentLinkId = searchParams.get('razorpay_payment_link_id');
 
-  // If accessed directly without state AND without Razorpay redirect params, redirect to register
-  if (!state && !razorpayPaymentId) {
+  // If accessed directly without state AND without Razorpay redirect params AND without saved session state, redirect to register
+  const savedStateStr = sessionStorage.getItem('pending_registration');
+  const savedState = savedStateStr ? JSON.parse(savedStateStr) : null;
+
+  if (!state && !razorpayPaymentId && !savedState) {
     return <Navigate to="/register" replace />;
   }
 
-  // Use state if available (from mock flow), otherwise construct mock state from Razorpay params
-  const displayState = state || {
+  // Use state if available (from mock flow), or savedState (from Razorpay Link redirect)
+  const displayState = state || savedState || {
     registrationId: razorpayPaymentId || `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
     contestName: 'Global Talent Hunt Registration',
     participantName: 'Participant',
