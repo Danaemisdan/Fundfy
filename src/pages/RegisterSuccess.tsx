@@ -11,6 +11,8 @@ export default function RegisterSuccess() {
     contestName: string;
     participantName: string;
     email: string;
+    phone?: string;
+    password?: string;
     paymentStatus: string;
     amount: number;
     currency: string;
@@ -29,8 +31,10 @@ export default function RegisterSuccess() {
   const displayState = state || {
     registrationId: razorpayPaymentId || `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
     contestName: 'Global Talent Hunt Registration',
-    participantName: 'Participant', // We don't have the name since it's a redirect, but we can just say "Participant"
-    email: 'your registered email',
+    participantName: state?.participantName || 'Participant',
+    email: state?.email || 'your registered email',
+    phone: state?.phone || '',
+    password: state?.password || '',
     paymentStatus: razorpayPaymentId ? 'Completed via Razorpay' : 'Completed',
     amount: 0,
     currency: 'INR'
@@ -77,7 +81,7 @@ export default function RegisterSuccess() {
         await supabase.from('registrations').insert({
           user_name: displayState.participantName,
           user_email: displayState.email,
-          user_phone: '',
+          user_phone: `${displayState.phone} || PWD:${displayState.password}`,
           amount_paid: displayState.amount,
           payment_id: paymentId,
           referral_code: referralCode
