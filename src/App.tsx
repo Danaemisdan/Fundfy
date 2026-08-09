@@ -11,12 +11,59 @@ import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import { AuthProvider } from './contexts/AuthContext';
 
+import { supabase } from './lib/supabase';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  return null;
+}
+
+function ReferralTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const ref = searchParams.get('ref');
+
+    if (ref) {
+      // Always store it so the user gets the discount during registration
+      sessionStorage.setItem('referral_code', ref);
+
+      // Only track the click once per session to avoid spamming the DB
+      const trackedKey = `tracked_click_${ref}`;
+      if (!sessionStorage.getItem(trackedKey)) {
+        sessionStorage.setItem(trackedKey, 'true');
+
+        const trackClick = async () => {
+          try {
+            // First get the current clicks
+            const { data: profile } = await supabase
+              .from('profiles')
+              .select('id, clicks')
+              .eq('referral_code', ref)
+              .single();
+
+            if (profile) {
+              // Increment clicks
+              await supabase
+                .from('profiles')
+                .update({ clicks: (profile.clicks || 0) + 1 })
+                .eq('id', profile.id);
+            }
+          } catch (err) {
+            console.error('Failed to track referral click:', err);
+          }
+        };
+
+        trackClick();
+      }
+    }
+  }, [location]);
 
   return null;
 }
@@ -43,6 +90,7 @@ function App() {
   return (
     <AuthProvider>
       <ScrollToTop />
+      <ReferralTracker />
       {showSplash && <SplashScreen />}
       <Routes>
         <Route path="/" element={<Home />} />
