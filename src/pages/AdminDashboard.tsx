@@ -18,6 +18,7 @@ export default function AdminDashboard() {
   const [expandedRefId, setExpandedRefId] = useState<string | null>(null);
   const [quickAddEmail, setQuickAddEmail] = useState("");
   const [quickAddCode, setQuickAddCode] = useState("");
+  const [quickAddPassword, setQuickAddPassword] = useState("");
   const [isAdding, setIsAdding] = useState(false);
   const [registrations, setRegistrations] = useState<any[]>([]);
 
@@ -108,8 +109,8 @@ export default function AdminDashboard() {
 
   const handleQuickAdd = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!quickAddEmail || !quickAddCode) {
-      alert("Please enter both email and a custom referral code.");
+    if (!quickAddEmail || !quickAddCode || !quickAddPassword) {
+      alert("Please enter an email, referral code, and password.");
       return;
     }
     
@@ -125,7 +126,7 @@ export default function AdminDashboard() {
       // 2. Create the auth user quietly
       const { data: authData, error: authError } = await tempSupabase.auth.signUp({
         email: quickAddEmail,
-        password: 'Partner2026!'
+        password: quickAddPassword
       });
       
       if (authError && authError.message !== 'User already registered') {
@@ -156,7 +157,7 @@ export default function AdminDashboard() {
           .update({ role: 'referrer', referral_code: quickAddCode.toUpperCase(), commission_rate: 0.50 })
           .eq('id', targetUserId);
           
-         alert("Partner added successfully! Their password is: Partner2026!");
+         alert("Partner added successfully! Their password is: " + quickAddPassword);
          window.location.reload();
       } else {
          alert("Failed to find or create the user.");
@@ -263,6 +264,17 @@ export default function AdminDashboard() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 uppercase font-mono focus:ring-2 focus:ring-purple-500 outline-none"
               />
             </div>
+            <div className="flex-1 w-full">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Password</label>
+              <input 
+                type="text" 
+                required
+                value={quickAddPassword}
+                onChange={e => setQuickAddPassword(e.target.value)}
+                placeholder="e.g. Secret123!"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+            </div>
             <button 
               type="submit" 
               disabled={isAdding}
@@ -271,9 +283,7 @@ export default function AdminDashboard() {
               {isAdding ? 'Adding...' : 'Create Partner'}
             </button>
           </form>
-          <div className="mt-4 p-3 bg-purple-50 rounded-lg text-xs text-purple-700 font-medium">
-            When you create a partner here, their default login password will be: <strong>Partner2026!</strong> (They can change it later).
-          </div>
+          
         </div>
 
         {/* Referrers Table */}
