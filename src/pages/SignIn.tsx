@@ -49,7 +49,7 @@ export default function SignIn() {
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex justify-center mb-8">
-          <img src="/favicon.svg" alt="Fundfy" className="h-10 w-auto object-contain" />
+          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
         </div>
 
         <h1 className="text-2xl md:text-3xl font-sans font-bold text-gray-900 text-center mb-2">
