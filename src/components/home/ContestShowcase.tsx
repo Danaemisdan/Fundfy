@@ -62,7 +62,7 @@ export default function ContestShowcase({ referrerMode = false, referralCode = '
 
                 <div className="flex items-center gap-6 md:gap-12 w-full md:w-auto mt-8 md:mt-0 justify-between md:justify-end">
                   <div className="flex flex-col items-start md:items-end">
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-1">Prize Pool</span>
+                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-1">Status</span>
                     <span className="text-lg md:text-xl font-black text-black">
                       {contest.prizeHighlight}
                     </span>

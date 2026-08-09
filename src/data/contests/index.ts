@@ -8,7 +8,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Build the future with Artificial Intelligence.',
     category: 'Software Engineering',
     difficulty: 'Advanced',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'purple-600',
       secondaryAccent: 'blue-500',
@@ -99,7 +99,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Optimize your career.',
     category: 'Career',
     difficulty: 'All Levels',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'emerald-500',
       secondaryAccent: 'cyan-500',
@@ -175,7 +175,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Build the metaverse.',
     category: 'Design',
     difficulty: 'Intermediate',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'orange-500',
       secondaryAccent: 'rose-500',
@@ -251,7 +251,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Bring digital humans to life.',
     category: 'Design',
     difficulty: 'Advanced',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'pink-500',
       secondaryAccent: 'violet-500',
@@ -327,7 +327,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'Craft perfect interfaces.',
     category: 'Design',
     difficulty: 'All Levels',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'yellow-400',
       secondaryAccent: 'orange-500',
@@ -403,7 +403,7 @@ export const CONTESTS: ContestConfig[] = [
     subtitle: 'The future of learning.',
     category: 'Education',
     difficulty: 'All Levels',
-    prizeHighlight: '₹50 Lakhs Prize Pool',
+    prizeHighlight: 'Registration Open',
     theme: {
       primaryAccent: 'blue-500',
       secondaryAccent: 'indigo-500',
