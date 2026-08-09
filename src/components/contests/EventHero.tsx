@@ -6,16 +6,6 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const hasReferral = !!sessionStorage.getItem('referral_code') || searchParams.has('ref');
-  
-  const [entries, setEntries] = useState(1243); // Start at a base number
-  
-  useEffect(() => {
-    // Fake live counter effect
-    const interval = setInterval(() => {
-      setEntries(prev => prev + Math.floor(Math.random() * 3));
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className={`relative w-full min-h-[90vh] bg-[#050505] text-white flex flex-col items-center justify-center pt-20 pb-10 overflow-hidden`}>
@@ -71,14 +61,6 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
               <span className="font-bold text-xl md:text-2xl tracking-tight font-sans">Google Cloud</span>
               <span className="font-bold text-xl md:text-2xl tracking-widest font-serif">IBM</span>
             </div>
-          </div>
-          
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full border border-green-500/30 bg-green-500/5 backdrop-blur-sm mt-4">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            <span className="text-sm font-bold text-green-400 tracking-wider"><span className="text-white text-lg">{entries.toLocaleString()}</span> CONTESTANTS REGISTERED</span>
           </div>
         </motion.div>
 

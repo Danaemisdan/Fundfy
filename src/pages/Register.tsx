@@ -17,8 +17,17 @@ export default function Register() {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Parse initial contest from URL
   const [selectedContestIds, setSelectedContestIds] = useState<string[]>([]);
+
+  const [entries, setEntries] = useState(1243); // Start at a base number
+  
+  useEffect(() => {
+    // Fake live counter effect
+    const interval = setInterval(() => {
+      setEntries(prev => prev + Math.floor(Math.random() * 3));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
   
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -222,6 +231,9 @@ export default function Register() {
           </h1>
           <p className="text-base text-white/70 font-medium">
             Join exciting competitions. Showcase your talent. Win big.
+          </p>
+          <p className="mt-4 text-sm text-white/40 font-medium tracking-wide">
+            Join {entries.toLocaleString()} other contestants who have already registered globally.
           </p>
         </div>
 
