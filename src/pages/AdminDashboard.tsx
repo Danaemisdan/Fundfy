@@ -19,8 +19,14 @@ export default function AdminDashboard() {
   const [quickAddEmail, setQuickAddEmail] = useState("");
   const [quickAddCode, setQuickAddCode] = useState("");
   const [quickAddPassword, setQuickAddPassword] = useState("");
+  const [quickAddCommission, setQuickAddCommission] = useState(50);
+  const [quickAddPrice, setQuickAddPrice] = useState(100);
   const [isAdding, setIsAdding] = useState(false);
   const [registrations, setRegistrations] = useState<any[]>([]);
+  
+  const [editingPartnerId, setEditingPartnerId] = useState<string | null>(null);
+  const [editCommission, setEditCommission] = useState(50);
+  const [editPrice, setEditPrice] = useState(100);
 
   useEffect(() => {
     const checkAdminAndFetchData = async () => {
@@ -96,7 +102,7 @@ export default function AdminDashboard() {
   const computedReferrers = referrers.map(ref => {
     const refsEntries = registrations.filter(r => r.referral_code === ref.referral_code);
     const moneyEarned = refsEntries.reduce((sum, r) => sum + Number(r.amount_paid), 0);
-    const commission = moneyEarned * 0.50;
+    const commission = moneyEarned * (ref.commission_rate ?? 0.50);
     
     return {
       ...ref,
@@ -154,7 +160,12 @@ export default function AdminDashboard() {
       if (targetUserId) {
          await supabase
           .from('profiles')
-          .update({ role: 'referrer', referral_code: quickAddCode.toUpperCase(), commission_rate: 0.50 })
+          .update({ 
+            role: 'referrer', 
+            referral_code: quickAddCode.toUpperCase(), 
+            commission_rate: quickAddCommission / 100,
+            referral_price: quickAddPrice
+          })
           .eq('id', targetUserId);
           
          alert("Partner added successfully! Their password is: " + quickAddPassword);
@@ -180,7 +191,7 @@ export default function AdminDashboard() {
     try {
       const { error } = await supabase
         .from('profiles')
-        .update({ role: 'referrer', referral_code: code, commission_rate: 0.50 })
+        .update({ role: 'referrer', referral_code: code, commission_rate: 0.50, referral_price: 100 })
         .eq('id', userId);
         
       if (error) throw error;
@@ -191,6 +202,26 @@ export default function AdminDashboard() {
       alert('Failed to upgrade user');
     }
   };
+
+  const handleSavePartner = async (userId: string) => {
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ 
+          commission_rate: editCommission / 100,
+          referral_price: editPrice
+        })
+        .eq('id', userId);
+        
+      if (error) throw error;
+      alert('Partner updated successfully!');
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+      alert('Failed to update partner');
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-[#fafafa] p-6 lg:p-12 font-sans">
@@ -275,6 +306,29 @@ export default function AdminDashboard() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono focus:ring-2 focus:ring-purple-500 outline-none"
               />
             </div>
+            <div className="w-24">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Comm. %</label>
+              <input 
+                type="number" 
+                required
+                min="0"
+                max="100"
+                value={quickAddCommission}
+                onChange={e => setQuickAddCommission(Number(e.target.value))}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+            </div>
+            <div className="w-24">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Price (₹)</label>
+              <input 
+                type="number" 
+                required
+                min="0"
+                value={quickAddPrice}
+                onChange={e => setQuickAddPrice(Number(e.target.value))}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
+              />
+            </div>
             <button 
               type="submit" 
               disabled={isAdding}
@@ -299,9 +353,10 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4">Ref Code</th>
                   <th className="px-6 py-4">Link Clicks</th>
                   <th className="px-6 py-4">Paid Entries</th>
-                  <th className="px-6 py-4">Commission Rate</th>
+                  <th className="px-6 py-4">Comm. %</th>
+                  <th className="px-6 py-4">Price (₹)</th>
                   <th className="px-6 py-4 text-right">Owed (₹)</th>
-                  <th className="px-6 py-4 text-right">Links</th>
+                  <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -312,15 +367,38 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4"><code className="bg-gray-100 px-2 py-1 rounded text-purple-600">{ref.referral_code}</code></td>
                     <td className="px-6 py-4">{ref.clicks}</td>
                     <td className="px-6 py-4">{ref.actual_entries}</td>
-                    <td className="px-6 py-4 text-purple-600 font-bold">50%</td>
+                    {editingPartnerId === ref.id ? (
+                      <>
+                        <td className="px-6 py-4">
+                          <input type="number" min="0" max="100" value={editCommission} onChange={e => setEditCommission(Number(e.target.value))} className="w-16 border border-gray-300 rounded px-2 py-1 text-sm outline-none" />
+                        </td>
+                        <td className="px-6 py-4">
+                          <input type="number" min="0" value={editPrice} onChange={e => setEditPrice(Number(e.target.value))} className="w-16 border border-gray-300 rounded px-2 py-1 text-sm outline-none" />
+                        </td>
+                      </>
+                    ) : (
+                      <>
+                        <td className="px-6 py-4 text-purple-600 font-bold">{Math.round((ref.commission_rate ?? 0.5) * 100)}%</td>
+                        <td className="px-6 py-4 font-bold">₹{ref.referral_price ?? 100}</td>
+                      </>
+                    )}
                     <td className="px-6 py-4 text-right font-bold text-red-500">₹{ref.commission_earned.toLocaleString()}</td>
                     
-                    <td className="px-6 py-4 text-right">
+                    <td className="px-6 py-4 text-right flex items-center justify-end gap-2">
+                      {editingPartnerId === ref.id ? (
+                        <button onClick={() => handleSavePartner(ref.id)} className="text-[10px] bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors">
+                          Save
+                        </button>
+                      ) : (
+                        <button onClick={() => { setEditingPartnerId(ref.id); setEditCommission(Math.round((ref.commission_rate ?? 0.5) * 100)); setEditPrice(ref.referral_price ?? 100); }} className="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors">
+                          Edit
+                        </button>
+                      )}
                       <button 
                         onClick={() => setExpandedRefId(expandedRefId === ref.id ? null : ref.id)}
                         className="text-[10px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors"
                       >
-                        {expandedRefId === ref.id ? 'Hide Links' : 'View Links'}
+                        {expandedRefId === ref.id ? 'Hide Links' : 'Links'}
                       </button>
                     </td>
                   </tr>

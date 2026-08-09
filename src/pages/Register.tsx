@@ -18,6 +18,8 @@ export default function Register() {
   const navigate = useNavigate();
   
   const [selectedContestIds, setSelectedContestIds] = useState<string[]>([]);
+  const [customFee, setCustomFee] = useState<number | null>(null);
+  const [checkingReferral, setCheckingReferral] = useState(false);
 
   const [entries, setEntries] = useState(1243); // Start at a base number
   
@@ -45,6 +47,9 @@ export default function Register() {
 
     // Referral Tracking Logic
     const refParam = params.get('ref');
+    const storedRef = sessionStorage.getItem('referral_code');
+    const activeRef = refParam || storedRef;
+    
     if (refParam) {
       // Save for when they successfully pay
       sessionStorage.setItem('referral_code', refParam);
@@ -62,6 +67,30 @@ export default function Register() {
         incrementClick();
         sessionStorage.setItem('click_tracked_' + refParam, 'true');
       }
+    }
+    
+    if (activeRef) {
+      const checkRef = async () => {
+        setCheckingReferral(true);
+        try {
+          const { data } = await supabase
+            .from('profiles')
+            .select('referral_price')
+            .eq('referral_code', activeRef)
+            .single();
+            
+          if (data && data.referral_price !== null) {
+            setCustomFee(data.referral_price);
+          } else {
+            setCustomFee(100); // fallback
+          }
+        } catch (err) {
+          setCustomFee(100);
+        } finally {
+          setCheckingReferral(false);
+        }
+      };
+      checkRef();
     }
   }, [location.search]);
 
@@ -130,7 +159,7 @@ export default function Register() {
   };
 
   const hasReferral = !!sessionStorage.getItem('referral_code') || new URLSearchParams(location.search).has('ref');
-  const fee = selectedContests.length > 0 ? (hasReferral ? 100 : 200) : 0;
+  const fee = selectedContests.length > 0 ? (hasReferral ? (customFee !== null ? customFee : 100) : 200) : 0;
   const currency = 'INR';
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -508,7 +537,7 @@ export default function Register() {
                         TOTAL AMOUNT
                       </span>
                       <span className="text-4xl font-sans font-bold text-gray-900 tracking-tight">
-                        ₹{fee}
+                        {checkingReferral ? '...' : formatCurrency(fee)}
                       </span>
                     </div>
 
@@ -550,15 +579,15 @@ export default function Register() {
 
                       <button
                         type="submit"
-                        disabled={isSubmitting || selectedContests.length === 0 || !termsAccepted}
+                        disabled={isSubmitting || selectedContests.length === 0 || !termsAccepted || checkingReferral}
                         className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300
-                          ${isSubmitting || selectedContests.length === 0 || !termsAccepted
+                          ${isSubmitting || selectedContests.length === 0 || !termsAccepted || checkingReferral
                             ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
                             : 'bg-black text-white hover:bg-gray-800 hover:shadow-xl hover:shadow-black/10 hover:-translate-y-0.5'
                           }
                         `}
                       >
-                        {isSubmitting ? (
+                        {isSubmitting || checkingReferral ? (
                           <Loader2 className="w-5 h-5 animate-spin text-black" />
                         ) : (
                           <>
