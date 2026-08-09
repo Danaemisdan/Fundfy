@@ -46,14 +46,9 @@ export default function SignIn() {
           Welcome
         </h1>
         <p className="text-gray-500 text-center mb-8 font-medium">
-          'Sign in to your account'
+          Sign in to your account
         </p>
 
-        {success && (
-          <div className="bg-green-50 text-green-700 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-green-100">
-            Account created successfully! You can now sign in.
-          </div>
-        )}
 
         {error && (
           <div className="bg-red-50 text-red-600 text-sm font-medium px-4 py-3 rounded-xl mb-6 border border-red-100">
