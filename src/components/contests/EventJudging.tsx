@@ -37,7 +37,7 @@ export default function EventJudging({ data }: { data: any }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={\`bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col hover:shadow-md transition-shadow \${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}\`}
+                className={`bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col hover:shadow-md transition-shadow ${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 <div className="flex items-center justify-between mb-8">
                   <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center">

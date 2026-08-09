@@ -47,8 +47,9 @@ export class PaymentService implements PaymentProvider, PaymentGateway {
     // we simply redirect the user to a pre-generated Razorpay Payment Link/Page!
     // We can use a standard link or dynamically choose based on the amount.
     
-    // Default placeholder link (User can replace this with their actual Razorpay Payment Link)
-    const PAYMENT_LINK = import.meta.env.VITE_RAZORPAY_PAYMENT_LINK || "https://rzp.io/l/placeholder";
+    const PAYMENT_LINK = order.amount === 100 
+      ? "https://rzp.io/rzp/xIyzuCr" 
+      : "https://rzp.io/rzp/JqDi7itA";
     
     // Redirect the browser to the payment link
     window.location.href = PAYMENT_LINK;

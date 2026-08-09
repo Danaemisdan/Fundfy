@@ -85,25 +85,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
-        ]
-      }
     ],
     registration: {
       mode: 'EMBEDDED_FORM',
@@ -146,7 +127,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
       { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-        judgingCriteria: [
+    judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
       { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
       { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
@@ -178,25 +159,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: 'Verified Global Participation Certificate' },
           { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
           { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -241,7 +203,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
       { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-        judgingCriteria: [
+    judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
       { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
       { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
@@ -273,25 +235,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: 'Verified Global Participation Certificate' },
           { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
           { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -336,7 +279,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
       { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-        judgingCriteria: [
+    judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
       { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
       { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
@@ -368,25 +311,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: 'Verified Global Participation Certificate' },
           { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
           { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -431,7 +355,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
       { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-        judgingCriteria: [
+    judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
       { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
       { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
@@ -463,25 +387,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: 'Verified Global Participation Certificate' },
           { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
           { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],
@@ -526,7 +431,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
       { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-        judgingCriteria: [
+    judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
       { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
       { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
@@ -558,25 +463,6 @@ export const CONTESTS: ContestConfig[] = [
           { title: 'Verified Global Participation Certificate' },
           { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
           { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ]
-      },
-      {
-        title: 'PRIZE POOL & CAREER',
-        theme: 'dark',
-        items: [
-          { title: '₹50 Lakhs Total Prize Pool', value: 'CASH PRIZES' },
-          { title: '$5,000 Amazon AWS Credits', value: 'AWS' },
-          { title: 'Career Boost & Job Support', value: 'PLACEMENTS' }
-        ]
-      },
-      {
-        title: 'EXCLUSIVE VIP EXPERIENCE',
-        theme: 'premium',
-        items: [
-          { title: 'Sit with Akon', description: 'Exclusive VIP meet & greet experience.' },
-          { title: 'Photo Op with Akon', description: 'Take professional pictures with Akon.' }
         ]
       }
     ],

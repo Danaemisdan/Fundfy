@@ -105,12 +105,12 @@ export default function ContestLayout() {
         
         {/* 4. Rewards */}
         {config.rewards && config.rewards.length > 0 && (
-          <EventRewards data={config} theme={config.theme} />
+          <EventRewards data={config} />
         )}
         
         {/* 5. How To Participate (Timeline) */}
         {config.timeline && config.timeline.length > 0 && (
-          <EventTimeline data={config} theme={config.theme} />
+          <EventTimeline data={config} />
         )}
         
         {/* 6. Judging */}
