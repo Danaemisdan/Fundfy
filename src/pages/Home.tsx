@@ -76,7 +76,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full font-sans relative overflow-x-hidden bg-[#050505]">
+    <div className="w-full font-sans relative overflow-x-hidden bg-white">
       
       {/* ORIGINAL HOMEPAGE - 100vh EXACTLY AS IT WAS */}
       <div className="h-screen w-full bg-[#f8f9fc] flex flex-col justify-between overflow-hidden relative rounded-b-[2rem] md:rounded-b-[3rem] shadow-2xl z-20">
@@ -204,7 +204,7 @@ function Home() {
       </div>
 
       {/* CONTESTS SHOWCASE (Scroll down) */}
-      <div className="relative z-10 w-full bg-[#050505]">
+      <div className="relative z-10 w-full bg-white">
         <ContestShowcase />
       </div>
 
