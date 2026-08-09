@@ -64,6 +64,7 @@ export default function Register() {
     firstName: '',
     lastName: '',
     email: '',
+    password: '',
     phone: '',
     country: '',
     state: '',
@@ -122,6 +123,36 @@ export default function Register() {
 
     setIsSubmitting(true);
     try {
+      // 0. Create Supabase Auth Account
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          data: {
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+          }
+        }
+      });
+
+      if (authError && authError.message !== 'User already registered') {
+        setErrors({ submit: 'Account creation failed: ' + authError.message });
+        setIsSubmitting(false);
+        return;
+      }
+      
+      if (authError && authError.message === 'User already registered') {
+        const { error: signInErr } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password
+        });
+        if (signInErr) {
+          setErrors({ submit: 'Email already registered. If this is you, please ensure your password is correct, or log in first.' });
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
       // 1. Create Order via our abstracted payment service
       const receiptId = `rcpt_${Math.random().toString(36).substring(7)}`;
       const amount = fee;
@@ -293,6 +324,7 @@ export default function Register() {
                   <InputField label="Last Name" name="lastName" value={formData.lastName} onChange={handleInputChange} error={errors.lastName} required placeholder="Enter last name" />
                   
                   <InputField label="Email Address" type="email" name="email" value={formData.email} onChange={handleInputChange} error={errors.email} required placeholder="Enter email address" />
+                  <InputField label="Create Password" type="password" name="password" value={formData.password} onChange={handleInputChange} error={errors.password} required placeholder="Min 6 characters" />
                   
                   {/* Phone Number Field */}
                   <div className="flex flex-col gap-2">
