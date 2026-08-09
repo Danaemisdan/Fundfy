@@ -39,19 +39,18 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Receive lifetime tools', description: 'Every participant receives lifetime access to premium tools.' }
     ],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
     judgingCriteria: [
-      { name: 'Innovation', weight: '30%', description: 'Novel application of AI.' },
-      { name: 'Technical Excellence', weight: '25%', description: 'Code quality and architecture.' },
-      { name: 'Design', weight: '20%', description: 'UI/UX and polish.' },
-      { name: 'Impact', weight: '15%', description: 'Real world utility.' },
-      { name: 'Presentation', weight: '10%', description: 'Clarity of the demo.' }
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
     ],
     eligibility: [
       { title: 'Who can participate', description: 'Open globally.' },
@@ -61,14 +60,32 @@ export const CONTESTS: ContestConfig[] = [
       { q: 'Can I use open source models?', a: 'Yes.' },
       { q: 'Do I keep my IP?', a: 'Yes.' }
     ],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',
@@ -123,24 +140,47 @@ export const CONTESTS: ContestConfig[] = [
     description: 'Powered by JobFinderAI, this challenge is designed to revolutionize the global recruitment industry. Your mission is to architect an outstanding AI-driven job application ecosystem or a hyper-intelligent resume generator. Maximize application success rates by leveraging smart data matching, automated tailoring, and predictive hiring algorithms. Build the future of hiring and redefine how talent meets opportunity.',
     whyParticipate: [],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-    judgingCriteria: [],
+        judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
     eligibility: [],
     faqs: [],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',
@@ -195,24 +235,47 @@ export const CONTESTS: ContestConfig[] = [
     description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools to forge stunning, production-ready 3D assets. From sci-fi vehicles and intricate fantasy props to hyper-realistic architectural elements, your challenge is to demonstrate how AI can drastically accelerate texturing, unwrapping, and conceptual phases while maintaining flawless, industry-standard topology.',
     whyParticipate: [],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-    judgingCriteria: [],
+        judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
     eligibility: [],
     faqs: [],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',
@@ -267,24 +330,47 @@ export const CONTESTS: ContestConfig[] = [
     description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. Sculpt, texture, and rig a next-gen 3D character that belongs in a AAA game or blockbuster film. We demand incredible attention to detail across anatomy, clothing, and micro-expressions. Integrate cutting-edge AI workflows for concept generation and advanced material creation to bring your vision to life.',
     whyParticipate: [],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-    judgingCriteria: [],
+        judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
     eligibility: [],
     faqs: [],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',
@@ -339,24 +425,47 @@ export const CONTESTS: ContestConfig[] = [
     description: 'Design the future of the web. Your challenge is to craft stunning, user-centric interfaces and breathtaking web experiences that redefine modern digital standards. Focus on premium aesthetics like glassmorphism, fluid micro-interactions, flawless typography scales, and highly accessible color palettes. Evolve your wireframes into hyper-polished, high-fidelity prototypes that leave users in absolute awe of your digital craftsmanship.',
     whyParticipate: [],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-    judgingCriteria: [],
+        judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
     eligibility: [],
     faqs: [],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',
@@ -411,24 +520,47 @@ export const CONTESTS: ContestConfig[] = [
     description: '',
     whyParticipate: [],
     timeline: [
-      { title: 'Click Register', date: 'Step 1', description: 'Begin your journey.' },
-      { title: 'Complete Registration', date: 'Step 2', description: 'Submit your details on the website.' },
-      { title: 'Receive Confirmation', date: 'Step 3', description: 'Get access to resources.' },
-      { title: 'Build your project', date: 'Step 4', description: 'You have 4 weeks.' },
-      { title: 'Submit before deadline', date: 'Step 5', description: 'Code and video demo.' },
-      { title: 'Winner Announcement', date: 'Step 6', description: 'Live broadcast.' }
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
     ],
-    judgingCriteria: [],
+        judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
     eligibility: [],
     faqs: [],
+    resources: [
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
+      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
+    ],
     rewards: [
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'premium',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      },
       {
         title: 'EVERY PARTICIPANT RECEIVES',
         theme: 'light',
         items: [
-          { title: 'Verified Digital Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' }
+          { title: 'Verified Global Participation Certificate' },
+          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
+          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
+      }
+    ]
       },
       {
         title: 'PRIZE POOL & CAREER',

@@ -8,6 +8,7 @@ import { MotionButton } from '../components/ui/MotionButton';
 import EventHero from '../components/contests/EventHero';
 import EventAbout from '../components/contests/EventAbout';
 import EventWhyParticipate from '../components/contests/EventWhyParticipate';
+import EventResources from '../components/contests/EventResources';
 import EventRewards from '../components/contests/EventRewards';
 import EventTimeline from '../components/contests/EventTimeline';
 import EventJudging from '../components/contests/EventJudging';
@@ -95,6 +96,11 @@ export default function ContestLayout() {
         {/* 3. Why Participate */}
         {config.whyParticipate && config.whyParticipate.length > 0 && (
           <EventWhyParticipate data={config} />
+        )}
+        
+        {/* 3.5 Premium Resources */}
+        {config.resources && config.resources.length > 0 && (
+          <EventResources data={config} />
         )}
         
         {/* 4. Rewards */}

@@ -82,6 +82,12 @@ export interface ContestConfig {
     a: string;
   }[];
 
+  resources?: {
+    title: string;
+    description: string;
+    icon?: string;
+  }[];
+
   rewards: RewardCategory[];
 
   registration: {
