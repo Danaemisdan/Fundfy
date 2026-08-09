@@ -10,9 +10,7 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isSignUp, setIsSignUp] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+      const [showPassword, setShowPassword] = useState(false);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,21 +18,12 @@ export default function SignIn() {
     setError(null);
 
     try {
-      if (isSignUp) {
-        const { error: signUpError } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        if (signUpError) throw signUpError;
-        setSuccess(true);
-      } else {
-        const { error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (signInError) throw signInError;
-        navigate('/dashboard');
-      }
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (signInError) throw signInError;
+      navigate('/dashboard');
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -57,7 +46,7 @@ export default function SignIn() {
           Welcome
         </h1>
         <p className="text-gray-500 text-center mb-8 font-medium">
-          {isSignUp ? 'Create your account' : 'Sign in to your account'}
+          'Sign in to your account'
         </p>
 
         {success && (
@@ -124,7 +113,7 @@ export default function SignIn() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  {isSignUp ? 'Create Account' : 'Sign In'}
+                  'Sign In'
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </>
               )}
@@ -132,13 +121,14 @@ export default function SignIn() {
           </div>
         </form>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 pt-8 border-t border-gray-100 text-center">
+          <p className="text-sm text-gray-500 mb-3 font-medium">Don't have an account yet?</p>
           <button 
             type="button" 
-            onClick={() => { setIsSignUp(!isSignUp); setError(null); setSuccess(false); }} 
-            className="text-sm font-bold text-gray-500 hover:text-purple-600 transition-colors"
+            onClick={() => navigate('/register')}
+            className="w-full border-2 border-gray-200 text-gray-900 font-bold tracking-widest uppercase text-xs py-3 rounded-xl hover:border-purple-500 hover:text-purple-600 transition-colors"
           >
-            {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+            Register for Contest
           </button>
         </div>
       </div>
