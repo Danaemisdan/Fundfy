@@ -55,15 +55,15 @@ export default function SplashScreen() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="grid grid-cols-2 gap-y-12 gap-x-10 place-items-center md:flex md:items-center md:justify-center md:gap-12 lg:gap-16 w-full max-w-4xl"
+                    className="grid grid-cols-2 gap-y-12 gap-x-8 place-items-center md:flex md:items-center md:justify-center md:gap-12 lg:gap-16 w-full max-w-4xl px-4"
                   >
-                    <img src="/Partners/AWS_v2.png" alt="AWS" className="h-16 sm:h-20 md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
+                    <img src="/Partners/AWS_v2.png" alt="AWS" className="w-24 sm:w-32 md:w-auto md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
                     <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-16 sm:h-20 md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="w-28 sm:w-36 md:w-auto md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
                     <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-10 sm:h-14 md:h-16 lg:h-20 object-contain mix-blend-multiply opacity-90" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="w-20 sm:w-24 md:w-auto md:h-16 lg:h-20 object-contain mix-blend-multiply opacity-90" />
                     <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="/Partners/Epic_Games_logo.svg.webp" alt="Epic Games" className="h-20 sm:h-24 md:h-24 lg:h-28 object-contain mix-blend-multiply opacity-90" />
+                    <img src="/Partners/Epic_Games_logo.svg.webp" alt="Epic Games" className="w-16 sm:w-20 md:w-auto md:h-24 lg:h-28 object-contain mix-blend-multiply opacity-90" />
                   </motion.div>
                 </div>
 
@@ -81,12 +81,12 @@ export default function SplashScreen() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1.1 }}
-                    className="grid grid-cols-2 gap-y-12 gap-x-10 place-items-center md:flex md:flex-wrap md:items-center md:justify-center md:gap-16 max-w-5xl"
+                    className="grid grid-cols-2 gap-y-12 gap-x-8 place-items-center md:flex md:flex-wrap md:items-center md:justify-center md:gap-16 max-w-5xl px-4"
                   >
-                    <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 sm:h-14 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-90" />
-                    <img src="/Partners/JobFinderAI.png?v=3" alt="JobFinderAI" className="h-10 sm:h-14 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
-                    <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-10 sm:h-14 md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
-                    <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 sm:h-14 md:h-14 lg:h-16 object-contain opacity-80" />
+                    <img src="/Partners/Fundfy.png" alt="Fundfy" className="w-24 sm:w-32 md:w-auto md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-90" />
+                    <img src="/Partners/JobFinderAI.png?v=3" alt="JobFinderAI" className="w-24 sm:w-32 md:w-auto md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
+                    <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="w-24 sm:w-32 md:w-auto md:h-14 lg:h-16 object-contain mix-blend-multiply opacity-80" />
+                    <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="w-24 sm:w-32 md:w-auto md:h-14 lg:h-16 object-contain opacity-80" />
                   </motion.div>
                 </div>
               </motion.div>
