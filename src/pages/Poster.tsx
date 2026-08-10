@@ -22,7 +22,7 @@ export default function Poster() {
       <div className="w-full max-w-[500px] min-h-[850px] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between bg-[#050505] border border-white/5 py-4">
         
         {/* The Globe from Home */}
-        <div className="absolute top-[20%] -right-[30%] w-[150%] h-[150%] pointer-events-none z-0 opacity-70 flex items-center justify-center mix-blend-screen">
+        <div className="absolute top-[-5%] -right-[20%] w-[150%] h-[150%] pointer-events-none z-0 opacity-85 flex items-center justify-center mix-blend-screen">
           <Globe />
         </div>
 
@@ -59,22 +59,20 @@ export default function Poster() {
         {/* --- MIDDLE SECTION (Contest Details) --- */}
         <div className="relative z-10 flex flex-col px-6 flex-1 justify-center py-2">
           
-          <div className="text-center mb-6 mt-4 relative">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-1/2 bg-blue-500/20 blur-[40px] rounded-full pointer-events-none" />
-            <h2 className="text-4xl sm:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-purple-300 leading-tight mb-3 drop-shadow-sm relative z-10">
+          <div className="text-center mb-8 mt-6 relative">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 leading-tight mb-3 tracking-tight">
               {contest.title}
             </h2>
-            <p className="text-sm text-gray-300 font-medium px-4 relative z-10">
+            <p className="text-[10px] sm:text-xs text-gray-400 font-medium px-4 tracking-[0.2em] uppercase">
               {contest.subtitle}
             </p>
           </div>
 
           {/* Prize Pool & Credits */}
           <div className="flex flex-col gap-3 w-full mb-8 mt-2 relative z-10">
-            <div className="glass-panel bg-gradient-to-b from-white/10 to-black/60 backdrop-blur-xl rounded-[2rem] py-6 px-4 w-full flex flex-col items-center justify-center text-center border border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10 pointer-events-none" />
-              <span className="text-[9px] font-black tracking-[0.4em] text-gray-400 uppercase mb-2 relative z-10">Prize Pool</span>
-              <span className="text-5xl sm:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-br from-yellow-200 via-amber-400 to-orange-500 whitespace-nowrap drop-shadow-[0_0_20px_rgba(251,191,36,0.4)] relative z-10 tracking-tight">
+            <div className="bg-white rounded-[2rem] py-6 px-4 w-full flex flex-col items-center justify-center text-center shadow-[0_0_50px_rgba(255,255,255,0.2)] relative overflow-hidden">
+              <span className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase mb-2 relative z-10">Prize Pool</span>
+              <span className="text-5xl sm:text-6xl font-black text-black whitespace-nowrap relative z-10 tracking-tight">
                 ₹50 LAKHS
               </span>
             </div>
