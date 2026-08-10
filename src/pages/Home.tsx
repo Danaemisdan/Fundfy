@@ -207,9 +207,11 @@ function Home() {
       </div>
 
       {/* CONTESTS SHOWCASE (Scroll down) */}
-      <div id="contests" className="relative z-10 w-full bg-white">
-        <ContestShowcase />
-      </div>
+      {!refCode && (
+        <div id="contests" className="relative z-10 w-full bg-white">
+          <ContestShowcase />
+        </div>
+      )}
 
     </div>
   );
