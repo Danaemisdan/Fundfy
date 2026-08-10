@@ -96,7 +96,7 @@ export default function RegisterSuccess() {
         await supabase.from('registrations').insert({
           user_name: displayState.participantName,
           user_email: displayState.email,
-          user_phone: displayState.phone,
+          user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
           amount_paid: displayState.amount,
           payment_id: paymentId,
           referral_code: referralCode
