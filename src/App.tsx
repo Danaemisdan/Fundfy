@@ -41,20 +41,7 @@ function ReferralTracker() {
 
         const trackClick = async () => {
           try {
-            // First get the current clicks
-            const { data: profile } = await supabase
-              .from('profiles')
-              .select('id, clicks')
-              .eq('referral_code', ref)
-              .single();
-
-            if (profile) {
-              // Increment clicks
-              await supabase
-                .from('profiles')
-                .update({ clicks: (profile.clicks || 0) + 1 })
-                .eq('id', profile.id);
-            }
+            await supabase.rpc('increment_referral_click', { ref_code: ref });
           } catch (err) {
             console.error('Failed to track referral click:', err);
           }
