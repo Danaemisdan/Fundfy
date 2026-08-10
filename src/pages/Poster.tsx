@@ -76,18 +76,25 @@ export default function Poster() {
             </div>
             
             <div className="glass-panel bg-black/60 backdrop-blur-md rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center border border-white/10">
-              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">AWS Credits</span>
-              <span className="text-xl sm:text-2xl font-black text-orange-400 whitespace-nowrap">$5,000</span>
+              <span className="text-[10px] sm:text-xs font-bold text-orange-400 leading-tight">
+                AWS is sponsoring $5,000 for each winner*
+              </span>
             </div>
           </div>
 
           {/* Powered By Sponsors */}
           <div className="flex flex-col items-center bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl py-4 px-6 mx-2">
             <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-3">Powered By</span>
-            <div className="flex items-center justify-center gap-6 w-full px-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-5 sm:h-6 object-contain brightness-0 invert opacity-90" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-5 object-contain" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-4 object-contain brightness-0 invert opacity-80" />
+            <div className="flex items-center justify-center gap-4 w-full px-2">
+              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-6 object-contain" />
+              </div>
+              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-6 object-contain" />
+              </div>
+              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-5 object-contain" />
+              </div>
             </div>
           </div>
 
@@ -114,19 +121,20 @@ export default function Poster() {
           </div>
 
           {/* Bottom Partners Strip */}
-          <div className="w-full flex justify-between items-center px-1">
+          <div className="w-full flex flex-col gap-3 items-center px-1 mt-2">
             <div className="flex items-center gap-2">
-              <span className="text-[6px] text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap">Our Partners</span>
-              <div className="w-8 h-[1px] bg-gray-800" />
+              <div className="w-12 h-[1px] bg-gray-700" />
+              <span className="text-[7px] text-gray-400 tracking-[0.3em] font-bold uppercase whitespace-nowrap">Our Partners</span>
+              <div className="w-12 h-[1px] bg-gray-700" />
             </div>
-            <div className="flex flex-wrap justify-end gap-x-4 gap-y-3 opacity-90 flex-1 pl-4 items-center">
-              <img src="/Partners/Epic_Games_logo.svg.webp" className="h-4 object-contain brightness-0 invert" alt="Epic Games" />
-              <img src="/Partners/DiceArtFilms_v2.png" className="h-4 object-contain brightness-0 invert" alt="Dice Art" />
-              <img src="/Partners/JobFinderAI.png?v=3" className="h-4 object-contain brightness-0 invert" alt="JobFinderAI" />
-              <img src="/Partners/MoreYeahs.png?v=3" className="h-4 object-contain brightness-0 invert" alt="MoreYeahs" />
-              <img src="/Partners/XOXO_v2.png" className="h-4 object-contain brightness-0 invert" alt="XOXO" />
-              <img src="/Partners/Young_v2.png" className="h-4 object-contain" alt="Young Coders" />
-              <img src="/Partners/TingoAI.png" className="h-4 object-contain" alt="Tingo" />
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 opacity-100 w-full px-2">
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/Epic_Games_logo.svg.webp" className="h-full object-contain" alt="Epic Games" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/DiceArtFilms_v2.png" className="h-full object-contain" alt="Dice Art" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/JobFinderAI.png?v=3" className="h-full object-contain" alt="JobFinderAI" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/MoreYeahs.png?v=3" className="h-full object-contain" alt="MoreYeahs" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/XOXO_v2.png" className="h-full object-contain" alt="XOXO" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/Young_v2.png" className="h-full object-contain" alt="Young Coders" /></div>
+              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/TingoAI.png" className="h-full object-contain" alt="Tingo" /></div>
             </div>
           </div>
 
