@@ -34,8 +34,12 @@ export default function ContestShowcase({ referrerMode = false, referralCode = '
                 transition={{ delay: index * 0.1 }}
                 key={contest.id}
                 onClick={() => {
-                  if (referrerMode && referralCode) {
-                    navigate(`/contests/${contest.id}?ref=${referralCode}`);
+                  const urlParams = new URLSearchParams(window.location.search);
+                  const existingRef = urlParams.get('ref') || sessionStorage.getItem('referral_code');
+                  const finalRef = (referrerMode && referralCode) ? referralCode : existingRef;
+                  
+                  if (finalRef) {
+                    navigate(`/contests/${contest.id}?ref=${finalRef}`);
                   } else {
                     navigate(`/contests/${contest.id}`);
                   }

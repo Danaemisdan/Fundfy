@@ -58,6 +58,8 @@ function Home() {
   const handleRegisterClick = () => {
     if (contestId) {
       navigate(`/contests/${contestId}${refCode ? `?ref=${refCode}` : ''}`);
+    } else if (refCode) {
+      navigate(`/register?ref=${refCode}`);
     } else {
       const el = document.getElementById('contests');
       if (el) {
