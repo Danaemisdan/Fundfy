@@ -713,133 +713,17 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
         <div 
           ref={contentRef} 
           onScroll={handleScroll}
-          className="p-6 md:p-8 overflow-y-auto flex-1 text-sm md:text-base text-gray-600 leading-relaxed font-medium space-y-6"
+          className="p-6 md:p-8 overflow-y-auto flex-1 text-sm md:text-base text-gray-600 leading-relaxed font-medium space-y-4"
         >
-          <p className="font-bold text-gray-900">Last Updated: August 2026</p>
-          <p>Welcome to Global Talent Hunt.</p>
-          <p>By registering for any contest hosted on this platform, you acknowledge that you have read, understood, and agree to the following Terms & Conditions.</p>
-
-          <hr className="border-gray-200" />
+          <p className="font-bold text-gray-900 text-lg">Participant Agreement</p>
+          <p>By registering, you agree to the following conditions for all Global Talent Hunt contests (AI Innovation, 3D Asset Design, Web Experience Design, Digital Character Design, Career Accelerator, and AI Education).</p>
           
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">1. ELIGIBILITY</h3>
-          <p>Participation is open to individuals who satisfy the eligibility requirements of the selected contest.</p>
-          <p>Certain contests may have age, educational, geographical, or professional eligibility criteria.</p>
-          <p>Participants are responsible for ensuring they meet the requirements before registering.</p>
-          
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">2. REGISTRATION</h3>
-          <p>Your registration is considered complete only after:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>The registration form has been successfully submitted.</li>
-            <li>The applicable registration fee has been successfully paid.</li>
-          </ul>
-          <p>Registration fees are non-refundable except where required by applicable law.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">3. MULTIPLE CONTESTS</h3>
-          <p>Participants may register for multiple contests.</p>
-          <p>Each contest requires its own registration fee.</p>
-          <p>Selecting multiple contests will automatically calculate the final payable amount.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">4. ORIGINAL WORK</h3>
-          <p>All submitted work must be the participant's original creation.</p>
-          <p>Plagiarism, copied work, unauthorized assets, or intellectual property infringement may result in immediate disqualification.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">5. USE OF AI</h3>
-          <p>Where permitted by individual contest guidelines, participants may use Artificial Intelligence tools.</p>
-          <p>However, the submitted work must demonstrate meaningful personal contribution, creativity, and understanding.</p>
-          <p>Contest-specific AI usage rules will always take precedence.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">6. SUBMISSIONS</h3>
-          <p>Participants are solely responsible for ensuring that submissions are uploaded before the contest deadline.</p>
-          <p>Late submissions may not be accepted.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">7. JUDGING</h3>
-          <p>Entries will be evaluated according to the published judging criteria.</p>
-          <p>The decision of the judges shall be final.</p>
-          <p>No correspondence regarding judging decisions will be entertained.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">8. PRIZES</h3>
-          <p>Prizes will only be awarded to participants who satisfy all contest requirements.</p>
-          <p>Global Talent Hunt reserves the right to substitute prizes with alternatives of equal value should unforeseen circumstances arise.</p>
-          <p>Prize distribution timelines may vary depending on verification requirements.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">9. PARTICIPATION BENEFITS</h3>
-          <p>Eligible registered participants may receive:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Lifetime JobFinderAI Premium Subscription</li>
-            <li>Official Participation Certificate</li>
-            <li>Contest Updates</li>
-            <li>Eligibility for Grand Prizes</li>
-          </ul>
-          <p>Benefits vary by contest and may be updated from time to time.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">10. CODE OF CONDUCT</h3>
-          <p>Participants must maintain respectful and professional conduct throughout the competition.</p>
-          <p>Harassment, cheating, impersonation, fraudulent activity, or abuse of the platform may result in immediate disqualification.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">11. INTELLECTUAL PROPERTY</h3>
-          <p>Participants retain ownership of their original work.</p>
-          <p>By submitting an entry, participants grant Global Talent Hunt a non-exclusive, worldwide, royalty-free license to display, promote, evaluate, and showcase submitted work for contest-related marketing, judging, educational, and promotional purposes with appropriate attribution.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">12. PRIVACY</h3>
-          <p>Personal information collected during registration will only be used for:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Contest administration</li>
-            <li>Participant communication</li>
-            <li>Prize distribution</li>
-            <li>Verification</li>
-            <li>Platform improvements</li>
-          </ul>
-          <p>Data will never be sold to third parties.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">13. CHANGES TO CONTESTS</h3>
-          <p>Global Talent Hunt reserves the right to modify:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Contest schedules</li>
-            <li>Deadlines</li>
-            <li>Prize structures</li>
-            <li>Rules</li>
-            <li>Judging timelines</li>
-          </ul>
-          <p>Participants will be notified of any significant changes.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">14. LIMITATION OF LIABILITY</h3>
-          <p>Global Talent Hunt shall not be held responsible for technical failures, internet disruptions, third-party payment gateway failures, or circumstances beyond reasonable control affecting participation.</p>
-
-          <hr className="border-gray-200" />
-          
-          <h3 className="text-gray-900 font-bold uppercase tracking-widest text-xs mt-8">15. ACCEPTANCE</h3>
-          <p>By selecting "I Agree" and proceeding with registration, you confirm that:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>You have read these Terms & Conditions.</li>
-            <li>You agree to abide by all contest rules.</li>
-            <li>All information submitted by you is accurate.</li>
-            <li>You understand that violation of these Terms may result in disqualification.</li>
+          <ul className="list-disc pl-5 space-y-3 mt-4">
+            <li><strong>Original Work & AI Tools:</strong> All submissions must be your original work. While generative AI is encouraged where applicable, it must demonstrate significant personal contribution, problem-solving, and creativity.</li>
+            <li><strong>Eligibility:</strong> You must meet the criteria for your selected contest(s) and submit your projects before the designated deadlines.</li>
+            <li><strong>Prizes & Judging:</strong> The $50,000 global prize pool and distribution are determined exclusively by the official judges, whose decisions are final.</li>
+            <li><strong>Conduct:</strong> Professionalism is required. Any plagiarism or cheating will result in immediate disqualification.</li>
+            <li><strong>Rights:</strong> You retain ownership of your work, but grant Global Talent Hunt permission to showcase your projects for promotional and educational purposes.</li>
           </ul>
         </div>
         
@@ -848,7 +732,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
             <div className="relative flex items-center justify-center mt-0.5">
               <input type="checkbox" disabled={!hasScrolledToBottom} checked={isChecked} onChange={() => setIsChecked(!isChecked)} className="peer sr-only" />
               <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${isChecked ? 'bg-black border-black' : 'bg-white border-gray-300'}`}>
-                <Check className={`w-3 h-3 text-gray-900 transition-opacity duration-200 ${isChecked ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
+                <Check className={`w-3 h-3 text-white transition-opacity duration-200 ${isChecked ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
               </div>
             </div>
             <div className="flex flex-col">
@@ -867,7 +751,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
             className={`w-full py-4 rounded-xl text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300
               ${(!hasScrolledToBottom || !isChecked) 
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' 
-                : 'bg-[#11131c] text-gray-900 hover:bg-black hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gray-300'
+                : 'bg-[#11131c] text-white hover:bg-black hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gray-300'
               }
             `}
           >
