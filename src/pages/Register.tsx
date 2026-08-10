@@ -102,6 +102,9 @@ export default function Register() {
     github: ''
   });
 
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [paymentLink, setPaymentLink] = useState('');
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -150,13 +153,8 @@ export default function Register() {
 
     setIsSubmitting(true);
     try {
-      // 1. Create Order via our abstracted payment service
-      const receiptId = `rcpt_${Math.random().toString(36).substring(7)}`;
       const amount = fee;
       
-      const order = await paymentService.createOrder(amount, currency, receiptId);
-      
-      // Save state to sessionStorage before redirecting away to Razorpay Link
       const statePayload = {
         registrationId: `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
         contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
@@ -170,22 +168,16 @@ export default function Register() {
       };
       sessionStorage.setItem('pending_registration', JSON.stringify(statePayload));
       
-      // 2. Initialize Payment Gateway (Redirects to Razorpay Link)
-      const paymentDetails = await paymentService.initializePayment(order, {
-        name: formData.fullName,
-        email: formData.email,
-        contact: formData.phone
-      });
-
-      // 3. Verify Payment
-      const isVerified = await paymentService.verifyPayment(paymentDetails);
-
-      if (isVerified) {
-        // Success! Navigate to success page with state payload
+      if (amount === 0) {
         navigate('/register/success', { state: statePayload });
-      } else {
-        setErrors({ submit: 'Payment verification failed. Please try again.' });
+        return;
       }
+
+      // For paid flow, show the manual confirmation modal
+      const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
+      setPaymentLink(link);
+      setShowPaymentModal(true);
+      
     } catch (err) {
       console.error(err);
       setErrors({ submit: 'An error occurred during registration. Please try again.' });
@@ -200,6 +192,40 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-gray-50  font-sans selection:bg-purple-200 relative">
+      {showPaymentModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-gray-100">
+            <h2 className="text-2xl font-bold mb-3 text-gray-900">Complete Payment</h2>
+            <p className="text-gray-600 mb-6 font-medium">Click the button below to pay securely on Razorpay. Once your payment is complete, return to this page and confirm.</p>
+            
+            <a 
+              href={paymentLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block w-full py-4 mb-4 bg-purple-600 text-white rounded-2xl font-bold text-lg shadow-lg shadow-purple-500/30 hover:bg-purple-700 transition-colors"
+            >
+              Pay {formatCurrency(fee)} Now
+            </a>
+            
+            <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-gray-100">
+              <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">After paying, click below:</p>
+              <button 
+                onClick={() => {
+                  sessionStorage.setItem('payment_manually_confirmed', 'true');
+                  setShowPaymentModal(false);
+                  navigate('/register/success', { 
+                    state: JSON.parse(sessionStorage.getItem('pending_registration') || '{}') 
+                  });
+                }}
+                className="w-full px-4 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/30 hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+              >
+                <Check className="w-5 h-5" /> Yes, I Have Paid!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="absolute inset-0 bg-gradient-to-br from-purple-100/50 via-transparent to-blue-100/50 pointer-events-none z-0" />
       <div className="relative z-10">
       {/* Minimal Brand Header */}
