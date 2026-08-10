@@ -13,121 +13,122 @@ export default function Poster() {
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(`https://fundfy.app/contests/${contest.id}`)}&color=000000&bgcolor=ffffff`;
   
-  const prizePool = contest.statistics.find(s => s.label === 'Prize Pool')?.value || '₹50 LAKHS';
+  // Use 50 Lakhs as requested for the premium look
+  const prizePool = '₹50 LAKHS';
 
   return (
-    <div className="min-h-screen bg-[#020202] flex items-center justify-center p-4 selection:bg-purple-500/30 font-sans">
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4 md:p-8 selection:bg-purple-500/30 font-sans">
       
       {/* Poster Container */}
-      <div className="w-full max-w-[500px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between bg-[#050505] border border-white/5">
+      <div className="w-full max-w-[500px] aspect-[9/16] relative rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5),0_0_100px_rgba(168,85,247,0.1)] flex flex-col justify-between bg-black border border-white/10 ring-1 ring-white/5">
+        
+        {/* Premium Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-[60%] bg-gradient-to-b from-purple-900/20 via-blue-900/10 to-transparent pointer-events-none z-0 mix-blend-screen" />
         
         {/* The Globe from Home */}
-        <div className="absolute top-[20%] -right-[30%] w-[150%] h-[150%] pointer-events-none z-0 opacity-70 flex items-center justify-center mix-blend-screen">
+        <div className="absolute top-[10%] -right-[30%] w-[160%] h-[160%] pointer-events-none z-0 opacity-80 flex items-center justify-center mix-blend-screen">
           <Globe />
         </div>
 
-        {/* Dark overlay to ensure text is readable over globe */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/95 pointer-events-none z-0" />
+        {/* Dark overlay to ensure text is readable over globe while keeping it vibrant */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/95 pointer-events-none z-0" />
 
         {/* --- TOP SECTION --- */}
-        <div className="relative z-10 flex flex-col pt-10 px-6 text-center">
+        <div className="relative z-10 flex flex-col pt-12 px-8 text-center">
           
           {/* Header Logos - White Background for visibility */}
-          <div className="flex items-center justify-center gap-3 bg-white px-5 py-2.5 rounded-full shadow-lg mb-6 self-center mx-auto max-w-fit">
-            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 w-auto object-contain brightness-0" />
-            <span className="text-gray-300 font-light text-xs">|</span>
-            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-5 w-auto object-contain" />
+          <div className="flex items-center justify-center gap-4 bg-white/95 px-6 py-3 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.1)] mb-8 self-center mx-auto max-w-fit">
+            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 w-auto object-contain brightness-0" />
+            <span className="text-gray-300 font-light text-sm">|</span>
+            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-6 w-auto object-contain" />
           </div>
 
-          <h4 className="text-[9px] tracking-[0.4em] text-gray-400 font-bold uppercase mb-1">
+          <h4 className="text-[10px] tracking-[0.5em] text-gray-300 font-bold uppercase mb-2">
             PRESENTS
           </h4>
 
-          <h1 className="text-4xl sm:text-5xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-futuristic">
+          <h1 className="text-5xl sm:text-6xl font-black text-white leading-[0.9] tracking-tighter mb-3 font-futuristic drop-shadow-2xl">
             GLOBAL <br />
-            <span className="text-gradient-purple-orange">TALENT</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400">TALENT</span> <br />
             HUNT 2026
           </h1>
           
-          <p className="text-[10px] font-semibold tracking-[0.2em] text-white/70 uppercase mt-2 mb-4">
-            Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
+          <p className="text-xs font-semibold tracking-[0.25em] text-white/80 uppercase mt-3 mb-6">
+            Showcase. Compete. Get <span className="text-purple-400 font-bold">Discovered.</span>
           </p>
 
-          <div className="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent self-center" />
+          <div className="w-4/5 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent self-center" />
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
-        <div className="relative z-10 flex flex-col px-6 flex-1 justify-center py-2">
+        <div className="relative z-10 flex flex-col px-6 sm:px-8 flex-1 justify-center py-2 mt-4">
           
-          <div className="text-center mb-6">
-            <span className="inline-block px-4 py-1.5 border border-purple-500/50 rounded-full text-purple-300 text-[9px] font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)] bg-black/60 backdrop-blur-sm">
-              {contest.category}
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-3 drop-shadow-lg">
               {contest.title}
             </h2>
-            <p className="text-sm text-gray-300 font-medium px-4">
+            <p className="text-base sm:text-lg text-gray-300 font-medium px-4">
               {contest.subtitle}
             </p>
           </div>
 
           {/* Prize Pool & Credits */}
-          <div className="flex items-center justify-center gap-4 w-full mb-6">
-            <div className="glass-panel bg-black/60 backdrop-blur-md rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center border border-white/10">
-              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">Prize Pool</span>
-              <span className="text-xl sm:text-2xl font-black text-white">{prizePool}</span>
+          <div className="flex items-center justify-center gap-4 sm:gap-6 w-full mb-8">
+            <div className="glass-panel bg-white/5 backdrop-blur-xl rounded-3xl p-5 sm:p-6 flex-1 flex flex-col items-center justify-center text-center border border-white/10 shadow-xl">
+              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">Prize Pool</span>
+              <span className="text-2xl sm:text-3xl font-black text-white drop-shadow-md">{prizePool}</span>
             </div>
             
-            <div className="glass-panel bg-black/60 backdrop-blur-md rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center border border-white/10">
-              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">AWS Credits</span>
-              <span className="text-xl sm:text-2xl font-black text-orange-400">$5,000</span>
+            <div className="glass-panel bg-white/5 backdrop-blur-xl rounded-3xl p-5 sm:p-6 flex-1 flex flex-col items-center justify-center text-center border border-white/10 shadow-xl">
+              <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-2">AWS Credits</span>
+              <span className="text-2xl sm:text-3xl font-black text-orange-400 drop-shadow-md">$5,000</span>
             </div>
           </div>
 
           {/* Powered By Sponsors */}
-          <div className="flex flex-col items-center bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl py-4 px-6 mx-2">
-            <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-3">Powered By</span>
-            <div className="flex items-center justify-center gap-6 w-full px-2">
-              <img src="/Partners/AWS_v2.png" alt="AWS" className="h-6 object-contain" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-5 object-contain" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-4 object-contain brightness-0 invert opacity-80" />
+          <div className="flex flex-col items-center bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl py-5 px-8 shadow-xl">
+            <span className="text-[10px] font-bold tracking-[0.25em] text-gray-400 uppercase mb-5">Powered By</span>
+            <div className="flex items-center justify-center gap-8 sm:gap-12 w-full px-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-7 sm:h-8 object-contain brightness-0 invert opacity-90" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-6 sm:h-7 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-5 sm:h-6 object-contain brightness-0 invert opacity-90" />
             </div>
           </div>
 
         </div>
 
         {/* --- BOTTOM SECTION (QR & Footer Partners) --- */}
-        <div className="relative z-10 flex flex-col items-center pb-6 px-6">
-          <div className="glass-panel rounded-3xl p-5 w-full flex items-center justify-between border border-white/20 bg-black/60 backdrop-blur-xl mb-6">
+        <div className="relative z-10 flex flex-col items-center pb-8 px-6 sm:px-8 mt-2">
+          <div className="glass-panel rounded-3xl p-6 w-full flex items-center justify-between border border-white/10 bg-white/5 backdrop-blur-2xl mb-8 shadow-2xl">
             
-            <div className="flex flex-col items-start gap-1 pl-2">
-              <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
-              <span className="text-base sm:text-lg font-black text-white mb-1">ARE YOU READY?</span>
-              <span className="text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-0.5">
+            <div className="flex flex-col items-start gap-1.5 pl-2">
+              <span className="text-[11px] font-bold tracking-[0.25em] text-gray-400 uppercase">The world is watching.</span>
+              <span className="text-xl sm:text-2xl font-black text-white mb-1 tracking-tight">ARE YOU READY?</span>
+              <span className="text-sm sm:text-base font-bold text-purple-400 uppercase tracking-[0.2em] border-b-2 border-purple-400/50 pb-1">
                 Register Now
               </span>
             </div>
 
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="w-20 h-20 bg-white rounded-xl p-1 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-lg" />
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-24 h-24 bg-white rounded-2xl p-1.5 shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+                <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-xl" />
               </div>
-              <span className="text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
+              <span className="text-[8px] font-bold tracking-[0.25em] text-gray-400 uppercase">Scan to enter</span>
             </div>
           </div>
 
           {/* Bottom Partners Strip */}
-          <div className="w-full flex justify-between items-center px-1">
-            <div className="flex items-center gap-2">
-              <span className="text-[6px] text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap">Our Partners</span>
-              <div className="w-8 h-[1px] bg-gray-800" />
+          <div className="w-full flex justify-between items-center px-2">
+            <div className="flex items-center gap-3">
+              <span className="text-[8px] text-gray-500 font-bold tracking-[0.25em] uppercase whitespace-nowrap">Our Partners</span>
+              <div className="w-10 h-[1px] bg-gray-800" />
             </div>
-            <div className="flex items-center justify-end gap-3 opacity-60">
-              <img src="/Partners/DiceArtFilms_v2.png" className="h-3 object-contain" alt="Dice Art" />
-              <img src="/Partners/JobFinderAI.png?v=3" className="h-3 object-contain" alt="JobFinderAI" />
-              <img src="/Partners/MoreYeahs.png?v=3" className="h-3 object-contain" alt="MoreYeahs" />
-              <img src="/Partners/Young_v2.png" className="h-4 object-contain" alt="Young Coders" />
-              <img src="/Partners/TingoAI.png" className="h-3 object-contain" alt="Tingo" />
+            <div className="flex items-center justify-end gap-4 opacity-70">
+              <img src="/Partners/DiceArtFilms_v2.png" className="h-4 sm:h-5 object-contain" alt="Dice Art" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-4 sm:h-5 object-contain" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-4 sm:h-5 object-contain" alt="MoreYeahs" />
+              <img src="/Partners/Young_v2.png" className="h-5 sm:h-6 object-contain" alt="Young Coders" />
+              <img src="/Partners/TingoAI.png" className="h-4 sm:h-5 object-contain" alt="Tingo" />
             </div>
           </div>
 
