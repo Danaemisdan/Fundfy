@@ -102,23 +102,6 @@ export default function Register() {
     github: ''
   });
 
-  const [showPaymentModal, setShowPaymentModal] = useState(false);
-  const [paymentLink, setPaymentLink] = useState('');
-
-  // Auto-reopen modal if they hit the back button from Razorpay and landed back on the form
-  useEffect(() => {
-    const pending = localStorage.getItem('pending_registration');
-    const modalWasShown = localStorage.getItem('payment_modal_shown');
-    if (pending && modalWasShown === 'true') {
-      const data = JSON.parse(pending);
-      if (data && data.amount > 0) {
-        const link = data.amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
-        setPaymentLink(link);
-        setShowPaymentModal(true);
-      }
-    }
-  }, []);
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -205,11 +188,9 @@ export default function Register() {
         return;
       }
 
-      // For paid flow, show the manual confirmation modal
+      // For paid flow, redirect directly to Razorpay
       const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
-      setPaymentLink(link);
-      localStorage.setItem('payment_modal_shown', 'true');
-      setShowPaymentModal(true);
+      window.location.href = link;
       
     } catch (err) {
       console.error(err);
@@ -225,51 +206,6 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-gray-50  font-sans selection:bg-purple-200 relative">
-      {showPaymentModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border border-gray-100">
-            <h2 className="text-2xl font-bold mb-3 text-gray-900">Complete Payment</h2>
-            <p className="text-gray-600 mb-6 font-medium">Click the button below to pay securely on Razorpay. Once your payment is complete, return to this page and confirm.</p>
-            
-            <a 
-              href={paymentLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="block w-full py-4 mb-4 bg-purple-600 text-white rounded-2xl font-bold text-lg shadow-lg shadow-purple-500/30 hover:bg-purple-700 transition-colors"
-            >
-              Pay {formatCurrency(fee)} Now
-            </a>
-            
-            <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-gray-100">
-              <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">After paying, click below:</p>
-              <button 
-                onClick={() => {
-                  localStorage.setItem('payment_manually_confirmed', 'true');
-                  setShowPaymentModal(false);
-                  navigate('/register/success', { 
-                    state: JSON.parse(localStorage.getItem('pending_registration') || '{}') 
-                  });
-                }}
-                className="w-full px-4 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/30 hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
-              >
-                <Check className="w-5 h-5" /> Yes, I Have Paid!
-              </button>
-              
-              <button 
-                onClick={() => {
-                  localStorage.removeItem('pending_registration');
-                  localStorage.removeItem('payment_modal_shown');
-                  setShowPaymentModal(false);
-                }}
-                className="w-full px-4 py-3 text-gray-500 rounded-2xl font-bold hover:bg-gray-100 transition-colors mt-2"
-              >
-                Cancel Registration
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      
       <div className="absolute inset-0 bg-gradient-to-br from-purple-100/50 via-transparent to-blue-100/50 pointer-events-none z-0" />
       <div className="relative z-10">
       {/* Minimal Brand Header */}
