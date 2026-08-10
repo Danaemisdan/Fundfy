@@ -107,8 +107,8 @@ export default function Register() {
 
   // Auto-reopen modal if they hit the back button from Razorpay and landed back on the form
   useEffect(() => {
-    const pending = sessionStorage.getItem('pending_registration');
-    const modalWasShown = sessionStorage.getItem('payment_modal_shown');
+    const pending = localStorage.getItem('pending_registration');
+    const modalWasShown = localStorage.getItem('payment_modal_shown');
     if (pending && modalWasShown === 'true') {
       const data = JSON.parse(pending);
       if (data && data.amount > 0) {
@@ -180,7 +180,7 @@ export default function Register() {
         amount,
         currency
       };
-      sessionStorage.setItem('pending_registration', JSON.stringify(statePayload));
+      localStorage.setItem('pending_registration', JSON.stringify(statePayload));
       
       if (amount === 0) {
         navigate('/register/success', { state: statePayload });
@@ -190,7 +190,7 @@ export default function Register() {
       // For paid flow, show the manual confirmation modal
       const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
       setPaymentLink(link);
-      sessionStorage.setItem('payment_modal_shown', 'true');
+      localStorage.setItem('payment_modal_shown', 'true');
       setShowPaymentModal(true);
       
     } catch (err) {
@@ -226,10 +226,10 @@ export default function Register() {
               <p className="text-xs text-gray-400 uppercase tracking-widest font-bold">After paying, click below:</p>
               <button 
                 onClick={() => {
-                  sessionStorage.setItem('payment_manually_confirmed', 'true');
+                  localStorage.setItem('payment_manually_confirmed', 'true');
                   setShowPaymentModal(false);
                   navigate('/register/success', { 
-                    state: JSON.parse(sessionStorage.getItem('pending_registration') || '{}') 
+                    state: JSON.parse(localStorage.getItem('pending_registration') || '{}') 
                   });
                 }}
                 className="w-full px-4 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/30 hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
@@ -239,8 +239,8 @@ export default function Register() {
               
               <button 
                 onClick={() => {
-                  sessionStorage.removeItem('pending_registration');
-                  sessionStorage.removeItem('payment_modal_shown');
+                  localStorage.removeItem('pending_registration');
+                  localStorage.removeItem('payment_modal_shown');
                   setShowPaymentModal(false);
                 }}
                 className="w-full px-4 py-3 text-gray-500 rounded-2xl font-bold hover:bg-gray-100 transition-colors mt-2"

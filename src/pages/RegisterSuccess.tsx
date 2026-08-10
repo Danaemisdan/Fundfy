@@ -23,7 +23,7 @@ export default function RegisterSuccess() {
   const razorpayPaymentLinkId = searchParams.get('razorpay_payment_link_id');
   const paymentStatus = searchParams.get('razorpay_payment_link_status');
 
-  const savedStateStr = sessionStorage.getItem('pending_registration');
+  const savedStateStr = localStorage.getItem('pending_registration');
   const savedState = savedStateStr ? JSON.parse(savedStateStr) : null;
   
   // Security Checks
@@ -35,7 +35,7 @@ export default function RegisterSuccess() {
   };
   
   const hasValidIds = isValidPaymentId(razorpayPaymentId) || isValidPaymentId(razorpayPaymentLinkId);
-  const isManuallyConfirmed = sessionStorage.getItem('payment_manually_confirmed') === 'true';
+  const isManuallyConfirmed = localStorage.getItem('payment_manually_confirmed') === 'true';
   // Allow if they have a valid ID, manually confirmed, OR if they have a pending registration saved in this tab (which handles Razorpay auto-redirects that omit query params).
   const isSecurelyPaid = (hasValidIds && (!paymentStatus || paymentStatus === 'paid')) || isManuallyConfirmed || savedState !== null;
 
@@ -103,6 +103,11 @@ export default function RegisterSuccess() {
           referral_code: referralCode
         });
         sessionStorage.setItem('registration_tracked', 'true');
+        
+        // Clean up localStorage so modal doesn't open on next visit
+        localStorage.removeItem('pending_registration');
+        localStorage.removeItem('payment_modal_shown');
+        localStorage.removeItem('payment_manually_confirmed');
         
         // Create account now that registration and payment are successful
         if (displayState.password) {
