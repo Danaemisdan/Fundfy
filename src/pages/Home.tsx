@@ -35,24 +35,7 @@ function Home() {
   const contestId = searchParams.get('contest');
   const refCode = searchParams.get('ref');
   useEffect(() => {
-    const trackClick = async () => {
-      if (refCode) {
-        // Prevent double tracking in same session
-        if (sessionStorage.getItem('tracked_ref_' + refCode)) return;
-        
-        try {
-          // Increment click count via rpc if available, otherwise just try to get the profile and update it
-          const { data: profile } = await supabase.from('profiles').select('id, clicks').eq('referral_code', refCode.toUpperCase()).single();
-          if (profile) {
-            await supabase.from('profiles').update({ clicks: (profile.clicks || 0) + 1 }).eq('id', profile.id);
-            sessionStorage.setItem('tracked_ref_' + refCode, 'true');
-          }
-        } catch (e) {
-          console.error("Error tracking click", e);
-        }
-      }
-    };
-    trackClick();
+    // Tracking is handled globally by App.tsx
   }, [refCode]);
 
   const handleRegisterClick = () => {

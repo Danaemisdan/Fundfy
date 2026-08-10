@@ -53,20 +53,7 @@ export default function Register() {
     if (refParam) {
       // Save for when they successfully pay
       sessionStorage.setItem('referral_code', refParam);
-      
-      // Fire click increment
-      const incrementClick = async () => {
-        try {
-          await supabase.rpc('increment_click', { ref_code: refParam });
-        } catch (e) {
-          console.error("Failed to track click", e);
-        }
-      };
-      // We only want to fire it once per session to avoid refreshing abuse
-      if (!sessionStorage.getItem('click_tracked_' + refParam)) {
-        incrementClick();
-        sessionStorage.setItem('click_tracked_' + refParam, 'true');
-      }
+      // Click tracking is handled globally by App.tsx
     }
     
     if (activeRef) {
