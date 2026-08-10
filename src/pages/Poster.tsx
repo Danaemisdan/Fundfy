@@ -59,10 +59,7 @@ export default function Poster() {
         {/* --- MIDDLE SECTION (Contest Details) --- */}
         <div className="relative z-10 flex flex-col px-6 flex-1 justify-center py-2">
           
-          <div className="text-center mb-6">
-            <span className="inline-block px-4 py-1.5 border border-purple-500/50 rounded-full text-purple-300 text-[9px] font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)] bg-black/60 backdrop-blur-sm">
-              {contest.category}
-            </span>
+          <div className="text-center mb-6 mt-4">
             <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">
               {contest.title}
             </h2>
@@ -122,12 +119,12 @@ export default function Poster() {
               <span className="text-[6px] text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap">Our Partners</span>
               <div className="w-8 h-[1px] bg-gray-800" />
             </div>
-            <div className="flex flex-wrap justify-end gap-x-3 gap-y-2 opacity-60 flex-1 pl-4">
+            <div className="flex flex-wrap justify-end gap-x-4 gap-y-3 opacity-90 flex-1 pl-4 items-center">
               <img src="/Partners/Epic_Games_logo.svg.webp" className="h-4 object-contain brightness-0 invert" alt="Epic Games" />
-              <img src="/Partners/DiceArtFilms_v2.png" className="h-4 object-contain" alt="Dice Art" />
-              <img src="/Partners/JobFinderAI.png?v=3" className="h-4 object-contain" alt="JobFinderAI" />
-              <img src="/Partners/MoreYeahs.png?v=3" className="h-4 object-contain" alt="MoreYeahs" />
-              <img src="/Partners/XOXO_v2.png" className="h-4 object-contain" alt="XOXO" />
+              <img src="/Partners/DiceArtFilms_v2.png" className="h-4 object-contain brightness-0 invert" alt="Dice Art" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-4 object-contain brightness-0 invert" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-4 object-contain brightness-0 invert" alt="MoreYeahs" />
+              <img src="/Partners/XOXO_v2.png" className="h-4 object-contain brightness-0 invert" alt="XOXO" />
               <img src="/Partners/Young_v2.png" className="h-4 object-contain" alt="Young Coders" />
               <img src="/Partners/TingoAI.png" className="h-4 object-contain" alt="Tingo" />
             </div>
