@@ -14,7 +14,7 @@ export default function Poster() {
     return <Navigate to="/" replace />;
   }
 
-  const targetUrl = `https://fundfy.app/${ref ? `?ref=${ref}` : ''}`;
+  const targetUrl = `https://fundfy.app/?contest=${contest.id}${ref ? `&ref=${ref}` : ''}`;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(targetUrl)}&color=000000&bgcolor=ffffff`;
   
   const prizePool = contest.statistics.find(s => s.label === 'Prize Pool')?.value || '₹50 LAKHS';

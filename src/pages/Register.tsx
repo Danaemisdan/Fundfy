@@ -222,7 +222,7 @@ export default function Register() {
       <div className="relative z-10">
       {/* Minimal Brand Header */}
       <header className="w-full bg-white shadow-sm border-b border-gray-200 py-6 px-6 md:px-12 sticky top-0 z-50 flex items-center justify-between shadow-sm">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to={new URLSearchParams(location.search).get('contest') ? `/contests/${new URLSearchParams(location.search).get('contest')}${new URLSearchParams(location.search).has('ref') ? `?ref=${new URLSearchParams(location.search).get('ref')}` : ''}` : (new URLSearchParams(location.search).has('ref') ? `/?ref=${new URLSearchParams(location.search).get('ref')}` : '/')} className="flex items-center gap-2 group">
           <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-colors" />
           <span className="font-futuristic font-bold text-xl tracking-tighter text-gray-900">
             GLOBAL<span className="text-purple-400">TALENT</span>HUNT

@@ -70,6 +70,8 @@ export default function ContestLayout() {
     navigate(registrationPath);
   };
 
+  const logoUrl = `/?contest=${config.id}${ref ? `&ref=${ref}` : ''}`;
+
   return (
     <div className="min-h-screen w-full bg-[#050505] font-sans relative">
       {/* Global Progress Bar */}
@@ -82,6 +84,7 @@ export default function ContestLayout() {
         registrationUrl={registrationPath}
         buttonText={config.registration.buttonText} 
         onRegisterClick={handleRegisterClick}
+        logoUrl={logoUrl}
       />
       
       <main className="w-full relative z-10 flex flex-col">
