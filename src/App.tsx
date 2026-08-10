@@ -57,9 +57,14 @@ function ReferralTracker() {
 }
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(() => !sessionStorage.getItem('hasSeenSplash'));
 
   useEffect(() => {
+    if (!showSplash) {
+      document.body.style.overflow = 'unset';
+      return;
+    }
+
     document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
     
@@ -73,7 +78,7 @@ function App() {
       clearTimeout(timer);
       document.body.style.overflow = 'unset';
     };
-  }, []);
+  }, [showSplash]);
 
   return (
     <AuthProvider>
