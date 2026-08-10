@@ -105,6 +105,20 @@ export default function Register() {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [paymentLink, setPaymentLink] = useState('');
 
+  // Auto-reopen modal if they hit the back button from Razorpay and landed back on the form
+  useEffect(() => {
+    const pending = sessionStorage.getItem('pending_registration');
+    const modalWasShown = sessionStorage.getItem('payment_modal_shown');
+    if (pending && modalWasShown === 'true') {
+      const data = JSON.parse(pending);
+      if (data && data.amount > 0) {
+        const link = data.amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
+        setPaymentLink(link);
+        setShowPaymentModal(true);
+      }
+    }
+  }, []);
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -176,6 +190,7 @@ export default function Register() {
       // For paid flow, show the manual confirmation modal
       const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
       setPaymentLink(link);
+      sessionStorage.setItem('payment_modal_shown', 'true');
       setShowPaymentModal(true);
       
     } catch (err) {
@@ -220,6 +235,17 @@ export default function Register() {
                 className="w-full px-4 py-4 bg-green-500 text-white rounded-2xl font-bold shadow-lg shadow-green-500/30 hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
               >
                 <Check className="w-5 h-5" /> Yes, I Have Paid!
+              </button>
+              
+              <button 
+                onClick={() => {
+                  sessionStorage.removeItem('pending_registration');
+                  sessionStorage.removeItem('payment_modal_shown');
+                  setShowPaymentModal(false);
+                }}
+                className="w-full px-4 py-3 text-gray-500 rounded-2xl font-bold hover:bg-gray-100 transition-colors mt-2"
+              >
+                Cancel Registration
               </button>
             </div>
           </div>
