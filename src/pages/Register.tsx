@@ -169,8 +169,10 @@ export default function Register() {
     try {
       const amount = fee;
       
+      const registrationId = `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+      
       const statePayload = {
-        registrationId: `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
+        registrationId,
         contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
         participantName: formData.fullName,
         email: formData.email,
@@ -180,6 +182,22 @@ export default function Register() {
         amount,
         currency
       };
+
+      // Ensure the backend Webhook knows what to do if their phone dies:
+      // We insert a PENDING record so the webhook can extract their requested password later.
+      try {
+        await supabase.from('registrations').insert({
+          user_name: formData.fullName,
+          user_email: formData.email,
+          user_phone: formData.password ? `${formData.phone} || PWD:${formData.password}` : formData.phone,
+          amount_paid: 0,
+          payment_id: 'PENDING',
+          referral_code: hasReferral ? (new URLSearchParams(location.search).get('ref') || sessionStorage.getItem('referral_code')) : null
+        });
+      } catch (dbErr) {
+        // If it already exists or fails, it's fine, the webhook or frontend will just update the existing one
+      }
+
       localStorage.setItem('pending_registration', JSON.stringify(statePayload));
       
       if (amount === 0) {

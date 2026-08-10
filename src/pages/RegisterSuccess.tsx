@@ -94,14 +94,30 @@ export default function RegisterSuccess() {
       const paymentId = razorpayPaymentId || razorpayPaymentLinkId || 'unknown_payment_id';
       
       try {
-        await supabase.from('registrations').insert({
-          user_name: displayState.participantName,
-          user_email: displayState.email,
-          user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
-          amount_paid: displayState.amount,
-          payment_id: paymentId,
-          referral_code: referralCode
-        });
+        const { data: existing } = await supabase.from('registrations')
+          .select('id, payment_id')
+          .eq('user_email', displayState.email)
+          .single();
+
+        if (existing && existing.payment_id === 'PENDING') {
+          // Update the pending record
+          await supabase.from('registrations').update({
+            amount_paid: displayState.amount,
+            payment_id: paymentId,
+            referral_code: referralCode
+          }).eq('id', existing.id);
+        } else if (!existing) {
+          // Fallback insert if they somehow skipped the pending step
+          await supabase.from('registrations').insert({
+            user_name: displayState.participantName,
+            user_email: displayState.email,
+            user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
+            amount_paid: displayState.amount,
+            payment_id: paymentId,
+            referral_code: referralCode
+          });
+        }
+        
         sessionStorage.setItem('registration_tracked', 'true');
         
         // Clean up localStorage so modal doesn't open on next visit
