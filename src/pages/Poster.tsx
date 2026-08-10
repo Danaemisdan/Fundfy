@@ -73,15 +73,15 @@ export default function Poster() {
           <div className="flex flex-col gap-3 w-full mb-8 mt-2 relative z-10">
             <div className="glass-panel bg-gradient-to-b from-white/10 to-black/60 backdrop-blur-xl rounded-[2rem] py-6 px-4 w-full flex flex-col items-center justify-center text-center border border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10 pointer-events-none" />
-              <span className="text-[9px] font-black tracking-[0.4em] text-gray-400 uppercase mb-2 relative z-10">Total Prize Pool</span>
-              <span className="text-5xl sm:text-6xl font-black text-white whitespace-nowrap drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10 tracking-tight">
+              <span className="text-[9px] font-black tracking-[0.4em] text-gray-400 uppercase mb-2 relative z-10">Prize Pool</span>
+              <span className="text-5xl sm:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-br from-yellow-200 via-amber-400 to-orange-500 whitespace-nowrap drop-shadow-[0_0_20px_rgba(251,191,36,0.4)] relative z-10 tracking-tight">
                 ₹50 LAKHS
               </span>
             </div>
             
             <div className="glass-panel bg-orange-500/10 backdrop-blur-md rounded-xl p-3 w-full flex items-center justify-center text-center border border-orange-500/30 shadow-[0_0_15px_rgba(249,115,22,0.15)]">
               <span className="text-xs sm:text-sm font-bold text-orange-400 tracking-wide">
-                <span className="mr-1">⭐</span> AWS is sponsoring $5,000 for each winner*
+                AWS is sponsoring $5,000 for each winner*
               </span>
             </div>
           </div>
