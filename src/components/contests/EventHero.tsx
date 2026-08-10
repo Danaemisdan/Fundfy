@@ -55,11 +55,11 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           className="mt-10 flex flex-col items-center gap-6"
         >
           <div className="flex flex-col items-center gap-3">
-            <span className="text-[9px] font-bold tracking-[0.3em] text-gray-500 uppercase">Backed by industry leaders</span>
-            <div className="flex items-center justify-center gap-6 md:gap-10 grayscale opacity-60">
-              <span className="font-bold text-xl md:text-2xl tracking-tighter">Amazon Web Services</span>
-              <span className="font-bold text-xl md:text-2xl tracking-tight font-sans">Google Cloud</span>
-              <span className="font-bold text-xl md:text-2xl tracking-widest font-serif">IBM</span>
+            <span className="text-[9px] font-bold tracking-[0.3em] text-gray-500 uppercase text-center px-4">Backed by industry leaders</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-10 grayscale opacity-60 px-4">
+              <span className="font-bold text-sm sm:text-xl md:text-2xl tracking-tighter text-center leading-tight">Amazon Web<br className="sm:hidden" /> Services</span>
+              <span className="font-bold text-sm sm:text-xl md:text-2xl tracking-tight font-sans text-center leading-tight">Google<br className="sm:hidden" /> Cloud</span>
+              <span className="font-bold text-lg sm:text-xl md:text-2xl tracking-widest font-serif text-center leading-tight">IBM</span>
             </div>
           </div>
         </motion.div>

@@ -11,16 +11,16 @@ export const MotionButton: FC<Props> = ({ label = "REGISTER NOW", className = ""
   return (
     <button
       onClick={onClick}
-      className={`group relative h-12 md:h-14 w-48 md:w-56 cursor-pointer rounded-full border border-white/20 p-1 outline-none glass-panel shadow-xl hover:-translate-y-0.5 transition-all duration-300 ${className}`}
+      className={`group relative h-10 sm:h-12 md:h-14 w-40 sm:w-48 md:w-56 cursor-pointer rounded-full border border-white/20 p-1 outline-none glass-panel shadow-xl hover:-translate-y-0.5 transition-all duration-300 ${className}`}
     >
       <span
-        className='circle bg-white m-0 block h-10 w-10 md:h-12 md:w-12 overflow-hidden rounded-full duration-500 group-hover:w-full'
+        className='circle bg-white m-0 block h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 overflow-hidden rounded-full duration-500 group-hover:w-full'
         aria-hidden='true'
       ></span>
-      <div className='icon absolute top-1/2 left-4 translate-x-0 -translate-y-1/2 duration-500 group-hover:translate-x-[0.4rem]'>
-        <ArrowRight className='text-black w-5 h-5 md:w-6 md:h-6' />
+      <div className='icon absolute top-1/2 left-2.5 sm:left-4 translate-x-0 -translate-y-1/2 duration-500 group-hover:translate-x-[0.4rem] flex items-center justify-center w-5 sm:w-auto h-5 sm:h-auto'>
+        <ArrowRight className='text-black w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6' />
       </div>
-      <span className='button-text text-white group-hover:text-black font-futuristic absolute top-2/4 left-2/4 ml-4 -translate-x-2/4 -translate-y-2/4 text-center text-[10px] md:text-[12px] font-bold tracking-[0.2em] uppercase whitespace-nowrap duration-500'>
+      <span className='button-text text-white group-hover:text-black font-futuristic absolute top-1/2 left-1/2 ml-4 -translate-x-1/2 -translate-y-1/2 text-center text-[9px] sm:text-[10px] md:text-[12px] font-bold tracking-[0.2em] uppercase whitespace-nowrap duration-500'>
         {label}
       </span>
     </button>

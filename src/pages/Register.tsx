@@ -103,10 +103,8 @@ export default function Register() {
     if (errors.contest) setErrors(prev => ({ ...prev, contest: undefined } as any));
   };
 
-  // Form State
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -127,12 +125,10 @@ export default function Register() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Validation
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     if (selectedContestIds.length === 0) newErrors.contest = 'Please select at least one contest to register for.';
-    if (!formData.firstName.trim()) newErrors.firstName = 'Required';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Required';
+    if (!formData.fullName.trim()) newErrors.fullName = 'Required';
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email)) newErrors.email = 'Valid email required';
@@ -178,7 +174,7 @@ export default function Register() {
       const statePayload = {
         registrationId: `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
         contestName: selectedContests.length > 1 ? `${selectedContests.length} Contests` : selectedContests[0].title,
-        participantName: `${formData.firstName} ${formData.lastName}`,
+        participantName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
         password: formData.password,
@@ -190,7 +186,7 @@ export default function Register() {
       
       // 2. Initialize Payment Gateway (Redirects to Razorpay Link)
       const paymentDetails = await paymentService.initializePayment(order, {
-        name: `${formData.firstName} ${formData.lastName}`,
+        name: formData.fullName,
         email: formData.email,
         contact: formData.phone
       });
@@ -335,8 +331,9 @@ export default function Register() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
-                  <InputField label="First Name" name="firstName" value={formData.firstName} onChange={handleInputChange} error={errors.firstName} required placeholder="Enter first name" />
-                  <InputField label="Last Name" name="lastName" value={formData.lastName} onChange={handleInputChange} error={errors.lastName} required placeholder="Enter last name" />
+                  <div className="md:col-span-2">
+                    <InputField label="Full Name" name="fullName" value={formData.fullName} onChange={handleInputChange} error={errors.fullName} required placeholder="Enter your full name" />
+                  </div>
                   
                   <InputField label="Email Address" type="email" name="email" value={formData.email} onChange={handleInputChange} error={errors.email} required placeholder="Enter email address" />
                   
@@ -645,7 +642,7 @@ function InputField({ label, name, value, onChange, type = "text", error, requir
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full px-4 py-3 rounded-xl ${error ? 'border border-red-500/50 bg-red-500/10 focus:border-red-400' : 'glass-input'} text-gray-900 text-sm font-medium`}
+        className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-red-300 ring-4 ring-red-50 bg-white' : 'border-gray-200 bg-white focus-within:border-black focus-within:ring-4 focus-within:ring-gray-100'} transition-all outline-none text-gray-900 text-sm font-medium`}
       />
       {error && <span className="text-[10px] text-red-400 font-semibold">{error}</span>}
     </div>
