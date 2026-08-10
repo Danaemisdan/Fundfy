@@ -110,7 +110,6 @@ export default function Register() {
     confirmPassword: '',
     phone: '',
     role: '' as 'student' | 'professional' | '',
-    collegeCompany: '',
     linkedin: '',
     portfolio: '',
     github: ''
@@ -422,8 +421,6 @@ export default function Register() {
                     </div>
                     {errors.role && <span className="text-[10px] text-red-500 font-semibold">{errors.role}</span>}
                   </div>
-
-                  <InputField label="College / Company" name="collegeCompany" value={formData.collegeCompany} onChange={handleInputChange} placeholder="Enter college or company" required />
                   
                   {/* Social Links */}
                   <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 pt-4 border-t border-gray-50">
