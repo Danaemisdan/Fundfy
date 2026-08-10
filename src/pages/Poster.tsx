@@ -1,17 +1,19 @@
 import React from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, useLocation } from 'react-router-dom';
 import { CONTESTS } from '../data/contests';
 import Globe from '../components/ui/globe';
 
 export default function Poster() {
   const { id } = useParams();
+  const location = useLocation();
   const contest = CONTESTS.find(c => c.id === id);
 
   if (!contest) {
     return <Navigate to="/" replace />;
   }
 
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(`https://fundfy.app/contests/${contest.id}`)}&color=000000&bgcolor=ffffff`;
+  const targetUrl = `https://fundfy.app/contests/${contest.id}${location.search}`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(targetUrl)}&color=000000&bgcolor=ffffff`;
   
   const prizePool = contest.statistics.find(s => s.label === 'Prize Pool')?.value || '₹50 LAKHS';
 
@@ -57,19 +59,19 @@ export default function Poster() {
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
-        <div className="relative z-10 flex flex-col px-6 flex-1 justify-center py-2">
+        <div className="relative z-10 flex flex-col px-6 flex-1 justify-center gap-6 sm:gap-8 py-4">
           
-          <div className="text-center mb-8 mt-6 relative">
-            <h2 className="text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 leading-tight mb-3 tracking-tight">
+          <div className="text-center relative px-2">
+            <h2 className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-4 tracking-[-0.03em] drop-shadow-2xl">
               {contest.title}
             </h2>
-            <p className="text-[10px] sm:text-xs text-gray-400 font-medium px-4 tracking-[0.2em] uppercase">
+            <p className="text-[10px] sm:text-xs text-gray-400 font-bold px-4 tracking-[0.3em] uppercase">
               {contest.subtitle}
             </p>
           </div>
 
           {/* Prize Pool & Credits */}
-          <div className="flex flex-col gap-3 w-full mb-8 mt-2 relative z-10">
+          <div className="flex flex-col gap-3 w-full relative z-10">
             <div className="bg-white rounded-[2rem] py-6 px-4 w-full flex flex-col items-center justify-center text-center shadow-[0_0_50px_rgba(255,255,255,0.2)] relative overflow-hidden">
               <span className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase mb-2 relative z-10">Prize Pool</span>
               <span className="text-5xl sm:text-6xl font-black text-black whitespace-nowrap relative z-10 tracking-tight">
