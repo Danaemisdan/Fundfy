@@ -7,16 +7,16 @@ export default function Header({ registrationUrl = "/register", buttonText = "RE
   const navigate = useNavigate();
   return (
     <header className="relative z-50 flex flex-row justify-between items-center px-6 md:px-8 lg:px-12 py-4 shrink-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 shadow-sm">
-      <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-        <div className="flex items-center gap-2 md:gap-3">
+      <Link to="/" className="flex items-center gap-1.5 md:gap-3 cursor-pointer group">
+        <div className="flex items-center gap-1.5 md:gap-3">
           <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
           <span className="text-gray-300 font-light hidden md:block">|</span>
-          <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+          <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
         </div>
         <div className="w-[1px] h-6 bg-gray-300 hidden md:block opacity-50 ml-1"></div>
-        <div className="text-[7px] md:text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
+        <div className="hidden md:block text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
           PRESENTS<br />
-          <span className="text-gray-900 group-hover:text-purple-500 text-[8px] md:text-[10px]">GLOBAL TALENT HUNT 2026</span>
+          <span className="text-gray-900 group-hover:text-purple-500 text-[10px]">GLOBAL TALENT HUNT 2026</span>
         </div>
       </Link>
       

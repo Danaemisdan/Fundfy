@@ -69,7 +69,7 @@ function Home() {
       }
     }
   };
-  const delayBase = !sessionStorage.getItem('splashPlayed') ? 6.2 : 0;
+  const delayBase = !sessionStorage.getItem('hasSeenSplash') ? 6.2 : 0;
 
   useEffect(() => {
     try {

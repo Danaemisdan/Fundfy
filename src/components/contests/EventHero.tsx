@@ -83,7 +83,7 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-4 border-t border-white/10 pt-8 mt-auto mx-auto"
+          className="w-full max-w-3xl grid grid-cols-3 gap-2 md:gap-4 border-t border-white/10 pt-8 mt-auto mx-auto"
         >
           {data.statistics.map((stat: any, idx: number) => {
             if (stat.label === 'Registration' && hasReferral) {

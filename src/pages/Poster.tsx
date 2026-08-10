@@ -1,18 +1,20 @@
 import React from 'react';
-import { useParams, Navigate, useLocation } from 'react-router-dom';
+import { useParams, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 import { CONTESTS } from '../data/contests';
 import Globe from '../components/ui/globe';
 
 export default function Poster() {
   const { id } = useParams();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const ref = searchParams.get('ref');
   const contest = CONTESTS.find(c => c.id === id);
 
   if (!contest) {
     return <Navigate to="/" replace />;
   }
 
-  const targetUrl = `https://fundfy.app/contests/${contest.id}${location.search}`;
+  const targetUrl = `https://fundfy.app/${ref ? `?ref=${ref}` : ''}`;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(targetUrl)}&color=000000&bgcolor=ffffff`;
   
   const prizePool = contest.statistics.find(s => s.label === 'Prize Pool')?.value || '₹50 LAKHS';
