@@ -7,7 +7,10 @@ export default function SplashScreen() {
   });
 
   useEffect(() => {
-    if (phase === 3) return;
+    if (sessionStorage.getItem('hasSeenSplash')) {
+      setPhase(3);
+      return;
+    }
     const t1 = setTimeout(() => setPhase(1), 300); // 0.3s
     const t2 = setTimeout(() => setPhase(2), 3500); // 3.5s
     const t3 = setTimeout(() => {
@@ -15,7 +18,7 @@ export default function SplashScreen() {
       sessionStorage.setItem('hasSeenSplash', 'true');
     }, 6000); // 6.0s
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [phase]);
+  }, []);
 
   if (phase === 3) return null;
 
