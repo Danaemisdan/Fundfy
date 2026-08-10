@@ -20,14 +20,14 @@ export default function Header({ registrationUrl = "/register", buttonText = "RE
         </div>
       </Link>
       
-      <div className="flex items-center gap-4 md:gap-6">
-        <Link to="/signin" className="text-[10px] md:text-xs font-bold text-gray-500 hover:text-purple-600 transition-colors uppercase tracking-wider">
+      <div className="flex items-center gap-2 md:gap-6">
+        <Link to="/signin" className="text-[9px] md:text-xs font-bold text-gray-500 hover:text-purple-600 transition-colors uppercase tracking-wider">
           Login
         </Link>
         <MotionButton 
           onClick={() => onRegisterClick ? onRegisterClick() : navigate(registrationUrl)}
           label={buttonText}
-          className="!bg-[#0a0a0a] !border-[#0a0a0a] shadow-lg hover:shadow-xl"
+          className="!bg-[#0a0a0a] !border-[#0a0a0a] shadow-lg hover:shadow-xl !px-3 !py-1.5 md:!px-6 md:!py-2.5 !text-[9px] md:!text-xs"
         />
       </div>
     </header>
