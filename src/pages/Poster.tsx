@@ -19,7 +19,7 @@ export default function Poster() {
     <div className="min-h-screen bg-[#020202] flex items-center justify-center p-4 selection:bg-purple-500/30 font-sans">
       
       {/* Poster Container */}
-      <div className="w-full max-w-[500px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between bg-[#050505] border border-white/5">
+      <div className="w-full max-w-[500px] min-h-[850px] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between bg-[#050505] border border-white/5 py-4">
         
         {/* The Globe from Home */}
         <div className="absolute top-[20%] -right-[30%] w-[150%] h-[150%] pointer-events-none z-0 opacity-70 flex items-center justify-center mix-blend-screen">
