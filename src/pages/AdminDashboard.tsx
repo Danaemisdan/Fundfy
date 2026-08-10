@@ -162,11 +162,15 @@ export default function AdminDashboard() {
           .from('profiles')
           .update({ 
             role: 'referrer', 
-            referral_code: quickAddCode.toUpperCase(), 
-            commission_rate: quickAddCommission / 100,
-            referral_price: quickAddPrice
+            referral_code: quickAddCode.toUpperCase()
           })
           .eq('id', targetUserId);
+
+         await supabase.rpc('update_partner', {
+            partner_id: targetUserId,
+            new_commission: quickAddCommission / 100,
+            new_price: quickAddPrice
+         });
           
          alert("Partner added successfully! Their password is: " + quickAddPassword);
          window.location.reload();
@@ -205,13 +209,11 @@ export default function AdminDashboard() {
 
   const handleSavePartner = async (userId: string) => {
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ 
-          commission_rate: editCommission / 100,
-          referral_price: editPrice
-        })
-        .eq('id', userId);
+      const { error } = await supabase.rpc('update_partner', {
+        partner_id: userId,
+        new_commission: editCommission / 100,
+        new_price: editPrice
+      });
         
       if (error) throw error;
       alert('Partner updated successfully!');
