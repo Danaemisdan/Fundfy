@@ -156,7 +156,7 @@ function Home() {
               {/* AWS Credits Pill */}
               <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden bg-white rounded-full shadow-inner shrink-0">
-                  <img src="/Partners/AWS.webp" alt="AWS" className="w-[85%] h-[85%] object-contain" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="w-[75%] h-[75%] object-contain mt-1" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
                   GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">$5,000</span> IN CREDITS
