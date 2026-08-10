@@ -83,58 +83,52 @@ export default function Poster() {
           </div>
 
           {/* Powered By Sponsors */}
-          <div className="flex flex-col items-center bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl py-4 px-6 mx-2">
-            <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-3">Powered By</span>
-            <div className="flex items-center justify-center gap-4 w-full px-2">
-              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-6 object-contain" />
-              </div>
-              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-6 object-contain" />
-              </div>
-              <div className="bg-white px-3 py-2 rounded-lg shadow-md flex items-center justify-center h-12">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-5 object-contain" />
-              </div>
+          <div className="flex flex-col items-center bg-white/95 backdrop-blur-xl border border-white/10 rounded-2xl py-5 px-6 mx-2 shadow-2xl">
+            <span className="text-[9px] font-bold tracking-[0.25em] text-black/40 uppercase mb-4">Powered By</span>
+            <div className="flex items-center justify-center gap-6 sm:gap-8 w-full px-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-7 sm:h-8 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-7 sm:h-8 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-5 sm:h-6 object-contain" />
             </div>
           </div>
 
         </div>
 
         {/* --- BOTTOM SECTION (QR & Footer Partners) --- */}
-        <div className="relative z-10 flex flex-col items-center pb-6 px-6">
-          <div className="glass-panel rounded-3xl p-5 w-full flex items-center justify-between border border-white/20 bg-black/60 backdrop-blur-xl mb-6">
-            
-            <div className="flex flex-col items-start gap-1 pl-2">
-              <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
-              <span className="text-base sm:text-lg font-black text-white mb-1">ARE YOU READY?</span>
-              <span className="text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-0.5">
-                Register Now
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="w-20 h-20 bg-white rounded-xl p-1 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-lg" />
+        <div className="relative z-10 flex flex-col items-center pt-2">
+          
+          <div className="px-6 w-full mb-8">
+            <div className="glass-panel rounded-3xl p-5 w-full flex items-center justify-between border border-white/20 bg-black/60 backdrop-blur-xl">
+              
+              <div className="flex flex-col items-start gap-1 pl-2">
+                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
+                <span className="text-base sm:text-lg font-black text-white mb-1">ARE YOU READY?</span>
+                <span className="text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-0.5">
+                  Register Now
+                </span>
               </div>
-              <span className="text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
+
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-20 h-20 bg-white rounded-xl p-1 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                  <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-lg" />
+                </div>
+                <span className="text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
+              </div>
             </div>
           </div>
 
-          {/* Bottom Partners Strip */}
-          <div className="w-full flex flex-col gap-3 items-center px-1 mt-2">
-            <div className="flex items-center gap-2">
-              <div className="w-12 h-[1px] bg-gray-700" />
-              <span className="text-[7px] text-gray-400 tracking-[0.3em] font-bold uppercase whitespace-nowrap">Our Partners</span>
-              <div className="w-12 h-[1px] bg-gray-700" />
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 opacity-100 w-full px-2">
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/Epic_Games_logo.svg.webp" className="h-full object-contain" alt="Epic Games" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/DiceArtFilms_v2.png" className="h-full object-contain" alt="Dice Art" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/JobFinderAI.png?v=3" className="h-full object-contain" alt="JobFinderAI" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/MoreYeahs.png?v=3" className="h-full object-contain" alt="MoreYeahs" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/XOXO_v2.png" className="h-full object-contain" alt="XOXO" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/Young_v2.png" className="h-full object-contain" alt="Young Coders" /></div>
-              <div className="bg-white p-1.5 rounded-lg shadow-sm h-10 flex items-center justify-center"><img src="/Partners/TingoAI.png" className="h-full object-contain" alt="Tingo" /></div>
+          {/* Bottom Partners Strip - Solid White Banner */}
+          <div className="w-full bg-white/95 backdrop-blur-xl flex flex-col gap-3 items-center py-5 px-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+            <span className="text-[8px] text-black/40 tracking-[0.3em] font-bold uppercase whitespace-nowrap">Our Partners</span>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 opacity-100 w-full px-2 max-w-sm">
+              <img src="/Partners/BrandForYou.png" className="h-6 object-contain" alt="BrandForYou" />
+              <img src="/Partners/Epic_Games_logo.svg.webp" className="h-6 object-contain" alt="Epic Games" />
+              <img src="/Partners/DiceArtFilms_v2.png" className="h-6 object-contain" alt="Dice Art" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-5 object-contain" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-5 object-contain" alt="MoreYeahs" />
+              <img src="/Partners/XOXO_v2.png" className="h-6 object-contain" alt="XOXO" />
+              <img src="/Partners/Young_v2.png" className="h-6 object-contain" alt="Young Coders" />
+              <img src="/Partners/TingoAI.png" className="h-6 object-contain" alt="Tingo" />
             </div>
           </div>
 
