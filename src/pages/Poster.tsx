@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { CONTESTS } from '../data/contests';
+import Globe from '../components/ui/globe';
 
 export default function Poster() {
   const { id } = useParams();
@@ -11,33 +12,34 @@ export default function Poster() {
   }
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(`https://fundfy.app/contests/${contest.id}`)}&color=000000&bgcolor=ffffff`;
+  
+  const prizePool = contest.statistics.find(s => s.label === 'Prize Pool')?.value || '₹50 LAKHS';
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 selection:bg-purple-500/30 font-sans">
+    <div className="min-h-screen bg-[#020202] flex items-center justify-center p-4 selection:bg-purple-500/30 font-sans">
       
-      {/* Poster Container (Fixed Aspect Ratio 9:16 for stories/posters) */}
-      <div 
-        className="w-full max-w-[500px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between"
-        style={{
-          backgroundImage: `url('/Partners/ChatGPT Image Aug 10, 2026, 03_20_07 PM.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        {/* Dark overlay to make text pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 pointer-events-none" />
+      {/* Poster Container */}
+      <div className="w-full max-w-[500px] aspect-[9/16] relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col justify-between bg-[#050505] border border-white/5">
+        
+        {/* The Globe from Home */}
+        <div className="absolute top-[20%] -right-[30%] w-[150%] h-[150%] pointer-events-none z-0 opacity-70 flex items-center justify-center mix-blend-screen">
+          <Globe />
+        </div>
+
+        {/* Dark overlay to ensure text is readable over globe */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/95 pointer-events-none z-0" />
 
         {/* --- TOP SECTION --- */}
-        <div className="relative z-10 flex flex-col items-center pt-8 px-6 text-center">
+        <div className="relative z-10 flex flex-col pt-10 px-6 text-center">
           
-          {/* Header Logos */}
-          <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-lg mb-6">
-            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 w-auto object-contain" />
-            <span className="text-white/30 font-light text-xs">|</span>
-            <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 w-auto object-contain" />
+          {/* Header Logos - White Background for visibility */}
+          <div className="flex items-center justify-center gap-3 bg-white px-5 py-2.5 rounded-full shadow-lg mb-6 self-center mx-auto max-w-fit">
+            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 w-auto object-contain brightness-0" />
+            <span className="text-gray-300 font-light text-xs">|</span>
+            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-5 w-auto object-contain" />
           </div>
 
-          <h4 className="text-[10px] tracking-[0.4em] text-gray-400 font-bold uppercase mb-1">
+          <h4 className="text-[9px] tracking-[0.4em] text-gray-400 font-bold uppercase mb-1">
             PRESENTS
           </h4>
 
@@ -47,21 +49,21 @@ export default function Poster() {
             HUNT 2026
           </h1>
           
-          <p className="text-xs font-semibold tracking-[0.2em] text-white/70 uppercase mt-2 mb-6">
+          <p className="text-[10px] font-semibold tracking-[0.2em] text-white/70 uppercase mt-2 mb-4">
             Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
           </p>
 
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent self-center" />
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
-        <div className="relative z-10 flex flex-col px-8 flex-1 justify-center py-4">
+        <div className="relative z-10 flex flex-col px-6 flex-1 justify-center py-2">
           
-          <div className="text-center mb-8">
-            <span className="inline-block px-3 py-1 bg-purple-500/20 border border-purple-500/50 rounded-full text-purple-300 text-[10px] font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+          <div className="text-center mb-6">
+            <span className="inline-block px-4 py-1.5 border border-purple-500/50 rounded-full text-purple-300 text-[9px] font-bold tracking-[0.2em] uppercase mb-4 shadow-[0_0_15px_rgba(168,85,247,0.2)] bg-black/60 backdrop-blur-sm">
               {contest.category}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-2">
               {contest.title}
             </h2>
             <p className="text-sm text-gray-300 font-medium px-4">
@@ -69,41 +71,66 @@ export default function Poster() {
             </p>
           </div>
 
-          {/* Prize Pool Highlights */}
-          <div className="flex items-center justify-center gap-4 w-full">
-            <div className="glass-panel rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">Prize Pool</span>
-              <span className="text-xl sm:text-2xl font-black text-white">{contest.prizeHighlight}</span>
+          {/* Prize Pool & Credits */}
+          <div className="flex items-center justify-center gap-4 w-full mb-6">
+            <div className="glass-panel bg-black/60 backdrop-blur-md rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center border border-white/10">
+              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">Prize Pool</span>
+              <span className="text-xl sm:text-2xl font-black text-white">{prizePool}</span>
             </div>
             
-            <div className="glass-panel rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">AWS Credits</span>
+            <div className="glass-panel bg-black/60 backdrop-blur-md rounded-2xl p-4 flex-1 flex flex-col items-center justify-center text-center border border-white/10">
+              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase mb-1">AWS Credits</span>
               <span className="text-xl sm:text-2xl font-black text-orange-400">$5,000</span>
+            </div>
+          </div>
+
+          {/* Powered By Sponsors */}
+          <div className="flex flex-col items-center bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl py-4 px-6 mx-2">
+            <span className="text-[8px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-3">Powered By</span>
+            <div className="flex items-center justify-center gap-6 w-full px-2">
+              <img src="/Partners/AWS_v2.png" alt="AWS" className="h-6 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-5 object-contain" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-4 object-contain brightness-0 invert opacity-80" />
             </div>
           </div>
 
         </div>
 
-        {/* --- BOTTOM SECTION (QR & Call to Action) --- */}
-        <div className="relative z-10 flex flex-col items-center pb-8 px-6">
-          <div className="glass-panel rounded-3xl p-6 w-full flex items-center justify-between border border-white/20 bg-white/5 backdrop-blur-xl shadow-2xl">
+        {/* --- BOTTOM SECTION (QR & Footer Partners) --- */}
+        <div className="relative z-10 flex flex-col items-center pb-6 px-6">
+          <div className="glass-panel rounded-3xl p-5 w-full flex items-center justify-between border border-white/20 bg-black/60 backdrop-blur-xl mb-6">
             
-            <div className="flex flex-col items-start gap-1">
-              <span className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
-              <span className="text-lg sm:text-xl font-black text-white">ARE YOU READY?</span>
-              <span className="mt-2 text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-1">
+            <div className="flex flex-col items-start gap-1 pl-2">
+              <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
+              <span className="text-base sm:text-lg font-black text-white mb-1">ARE YOU READY?</span>
+              <span className="text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-0.5">
                 Register Now
               </span>
             </div>
 
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-24 h-24 bg-white rounded-xl p-1.5 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <div className="flex flex-col items-center gap-1.5">
+              <div className="w-20 h-20 bg-white rounded-xl p-1 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                 <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-lg" />
               </div>
-              <span className="text-[8px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
+              <span className="text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
             </div>
-
           </div>
+
+          {/* Bottom Partners Strip */}
+          <div className="w-full flex justify-between items-center px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-[6px] text-gray-500 tracking-[0.2em] uppercase whitespace-nowrap">Our Partners</span>
+              <div className="w-8 h-[1px] bg-gray-800" />
+            </div>
+            <div className="flex items-center justify-end gap-3 opacity-60">
+              <img src="/Partners/DiceArtFilms_v2.png" className="h-3 object-contain" alt="Dice Art" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-3 object-contain" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-3 object-contain" alt="MoreYeahs" />
+              <img src="/Partners/Young_v2.png" className="h-4 object-contain" alt="Young Coders" />
+              <img src="/Partners/TingoAI.png" className="h-3 object-contain" alt="Tingo" />
+            </div>
+          </div>
+
         </div>
         
       </div>
