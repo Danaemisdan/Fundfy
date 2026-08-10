@@ -106,12 +106,12 @@ export default function Poster() {
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/10 to-transparent pointer-events-none" />
               
               <div className="flex flex-col items-start gap-1.5 pl-2 relative z-10">
-                <span className="text-[9px] font-bold tracking-[0.3em] text-purple-300 uppercase">The Stage Is Set</span>
+                <span className="text-[9px] font-bold tracking-[0.3em] text-purple-300 uppercase">The World Is Watching</span>
                 <span className="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-1 tracking-tight">
-                  CLAIM YOUR SPOT
+                  PROVE YOUR WORTH
                 </span>
                 <div className="mt-1 bg-white text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                  Register Now
+                  Apply Now
                 </div>
               </div>
 
@@ -120,7 +120,7 @@ export default function Poster() {
                   <div className="absolute inset-0 border border-purple-500/30 rounded-2xl animate-pulse pointer-events-none" />
                   <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-xl" />
                 </div>
-                <span className="text-[7px] font-black tracking-[0.3em] text-white/70 uppercase">Scan to enter</span>
+                <span className="text-[7px] font-black tracking-[0.3em] text-white/70 uppercase">Scan to apply</span>
               </div>
             </div>
           </div>
