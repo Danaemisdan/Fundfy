@@ -48,8 +48,8 @@ export class PaymentService implements PaymentProvider, PaymentGateway {
     // Instead of using the Razorpay API SDK which requires domain verification and keys,
     // we simply redirect the user to a pre-generated Razorpay Payment Link!
     const PAYMENT_LINK = order.amount === 100 
-      ? "https://rzp.io/rzp/xIyzuCr" 
-      : "https://rzp.io/rzp/JqDi7itA";
+      ? "https://rzp.io/rzp/Bz7zEuCn" 
+      : "https://rzp.io/rzp/4JOE0dy";
     
     // Redirect the browser to the payment link
     window.location.href = PAYMENT_LINK;

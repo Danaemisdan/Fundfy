@@ -35,7 +35,8 @@ export default function RegisterSuccess() {
   };
   
   const hasValidIds = isValidPaymentId(razorpayPaymentId) || isValidPaymentId(razorpayPaymentLinkId);
-  const isSecurelyPaid = hasValidIds && paymentStatus === 'paid';
+  // Payment Links pass 'paid', Payment Pages omit the status parameter entirely.
+  const isSecurelyPaid = hasValidIds && (!paymentStatus || paymentStatus === 'paid');
 
   if (!isFreeFlow && !isSecurelyPaid) {
     return <Navigate to="/register" replace />;
