@@ -704,7 +704,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-white rounded-3xl w-full max-w-3xl max-h-full flex flex-col overflow-hidden shadow-2xl relative z-10"
+        className="bg-white rounded-3xl w-full max-w-3xl max-h-[85vh] md:max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative z-10"
       >
         <div className="p-6 md:p-8 border-b border-gray-100 flex justify-between items-center bg-white shrink-0">
           <h2 className="text-xl md:text-2xl font-bold tracking-tight text-gray-900">Terms & Conditions</h2>
