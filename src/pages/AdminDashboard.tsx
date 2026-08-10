@@ -74,7 +74,7 @@ export default function AdminDashboard() {
           .order('created_at', { ascending: false });
 
         setReferrers(profilesData || []);
-        setRegistrations(registrationsData || []);
+        setRegistrations((registrationsData || []).filter((r: any) => r.user_email !== 'test@test.com'));
 
       } catch (err) {
         console.error('Error fetching admin data', err);

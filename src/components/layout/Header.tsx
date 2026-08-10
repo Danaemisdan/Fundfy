@@ -27,7 +27,7 @@ export default function Header({ registrationUrl = "/register", buttonText = "RE
         <MotionButton 
           onClick={() => onRegisterClick ? onRegisterClick() : navigate(registrationUrl)}
           label={buttonText}
-          className="!bg-[#0a0a0a] !border-[#0a0a0a] shadow-lg hover:shadow-xl !px-3 !py-1.5 md:!px-6 md:!py-2.5 !text-[9px] md:!text-xs"
+          className="!bg-[#0a0a0a] !border-[#0a0a0a] shadow-lg hover:shadow-xl"
         />
       </div>
     </header>
