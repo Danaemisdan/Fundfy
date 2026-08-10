@@ -9,6 +9,7 @@ import RegisterSuccess from './pages/RegisterSuccess';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Poster from './pages/Poster';
 import { AuthProvider } from './contexts/AuthContext';
 
 import { supabase } from './lib/supabase';
@@ -86,6 +87,7 @@ function App() {
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/poster/:id" element={<Poster />} />
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </AuthProvider>
