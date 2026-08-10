@@ -102,21 +102,25 @@ export default function Poster() {
         <div className="relative z-10 flex flex-col items-center pt-2">
           
           <div className="px-6 w-full mb-8">
-            <div className="glass-panel rounded-3xl p-5 w-full flex items-center justify-between border border-white/20 bg-black/60 backdrop-blur-xl">
+            <div className="relative glass-panel rounded-[2rem] p-5 w-full flex items-center justify-between border border-white/20 bg-gradient-to-br from-purple-900/40 to-blue-900/20 backdrop-blur-xl shadow-[0_0_30px_rgba(168,85,247,0.15)] overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/10 to-transparent pointer-events-none" />
               
-              <div className="flex flex-col items-start gap-1 pl-2">
-                <span className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase">The world is watching.</span>
-                <span className="text-base sm:text-lg font-black text-white mb-1">ARE YOU READY?</span>
-                <span className="text-sm font-bold text-purple-400 uppercase tracking-widest border-b border-purple-400/50 pb-0.5">
-                  Register Now
+              <div className="flex flex-col items-start gap-1.5 pl-2 relative z-10">
+                <span className="text-[9px] font-bold tracking-[0.3em] text-purple-300 uppercase">The Stage Is Set</span>
+                <span className="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-1 tracking-tight">
+                  CLAIM YOUR SPOT
                 </span>
+                <div className="mt-1 bg-white text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                  Register Now
+                </div>
               </div>
 
-              <div className="flex flex-col items-center gap-1.5">
-                <div className="w-20 h-20 bg-white rounded-xl p-1 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                  <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-lg" />
+              <div className="flex flex-col items-center gap-2 relative z-10 pr-1">
+                <div className="w-20 h-20 bg-white rounded-2xl p-1.5 shadow-[0_0_25px_rgba(255,255,255,0.3)] relative">
+                  <div className="absolute inset-0 border border-purple-500/30 rounded-2xl animate-pulse pointer-events-none" />
+                  <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-xl" />
                 </div>
-                <span className="text-[7px] font-bold tracking-[0.2em] text-gray-400 uppercase">Scan to enter</span>
+                <span className="text-[7px] font-black tracking-[0.3em] text-white/70 uppercase">Scan to enter</span>
               </div>
             </div>
           </div>
