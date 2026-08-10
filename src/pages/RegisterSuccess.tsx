@@ -21,12 +21,23 @@ export default function RegisterSuccess() {
   const searchParams = new URLSearchParams(location.search);
   const razorpayPaymentId = searchParams.get('razorpay_payment_id');
   const razorpayPaymentLinkId = searchParams.get('razorpay_payment_link_id');
+  const paymentStatus = searchParams.get('razorpay_payment_link_status');
 
-  // If accessed directly without state AND without Razorpay redirect params AND without saved session state, redirect to register
   const savedStateStr = sessionStorage.getItem('pending_registration');
   const savedState = savedStateStr ? JSON.parse(savedStateStr) : null;
+  
+  // Security Checks
+  const isFreeFlow = (state && state.amount === 0) || (savedState && savedState.amount === 0);
+  
+  const isValidPaymentId = (id: string | null) => {
+    if (!id) return false;
+    return (id.startsWith('pay_') || id.startsWith('plink_')) && id.length > 8;
+  };
+  
+  const hasValidIds = isValidPaymentId(razorpayPaymentId) || isValidPaymentId(razorpayPaymentLinkId);
+  const isSecurelyPaid = hasValidIds && paymentStatus === 'paid';
 
-  if (!state && !razorpayPaymentId && !savedState) {
+  if (!isFreeFlow && !isSecurelyPaid) {
     return <Navigate to="/register" replace />;
   }
 
