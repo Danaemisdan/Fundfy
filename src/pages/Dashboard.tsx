@@ -49,7 +49,7 @@ export default function Dashboard() {
         const { data: userRegs } = await supabase
           .from('registrations')
           .select('*')
-          .eq('email', activeUser.email);
+          .eq('user_email', activeUser.email);
         setUserRegistrations(userRegs || []);
 
         const refCode = profile?.referral_code || '';

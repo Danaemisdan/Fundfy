@@ -117,7 +117,7 @@ export default async function handler(req, res) {
         if (existingProfile) targetUserId = existingProfile.id;
       }
       if (targetUserId) {
-        await supabase.from('profiles').update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null }).eq('id', targetUserId);
+        await supabase.from('profiles').update({ role: 'user', referral_code: null, commission_rate: 0, referral_price: 0 }).eq('id', targetUserId);
       }
 
       // 4. Send EmailJS Receipt via REST API (since @emailjs/browser is frontend only)

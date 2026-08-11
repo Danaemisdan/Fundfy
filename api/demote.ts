@@ -10,16 +10,20 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing userId' });
   }
 
-  // Initialize Supabase with the Service Role Key for Admin privileges (bypasses RLS)
-  const supabase = createClient(
-    process.env.VITE_SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-
   try {
+    // Initialize Supabase with the Service Role Key for Admin privileges (bypasses RLS)
+    const supabaseUrl = process.env.VITE_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error('Missing Supabase environment variables on server.');
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
     const { error } = await supabase
       .from('profiles')
-      .update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null })
+      .update({ role: 'user', referral_code: null, commission_rate: 0, referral_price: 0 })
       .eq('id', userId);
 
     if (error) throw error;
