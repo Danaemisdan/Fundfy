@@ -12,11 +12,11 @@ export default async function handler(req, res) {
 
   try {
     // Initialize Supabase with the Service Role Key for Admin privileges (bypasses RLS)
-    const supabaseUrl = process.env.VITE_SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || 'https://bmemodyjiphvkisbocuq.supabase.co';
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY || process.env.SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
     
-    if (!supabaseUrl || !supabaseKey) {
-      throw new Error('Missing Supabase environment variables on server.');
+    if (!supabaseKey) {
+      throw new Error('Missing SUPABASE_SERVICE_ROLE_KEY in Vercel Environment Variables. Please add it and redeploy.');
     }
 
     const supabase = createClient(supabaseUrl, supabaseKey);

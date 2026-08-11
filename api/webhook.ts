@@ -30,10 +30,9 @@ export default async function handler(req, res) {
     console.log(`Webhook received: Successful payment of ${amount} for ${email}`);
 
     // Initialize Supabase with the Service Role Key for Admin privileges
-    const supabase = createClient(
-      process.env.VITE_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY
-    );
+    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || 'https://bmemodyjiphvkisbocuq.supabase.co';
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY || process.env.SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
     try {
       // 1. Check if the frontend already processed this payment
