@@ -225,6 +225,73 @@ export default function AdminDashboard() {
   };
 
 
+  const handleManualVerify = async (reg: any) => {
+    if (!confirm(`Are you sure you want to manually verify ${reg.user_name} as PAID?`)) return;
+    
+    try {
+      let phone = reg.user_phone || '';
+      let pass = 'FundfySecure2026!';
+      if (phone.includes(' || PWD:')) {
+        const parts = phone.split(' || PWD:');
+        phone = parts[0];
+        pass = parts[1];
+      }
+
+      const tempSupabase = createClient(
+        import.meta.env.VITE_SUPABASE_URL,
+        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        { auth: { persistSession: false, autoRefreshToken: false } }
+      );
+      
+      const { error: authError } = await tempSupabase.auth.signUp({
+        email: reg.user_email,
+        password: pass,
+        options: { data: { first_name: reg.user_name.split(' ')[0] } }
+      });
+      
+      if (authError && authError.message !== 'User already registered') {
+        console.error("Auth error:", authError);
+      }
+
+      // Also send an email using emailjs REST API
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      if (serviceId && templateId && publicKey) {
+        await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            service_id: serviceId,
+            template_id: templateId,
+            user_id: publicKey,
+            template_params: {
+              to_name: reg.user_name,
+              to_email: reg.user_email,
+              payment_id: 'MANUAL_VERIFIED',
+              registration_id: reg.registration_id || 'MANUAL_VERIFIED',
+              amount: 100,
+              custom_message: "Your payment was manually verified by our team. You can now log in!"
+            }
+          })
+        }).catch(e => console.error("EmailJS error", e));
+      }
+
+      const { error: updateError } = await supabase
+        .from('registrations')
+        .update({ amount_paid: 100, payment_id: 'MANUAL_VERIFIED' })
+        .eq('id', reg.id);
+        
+      if (updateError) throw updateError;
+
+      alert(`Successfully verified ${reg.user_name} and sent confirmation email!`);
+      window.location.reload();
+    } catch (err: any) {
+      console.error(err);
+      alert('Failed to verify user: ' + err.message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#fafafa] p-6 lg:p-12 font-sans">
       <div className="max-w-7xl mx-auto space-y-8">
@@ -533,7 +600,16 @@ export default function AdminDashboard() {
                       <td className="px-6 py-4"><code className="bg-purple-50 text-purple-700 px-2 py-1 rounded">{pass}</code></td>
                       <td className="px-6 py-4 text-gray-500 text-xs">{new Date(reg.created_at).toLocaleDateString()}</td>
                       <td className="px-6 py-4 font-bold text-green-600">₹{reg.amount_paid}</td>
-                      <td className="px-6 py-4"><code className="text-xs text-gray-400">{reg.payment_id}</code></td>
+                      <td className="px-6 py-4">
+                        {reg.payment_id === 'PENDING' ? (
+                          <div className="flex items-center gap-2">
+                            <code className="text-xs text-orange-500 font-bold bg-orange-50 px-2 py-1 rounded">PENDING</code>
+                            <button onClick={() => handleManualVerify(reg)} className="text-[10px] bg-green-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-green-600 transition-colors">Verify</button>
+                          </div>
+                        ) : (
+                          <code className="text-xs text-gray-400">{reg.payment_id}</code>
+                        )}
+                      </td>
                       <td className="px-6 py-4">
                         {reg.referral_code ? (
                           <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-bold">{reg.referral_code}</span>

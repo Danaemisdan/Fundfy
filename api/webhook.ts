@@ -43,8 +43,22 @@ export default async function handler(req, res) {
         .eq('user_email', email)
         .order('created_at', { ascending: false })
         .limit(1);
-        
-      const existingReg = existingRegs?.[0];
+      let existingReg = existingRegs?.[0];
+
+      // If they used a different email on Razorpay, try finding them by phone number
+      if (!existingReg && payment.contact) {
+        // Get the last 10 digits of the phone number (to ignore country codes like +91)
+        const cleanPhone = payment.contact.replace(/\D/g, '').slice(-10);
+        if (cleanPhone.length >= 10) {
+          const { data: phoneRegs } = await supabase
+            .from('registrations')
+            .select('*')
+            .ilike('user_phone', `%${cleanPhone}%`)
+            .order('created_at', { ascending: false })
+            .limit(1);
+          existingReg = phoneRegs?.[0];
+        }
+      }
 
       if (existingReg && existingReg.payment_id && existingReg.payment_id !== 'PENDING' && existingReg.payment_id !== 'unknown_payment_id') {
         console.log(`Payment already processed by frontend for ${email}. Skipping webhook.`);
@@ -71,9 +85,11 @@ export default async function handler(req, res) {
       } else {
         // If no pending record exists, we forcefully insert a recovery record so they don't lose their payment
         await supabase.from('registrations').insert({
+          registration_id: `REG-REC-${Math.random().toString(36).substring(2, 8).toUpperCase()}`,
           user_name: 'Recovered User',
           user_email: email,
           user_phone: payment.contact || `PWD:${password}`,
+          contest_name: 'Unknown (Recovered)',
           amount_paid: amount,
           payment_id: paymentId,
           referral_code: 'RECOVERED_BY_WEBHOOK'
