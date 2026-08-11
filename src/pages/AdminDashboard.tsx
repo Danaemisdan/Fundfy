@@ -319,12 +319,15 @@ export default function AdminDashboard() {
         body: JSON.stringify({ userId })
       });
         
-      if (!res.ok) throw new Error('Failed to demote partner via API');
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to demote partner via API');
+      }
       alert('User removed from Referral list successfully!');
       window.location.reload();
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      alert('Failed to remove partner');
+      alert('Failed to remove partner: ' + err.message);
     }
   };
 
