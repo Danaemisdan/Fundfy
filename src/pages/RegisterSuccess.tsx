@@ -139,7 +139,7 @@ export default function RegisterSuccess() {
         // Create account now that registration and payment are successful
         if (displayState.password) {
           try {
-            await supabase.auth.signUp({
+            const { data: authData } = await supabase.auth.signUp({
               email: displayState.email,
               password: displayState.password,
               options: {
@@ -149,6 +149,15 @@ export default function RegisterSuccess() {
                 }
               }
             });
+            
+            // Fix the database trigger bug that makes everyone a referrer by default
+            if (authData?.user?.id) {
+              await fetch('/api/demote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: authData.user.id })
+              }).catch(e => console.error("Demote fetch failed", e));
+            }
           } catch (e) {
             console.error("Auth signup silently failed/already exists", e);
           }
