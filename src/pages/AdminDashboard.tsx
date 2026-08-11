@@ -243,7 +243,7 @@ export default function AdminDashboard() {
         { auth: { persistSession: false, autoRefreshToken: false } }
       );
       
-      const { error: authError } = await tempSupabase.auth.signUp({
+      const { data: authData, error: authError } = await tempSupabase.auth.signUp({
         email: reg.user_email,
         password: pass,
         options: { data: { first_name: reg.user_name.split(' ')[0] } }
@@ -251,6 +251,17 @@ export default function AdminDashboard() {
       
       if (authError && authError.message !== 'User already registered') {
         console.error("Auth error:", authError);
+      }
+
+      // **CRITICAL FIX**: The database trigger automatically sets new signups to 'referrer'. 
+      // We MUST explicitly force them back to 'user' so they don't appear in the referral list!
+      let targetUserId = authData?.user?.id;
+      if (!targetUserId) {
+        const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', reg.user_email).single();
+        if (existingProfile) targetUserId = existingProfile.id;
+      }
+      if (targetUserId) {
+        await supabase.from('profiles').update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null }).eq('id', targetUserId);
       }
 
       // Also send an email using emailjs REST API
@@ -289,6 +300,23 @@ export default function AdminDashboard() {
     } catch (err: any) {
       console.error(err);
       alert('Failed to verify user: ' + err.message);
+    }
+  };
+
+  const handleDemotePartner = async (userId: string) => {
+    if (!confirm('Are you sure you want to remove this person from the Referrer list? They will become a normal participant.')) return;
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null })
+        .eq('id', userId);
+        
+      if (error) throw error;
+      alert('User removed from Referral list successfully!');
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+      alert('Failed to remove partner');
     }
   };
 
@@ -459,9 +487,14 @@ export default function AdminDashboard() {
                           Save
                         </button>
                       ) : (
-                        <button onClick={() => { setEditingPartnerId(ref.id); setEditCommission(Math.round((ref.commission_rate ?? 0.5) * 100)); setEditPrice(ref.referral_price ?? 100); }} className="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors">
-                          Edit
-                        </button>
+                        <div className="flex flex-col gap-1">
+                          <button onClick={() => { setEditingPartnerId(ref.id); setEditCommission(Math.round((ref.commission_rate ?? 0.5) * 100)); setEditPrice(ref.referral_price ?? 100); }} className="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors">
+                            Edit
+                          </button>
+                          <button onClick={() => handleDemotePartner(ref.id)} className="text-[10px] bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1.5 rounded font-bold uppercase tracking-wider transition-colors">
+                            Remove
+                          </button>
+                        </div>
                       )}
                       <button 
                         onClick={() => setExpandedRefId(expandedRefId === ref.id ? null : ref.id)}

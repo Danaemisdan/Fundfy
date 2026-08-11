@@ -108,6 +108,16 @@ export default async function handler(req, res) {
         console.error('Failed to create auth user', authError);
       }
 
+      // **CRITICAL FIX**: Database trigger assigns 'referrer' role by default. Force it to 'user'.
+      let targetUserId = authUser?.user?.id;
+      if (!targetUserId) {
+        const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', email).single();
+        if (existingProfile) targetUserId = existingProfile.id;
+      }
+      if (targetUserId) {
+        await supabase.from('profiles').update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null }).eq('id', targetUserId);
+      }
+
       // 4. Send EmailJS Receipt via REST API (since @emailjs/browser is frontend only)
       const serviceId = process.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
