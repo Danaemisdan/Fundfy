@@ -92,14 +92,7 @@ export default function RegisterSuccess() {
       // Don't double track if they refresh the success page
       if (sessionStorage.getItem('registration_tracked')) return;
       
-      // FOR PAID FLOWS: The backend Webhook is the single source of truth.
-      // It handles upgrading the PENDING record, creating the Auth user, and sending the EmailJS receipt with the real Razorpay ID.
-      if (!isFreeFlow) {
-        sessionStorage.setItem('registration_tracked', 'true');
-        localStorage.removeItem('pending_registration');
-        return;
-      }
-      
+      // The frontend handles inserting the PAID record, creating the Auth user, and sending the EmailJS receipt.
       const referralCode = sessionStorage.getItem('referral_code');
       const paymentId = razorpayPaymentId || razorpayPaymentLinkId || 'unknown_payment_id';
       
