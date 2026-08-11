@@ -415,12 +415,7 @@ export default function Register() {
                     {errors.role && <span className="text-[10px] text-red-500 font-semibold">{errors.role}</span>}
                   </div>
                   
-                  {/* Social Links */}
-                  <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6 pt-4 border-t border-gray-50">
-                    <InputField label="LinkedIn Profile (Optional)" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="https://linkedin.com/in/yourprofile" />
-                    <InputField label="Portfolio / Website (Optional)" name="portfolio" value={formData.portfolio} onChange={handleInputChange} placeholder="https://yourportfolio.com" />
-                    <InputField label="GitHub Profile (Optional)" name="github" value={formData.github} onChange={handleInputChange} placeholder="https://github.com/username" />
-                  </div>
+
                 </div>
               </section>
 
