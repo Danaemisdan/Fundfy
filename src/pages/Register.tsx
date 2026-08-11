@@ -188,8 +188,8 @@ export default function Register() {
         return;
       }
 
-      // For paid flow, redirect directly to Razorpay with prefilled details
-      window.location.href = `https://rzp.io/l/h93LqFvG?email=${encodeURIComponent(formData.email)}&contact=${encodeURIComponent(formData.phone)}`;
+      // For paid flow, redirect directly to Razorpay
+      window.location.href = 'https://rzp.io/l/h93LqFvG';
       
     } catch (err) {
       console.error(err);
