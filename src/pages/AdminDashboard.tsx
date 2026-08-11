@@ -466,7 +466,7 @@ export default function AdminDashboard() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {registrations.map((r, i) => {
+                {registrations.filter(r => r.payment_id !== 'PENDING').map((r, i) => {
                   let phone = r.user_phone || '';
                   let pass = 'Unknown';
                   if (phone.includes(' || PWD:')) {
@@ -486,7 +486,7 @@ export default function AdminDashboard() {
                     </tr>
                   );
                 })}
-                {registrations.length === 0 && (
+                {registrations.filter(r => r.payment_id !== 'PENDING').length === 0 && (
                   <tr>
                     <td colSpan={6} className="px-6 py-8 text-center text-gray-500">No registered users found.</td>
                   </tr>
