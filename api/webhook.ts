@@ -103,12 +103,14 @@ export default async function handler(req, res) {
         email_confirm: true,
         user_metadata: { first_name: userName.split(' ')[0] }
       });
-
       if (authError && authError.message !== 'User already registered') {
         console.error('Failed to create auth user', authError);
       }
 
       // **CRITICAL FIX**: Database trigger assigns 'referrer' role by default. Force it to 'user'.
+      // We MUST wait 1.5 seconds for the database trigger to finish creating the profile before we update it.
+      await new Promise(r => setTimeout(r, 1500));
+
       let targetUserId = authUser?.user?.id;
       if (!targetUserId) {
         const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', email).single();

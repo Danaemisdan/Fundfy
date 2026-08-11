@@ -255,6 +255,9 @@ export default function AdminDashboard() {
 
       // **CRITICAL FIX**: The database trigger automatically sets new signups to 'referrer'. 
       // We MUST explicitly force them back to 'user' so they don't appear in the referral list!
+      // We MUST wait 1.5 seconds for the database trigger to finish creating the profile before we update it.
+      await new Promise(r => setTimeout(r, 1500));
+      
       let targetUserId = authData?.user?.id;
       if (!targetUserId) {
         const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', reg.user_email).single();
