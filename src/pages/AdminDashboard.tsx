@@ -386,8 +386,14 @@ export default function AdminDashboard() {
       });
       
       if (!resAdmin.ok) {
-        const errorData = await resAdmin.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Failed to update database via API');
+        let errorMsg = 'Failed to update database via API';
+        try {
+          const errorData = await resAdmin.json();
+          if (errorData.error) errorMsg = errorData.error;
+        } catch {
+          errorMsg = `Server error ${resAdmin.status}: API route might be returning HTML or 404`;
+        }
+        throw new Error(errorMsg);
       }
 
       alert(`Successfully verified ${reg.user_name} and sent confirmation email!`);
@@ -408,8 +414,14 @@ export default function AdminDashboard() {
       });
       
       if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Failed to delete via API');
+        let errorMsg = 'Failed to delete via API';
+        try {
+          const errorData = await res.json();
+          if (errorData.error) errorMsg = errorData.error;
+        } catch {
+          errorMsg = `Server error ${res.status}: API route might be returning HTML or 404`;
+        }
+        throw new Error(errorMsg);
       }
       alert('Registration deleted successfully.');
       window.location.reload();
