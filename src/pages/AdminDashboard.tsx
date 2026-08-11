@@ -28,6 +28,14 @@ export default function AdminDashboard() {
   const [editCommission, setEditCommission] = useState(50);
   const [editPrice, setEditPrice] = useState(100);
 
+  // Edit Registration Modal State
+  const [editingReg, setEditingReg] = useState<any | null>(null);
+  const [editRegName, setEditRegName] = useState("");
+  const [editRegPhone, setEditRegPhone] = useState("");
+  const [editRegPassword, setEditRegPassword] = useState("");
+  const [editRegContest, setEditRegContest] = useState("");
+  const [isSavingReg, setIsSavingReg] = useState(false);
+
   // Quick Add Contestant State
   const [quickAddContestantName, setQuickAddContestantName] = useState("");
   const [quickAddContestantEmail, setQuickAddContestantEmail] = useState("");
@@ -403,6 +411,46 @@ export default function AdminDashboard() {
     }
   };
 
+  const openEditReg = (reg: any) => {
+    let phone = reg.user_phone || '';
+    let pass = '';
+    if (phone.includes(' || PWD:')) {
+      const parts = phone.split(' || PWD:');
+      phone = parts[0];
+      pass = parts[1];
+    }
+    const hasContest = reg.user_name.includes(' [');
+    const name = hasContest ? reg.user_name.split(' [')[0] : reg.user_name;
+    const contest = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : '';
+    setEditingReg(reg);
+    setEditRegName(name);
+    setEditRegPhone(phone);
+    setEditRegPassword(pass);
+    setEditRegContest(contest);
+  };
+
+  const handleSaveReg = async () => {
+    if (!editingReg) return;
+    setIsSavingReg(true);
+    try {
+      const newName = editRegContest ? `${editRegName} [${editRegContest}]` : editRegName;
+      const newPhone = editRegPassword ? `${editRegPhone} || PWD:${editRegPassword}` : editRegPhone;
+      const { error } = await supabase.rpc('admin_update_registration', {
+        reg_id: editingReg.id,
+        p_user_name: newName,
+        p_user_phone: newPhone
+      });
+      if (error) throw error;
+      alert('Registration updated successfully!');
+      setEditingReg(null);
+      window.location.reload();
+    } catch (err: any) {
+      alert('Failed to update: ' + err.message);
+    } finally {
+      setIsSavingReg(false);
+    }
+  };
+
   const handleDemotePartner = async (userId: string) => {
     if (!confirm('Are you sure you want to remove this person from the Referrer list? They will become a normal participant.')) return;
     try {
@@ -426,6 +474,44 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] p-6 lg:p-12 font-sans">
+
+      {/* Edit Registration Modal */}
+      {editingReg && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-lg">
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Edit Registration</h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Full Name</label>
+                <input type="text" value={editRegName} onChange={e => setEditRegName(e.target.value)} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Contest</label>
+                <select value={editRegContest} onChange={e => setEditRegContest(e.target.value)} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none bg-white">
+                  <option value="">Unknown</option>
+                  {CONTESTS.map(c => <option key={c.id} value={c.title}>{c.title}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Phone</label>
+                <input type="text" value={editRegPhone} onChange={e => setEditRegPhone(e.target.value)} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Password</label>
+                <input type="text" value={editRegPassword} onChange={e => setEditRegPassword(e.target.value)} className="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono focus:ring-2 focus:ring-purple-500 outline-none" />
+              </div>
+            </div>
+            <div className="flex gap-3 mt-6">
+              <button onClick={handleSaveReg} disabled={isSavingReg} className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-bold text-sm uppercase tracking-wider disabled:opacity-50">
+                {isSavingReg ? 'Saving...' : 'Save Changes'}
+              </button>
+              <button onClick={() => setEditingReg(null)} className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 rounded-lg font-bold text-sm uppercase tracking-wider">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto space-y-8">
         
         <div className="flex items-center gap-4 mb-8">
@@ -733,12 +819,20 @@ export default function AdminDashboard() {
                       <td className="px-6 py-4 text-gray-500">{new Date(r.created_at).toLocaleDateString()}</td>
                       <td className="px-6 py-4 text-right font-bold text-green-600">₹{r.amount_paid}</td>
                       <td className="px-6 py-4 text-right">
-                        <button 
-                          onClick={() => handleDeleteRegistration(r.id)}
-                          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider"
-                        >
-                          Delete
-                        </button>
+                        <div className="flex gap-2 justify-end">
+                          <button
+                            onClick={() => openEditReg(r)}
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider"
+                          >
+                            Edit
+                          </button>
+                          <button 
+                            onClick={() => handleDeleteRegistration(r.id)}
+                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );
@@ -797,13 +891,18 @@ export default function AdminDashboard() {
                       <td className="px-6 py-4 font-bold text-green-600">₹{reg.amount_paid}</td>
                       <td className="px-6 py-4">
                         {reg.payment_id === 'PENDING' ? (
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 flex-wrap">
                             <code className="text-xs text-orange-500 font-bold bg-orange-50 px-2 py-1 rounded">PENDING</code>
+                            <button onClick={() => openEditReg(reg)} className="text-[10px] bg-blue-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-blue-600 transition-colors">Edit</button>
                             <button onClick={() => handleManualVerify(reg)} className="text-[10px] bg-green-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-green-600 transition-colors">Verify</button>
                             <button onClick={() => handleDeleteRegistration(reg.id)} className="text-[10px] bg-red-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-red-600 transition-colors">Delete</button>
                           </div>
                         ) : (
-                          <code className="text-xs text-gray-400">{reg.payment_id}</code>
+                          <div className="flex items-center gap-2">
+                            <code className="text-xs text-gray-400">{reg.payment_id}</code>
+                            <button onClick={() => openEditReg(reg)} className="text-[10px] bg-blue-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-blue-600 transition-colors">Edit</button>
+                            <button onClick={() => handleDeleteRegistration(reg.id)} className="text-[10px] bg-red-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-red-600 transition-colors">Delete</button>
+                          </div>
                         )}
                       </td>
                       <td className="px-6 py-4">

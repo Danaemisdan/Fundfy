@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState<'user' | 'referrer' | 'admin'>('user');
   const [userRegistrations, setUserRegistrations] = useState<any[]>([]);
+  const [referredRegistrations, setReferredRegistrations] = useState<any[]>([]);
   const [stats, setStats] = useState({
     clicks: 0,
     entries: 0,
@@ -57,16 +58,21 @@ export default function Dashboard() {
         // Fetch registration entries for this referral code
         let entries = 0;
         let earned = 0;
+        let referredRegs: any[] = [];
         if (refCode) {
           const { data: regs } = await supabase
             .from('registrations')
-            .select('amount_paid')
-            .eq('referral_code', refCode);
+            .select('*')
+            .eq('referral_code', refCode)
+            .order('created_at', { ascending: false });
           
-          entries = regs?.length || 0;
-          const totalRevenue = regs?.reduce((sum, r) => sum + Number(r.amount_paid), 0) || 0;
+          referredRegs = regs || [];
+          entries = referredRegs.length;
+          const totalRevenue = referredRegs.reduce((sum, r) => sum + Number(r.amount_paid), 0);
           earned = totalRevenue * (profile?.commission_rate || 0.20);
         }
+
+        setReferredRegistrations(referredRegs);
 
         setStats({
           clicks: profile?.clicks || 0,
@@ -216,6 +222,61 @@ export default function Dashboard() {
                 );
               })}
             </div>
+          </div>
+        </div>
+
+        {/* Referred Registrations Table */}
+        <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden">
+          <div className="p-6 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Your Referred Registrations</h2>
+              <p className="text-xs text-gray-500 mt-1">People who registered through your referral link</p>
+            </div>
+            <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold">
+              {referredRegistrations.filter(r => r.amount_paid > 0).length} Paid
+            </span>
+          </div>
+          <div className="overflow-x-auto">
+            {referredRegistrations.length === 0 ? (
+              <div className="py-12 text-center text-gray-500">
+                <p className="font-medium">No referrals yet.</p>
+                <p className="text-sm mt-1">Share your link above to start earning!</p>
+              </div>
+            ) : (
+              <table className="w-full text-left text-sm">
+                <thead className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
+                  <tr>
+                    <th className="px-6 py-4">Name</th>
+                    <th className="px-6 py-4">Email</th>
+                    <th className="px-6 py-4">Date</th>
+                    <th className="px-6 py-4 text-right">Paid</th>
+                    <th className="px-6 py-4 text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {referredRegistrations.map((reg, i) => {
+                    const hasContest = reg.user_name?.includes(' [');
+                    const displayName = hasContest ? reg.user_name.split(' [')[0] : (reg.user_name || 'Unknown');
+                    const isPaid = Number(reg.amount_paid) > 0;
+                    return (
+                      <tr key={i} className="hover:bg-gray-50/50">
+                        <td className="px-6 py-4 font-medium text-gray-900">{displayName}</td>
+                        <td className="px-6 py-4 text-gray-500">{reg.user_email}</td>
+                        <td className="px-6 py-4 text-gray-400 text-xs">{new Date(reg.created_at).toLocaleDateString()}</td>
+                        <td className="px-6 py-4 text-right font-bold text-green-600">₹{reg.amount_paid}</td>
+                        <td className="px-6 py-4 text-right">
+                          {isPaid ? (
+                            <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-bold">Paid ✓</span>
+                          ) : (
+                            <span className="bg-orange-100 text-orange-600 px-2 py-1 rounded-full text-xs font-bold">Pending</span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
         </>
