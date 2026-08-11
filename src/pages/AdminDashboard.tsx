@@ -264,7 +264,11 @@ export default function AdminDashboard() {
         if (existingProfile) targetUserId = existingProfile.id;
       }
       if (targetUserId) {
-        await supabase.from('profiles').update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null }).eq('id', targetUserId);
+        await fetch('/api/demote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: targetUserId })
+        });
       }
 
       // Also send an email using emailjs REST API
@@ -309,12 +313,13 @@ export default function AdminDashboard() {
   const handleDemotePartner = async (userId: string) => {
     if (!confirm('Are you sure you want to remove this person from the Referrer list? They will become a normal participant.')) return;
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ role: 'user', referral_code: null, commission_rate: null, referral_price: null })
-        .eq('id', userId);
+      const res = await fetch('/api/demote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId })
+      });
         
-      if (error) throw error;
+      if (!res.ok) throw new Error('Failed to demote partner via API');
       alert('User removed from Referral list successfully!');
       window.location.reload();
     } catch (err) {
