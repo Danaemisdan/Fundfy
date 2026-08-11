@@ -505,31 +505,45 @@ export default function AdminDashboard() {
             <table className="w-full text-left text-sm">
               <thead className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
                 <tr>
-                  <th className="px-6 py-4">Participant Name</th>
+                  <th className="px-6 py-4">Name</th>
                   <th className="px-6 py-4">Email</th>
-                  <th className="px-6 py-4">Amount Paid</th>
+                  <th className="px-6 py-4">Phone</th>
+                  <th className="px-6 py-4">Password</th>
+                  <th className="px-6 py-4">Date</th>
+                  <th className="px-6 py-4">Paid</th>
                   <th className="px-6 py-4">Payment ID</th>
                   <th className="px-6 py-4">Referred By</th>
-                  <th className="px-6 py-4">Date</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {registrations.map((reg, i) => (
-                  <tr key={i} className="hover:bg-gray-50/50">
-                    <td className="px-6 py-4 font-medium text-gray-900">{reg.user_name}</td>
-                    <td className="px-6 py-4">{reg.user_email}</td>
-                    <td className="px-6 py-4 font-medium">₹{reg.amount_paid}</td>
-                    <td className="px-6 py-4"><code className="text-xs text-gray-400">{reg.payment_id}</code></td>
-                    <td className="px-6 py-4">
-                      {reg.referral_code ? (
-                        <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-bold">{reg.referral_code}</span>
-                      ) : (
-                        <span className="text-gray-400 text-xs italic">Direct</span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 text-gray-500 text-xs">{new Date(reg.created_at).toLocaleDateString()}</td>
-                  </tr>
-                ))}
+                {registrations.map((reg, i) => {
+                  let phone = reg.user_phone || '';
+                  let pass = 'Unknown';
+                  if (phone.includes(' || PWD:')) {
+                    const parts = phone.split(' || PWD:');
+                    phone = parts[0];
+                    pass = parts[1];
+                  }
+                  
+                  return (
+                    <tr key={i} className="hover:bg-gray-50/50">
+                      <td className="px-6 py-4 font-medium text-gray-900">{reg.user_name}</td>
+                      <td className="px-6 py-4">{reg.user_email}</td>
+                      <td className="px-6 py-4 text-gray-500">{phone}</td>
+                      <td className="px-6 py-4"><code className="bg-purple-50 text-purple-700 px-2 py-1 rounded">{pass}</code></td>
+                      <td className="px-6 py-4 text-gray-500 text-xs">{new Date(reg.created_at).toLocaleDateString()}</td>
+                      <td className="px-6 py-4 font-bold text-green-600">₹{reg.amount_paid}</td>
+                      <td className="px-6 py-4"><code className="text-xs text-gray-400">{reg.payment_id}</code></td>
+                      <td className="px-6 py-4">
+                        {reg.referral_code ? (
+                          <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-bold">{reg.referral_code}</span>
+                        ) : (
+                          <span className="text-gray-400 text-xs italic">Direct</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
                 {registrations.length === 0 && (
                   <tr>
                     <td colSpan={7} className="px-6 py-8 text-center text-gray-500">No registrations found.</td>
