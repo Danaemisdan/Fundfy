@@ -111,6 +111,7 @@ export default async function handler(req, res) {
               to_name: userName,
               to_email: email,
               payment_id: paymentId,
+              registration_id: existingReg?.registration_id || paymentId,
               amount: amount,
               custom_message: "Your payment was securely verified by our automated systems. You can now log in!"
             }

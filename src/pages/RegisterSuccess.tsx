@@ -169,6 +169,7 @@ export default function RegisterSuccess() {
               to_name: displayState.participantName,
               to_email: displayState.email,
               payment_id: paymentId,
+              registration_id: displayState.registrationId || 'unknown_registration_id',
               custom_message: "Please click on 'Go to Dashboard' on our website to see the contest timer. You'll be notified 24 hours prior to the start time.",
               amount: displayState.amount
             },
