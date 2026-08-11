@@ -97,22 +97,22 @@ export default function RegisterSuccess() {
       const paymentId = razorpayPaymentId || razorpayPaymentLinkId || 'unknown_payment_id';
       
       try {
-        // We only insert once they successfully reach this page.
-        // This guarantees they only show up in the admin panel if they paid.
-        const { error: dbError } = await supabase.from('registrations').insert({
-          user_name: `${displayState.participantName} [${displayState.contestName}]`,
-          user_email: displayState.email,
-          user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
-          amount_paid: displayState.amount,
-          payment_id: paymentId,
-          referral_code: referralCode
+        // Use RPC to bypass RLS — direct insert is blocked for anon users
+        const { error: dbError } = await supabase.rpc('insert_paid_registration', {
+          p_user_name: `${displayState.participantName} [${displayState.contestName}]`,
+          p_user_email: displayState.email,
+          p_user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
+          p_amount_paid: displayState.amount,
+          p_payment_id: paymentId,
+          p_referral_code: referralCode || null
         });
 
         if (dbError && dbError.code !== '23505') {
-          console.error("Failed to insert registration", dbError);
+          console.error("Failed to insert registration via RPC", dbError);
+          // Don't mark as tracked so it can retry on next page load
+        } else {
+          sessionStorage.setItem('registration_tracked', 'true');
         }
-        
-        sessionStorage.setItem('registration_tracked', 'true');
         
         // Clean up localStorage so modal doesn't open on next visit
         localStorage.removeItem('pending_registration');
