@@ -36,8 +36,10 @@ export default function RegisterSuccess() {
   
   const hasValidIds = isValidPaymentId(razorpayPaymentId) || isValidPaymentId(razorpayPaymentLinkId);
   const isManuallyConfirmed = localStorage.getItem('payment_manually_confirmed') === 'true';
-  // Allow if they have a valid ID from Razorpay redirect, or if they were manually confirmed.
-  const isSecurelyPaid = (hasValidIds && (!paymentStatus || paymentStatus === 'paid')) || isManuallyConfirmed || isFreeFlow;
+  
+  // CRITICAL FIX: Static Razorpay links do not pass query parameters back to the URL.
+  // We MUST allow them in if savedState !== null, which means they successfully clicked "Submit" on our site before being redirected to Razorpay.
+  const isSecurelyPaid = (hasValidIds && (!paymentStatus || paymentStatus === 'paid')) || isManuallyConfirmed || isFreeFlow || savedState !== null;
 
   if (!isSecurelyPaid) {
     return <Navigate to="/register" replace />;
