@@ -721,7 +721,7 @@ export default function AdminDashboard() {
                   }
                   const hasContest = r.user_name.includes(' [');
                   const displayName = hasContest ? r.user_name.split(' [')[0] : r.user_name;
-                  const contestName = hasContest ? r.user_name.split(' [')[1].replace(']', '') : 'All Contests';
+                  const contestName = hasContest ? r.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">
@@ -776,7 +776,7 @@ export default function AdminDashboard() {
                   }
                   const hasContest = reg.user_name.includes(' [');
                   const displayName = hasContest ? reg.user_name.split(' [')[0] : reg.user_name;
-                  const contestName = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : 'All Contests';
+                  const contestName = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">
