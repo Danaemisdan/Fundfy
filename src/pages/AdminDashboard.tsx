@@ -244,13 +244,15 @@ export default function AdminDashboard() {
         });
       }
       
-      const { error: dbError } = await supabase.from('registrations').insert({
-        user_name: `${quickAddContestantName} [${quickAddContestantContest}]`,
-        user_email: quickAddContestantEmail,
-        user_phone: quickAddContestantPassword ? `${quickAddContestantPhone} || PWD:${quickAddContestantPassword}` : quickAddContestantPhone,
-        amount_paid: 100,
-        payment_id: 'MANUAL_ADD',
-        referral_code: null
+      const regId = `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+      const { error: dbError } = await supabase.rpc('insert_paid_registration', {
+        p_user_name: `${quickAddContestantName} [${quickAddContestantContest}]`,
+        p_user_email: quickAddContestantEmail,
+        p_user_phone: quickAddContestantPassword ? `${quickAddContestantPhone} || PWD:${quickAddContestantPassword}` : quickAddContestantPhone,
+        p_amount_paid: 100,
+        p_payment_id: 'MANUAL_ADD_' + Math.random().toString(36).substring(2, 8),
+        p_referral_code: null,
+        p_registration_id: regId
       });
 
       if (dbError) throw dbError;
