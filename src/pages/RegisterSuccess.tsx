@@ -107,7 +107,7 @@ export default function RegisterSuccess() {
         // We only insert once they successfully reach this page.
         // This guarantees they only show up in the admin panel if they paid.
         const { error: dbError } = await supabase.from('registrations').insert({
-          user_name: displayState.participantName,
+          user_name: `${displayState.participantName} [${displayState.contestName}]`,
           user_email: displayState.email,
           user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
           amount_paid: displayState.amount,

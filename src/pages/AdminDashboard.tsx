@@ -28,6 +28,14 @@ export default function AdminDashboard() {
   const [editCommission, setEditCommission] = useState(50);
   const [editPrice, setEditPrice] = useState(100);
 
+  // Quick Add Contestant State
+  const [quickAddContestantName, setQuickAddContestantName] = useState("");
+  const [quickAddContestantEmail, setQuickAddContestantEmail] = useState("");
+  const [quickAddContestantPhone, setQuickAddContestantPhone] = useState("");
+  const [quickAddContestantContest, setQuickAddContestantContest] = useState("Acting Contest");
+  const [quickAddContestantPassword, setQuickAddContestantPassword] = useState("");
+  const [isAddingContestant, setIsAddingContestant] = useState(false);
+
   useEffect(() => {
     const checkAdminAndFetchData = async () => {
       try {
@@ -185,6 +193,70 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleQuickAddContestant = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quickAddContestantEmail || !quickAddContestantName) return;
+    
+    setIsAddingContestant(true);
+    try {
+      const tempSupabase = createClient(
+        import.meta.env.VITE_SUPABASE_URL,
+        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        { auth: { persistSession: false, autoRefreshToken: false } }
+      );
+      
+      const { data: authData, error: authError } = await tempSupabase.auth.signUp({
+        email: quickAddContestantEmail,
+        password: quickAddContestantPassword || 'FundfySecure2026!',
+        options: { 
+          data: { 
+            first_name: quickAddContestantName.split(' ')[0],
+            role: 'user'
+          } 
+        }
+      });
+      
+      if (authError && authError.message !== 'User already registered') {
+        throw authError;
+      }
+      
+      await new Promise(r => setTimeout(r, 1500));
+      
+      let targetUserId = authData?.user?.id;
+      if (!targetUserId) {
+        const { data: existingProfile } = await supabase.from('profiles').select('id').eq('email', quickAddContestantEmail).single();
+        if (existingProfile) targetUserId = existingProfile.id;
+      }
+      
+      if (targetUserId) {
+        await fetch('/api/demote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: targetUserId })
+        });
+      }
+      
+      const { error: dbError } = await supabase.from('registrations').insert({
+        user_name: `${quickAddContestantName} [${quickAddContestantContest}]`,
+        user_email: quickAddContestantEmail,
+        user_phone: quickAddContestantPassword ? `${quickAddContestantPhone} || PWD:${quickAddContestantPassword}` : quickAddContestantPhone,
+        amount_paid: 100,
+        payment_id: 'MANUAL_ADD',
+        referral_code: null
+      });
+
+      if (dbError) throw dbError;
+      
+      alert("Contestant added successfully!");
+      window.location.reload();
+    } catch (err: any) {
+      console.error(err);
+      alert("Failed to add contestant: " + err.message);
+    } finally {
+      setIsAddingContestant(false);
+    }
+  };
+
   const handleMakeReferrer = async (userId: string) => {
     const code = newRefCode[userId];
     if (!code) {
@@ -316,6 +388,19 @@ export default function AdminDashboard() {
     } catch (err: any) {
       console.error(err);
       alert('Failed to verify user: ' + err.message);
+    }
+  };
+
+  const handleDeleteRegistration = async (regId: string) => {
+    if (!confirm('Are you sure you want to permanently delete this registration?')) return;
+    try {
+      const { error } = await supabase.from('registrations').delete().eq('id', regId);
+      if (error) throw error;
+      alert('Registration deleted successfully.');
+      window.location.reload();
+    } catch (err: any) {
+      console.error(err);
+      alert('Failed to delete registration: ' + err.message);
     }
   };
 
@@ -457,6 +542,45 @@ export default function AdminDashboard() {
           
         </div>
 
+        {/* Quick Add Contestant Form */}
+        <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden p-6 mb-6">
+          <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-4 mb-4">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Quick Add Contestant</h2>
+              <p className="text-xs text-gray-500">Instantly register a fully paid contestant.</p>
+            </div>
+          </div>
+          <form onSubmit={handleQuickAddContestant} className="flex flex-col md:flex-row gap-4 items-end flex-wrap">
+            <div className="flex-1 min-w-[150px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Name</label>
+              <input type="text" required value={quickAddContestantName} onChange={e => setQuickAddContestantName(e.target.value)} placeholder="Full Name" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
+            </div>
+            <div className="flex-1 min-w-[150px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Email</label>
+              <input type="email" required value={quickAddContestantEmail} onChange={e => setQuickAddContestantEmail(e.target.value)} placeholder="email@example.com" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
+            </div>
+            <div className="flex-1 min-w-[120px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Phone</label>
+              <input type="text" value={quickAddContestantPhone} onChange={e => setQuickAddContestantPhone(e.target.value)} placeholder="Phone" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
+            </div>
+            <div className="flex-1 min-w-[150px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Contest</label>
+              <select value={quickAddContestantContest} onChange={e => setQuickAddContestantContest(e.target.value)} className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none bg-white">
+                {CONTESTS.map(c => (
+                  <option key={c.id} value={c.title}>{c.title}</option>
+                ))}
+              </select>
+            </div>
+            <div className="flex-1 min-w-[120px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Password</label>
+              <input type="text" required value={quickAddContestantPassword} onChange={e => setQuickAddContestantPassword(e.target.value)} placeholder="Secret123!" className="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono focus:ring-2 focus:ring-purple-500 outline-none" />
+            </div>
+            <button type="submit" disabled={isAddingContestant} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 h-[42px] rounded-lg font-bold text-sm uppercase tracking-wider transition-colors disabled:opacity-50 whitespace-nowrap mt-2 md:mt-0">
+              {isAddingContestant ? 'Adding...' : 'Add Paid User'}
+            </button>
+          </form>
+        </div>
+
         {/* Referrers Table */}
         <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm overflow-hidden">
           <div className="p-6 border-b border-gray-100 bg-gray-50">
@@ -578,6 +702,7 @@ export default function AdminDashboard() {
               <thead className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
                 <tr>
                   <th className="px-6 py-4">Name</th>
+                  <th className="px-6 py-4">Contest</th>
                   <th className="px-6 py-4">Email</th>
                   <th className="px-6 py-4">Phone</th>
                   <th className="px-6 py-4">Password</th>
@@ -594,10 +719,14 @@ export default function AdminDashboard() {
                     phone = parts[0];
                     pass = parts[1];
                   }
+                  const hasContest = r.user_name.includes(' [');
+                  const displayName = hasContest ? r.user_name.split(' [')[0] : r.user_name;
+                  const contestName = hasContest ? r.user_name.split(' [')[1].replace(']', '') : 'All Contests';
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">
-                      <td className="px-6 py-4 font-medium text-gray-900">{r.user_name}</td>
+                      <td className="px-6 py-4 font-medium text-gray-900">{displayName}</td>
+                      <td className="px-6 py-4 text-purple-600 font-medium text-xs">{contestName}</td>
                       <td className="px-6 py-4 text-gray-600">{r.user_email}</td>
                       <td className="px-6 py-4 text-gray-500">{phone}</td>
                       <td className="px-6 py-4"><code className="bg-purple-50 text-purple-700 px-2 py-1 rounded">{pass}</code></td>
@@ -626,6 +755,7 @@ export default function AdminDashboard() {
               <thead className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold">
                 <tr>
                   <th className="px-6 py-4">Name</th>
+                  <th className="px-6 py-4">Contest</th>
                   <th className="px-6 py-4">Email</th>
                   <th className="px-6 py-4">Phone</th>
                   <th className="px-6 py-4">Password</th>
@@ -644,10 +774,14 @@ export default function AdminDashboard() {
                     phone = parts[0];
                     pass = parts[1];
                   }
+                  const hasContest = reg.user_name.includes(' [');
+                  const displayName = hasContest ? reg.user_name.split(' [')[0] : reg.user_name;
+                  const contestName = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : 'All Contests';
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">
-                      <td className="px-6 py-4 font-medium text-gray-900">{reg.user_name}</td>
+                      <td className="px-6 py-4 font-medium text-gray-900">{displayName}</td>
+                      <td className="px-6 py-4 text-purple-600 font-medium text-xs">{contestName}</td>
                       <td className="px-6 py-4">{reg.user_email}</td>
                       <td className="px-6 py-4 text-gray-500">{phone}</td>
                       <td className="px-6 py-4"><code className="bg-purple-50 text-purple-700 px-2 py-1 rounded">{pass}</code></td>
@@ -658,6 +792,7 @@ export default function AdminDashboard() {
                           <div className="flex items-center gap-2">
                             <code className="text-xs text-orange-500 font-bold bg-orange-50 px-2 py-1 rounded">PENDING</code>
                             <button onClick={() => handleManualVerify(reg)} className="text-[10px] bg-green-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-green-600 transition-colors">Verify</button>
+                            <button onClick={() => handleDeleteRegistration(reg.id)} className="text-[10px] bg-red-500 text-white px-2 py-1 rounded font-bold uppercase tracking-wider hover:bg-red-600 transition-colors">Delete</button>
                           </div>
                         ) : (
                           <code className="text-xs text-gray-400">{reg.payment_id}</code>
