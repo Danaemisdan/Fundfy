@@ -98,13 +98,15 @@ export default function RegisterSuccess() {
       
       try {
         // Use RPC to bypass RLS — direct insert is blocked for anon users
+        const regId = displayState.registrationId || `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
         const { error: dbError } = await supabase.rpc('insert_paid_registration', {
           p_user_name: `${displayState.participantName} [${displayState.contestName}]`,
           p_user_email: displayState.email,
           p_user_phone: displayState.password ? `${displayState.phone || ''} || PWD:${displayState.password}` : (displayState.phone || ''),
           p_amount_paid: displayState.amount,
           p_payment_id: paymentId,
-          p_referral_code: referralCode || null
+          p_referral_code: referralCode || null,
+          p_registration_id: regId
         });
 
         if (dbError && dbError.code !== '23505') {
