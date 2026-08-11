@@ -37,11 +37,14 @@ export default async function handler(req, res) {
 
     try {
       // 1. Check if the frontend already processed this payment
-      const { data: existingReg } = await supabase
+      const { data: existingRegs } = await supabase
         .from('registrations')
         .select('*')
         .eq('user_email', email)
-        .single();
+        .order('created_at', { ascending: false })
+        .limit(1);
+        
+      const existingReg = existingRegs?.[0];
 
       if (existingReg && existingReg.payment_id && existingReg.payment_id !== 'PENDING' && existingReg.payment_id !== 'unknown_payment_id') {
         console.log(`Payment already processed by frontend for ${email}. Skipping webhook.`);

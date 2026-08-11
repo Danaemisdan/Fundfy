@@ -90,6 +90,14 @@ export default function RegisterSuccess() {
       // Don't double track if they refresh the success page
       if (sessionStorage.getItem('registration_tracked')) return;
       
+      // FOR PAID FLOWS: The backend Webhook is the single source of truth.
+      // It handles upgrading the PENDING record, creating the Auth user, and sending the EmailJS receipt with the real Razorpay ID.
+      if (!isFreeFlow) {
+        sessionStorage.setItem('registration_tracked', 'true');
+        localStorage.removeItem('pending_registration');
+        return;
+      }
+      
       const referralCode = sessionStorage.getItem('referral_code');
       const paymentId = razorpayPaymentId || razorpayPaymentLinkId || 'unknown_payment_id';
       
@@ -229,41 +237,8 @@ export default function RegisterSuccess() {
         </div>
 
         <div className="w-full mb-12">
-          <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-[2rem] p-6 md:p-10 text-white relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-            
-            <div className="flex flex-col items-center text-center relative z-10">
-              <Timer className="w-10 h-10 text-purple-300 mb-4" />
-              <h3 className="text-xl md:text-2xl font-bold mb-2">Contest Starts In</h3>
-              <p className="text-purple-200 text-sm mb-8 font-medium">August 20, 2026</p>
-              
-              <div className="flex gap-2 md:gap-6 justify-center w-full px-2">
-                <div className="flex flex-col items-center flex-1 max-w-[80px]">
-                  <div className="w-full aspect-square bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
-                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.days}</span>
-                  </div>
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Days</span>
-                </div>
-                <div className="flex flex-col items-center flex-1 max-w-[80px]">
-                  <div className="w-full aspect-square bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
-                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.hours}</span>
-                  </div>
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Hours</span>
-                </div>
-                <div className="flex flex-col items-center flex-1 max-w-[80px]">
-                  <div className="w-full aspect-square bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
-                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.minutes}</span>
-                  </div>
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Mins</span>
-                </div>
-                <div className="flex flex-col items-center flex-1 max-w-[80px]">
-                  <div className="w-full aspect-square bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20 mb-2">
-                    <span className="text-2xl md:text-3xl font-black font-mono tracking-tighter">{timeLeft.seconds}</span>
-                  </div>
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-purple-300">Secs</span>
-                </div>
-              </div>
-            </div>
+          <div className="bg-[#111] text-white p-6 rounded-2xl text-center shadow-xl border border-gray-800">
+            <h3 className="text-xl md:text-2xl font-bold tracking-tight">Event starts on August 25th, 2026</h3>
           </div>
         </div>
 
