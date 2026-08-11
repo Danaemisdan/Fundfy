@@ -64,6 +64,14 @@ export default function ContestLayout() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const ref = params.get('ref');
+
+  useEffect(() => {
+    // If a user clicks a shared contest link with a referral code, bounce them to the Home page first!
+    if (ref && !sessionStorage.getItem('hasVisitedHome')) {
+      navigate(`/?contest=${config.id}&ref=${ref}`, { replace: true });
+    }
+  }, [ref, navigate, config.id]);
+
   const registrationPath = `/register?contest=${config.id}${ref ? `&ref=${ref}` : ''}`;
 
   const handleRegisterClick = () => {

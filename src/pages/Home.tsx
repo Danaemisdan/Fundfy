@@ -63,6 +63,10 @@ function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    sessionStorage.setItem('hasVisitedHome', 'true');
+  }, []);
+
   return (
     <div className="w-full font-sans relative overflow-x-hidden bg-white">
       
