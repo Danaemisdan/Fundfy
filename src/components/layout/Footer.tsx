@@ -61,6 +61,19 @@ export default function Footer() {
         <Feature icon={<Rocket />} title="CAREER BOOST" desc="Opportunities that take you further." />
       </div>
 
+      {/* Support Contact Info */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 p-4 md:p-6 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm relative z-20 text-center md:text-left">
+        <div className="flex flex-col">
+          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Support Email</span>
+          <a href="mailto:hello@fundfy.app" className="text-sm font-semibold text-gray-900 hover:text-purple-600 transition-colors">hello@fundfy.app</a>
+        </div>
+        <div className="hidden md:block w-px h-8 bg-gray-200"></div>
+        <div className="flex flex-col">
+          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">WhatsApp Support</span>
+          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-gray-900 hover:text-green-600 transition-colors">+91 9505429380</a>
+        </div>
+      </div>
+
       {/* Bottom Pill */}
       <div className="w-full bg-[#11131c] rounded-full py-3 md:py-4 flex items-center justify-center gap-4 text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/90 uppercase overflow-hidden relative">
         <span>TALENT HAS NO BOUNDARIES.</span>

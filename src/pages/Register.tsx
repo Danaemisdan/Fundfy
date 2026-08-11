@@ -568,6 +568,17 @@ export default function Register() {
                       <div className="text-center text-xs text-gray-400 mt-1">
                         You will be redirected to a secure payment page
                       </div>
+                      
+                      <div className="mt-4 p-4 bg-gray-50 border border-gray-100 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                        <div>
+                          <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Having issues?</p>
+                          <p className="text-xs text-gray-600">Contact our official support team</p>
+                        </div>
+                        <div className="flex flex-col gap-1 items-center sm:items-end">
+                          <a href="mailto:hello@fundfy.app" className="text-xs font-bold text-gray-900 hover:text-purple-600 transition-colors">hello@fundfy.app</a>
+                          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors">WhatsApp: +91 9505429380</a>
+                        </div>
+                      </div>
                     </div>
                   </>
                 ) : (
