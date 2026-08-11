@@ -667,6 +667,7 @@ function Checkbox({ label, checked, onChange }: { label: string, checked: boolea
 function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () => void }) {
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [showScrollPrompt, setShowScrollPrompt] = useState(false);
   const contentRef = React.useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -721,19 +722,38 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
         </div>
         
         <div className="p-6 md:p-8 bg-gray-50 border-t border-gray-100 flex flex-col gap-5 shrink-0">
-          <label className={`flex items-start gap-3 cursor-pointer group transition-opacity duration-300 ${hasScrolledToBottom ? 'opacity-100' : 'opacity-40 select-none'}`}>
+          <label 
+            onClick={(e) => {
+              if (!hasScrolledToBottom) {
+                e.preventDefault();
+                setShowScrollPrompt(true);
+                setTimeout(() => setShowScrollPrompt(false), 2000);
+              }
+            }}
+            className={`flex items-start gap-3 cursor-pointer group transition-opacity duration-300 ${hasScrolledToBottom ? 'opacity-100' : 'opacity-80 select-none'}`}
+          >
             <div className="relative flex items-center justify-center mt-0.5">
-              <input type="checkbox" disabled={!hasScrolledToBottom} checked={isChecked} onChange={() => setIsChecked(!isChecked)} className="peer sr-only" />
+              <input 
+                type="checkbox" 
+                disabled={!hasScrolledToBottom} 
+                checked={isChecked} 
+                onChange={() => {
+                  if (hasScrolledToBottom) setIsChecked(!isChecked);
+                }} 
+                className="peer sr-only" 
+              />
               <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${isChecked ? 'bg-black border-black' : 'bg-white border-gray-300'}`}>
                 <Check className={`w-3 h-3 text-white transition-opacity duration-200 ${isChecked ? 'opacity-100' : 'opacity-0'}`} strokeWidth={3} />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-gray-900">
+              <span className={`text-sm font-bold transition-colors ${showScrollPrompt ? 'text-red-500' : 'text-gray-900'}`}>
                 I have read and agree to these Terms & Conditions.
               </span>
               {!hasScrolledToBottom && (
-                <span className="text-xs text-gray-500 font-medium mt-1">Please read through all terms to accept.</span>
+                <span className={`text-xs font-medium mt-1 transition-colors duration-300 ${showScrollPrompt ? 'text-red-500 font-bold' : 'text-gray-500'}`}>
+                  {showScrollPrompt ? "Please scroll to the bottom first!" : "Please scroll through all terms to accept."}
+                </span>
               )}
             </div>
           </label>
