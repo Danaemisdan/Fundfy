@@ -376,12 +376,16 @@ export default function AdminDashboard() {
         }).catch(e => console.error("EmailJS error", e));
       }
 
-      const { error: updateError } = await supabase
-        .from('registrations')
-        .update({ amount_paid: 100, payment_id: 'MANUAL_VERIFIED' })
-        .eq('id', reg.id);
-        
-      if (updateError) throw updateError;
+      const resAdmin = await fetch('/api/admin_registrations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'verify', regId: reg.id })
+      });
+      
+      if (!resAdmin.ok) {
+        const errorData = await resAdmin.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to update database via API');
+      }
 
       alert(`Successfully verified ${reg.user_name} and sent confirmation email!`);
       window.location.reload();
@@ -394,8 +398,16 @@ export default function AdminDashboard() {
   const handleDeleteRegistration = async (regId: string) => {
     if (!confirm('Are you sure you want to permanently delete this registration?')) return;
     try {
-      const { error } = await supabase.from('registrations').delete().eq('id', regId);
-      if (error) throw error;
+      const res = await fetch('/api/admin_registrations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'delete', regId: regId })
+      });
+      
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to delete via API');
+      }
       alert('Registration deleted successfully.');
       window.location.reload();
     } catch (err: any) {
