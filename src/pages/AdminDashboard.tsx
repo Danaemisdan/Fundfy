@@ -723,6 +723,7 @@ export default function AdminDashboard() {
                   <th className="px-6 py-4">Password</th>
                   <th className="px-6 py-4">Date</th>
                   <th className="px-6 py-4 text-right">Paid</th>
+                  <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -747,12 +748,20 @@ export default function AdminDashboard() {
                       <td className="px-6 py-4"><code className="bg-purple-50 text-purple-700 px-2 py-1 rounded">{pass}</code></td>
                       <td className="px-6 py-4 text-gray-500">{new Date(r.created_at).toLocaleDateString()}</td>
                       <td className="px-6 py-4 text-right font-bold text-green-600">₹{r.amount_paid}</td>
+                      <td className="px-6 py-4 text-right">
+                        <button 
+                          onClick={() => handleDeleteRegistration(r.id)}
+                          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-wider"
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   );
                 })}
                 {registrations.filter(r => r.payment_id !== 'PENDING').length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-6 py-8 text-center text-gray-500">No registered users found.</td>
+                    <td colSpan={8} className="px-6 py-8 text-center text-gray-500">No registered users found.</td>
                   </tr>
                 )}
               </tbody>
