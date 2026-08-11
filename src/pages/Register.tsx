@@ -107,6 +107,7 @@ export default function Register() {
 
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+  const [accessCode, setAccessCode] = useState('');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -146,6 +147,13 @@ export default function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // TEMPORARY SECURITY LOCKDOWN
+    if (accessCode !== "FUNDFY2026") {
+      alert("Invalid Access Code. Registration is temporarily locked for maintenance.");
+      return;
+    }
+
     if (!validateForm() || selectedContests.length === 0) return;
 
     setIsSubmitting(true);
@@ -557,6 +565,17 @@ export default function Register() {
                       <div className="flex items-center gap-1.5 text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">
                         <Lock className="w-3.5 h-3.5 text-gray-400" />
                         <span>Secure payments powered by <span className="text-purple-400 italic">Razorpay</span></span>
+                      </div>
+
+                      <div className="relative mb-2">
+                        <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Admin Access Code</label>
+                        <input
+                          type="password"
+                          value={accessCode}
+                          onChange={(e) => setAccessCode(e.target.value)}
+                          placeholder="Required to register"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
+                        />
                       </div>
 
                       <button
