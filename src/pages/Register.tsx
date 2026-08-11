@@ -188,8 +188,9 @@ export default function Register() {
         return;
       }
 
-      // For paid flow, redirect directly to Razorpay
-      window.location.href = 'https://rzp.io/l/h93LqFvG';
+      // For paid flow, redirect directly to Razorpay using the correct payment link
+      const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
+      window.location.href = link;
       
     } catch (err) {
       console.error(err);
