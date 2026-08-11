@@ -98,6 +98,7 @@ export default function RegisterSuccess() {
       
       try {
         // Use RPC to bypass RLS — direct insert is blocked for anon users
+        // The DB has a UNIQUE constraint on payment_id, so duplicates are impossible at DB level
         const regId = displayState.registrationId || `REG-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
         const { error: dbError } = await supabase.rpc('insert_paid_registration', {
           p_user_name: `${displayState.participantName} [${displayState.contestName}]`,
@@ -109,11 +110,11 @@ export default function RegisterSuccess() {
           p_registration_id: regId
         });
 
-        if (dbError && dbError.code !== '23505') {
+        // Mark as tracked regardless — DB unique constraint on payment_id prevents actual duplicates
+        sessionStorage.setItem('registration_tracked', 'true');
+
+        if (dbError && dbError.code !== '23505' && !dbError.message?.includes('unique')) {
           console.error("Failed to insert registration via RPC", dbError);
-          // Don't mark as tracked so it can retry on next page load
-        } else {
-          sessionStorage.setItem('registration_tracked', 'true');
         }
         
         // Clean up localStorage so modal doesn't open on next visit
