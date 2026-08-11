@@ -356,6 +356,9 @@ export default function AdminDashboard() {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      
+      const generatedRegId = 'REG-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+      
       if (serviceId && templateId && publicKey) {
         await fetch('https://api.emailjs.com/api/v1.0/email/send', {
           method: 'POST',
@@ -365,10 +368,10 @@ export default function AdminDashboard() {
             template_id: templateId,
             user_id: publicKey,
             template_params: {
-              to_name: reg.user_name,
+              to_name: reg.user_name.includes(' [') ? reg.user_name.split(' [')[0] : reg.user_name,
               to_email: reg.user_email,
               payment_id: 'MANUAL_VERIFIED',
-              registration_id: reg.registration_id || 'MANUAL_VERIFIED',
+              registration_id: generatedRegId,
               amount: 100,
               custom_message: "Your payment was manually verified by our team. You can now log in!"
             }
