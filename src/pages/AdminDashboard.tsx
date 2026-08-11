@@ -246,7 +246,12 @@ export default function AdminDashboard() {
       const { data: authData, error: authError } = await tempSupabase.auth.signUp({
         email: reg.user_email,
         password: pass,
-        options: { data: { first_name: reg.user_name.split(' ')[0] } }
+        options: { 
+          data: { 
+            first_name: reg.user_name.split(' ')[0],
+            role: 'user'
+          } 
+        }
       });
       
       if (authError && authError.message !== 'User already registered') {
@@ -264,11 +269,15 @@ export default function AdminDashboard() {
         if (existingProfile) targetUserId = existingProfile.id;
       }
       if (targetUserId) {
-        await fetch('/api/demote', {
+        const res = await fetch('/api/demote', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userId: targetUserId })
         });
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          alert("CRITICAL WARNING: The user was verified, but the Vercel Backend failed to remove their Referrer status! Error: " + (errorData.error || 'Unknown API Error'));
+        }
       }
 
       // Also send an email using emailjs REST API

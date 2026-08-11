@@ -146,6 +146,7 @@ export default function RegisterSuccess() {
                 data: {
                   first_name: displayState.participantName.split(' ')[0],
                   last_name: displayState.participantName.split(' ').slice(1).join(' '),
+                  role: 'user'
                 }
               }
             });
