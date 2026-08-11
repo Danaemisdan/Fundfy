@@ -169,6 +169,24 @@ export default function Register() {
 
       localStorage.setItem('pending_registration', JSON.stringify(statePayload));
       
+      // Save to database as PENDING before redirecting
+      // This ensures we capture their email/password/contest even if they close the browser after paying!
+      try {
+        const referralCode = sessionStorage.getItem('referral_code');
+        await supabase.rpc('insert_paid_registration', {
+          p_user_name: `${formData.fullName} [${statePayload.contestName}]`,
+          p_user_email: formData.email,
+          p_user_phone: formData.password ? `${formData.phone} || PWD:${formData.password}` : formData.phone,
+          p_amount_paid: amount,
+          p_payment_id: 'PENDING',
+          p_referral_code: referralCode || null,
+          p_registration_id: registrationId
+        });
+      } catch (dbErr) {
+        console.error("Failed to save pending registration:", dbErr);
+        // Continue anyway so they can pay, the success page might catch them
+      }
+
       if (amount === 0) {
         navigate('/register/success', { state: statePayload });
         return;
