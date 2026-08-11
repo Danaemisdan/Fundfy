@@ -379,22 +379,8 @@ export default function AdminDashboard() {
         }).catch(e => console.error("EmailJS error", e));
       }
 
-      const resAdmin = await fetch('/api/admin_registrations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'verify', regId: reg.id })
-      });
-      
-      if (!resAdmin.ok) {
-        let errorMsg = 'Failed to update database via API';
-        try {
-          const errorData = await resAdmin.json();
-          if (errorData.error) errorMsg = errorData.error;
-        } catch {
-          errorMsg = `Server error ${resAdmin.status}: API route might be returning HTML or 404`;
-        }
-        throw new Error(errorMsg);
-      }
+      const { error: verifyError } = await supabase.rpc('admin_verify_registration', { reg_id: reg.id });
+      if (verifyError) throw new Error('DB error: ' + verifyError.message);
 
       alert(`Successfully verified ${reg.user_name} and sent confirmation email!`);
       window.location.reload();
@@ -407,22 +393,8 @@ export default function AdminDashboard() {
   const handleDeleteRegistration = async (regId: string) => {
     if (!confirm('Are you sure you want to permanently delete this registration?')) return;
     try {
-      const res = await fetch('/api/admin_registrations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'delete', regId: regId })
-      });
-      
-      if (!res.ok) {
-        let errorMsg = 'Failed to delete via API';
-        try {
-          const errorData = await res.json();
-          if (errorData.error) errorMsg = errorData.error;
-        } catch {
-          errorMsg = `Server error ${res.status}: API route might be returning HTML or 404`;
-        }
-        throw new Error(errorMsg);
-      }
+      const { error: deleteError } = await supabase.rpc('admin_delete_registration', { reg_id: regId });
+      if (deleteError) throw new Error('DB error: ' + deleteError.message);
       alert('Registration deleted successfully.');
       window.location.reload();
     } catch (err: any) {
