@@ -37,9 +37,9 @@ export default function RegisterSuccess() {
   const hasValidIds = isValidPaymentId(razorpayPaymentId) || isValidPaymentId(razorpayPaymentLinkId);
   const isManuallyConfirmed = localStorage.getItem('payment_manually_confirmed') === 'true';
   
-  // CRITICAL FIX: Static Razorpay links do not pass query parameters back to the URL.
-  // We MUST allow them in if savedState !== null, which means they successfully clicked "Submit" on our site before being redirected to Razorpay.
-  const isSecurelyPaid = (hasValidIds && (!paymentStatus || paymentStatus === 'paid')) || isManuallyConfirmed || isFreeFlow || savedState !== null;
+  // CRITICAL FIX: The only way to securely verify payment on the frontend without a webhook is if Razorpay passes the payment ID in the URL.
+  // The user MUST check the "Add parameters to URL" box in their Razorpay Payment Link settings!
+  const isSecurelyPaid = (hasValidIds && (!paymentStatus || paymentStatus === 'paid')) || isManuallyConfirmed || isFreeFlow;
 
   if (!isSecurelyPaid) {
     return <Navigate to="/register" replace />;
