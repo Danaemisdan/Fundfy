@@ -49,21 +49,25 @@ export default async function handler(req: any, res: any) {
   
   if (event === 'payment.captured' || event === 'payment_link.paid') {
     let email = null;
+    let phone = null;
     let paymentId = null;
     
     if (event === 'payment_link.paid') {
       email = payload.payload?.payment_link?.entity?.customer?.email;
+      phone = payload.payload?.payment_link?.entity?.customer?.contact;
       paymentId = payload.payload?.payment?.entity?.id || payload.payload?.payment_link?.entity?.id;
     } else if (event === 'payment.captured') {
       email = payload.payload?.payment?.entity?.email;
+      phone = payload.payload?.payment?.entity?.contact;
       paymentId = payload.payload?.payment?.entity?.id;
     }
 
-    if (!email || !paymentId) {
-      return res.status(400).json({ message: 'Missing email or payment_id in payload' });
+    console.log(`Webhook received: event=${event}, email=${email}, phone=${phone}, paymentId=${paymentId}`);
+
+    if (!paymentId) {
+      return res.status(400).json({ message: 'Missing payment_id in payload' });
     }
 
-    // Use Service Role Key to safely bypass Row Level Security
     const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
     
@@ -74,22 +78,67 @@ export default async function handler(req: any, res: any) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Find the pending registration by email
-    const { data: pendingReg, error: fetchError } = await supabase
+    // Check if this payment_id is already recorded (idempotency)
+    const { data: existing } = await supabase
       .from('registrations')
-      .select('*')
-      .eq('user_email', email)
-      .eq('payment_id', 'PENDING')
-      .order('created_at', { ascending: false })
-      .limit(1)
+      .select('id')
+      .eq('payment_id', paymentId)
       .single();
 
-    if (fetchError || !pendingReg) {
-      console.log(`No PENDING registration found for email ${email}`);
-      return res.status(200).json({ message: 'No pending registration found, ignoring' });
+    if (existing) {
+      console.log(`Payment ${paymentId} already recorded, skipping.`);
+      return res.status(200).json({ status: 'already_recorded' });
     }
 
-    // Update the pending registration to paid
+    // Try to find PENDING registration — first by email, then by phone as fallback
+    let pendingReg = null;
+
+    if (email) {
+      const { data } = await supabase
+        .from('registrations')
+        .select('*')
+        .eq('user_email', email)
+        .eq('payment_id', 'PENDING')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+      pendingReg = data;
+      if (pendingReg) console.log(`Matched PENDING entry by email: ${email}`);
+    }
+
+    // Fallback: match by phone number (strip leading country code for comparison)
+    if (!pendingReg && phone) {
+      const normalizedPhone = phone.replace(/^\+91/, '').replace(/\s/g, '');
+      const { data: allPending } = await supabase
+        .from('registrations')
+        .select('*')
+        .eq('payment_id', 'PENDING')
+        .order('created_at', { ascending: false });
+
+      if (allPending) {
+        pendingReg = allPending.find((r: any) => {
+          const storedPhone = (r.user_phone || '').split(' || PWD:')[0].replace(/^\+91/, '').replace(/\s/g, '');
+          return storedPhone === normalizedPhone;
+        }) || null;
+        if (pendingReg) console.log(`Matched PENDING entry by phone: ${phone}`);
+      }
+    }
+
+    if (!pendingReg) {
+      // Still can't match — insert a minimal record so admin can see it flagged for review
+      console.log(`No PENDING match found for email=${email}, phone=${phone}. Inserting unmatched record.`);
+      await supabase.from('registrations').insert({
+        user_name: `Unknown - verify manually (${email || phone})`,
+        user_email: email || 'unknown@unknown.com',
+        user_phone: phone || '',
+        amount_paid: 100,
+        payment_id: paymentId,
+        referral_code: null
+      });
+      return res.status(200).json({ message: 'Unmatched payment recorded for manual review' });
+    }
+
+    // Update the PENDING entry to paid with real payment_id
     const { error: updateError } = await supabase
       .from('registrations')
       .update({
@@ -103,8 +152,8 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ message: 'Database update failed' });
     }
 
-    console.log(`✅ Successfully verified payment for ${email}!`);
-    return res.status(200).json({ status: 'ok', message: 'Payment updated successfully' });
+    console.log(`✅ Successfully verified payment ${paymentId} for ${email || phone}!`);
+    return res.status(200).json({ status: 'ok', message: 'Payment verified successfully' });
   }
 
   return res.status(200).json({ status: 'ignored' });
