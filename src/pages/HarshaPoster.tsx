@@ -33,8 +33,8 @@ export default function HarshaPoster() {
         {/* --- TOP SECTION --- */}
         <div className="relative z-10 flex flex-col pt-6 px-16 text-center">
           
-          <h4 className="text-[16px] tracking-[0.4em] text-gray-400 font-bold uppercase mb-2">
-            HARSHA SAI PRESENTS
+          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-2">
+            SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
           </h4>
 
           <h1 className="text-7xl font-black text-white leading-[0.9] tracking-tighter mb-4 font-futuristic">
@@ -112,25 +112,24 @@ export default function HarshaPoster() {
           </div>
 
           {/* Special Harsha Sai Partners Strip */}
-          <div className="w-full bg-white/95 backdrop-blur-xl flex flex-col gap-4 items-center py-6 shadow-[0_-10px_50px_rgba(0,0,0,0.5)]">
-            <div className="flex items-center gap-4 gap-y-6 opacity-100 px-6 justify-center flex-wrap max-w-4xl mx-auto">
-              <div className="w-full text-center flex items-center justify-center gap-4 mb-2">
-                <div className="h-[1px] bg-gray-200 flex-1" />
-                <span className="text-[12px] text-gray-400 font-bold uppercase tracking-[0.3em]">In Association With</span>
-                <div className="h-[1px] bg-gray-200 flex-1" />
-              </div>
-              <img src="/Partners/Fundfy.app.png" className="h-8 object-contain" alt="Fundfy" />
-              <img src="/Partners/BrandForYou.png" className="h-10 object-contain" alt="BrandForYou" />
-              <div className="w-[2px] h-10 bg-gray-300 mx-2 hidden md:block" />
-              <img src="/Partners/Dice Art Films.PNG" className="h-8 object-contain" alt="Dice Art Films" />
-              <img src="/Partners/Neon Monkey Fest.png" className="h-14 object-contain" alt="Neon Monkey Fest" />
-              <img src="/Partners/Zoza_AI_processed.png" className="h-20 object-contain" alt="Zoza AI" />
-              <img src="/Partners/Epic_Games_logo.svg.webp" className="h-9 object-contain opacity-90" alt="Epic Games" />
-              <img src="/Partners/JobFinderAI.png?v=3" className="h-7 object-contain" alt="JobFinderAI" />
-              <img src="/Partners/MoreYeahs.png?v=3" className="h-7 object-contain" alt="MoreYeahs" />
-              <img src="/Partners/XOXO_v2.png" className="h-9 object-contain" alt="XOXO" />
-              <img src="/Partners/Young_v2.png" className="h-9 object-contain" alt="Young Coders" />
-              <img src="/Partners/TingoAI.png" className="h-8 object-contain" alt="Tingo" />
+          <div className="w-full bg-white/95 backdrop-blur-xl flex flex-col gap-3 items-center py-5 shadow-[0_-10px_50px_rgba(0,0,0,0.5)]">
+            <div className="w-full text-center flex items-center justify-center gap-4 px-12">
+              <div className="h-[1px] bg-gray-300 flex-1" />
+              <span className="text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em]">In Association With</span>
+              <div className="h-[1px] bg-gray-300 flex-1" />
+            </div>
+            <div className="flex items-center gap-3 opacity-100 px-2 justify-center w-full max-w-full">
+              <img src="/Partners/Fundfy.app.png" className="h-6 object-contain" alt="Fundfy" />
+              <img src="/Partners/BrandForYou.png" className="h-8 object-contain" alt="BrandForYou" />
+              <div className="w-[1px] h-8 bg-gray-300 mx-1 hidden md:block" />
+              <img src="/Partners/Dice Art Films.PNG" className="h-6 object-contain" alt="Dice Art Films" />
+              <img src="/Partners/Neon Monkey Fest.png" className="h-10 object-contain" alt="Neon Monkey Fest" />
+              <img src="/Partners/Zoza_AI_processed.png" className="h-14 object-contain" alt="Zoza AI" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-6 object-contain" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-6 object-contain" alt="MoreYeahs" />
+              <img src="/Partners/XOXO_v2.png" className="h-7 object-contain" alt="XOXO" />
+              <img src="/Partners/Young_v2.png" className="h-7 object-contain" alt="Young Coders" />
+              <img src="/Partners/TingoAI.png" className="h-6 object-contain" alt="Tingo" />
             </div>
           </div>
 
