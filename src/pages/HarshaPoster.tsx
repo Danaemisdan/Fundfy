@@ -47,7 +47,7 @@ export default function HarshaPoster() {
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
-        <div className="relative z-10 flex flex-col px-12 flex-1 justify-center gap-6 py-2">
+        <div className="relative z-10 flex flex-col px-12 flex-1 justify-center gap-12 py-8">
           
           <div className="text-center relative px-2">
             <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-[-0.03em] drop-shadow-2xl">
@@ -75,7 +75,7 @@ export default function HarshaPoster() {
           </div>
           
           {/* Powered By Sponsors */}
-          <div className="flex flex-col items-center bg-white/95 backdrop-blur-xl border border-white/10 rounded-2xl py-4 px-6 mx-8 shadow-2xl mt-2">
+          <div className="flex flex-col items-center bg-white/95 backdrop-blur-xl border border-white/10 rounded-2xl py-4 px-6 mx-8 shadow-2xl">
             <span className="text-[12px] font-bold tracking-[0.25em] text-black/40 uppercase mb-3">Powered By</span>
             <div className="flex items-center justify-center gap-8 w-full px-2">
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-8 object-contain" />
