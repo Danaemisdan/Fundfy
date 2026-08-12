@@ -42,6 +42,7 @@ export default function AdminDashboard() {
   const [quickAddContestantPhone, setQuickAddContestantPhone] = useState("");
   const [quickAddContestantContest, setQuickAddContestantContest] = useState("Acting Contest");
   const [quickAddContestantPassword, setQuickAddContestantPassword] = useState("");
+  const [quickAddContestantReferral, setQuickAddContestantReferral] = useState("");
   const [isAddingContestant, setIsAddingContestant] = useState(false);
 
   useEffect(() => {
@@ -251,7 +252,7 @@ export default function AdminDashboard() {
         p_user_phone: quickAddContestantPassword ? `${quickAddContestantPhone} || PWD:${quickAddContestantPassword}` : quickAddContestantPhone,
         p_amount_paid: 100,
         p_payment_id: 'MANUAL_ADD_' + Math.random().toString(36).substring(2, 8),
-        p_referral_code: null,
+        p_referral_code: quickAddContestantReferral.trim() || null,
         p_registration_id: regId
       });
 
@@ -661,6 +662,10 @@ export default function AdminDashboard() {
             <div className="flex-1 min-w-[120px]">
               <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Password</label>
               <input type="text" required value={quickAddContestantPassword} onChange={e => setQuickAddContestantPassword(e.target.value)} placeholder="Secret123!" className="w-full border border-gray-300 rounded-lg px-4 py-2 font-mono focus:ring-2 focus:ring-purple-500 outline-none" />
+            </div>
+            <div className="flex-1 min-w-[120px]">
+              <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Referral Code <span className="text-gray-400 normal-case font-normal">(optional)</span></label>
+              <input type="text" value={quickAddContestantReferral} onChange={e => setQuickAddContestantReferral(e.target.value)} placeholder="e.g. harshasai" className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-purple-500 outline-none" />
             </div>
             <button type="submit" disabled={isAddingContestant} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 h-[42px] rounded-lg font-bold text-sm uppercase tracking-wider transition-colors disabled:opacity-50 whitespace-nowrap mt-2 md:mt-0">
               {isAddingContestant ? 'Adding...' : 'Add Paid User'}
