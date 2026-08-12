@@ -51,18 +51,21 @@ export default async function handler(req: any, res: any) {
     let email = null;
     let phone = null;
     let paymentId = null;
+    let referenceId = null;
     
     if (event === 'payment_link.paid') {
       email = payload.payload?.payment_link?.entity?.customer?.email;
       phone = payload.payload?.payment_link?.entity?.customer?.contact;
+      referenceId = payload.payload?.payment_link?.entity?.reference_id;
       paymentId = payload.payload?.payment?.entity?.id || payload.payload?.payment_link?.entity?.id;
     } else if (event === 'payment.captured') {
       email = payload.payload?.payment?.entity?.email;
       phone = payload.payload?.payment?.entity?.contact;
+      referenceId = payload.payload?.payment?.entity?.notes?.reference_id;
       paymentId = payload.payload?.payment?.entity?.id;
     }
 
-    console.log(`Webhook received: event=${event}, email=${email}, phone=${phone}, paymentId=${paymentId}`);
+    console.log(`Webhook received: event=${event}, referenceId=${referenceId}, email=${email}, paymentId=${paymentId}`);
 
     if (!paymentId) {
       return res.status(400).json({ message: 'Missing payment_id in payload' });
@@ -90,10 +93,25 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ status: 'already_recorded' });
     }
 
-    // Try to find PENDING registration — first by email, then by phone as fallback
+    // MATCH BY REFERENCE_ID (BULLETPROOF!)
     let pendingReg = null;
 
-    if (email) {
+    if (referenceId) {
+      const { data } = await supabase
+        .from('registrations')
+        .select('*')
+        .eq('registration_id', referenceId)
+        .eq('payment_id', 'PENDING')
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+        
+      pendingReg = data;
+      if (pendingReg) console.log(`✅ Matched PENDING entry by exact referenceId: ${referenceId}`);
+    }
+
+    // Fallback: match by email or phone just in case (legacy links)
+    if (!pendingReg && email) {
       const { data } = await supabase
         .from('registrations')
         .select('*')
@@ -106,7 +124,6 @@ export default async function handler(req: any, res: any) {
       if (pendingReg) console.log(`Matched PENDING entry by email: ${email}`);
     }
 
-    // Fallback: match by phone number (strip leading country code for comparison)
     if (!pendingReg && phone) {
       const normalizedPhone = phone.replace(/^\+91/, '').replace(/\s/g, '');
       const { data: allPending } = await supabase
@@ -126,14 +143,15 @@ export default async function handler(req: any, res: any) {
 
     if (!pendingReg) {
       // Still can't match — insert a minimal record so admin can see it flagged for review
-      console.log(`No PENDING match found for email=${email}, phone=${phone}. Inserting unmatched record.`);
+      console.log(`No PENDING match found for referenceId=${referenceId}. Inserting unmatched record.`);
       await supabase.from('registrations').insert({
         user_name: `Unknown - verify manually (${email || phone})`,
         user_email: email || 'unknown@unknown.com',
         user_phone: phone || '',
         amount_paid: 100,
         payment_id: paymentId,
-        referral_code: null
+        referral_code: null,
+        registration_id: referenceId || `UNKNOWN-${paymentId}`
       });
       return res.status(200).json({ message: 'Unmatched payment recorded for manual review' });
     }

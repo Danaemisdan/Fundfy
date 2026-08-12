@@ -192,10 +192,32 @@ export default function Register() {
         return;
       }
 
-      // For paid flow, redirect directly to Razorpay using the correct payment link
-      const link = amount === 100 ? "https://rzp.io/rzp/Bz7zEuCn" : "https://rzp.io/rzp/4JOE0dy";
-      window.location.href = link;
-      
+      // For paid flow, redirect to dynamically generated Razorpay link
+      try {
+        const response = await fetch('/api/create_payment_link', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            registrationId,
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            amount: amount
+          })
+        });
+
+        const data = await response.json();
+        
+        if (response.ok && data.short_url) {
+          window.location.href = data.short_url;
+        } else {
+          console.error("Payment Link Error:", data);
+          setErrors({ submit: 'Could not generate payment link. Please try again or contact support.' });
+        }
+      } catch (apiErr) {
+        console.error("API Error:", apiErr);
+        setErrors({ submit: 'Failed to connect to payment gateway.' });
+      }
     } catch (err) {
       console.error(err);
       setErrors({ submit: 'An error occurred during registration. Please try again.' });
