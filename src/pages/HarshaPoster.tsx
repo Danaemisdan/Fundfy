@@ -113,14 +113,24 @@ export default function HarshaPoster() {
 
           {/* Special Harsha Sai Partners Strip */}
           <div className="w-full bg-white/95 backdrop-blur-xl flex flex-col gap-4 items-center py-6 shadow-[0_-10px_50px_rgba(0,0,0,0.5)]">
-            <span className="text-xs text-black/40 tracking-[0.4em] font-bold uppercase">In Association With</span>
-            <div className="flex items-center justify-center gap-8 w-full px-8">
+            <div className="flex items-center gap-4 gap-y-6 opacity-100 px-6 justify-center flex-wrap max-w-4xl mx-auto">
+              <div className="w-full text-center flex items-center justify-center gap-4 mb-2">
+                <div className="h-[1px] bg-gray-200 flex-1" />
+                <span className="text-[12px] text-gray-400 font-bold uppercase tracking-[0.3em]">In Association With</span>
+                <div className="h-[1px] bg-gray-200 flex-1" />
+              </div>
               <img src="/Partners/Fundfy.app.png" className="h-8 object-contain" alt="Fundfy" />
               <img src="/Partners/BrandForYou.png" className="h-10 object-contain" alt="BrandForYou" />
-              <div className="w-[2px] h-10 bg-gray-300 mx-1" />
-              <img src="/Partners/Dice Art Films.PNG" className="h-10 object-contain" alt="Dice Art Films" />
-              <img src="/Partners/Neon Monkey Fest.png" className="h-10 object-contain" alt="Neon Monkey Fest" />
-              <img src="/Partners/Zoza AI.png" className="h-10 object-contain" alt="Zoza AI" />
+              <div className="w-[2px] h-10 bg-gray-300 mx-2 hidden md:block" />
+              <img src="/Partners/Dice Art Films.PNG" className="h-8 object-contain" alt="Dice Art Films" />
+              <img src="/Partners/Neon Monkey Fest.png" className="h-14 object-contain" alt="Neon Monkey Fest" />
+              <img src="/Partners/Zoza_AI_processed.png" className="h-20 object-contain" alt="Zoza AI" />
+              <img src="/Partners/Epic_Games_logo.svg.webp" className="h-9 object-contain opacity-90" alt="Epic Games" />
+              <img src="/Partners/JobFinderAI.png?v=3" className="h-7 object-contain" alt="JobFinderAI" />
+              <img src="/Partners/MoreYeahs.png?v=3" className="h-7 object-contain" alt="MoreYeahs" />
+              <img src="/Partners/XOXO_v2.png" className="h-9 object-contain" alt="XOXO" />
+              <img src="/Partners/Young_v2.png" className="h-9 object-contain" alt="Young Coders" />
+              <img src="/Partners/TingoAI.png" className="h-8 object-contain" alt="Tingo" />
             </div>
           </div>
 

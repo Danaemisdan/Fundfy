@@ -1,63 +1,26 @@
 from PIL import Image
+import numpy as np
 
-def process_logos():
-    # 1. AWS
-    img = Image.open('public/Partners/AWS.webp').convert('RGBA')
-    datas = img.getdata()
-    newData = []
-    for r, g, b, a in datas:
-        if r > 230 and g > 230 and b > 230:
-            newData.append((255, 255, 255, 0))
-        else:
-            newData.append((r, g, b, a))
-    img.putdata(newData)
-    img.save('public/Partners/AWS.png', 'PNG')
+def process_zoza():
+    img = Image.open('/Users/sanjeevn/Downloads/Fundfy/Harsha Sai/Zoza AI.jpeg').convert('L')
+    data = np.array(img)
+    
+    # data contains values 0-255 (0 is bg, 255 is text)
+    # We want RGBA where RGB is all 0 (black text), and A is the 'data' (so 0 is transparent bg, 255 is opaque text)
+    
+    out_data = np.zeros((data.shape[0], data.shape[1], 4), dtype=np.uint8)
+    out_data[..., 3] = data # Alpha channel = luminance of original
+    
+    # Save as PNG
+    out = Image.fromarray(out_data, 'RGBA')
+    
+    # Crop to bounding box to remove excess padding
+    bbox = out.getbbox()
+    if bbox:
+        out = out.crop(bbox)
+        
+    out.save('/Users/sanjeevn/Downloads/Fundfy/public/Partners/Zoza_AI_processed.png')
+    print("Zoza AI processed and saved.")
 
-    # 2. XOXO
-    img = Image.open('public/Partners/XOXO Game Studios.png').convert('RGBA')
-    datas = img.getdata()
-    newData = []
-    for r, g, b, a in datas:
-        if r < 40 and g < 40 and b < 40:
-            newData.append((0, 0, 0, 0))
-        elif r > 200 and g > 200 and b > 200:
-            newData.append((0, 0, 0, a))
-        else:
-            val = 255 - max(r,g,b)
-            newData.append((val, val, val, a))
-    img.putdata(newData)
-    img.save('public/Partners/XOXO.png', 'PNG')
-
-    # 3. Young Coders
-    img = Image.open('public/Partners/Young Coders.png').convert('RGBA')
-    datas = img.getdata()
-    newData = []
-    for r, g, b, a in datas:
-        if r < 40 and g < 40 and b < 40:
-            newData.append((0, 0, 0, 0))
-        elif r > 200 and g > 200 and b > 200:
-            newData.append((0, 0, 0, a))
-        else:
-            if r > g + 50 and r > b + 50:
-                newData.append((r, g, b, a))
-            else:
-                val = 255 - max(r,g,b)
-                newData.append((val, val, val, a))
-    img.putdata(newData)
-    img.save('public/Partners/Young.png', 'PNG')
-
-    # 4. Zoza
-    img = Image.open('public/Partners/Zoza.jpg').convert('RGBA')
-    datas = img.getdata()
-    newData = []
-    for r, g, b, a in datas:
-        diff = max(r, g, b) - min(r, g, b)
-        if diff < 30 and 40 < max(r, g, b) < 240:
-            newData.append((255, 255, 255, 0))
-        else:
-            newData.append((r, g, b, a))
-    img.putdata(newData)
-    img.save('public/Partners/Zoza.png', 'PNG')
-
-process_logos()
-print("All logos processed.")
+if __name__ == '__main__':
+    process_zoza()
