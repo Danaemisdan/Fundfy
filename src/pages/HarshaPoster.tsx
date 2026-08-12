@@ -67,11 +67,22 @@ export default function HarshaPoster() {
               </span>
             </div>
             
-            <div className="glass-panel bg-orange-500/10 backdrop-blur-md rounded-2xl p-4 w-full flex items-center justify-center text-center border border-orange-500/30">
-              <span className="text-xl font-bold text-orange-400 tracking-wide">
-                AWS is sponsoring $5,000 for each winner*
-              </span>
-            </div>
+            {contest.id === 'ai-education-innovation-contest' ? (
+              <div className="glass-panel bg-green-500/10 backdrop-blur-md rounded-2xl p-4 w-full flex flex-col items-center justify-center text-center border border-green-500/30 gap-1">
+                <span className="text-xl font-bold text-green-400 tracking-wide uppercase">
+                  100% Guaranteed Internship & Interview
+                </span>
+                <span className="text-sm font-medium text-green-300/80">
+                  Plus Momentum EDU+ & JobFinderAI Free Forever
+                </span>
+              </div>
+            ) : (
+              <div className="glass-panel bg-orange-500/10 backdrop-blur-md rounded-2xl p-4 w-full flex items-center justify-center text-center border border-orange-500/30">
+                <span className="text-xl font-bold text-orange-400 tracking-wide">
+                  AWS is sponsoring $5,000 for each winner*
+                </span>
+              </div>
+            )}
           </div>
           
           {/* Powered By Sponsors */}

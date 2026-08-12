@@ -2,6 +2,90 @@ import type { ContestConfig } from '../../types/contest';
 
 export const CONTESTS: ContestConfig[] = [
   {
+    id: 'ai-education-innovation-contest',
+    status: 'OPEN',
+    title: 'AI Education Innovation Contest',
+    subtitle: 'The future of learning and career growth.',
+    category: 'Education',
+    difficulty: 'All Levels',
+    prizeHighlight: 'Registration Open',
+    theme: {
+      primaryAccent: 'blue-500',
+      secondaryAccent: 'indigo-500',
+      accentGradient: 'from-blue-500 to-indigo-500',
+      backgroundStyle: 'cinematic',
+    },
+    artworkType: 'EDU',
+
+    seo: { title: 'AI Education Innovation Contest', description: '', ogImage: '' },
+    registrationFee: 100,
+    currency: 'INR',
+    paymentRequired: true,
+    statistics: [
+      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Mode', value: 'Global Online' },
+      { label: 'Deadline', value: 'Nov 30, 2026' }
+    ],
+    description: 'Transform your future with the ultimate AI Education challenge. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
+    whyParticipate: [
+      { title: '100% Guaranteed Placements & Support', description: 'Every participant receives guaranteed internships, jobs, or comprehensive career support.' },
+      { title: '100% Guaranteed Interview', description: 'Skip the line. You are guaranteed an interview just for participating.' },
+      { title: 'Industry-Specific AI Upskilling', description: 'Learn how to leverage AI directly in YOUR industry, plus master essential communication skills.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' }
+    ],
+    timeline: [
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
+      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
+      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
+      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+    ],
+    judgingCriteria: [
+      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
+      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
+      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
+      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
+      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
+    ],
+    eligibility: [
+      { title: 'Who can participate', description: 'Open globally to all students and professionals.' },
+      { title: 'Experience Level', description: 'Beginner friendly - we will train you!' }
+    ],
+    faqs: [
+      { q: 'Is the interview really guaranteed?', a: 'Yes! 100% of participants will get an interview.' },
+      { q: 'Do I need prior AI experience?', a: 'Not at all. The contest includes comprehensive upskilling.' }
+    ],
+    resources: [
+      { title: 'Momentum EDU+', description: 'Your personal AI companion for upskilling.' },
+      { title: 'JobFinderAI', description: 'Lifetime free access to the recruitment platform.' },
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' }
+    ],
+    rewards: [
+      {
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
+        theme: 'premium',
+        items: [
+          { title: 'Guaranteed Internship / Job Support' },
+          { title: '100% Guaranteed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
+        items: [
+          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
+          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+        ]
+      }
+    ],
+    registration: { mode: 'EMBEDDED_FORM', buttonText: 'REGISTER NOW' }
+  },
+  {
     id: 'ai-innovation-contest',
     status: 'OPEN',
     title: 'AI Innovation Contest',
@@ -27,7 +111,6 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -114,7 +197,6 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -190,7 +272,6 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -266,7 +347,6 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -342,7 +422,6 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Prize Pool', value: '$50,000' },
-
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -395,78 +474,6 @@ export const CONTESTS: ContestConfig[] = [
       url: 'https://docs.google.com/forms/placeholder',
       buttonText: 'REGISTER NOW'
     }
-  },
-  {
-    id: 'ai-education-innovation-contest',
-    status: 'OPEN',
-    title: 'AI Education Innovation Contest',
-    subtitle: 'The future of learning.',
-    category: 'Education',
-    difficulty: 'All Levels',
-    prizeHighlight: 'Registration Open',
-    theme: {
-      primaryAccent: 'blue-500',
-      secondaryAccent: 'indigo-500',
-      accentGradient: 'from-blue-500 to-indigo-500',
-      backgroundStyle: 'cinematic',
-    },
-    artworkType: 'EDU',
-
-    seo: { title: 'AI Education Innovation Contest', description: '', ogImage: '' },
-    registrationFee: 100,
-    currency: 'INR',
-    paymentRequired: true,
-    statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
-
-      { label: 'Mode', value: 'Global Online' },
-      { label: 'Deadline', value: 'Nov 30, 2026' }
-    ],
-    description: '',
-    whyParticipate: [],
-    timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
-      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
-      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
-      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
-    ],
-    judgingCriteria: [
-      { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
-      { name: 'Technical Execution', weight: '25%', description: 'Code quality, architecture scalability, and robust deployment.' },
-      { name: 'User Experience (UX)', weight: '20%', description: 'Intuitive design, accessibility, and overall polish of the interface.' },
-      { name: 'Real-World Impact', weight: '15%', description: 'Does it solve a genuine problem? What is the market potential?' },
-      { name: 'Pitch & Presentation', weight: '10%', description: 'Clarity of the video demo and effectiveness of communication.' }
-    ],
-    eligibility: [],
-    faqs: [],
-    resources: [
-      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
-      { title: 'Expert Masterclasses', description: 'Live weekly sessions with senior engineers teaching modern tech stacks.' },
-      { title: 'Cloud Infrastructure', description: 'Free server hosting credits to deploy and showcase your live projects.' }
-    ],
-    rewards: [
-      {
-        title: 'OVERALL WINNERS',
-        theme: 'premium',
-        items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
-        ]
-      }
-    ],
-    registration: { mode: 'EMBEDDED_FORM', buttonText: 'REGISTER NOW' }
   }
 ];
 
