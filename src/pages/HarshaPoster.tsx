@@ -31,19 +31,19 @@ export default function HarshaPoster() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/95 pointer-events-none z-0" />
 
         {/* --- TOP SECTION --- */}
-        <div className="relative z-10 flex flex-col pt-6 px-16 text-center">
-          
-          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-2">
-            SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
-          </h4>
+        <div className="relative z-10 flex flex-col pt-10 px-16 text-center">
 
           <h1 className="text-7xl font-black text-white leading-[0.9] tracking-tighter mb-4 font-futuristic">
             GLOBAL <br />
             <span className="text-gradient-purple-orange">TALENT</span> <br />
             HUNT 2026
           </h1>
+
+          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-8 mt-2">
+            SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
+          </h4>
           
-          <div className="w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent self-center mb-4" />
+          <div className="w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent self-center mb-2" />
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
