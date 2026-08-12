@@ -18,18 +18,18 @@ export default async function handler(req: any, res: any) {
     key_secret: key_secret,
   });
 
-  const { registrationId, name, email, phone, amount } = req.body;
+  const { registrationId, name, email, phone, amount, contestName, password, referralCode } = req.body;
 
   if (!registrationId || !amount) {
     return res.status(400).json({ message: 'Missing required fields' });
   }
 
   try {
-    const paymentLinkRequest = {
+    const paymentLinkRequest: any = {
       amount: amount * 100, // amount in paise
       currency: "INR",
       accept_partial: false,
-      description: `Registration for Global Talent Hunt (${registrationId})`,
+      description: `Registration for Global Talent Hunt (${contestName || registrationId})`,
       customer: {
         name: name || "Contestant",
         email: email || "",
@@ -40,9 +40,20 @@ export default async function handler(req: any, res: any) {
         email: true
       },
       reminder_enable: true,
-      reference_id: registrationId, // We use this in webhook to match perfectly!
-      callback_url: "https://fundfy.app/register/success", // Send them here after payment
-      callback_method: "get"
+      reference_id: registrationId, // Used in webhook to match
+      callback_url: "https://fundfy.app/register/success",
+      callback_method: "get",
+      // Store ALL registration data in notes so webhook can create the DB record
+      // without needing a pre-written PENDING row.
+      notes: {
+        registrationId,
+        contestName: contestName || '',
+        name: name || '',
+        email: email || '',
+        phone: phone || '',
+        password: password || '',
+        referralCode: referralCode || '',
+      }
     };
 
     const paymentLink = await razorpay.paymentLink.create(paymentLinkRequest);
