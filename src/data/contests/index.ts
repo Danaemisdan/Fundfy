@@ -32,7 +32,8 @@ export const CONTESTS: ContestConfig[] = [
       { title: '100% Guaranteed Interview', description: 'Skip the line. You are guaranteed an interview just for participating.' },
       { title: 'Industry-Specific AI Upskilling', description: 'Learn how to leverage AI directly in YOUR industry, plus master essential communication skills.' },
       { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
-      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' }
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
@@ -59,6 +60,7 @@ export const CONTESTS: ContestConfig[] = [
     resources: [
       { title: 'Momentum EDU+', description: 'Your personal AI companion for upskilling.' },
       { title: 'JobFinderAI', description: 'Lifetime free access to the recruitment platform.' },
+      { title: 'Fundfy.app', description: 'Find funds, sponsorships, grants, and investors for your startup.' },
       { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' }
     ],
     rewards: [
