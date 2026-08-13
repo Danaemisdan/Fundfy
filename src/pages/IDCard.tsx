@@ -67,9 +67,9 @@ export default function IDCard() {
                   <span className="w-px h-6 bg-white/20" />
                   <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-8 w-auto object-contain brightness-200" />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse shadow-[0_0_10px_#a855f7]" />
-                  <p className="text-[11px] font-black tracking-[0.4em] text-white/50 uppercase">
+                  <p className="text-[13px] font-black tracking-[0.4em] text-white uppercase drop-shadow-md">
                     GLOBAL TALENT HUNT 2026
                   </p>
                 </div>
@@ -113,10 +113,10 @@ export default function IDCard() {
                     alt="IBM" className="h-6 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
                 </div>
                 <div className="flex items-center gap-5 mt-1">
-                  <img src="/Partners/JobFinderAI.png" alt="JobFinderAI" className="h-5 w-auto object-contain opacity-100 drop-shadow-sm" />
-                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain opacity-100 drop-shadow-sm" />
-                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain opacity-100 drop-shadow-sm brightness-200" />
-                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-4 w-auto object-contain opacity-100 drop-shadow-sm brightness-150" />
+                  <img src="/Partners/JobFinderAI.png" alt="JobFinderAI" className="h-5 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-4 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
                 </div>
               </div>
             </div>
