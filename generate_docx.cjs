@@ -3,39 +3,39 @@ const { Document, Packer, Paragraph, TextRun, HeadingLevel } = require('docx');
 
 const referrers = [
   'hgnma50', 'uiapm3492', 'shruti1', 'shruti', 'chinni', 
-  'uhg0192ha', 'shrishtipaagal', 'harshasai', 'dannyk.virtualex', 'admin'
+  'uhg0192ha', 'shrishtipaagal', 'harshasai', 'dannyk.virtualex', 'admin', 'chandra'
 ];
 
 const contests = [
   {
     id: 'ai-innovation-contest',
     name: 'AI Innovation Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nSecure your spot for the AI Innovation Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nDon't miss out. Apply here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the AI Innovation Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
     id: 'career-accelerator-contest',
     name: 'Career Accelerator Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nThe Career Accelerator Contest powered by AWS, Google Cloud, and IBM is officially open. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSubmit your application here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the Career Accelerator Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
     id: '3d-asset-design-contest',
     name: '3D Asset Design Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nRegistration is now open for the 3D Asset Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nRegister here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the 3D Asset Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
     id: 'digital-character-design-contest',
     name: 'Digital Character Design Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nApplications are live for the Digital Character Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nApply here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the Digital Character Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
     id: 'web-experience-design-contest',
     name: 'Web Experience Design Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nThe Web Experience Design Contest powered by AWS, Google Cloud, and IBM is now accepting applications. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nEnter here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the Web Experience Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
     id: 'ai-education-innovation-contest',
     name: 'AI Education Innovation Contest',
-    copy: "🚀 𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 is LIVE! 🚀\nEnter the AI Education Innovation Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
+    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the AI Education Innovation Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   }
 ];
 

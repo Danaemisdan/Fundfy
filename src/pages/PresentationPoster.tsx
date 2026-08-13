@@ -48,9 +48,17 @@ export default function PresentationPoster() {
               <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
             </h1>
             
-            <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase mt-4 mb-6">
-              Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
-            </p>
+            <div className="flex flex-col items-start gap-5 mt-4 mb-6">
+              <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase">
+                Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
+              </p>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-transparent border border-purple-500/30 rounded-full backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse mr-3 shadow-[0_0_10px_rgba(192,132,252,0.8)]"></div>
+                <span className="text-purple-200 text-xs font-bold tracking-[0.3em] uppercase">
+                  FIRST COHORT STARTS <span className="text-white">30TH AUG 2026</span>
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col gap-4">
@@ -92,13 +100,30 @@ export default function PresentationPoster() {
         {/* --- RIGHT CONTENT SECTION --- */}
         <div className="relative z-10 flex flex-col justify-center items-center w-[50%] h-full pt-16 pb-32 pr-32 pl-12 gap-12">
           
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-3">Prize Pool</span>
-            <span className="text-[5.5rem] font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
-              ₹50 LAKHS
-            </span>
-          </div>
+          {ref === 'chinni' ? (
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col justify-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+              <span className="text-xl font-black tracking-[0.3em] text-[#ffb000] uppercase mb-6 flex items-center gap-4">
+                <span className="text-white/50">→</span> WHY PARTICIPATE? <span className="text-white/50">←</span>
+              </span>
+              <ul className="flex flex-col gap-5 text-white/90 text-lg font-medium tracking-wide">
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Get Global Exposure</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Win Exciting Rewards</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Top Opportunities with Leading Studios</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Certificates for All Participants</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Build Your Portfolio & Network</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Learn, Grow & Succeed</li>
+              </ul>
+            </div>
+          ) : (
+            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+              <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-3">Prize Pool</span>
+              <span className="text-[5.5rem] font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
+                ₹50 LAKHS
+              </span>
+            </div>
+          )}
 
           <div className="relative glass-panel rounded-[2rem] p-8 w-full max-w-lg flex flex-col items-center border border-white/20 bg-gradient-to-br from-purple-900/60 to-blue-900/40 backdrop-blur-3xl shadow-[0_0_50px_rgba(168,85,247,0.3)] overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/20 to-transparent pointer-events-none" />
