@@ -22,16 +22,16 @@ export default function PresentationPoster() {
       {/* 1920x1080 Canvas (16:9 Presentation Ratio) */}
       <div className="w-[1920px] h-[1080px] relative overflow-hidden flex bg-[#050505]">
         
-        {/* The Globe Background (shifted to the right) */}
-        <div className="absolute top-[-10%] right-[-20%] w-[120%] h-[120%] pointer-events-none z-0 opacity-85 flex items-center justify-center mix-blend-screen">
+        {/* The Globe Background (centered to fill the empty space) */}
+        <div className="absolute inset-0 w-full h-[110%] top-[-5%] pointer-events-none z-0 opacity-85 flex items-center justify-center mix-blend-screen">
           <Globe />
         </div>
 
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/60 pointer-events-none z-0" />
 
         {/* --- LEFT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-between w-[55%] h-full pt-12 pb-28 pl-24 pr-12">
+        <div className="relative z-10 flex flex-col justify-between w-[50%] h-full pt-16 pb-32 pl-32 pr-8">
           
           <div>
             {/* Header Logos */}
@@ -45,7 +45,7 @@ export default function PresentationPoster() {
               PRESENTS
             </h4>
 
-            <h1 className="text-[100px] font-black text-white leading-[0.85] tracking-tighter mb-4 font-sans drop-shadow-2xl uppercase">
+            <h1 className="text-[110px] font-black text-white leading-[0.85] tracking-tighter mb-6 font-sans drop-shadow-2xl uppercase">
               GLOBAL <br />
               <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
             </h1>
@@ -95,12 +95,12 @@ export default function PresentationPoster() {
         </div>
 
         {/* --- RIGHT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-center items-end w-[45%] h-full pt-12 pb-28 pr-24 pl-4 gap-10">
+        <div className="relative z-10 flex flex-col justify-center items-center w-[50%] h-full pt-16 pb-32 pr-32 pl-12 gap-12">
           
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-8 w-full max-w-lg flex flex-col items-center justify-center text-center shadow-[0_0_60px_rgba(255,255,255,0.05)] relative overflow-hidden">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <span className="text-base font-black tracking-[0.5em] text-gray-300 uppercase mb-2">Prize Pool</span>
-            <span className="text-7xl font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
+            <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-3">Prize Pool</span>
+            <span className="text-[5.5rem] font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
               ₹50 LAKHS
             </span>
           </div>
