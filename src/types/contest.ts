@@ -51,6 +51,7 @@ export interface ContestConfig {
   statistics: {
     label: string;
     value: string;
+    link?: string;
   }[];
 
   // Content
