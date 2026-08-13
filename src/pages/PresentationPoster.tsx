@@ -45,12 +45,12 @@ export default function PresentationPoster() {
               PRESENTS
             </h4>
 
-            <h1 className="text-6xl font-black text-white leading-[0.95] tracking-tighter mb-2 font-futuristic">
+            <h1 className="text-[100px] font-black text-white leading-[0.85] tracking-tighter mb-4 font-sans drop-shadow-2xl uppercase">
               GLOBAL <br />
               <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
             </h1>
             
-            <p className="text-base font-bold tracking-[0.3em] text-white/70 uppercase mt-2 mb-6">
+            <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase mt-4 mb-6">
               Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function PresentationPoster() {
               <div className="bg-[#050505]/95 backdrop-blur-2xl rounded-[1.4rem] py-6 px-8 w-full flex flex-col items-start justify-center relative z-10 border border-emerald-500/30">
                 
                 <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-black tracking-[0.4em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                  For Every Participant
+                  Assured Benefits
                 </span>
                 
                 <span className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 tracking-tight uppercase mb-2 drop-shadow-2xl leading-tight">

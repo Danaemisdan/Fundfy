@@ -43,19 +43,20 @@ export default function Poster() {
             <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-5 w-auto object-contain" />
           </div>
 
-          <h4 className="text-[9px] tracking-[0.4em] text-gray-400 font-bold uppercase mb-1">
-            PRESENTS
-          </h4>
+          <div className="flex flex-col items-center justify-center text-center pt-8 sm:pt-10 z-10 w-full px-4">
+            <h4 className="text-[9px] sm:text-[10px] tracking-[0.5em] text-gray-400 font-bold uppercase mb-3">
+              PRESENTS
+            </h4>
 
-          <h1 className="text-4xl sm:text-5xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-futuristic">
-            GLOBAL <br />
-            <span className="text-gradient-purple-orange">TALENT</span> <br />
-            HUNT 2026
-          </h1>
-          
-          <p className="text-[10px] font-semibold tracking-[0.2em] text-white/70 uppercase mt-2 mb-4">
-            Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
-          </p>
+            <h1 className="text-[2.75rem] sm:text-6xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-sans uppercase drop-shadow-xl">
+              GLOBAL <br />
+              <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
+            </h1>
+            
+            <p className="text-[10px] sm:text-xs font-bold tracking-[0.4em] text-white/70 uppercase mt-3 mb-8">
+              Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
+            </p>
+          </div>
 
           <div className="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent self-center" />
         </div>
@@ -63,8 +64,8 @@ export default function Poster() {
         {/* --- MIDDLE SECTION (Contest Details) --- */}
         <div className="relative z-10 flex flex-col px-6 flex-1 justify-center gap-6 sm:gap-8 py-4">
           
-          <div className="text-center relative px-2">
-            <h2 className="text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-4 tracking-[-0.03em] drop-shadow-2xl">
+          <div className="flex flex-col items-center justify-center text-center mt-2 z-10 w-full px-4 relative">
+            <h2 className="text-4xl sm:text-[3.25rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-tight drop-shadow-2xl px-2">
               {contest.title}
             </h2>
             <p className="text-[10px] sm:text-xs text-gray-400 font-bold px-4 tracking-[0.3em] uppercase">
@@ -85,7 +86,7 @@ export default function Poster() {
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
               <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[1.5rem] py-4 px-4 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                 <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                  FOR EVERY PARTICIPANT
+                  ASSURED BENEFITS
                 </span>
                 <span className="text-[1.1rem] sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
                   Assured Internships & Interviews

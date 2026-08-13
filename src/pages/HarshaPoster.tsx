@@ -33,13 +33,17 @@ export default function HarshaPoster() {
         {/* --- TOP SECTION --- */}
         <div className="relative z-10 flex flex-col pt-8 px-16 text-center">
 
-          <h1 className="text-7xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-futuristic">
+          <h4 className="text-[14px] tracking-[0.5em] text-gray-300 font-bold uppercase mb-4 mt-2">
+            PRESENTS
+          </h4>
+
+          <h1 className="text-[5.5rem] font-black text-white leading-[0.85] tracking-tighter mb-4 font-sans uppercase drop-shadow-2xl">
             GLOBAL <br />
             <span className="text-gradient-purple-orange">TALENT</span> <br />
             HUNT 2026
           </h1>
 
-          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-4 mt-2">
+          <h4 className="text-[16px] tracking-[0.3em] text-gray-300 font-bold uppercase mb-4 mt-2">
             SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
           </h4>
           
@@ -50,7 +54,7 @@ export default function HarshaPoster() {
         <div className="relative z-10 flex flex-col px-12 flex-1 justify-center gap-6 py-4">
           
           <div className="text-center relative px-2">
-            <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-[-0.03em] drop-shadow-2xl">
+            <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-tight drop-shadow-2xl">
               {contest.title}
             </h2>
             <p className="text-lg text-gray-400 font-bold px-8 tracking-[0.3em] uppercase">
@@ -71,7 +75,7 @@ export default function HarshaPoster() {
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
               <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[2rem] py-5 px-6 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                 <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                  FOR EVERY PARTICIPANT
+                  ASSURED BENEFITS
                 </span>
                 <span className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
                   Assured Internships & Interviews
