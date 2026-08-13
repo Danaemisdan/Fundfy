@@ -28,8 +28,8 @@ export const CONTESTS: ContestConfig[] = [
     ],
     description: 'Transform your future with the ultimate AI Education challenge. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
     whyParticipate: [
-      { title: '100% Guaranteed Placements & Support', description: 'Every participant receives guaranteed internships, jobs, or comprehensive career support.' },
-      { title: '100% Guaranteed Interview', description: 'Skip the line. You are guaranteed an interview just for participating.' },
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
       { title: 'Industry-Specific AI Upskilling', description: 'Learn how to leverage AI directly in YOUR industry, plus master essential communication skills.' },
       { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
@@ -68,8 +68,8 @@ export const CONTESTS: ContestConfig[] = [
         title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
         items: [
-          { title: 'Guaranteed Internship / Job Support' },
-          { title: '100% Guaranteed Interview' },
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
           { title: 'Momentum EDU+ AI Companion Access' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]

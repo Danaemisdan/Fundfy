@@ -72,13 +72,13 @@ export default function HarshaPoster() {
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
                 <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[2rem] py-5 px-6 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                   <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                    GUARANTEED FOR ALL REGISTRANTS
+                    UNLOCKED UPON REGISTRATION
                   </span>
                   <span className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
-                    100% Guaranteed Internships & Jobs
+                    Assured Internships & Interviews
                   </span>
                   <span className="text-[13px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
-                    + Momentum EDU+ & JobFinderAI Free Forever
+                    With Lifetime JobFinderAI & Momentum EDU+
                   </span>
                 </div>
               </div>
