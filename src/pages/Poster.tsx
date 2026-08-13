@@ -36,17 +36,15 @@ export default function Poster() {
         {/* --- TOP SECTION --- */}
         <div className="relative z-10 flex flex-col pt-10 px-6 text-center">
           
-          {/* Header Logos - White Background for visibility */}
-          <div className="flex items-center justify-center gap-5 bg-white px-8 py-3.5 rounded-full shadow-lg mb-6 self-center mx-auto max-w-fit">
-            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain brightness-0" />
-            <span className="text-gray-300 font-light text-xl">|</span>
-            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain" />
+          {/* Header Logos */}
+          <div className="flex items-center justify-center gap-6 bg-white/10 backdrop-blur-md px-10 py-4 rounded-[2rem] border border-white/20 shadow-lg mb-6 self-center mx-auto max-w-fit">
+            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-14 w-auto object-contain" />
+            <span className="text-gray-500 font-light text-2xl">|</span>
+            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-16 w-auto object-contain" />
           </div>
 
           <div className="flex flex-col items-center justify-center text-center pt-8 sm:pt-10 z-10 w-full px-4">
-            <h4 className="text-[9px] sm:text-[10px] tracking-[0.5em] text-gray-400 font-bold uppercase mb-3">
-              PRESENTS
-            </h4>
+            
 
             <h1 className="text-[2.75rem] sm:text-6xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-sans uppercase drop-shadow-xl">
               GLOBAL <br />
@@ -86,9 +84,10 @@ export default function Poster() {
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
               <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[1.5rem] py-4 px-4 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                 <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                  ASSURED BENEFITS
+                  ASSURED PLACEMENTS & SUPPORT
                 </span>
                 <span className="text-[1.1rem] sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
+                  <span className="text-emerald-400 mr-2">FOR EVERY PARTICIPANT:</span><br/>
                   Assured Internships & Interviews
                 </span>
                 <span className="text-[10px] sm:text-xs font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
@@ -118,9 +117,9 @@ export default function Poster() {
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/10 to-transparent pointer-events-none" />
               
               <div className="flex flex-col items-start gap-1.5 pl-2 relative z-10">
-                <span className="text-[9px] font-bold tracking-[0.3em] text-purple-300 uppercase">The World Is Watching</span>
+                <span className="text-[9px] font-bold tracking-[0.3em] text-purple-300 uppercase">Ready To Transform?</span>
                 <span className="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-1 tracking-tight">
-                  PROVE YOUR WORTH
+                  START YOUR JOURNEY
                 </span>
               </div>
 

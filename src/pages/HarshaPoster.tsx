@@ -33,9 +33,7 @@ export default function HarshaPoster() {
         {/* --- TOP SECTION --- */}
         <div className="relative z-10 flex flex-col pt-8 px-16 text-center">
 
-          <h4 className="text-[14px] tracking-[0.5em] text-gray-300 font-bold uppercase mb-4 mt-2">
-            PRESENTS
-          </h4>
+
 
           <h1 className="text-[5.5rem] font-black text-white leading-[0.85] tracking-tighter mb-4 font-sans uppercase drop-shadow-2xl">
             GLOBAL <br />
@@ -75,9 +73,10 @@ export default function HarshaPoster() {
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
               <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[2rem] py-5 px-6 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                 <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                  ASSURED BENEFITS
+                  ASSURED PLACEMENTS & SUPPORT
                 </span>
                 <span className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
+                  <span className="text-emerald-400 mr-2">FOR EVERY PARTICIPANT:</span><br/>
                   Assured Internships & Interviews
                 </span>
                 <span className="text-[13px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
@@ -129,8 +128,8 @@ export default function HarshaPoster() {
               <div className="h-[1px] bg-gray-300 flex-1" />
             </div>
             <div className="flex items-center gap-3 opacity-100 px-2 justify-center w-full max-w-full">
-              <img src="/Partners/Fundfy.app.png" className="h-10 object-contain" alt="Fundfy" />
-              <img src="/Partners/BrandForYou.png" className="h-12 object-contain" alt="BrandForYou" />
+              <img src="/Partners/Fundfy.app.png" className="h-14 object-contain" alt="Fundfy" />
+              <img src="/Partners/BrandForYou.png" className="h-16 object-contain" alt="BrandForYou" />
               <div className="w-[1px] h-8 bg-gray-300 mx-1 hidden md:block" />
               <img src="/Partners/Dice Art Films.PNG" className="h-6 object-contain" alt="Dice Art Films" />
               <img src="/Partners/Neon Monkey Fest.png" className="h-10 object-contain" alt="Neon Monkey Fest" />
