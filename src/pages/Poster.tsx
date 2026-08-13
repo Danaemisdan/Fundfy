@@ -86,7 +86,7 @@ export default function Poster() {
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
                 <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[1.5rem] py-4 px-4 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
                   <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                    FOR EVERY SINGLE PARTICIPANT
+                    GUARANTEED FOR ALL REGISTRANTS
                   </span>
                   <span className="text-[1.1rem] sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
                     100% Guaranteed Internships & Jobs
