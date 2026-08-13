@@ -35,7 +35,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration & Instant Access', date: 'Phase 1', description: 'Sign up and get instant access to Momentum EDU+ and premium learning tools.' },
+      { title: 'Registration & Access', date: 'Phase 1', description: 'Sign up and get access to Momentum EDU+ and premium learning tools.' },
       { title: 'Masterclasses & Upskilling', date: 'Phase 2', description: 'Learn AI, communication skills, and discover industry-specific AI use-cases.' },
       { title: 'AI-Hosted Contest', date: 'Phase 3', description: 'Compete in our revolutionary contest hosted entirely by AI to showcase your new skills.' },
       { title: 'Grooming & Resume Building', date: 'Phase 4', description: 'Get your resume polished, communication refined, and become fully job-ready.' },
@@ -123,7 +123,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
@@ -211,7 +211,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
@@ -293,7 +293,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
@@ -375,7 +375,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
@@ -457,7 +457,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
+      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },

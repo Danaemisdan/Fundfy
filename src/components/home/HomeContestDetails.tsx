@@ -5,7 +5,7 @@ import { CONTESTS } from '../../data/contests';
 
 // Shared timeline (same across all contests)
 const SHARED_TIMELINE = [
-  { date: 'Phase 1', title: 'Registration & Instant Access', description: 'Sign up and get instant access to Momentum EDU+ and premium learning tools.' },
+  { date: 'Phase 1', title: 'Registration & Access', description: 'Sign up and get access to Momentum EDU+ and premium learning tools.' },
   { date: 'Phase 2', title: 'Masterclasses & Upskilling', description: 'Learn AI, communication skills, and discover industry-specific AI use-cases.' },
   { date: 'Phase 3', title: 'AI-Hosted Contest', description: 'Compete in our revolutionary contest hosted entirely by AI to showcase your new skills.' },
   { date: 'Phase 4', title: 'Grooming & Resume Building', description: 'Get your resume polished, communication refined, and become fully job-ready.' },
