@@ -6,6 +6,7 @@ import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
+import HomeContestDetails from '../components/home/HomeContestDetails';
 import Footer from '../components/layout/Footer';
 const PARTNERS = [
   "/Partners/AWS_v2.png",
@@ -198,6 +199,11 @@ function Home() {
           <ContestShowcase />
         </div>
       )}
+
+      {/* Roadmap + Prize Pool — always shown */}
+      <div className="relative z-10 w-full">
+        <HomeContestDetails contestId={contestId} />
+      </div>
 
       <Footer />
     </div>
