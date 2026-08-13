@@ -102,7 +102,7 @@ export default async function handler(req: any, res: any) {
   if (referenceId) {
     const { data: pendingReg } = await supabase
       .from('registrations')
-      .select('id')
+      .select('id, user_name, user_email')
       .eq('registration_id', referenceId)
       .eq('payment_id', 'PENDING')
       .maybeSingle();
@@ -120,7 +120,52 @@ export default async function handler(req: any, res: any) {
       }
 
       console.log(`✅ Payment confirmed. Updated PENDING row (registration_id=${referenceId}) → payment_id=${paymentId}, amount=₹${amountPaid}`);
-      return res.status(200).json({ status: 'ok', message: 'Payment verified successfully' });
+
+      // ── Auto-send confirmation email via EmailJS ──
+      // Use the email/name stored in our DB (from the registration form), not from Razorpay,
+      // so it's always correct even if the customer edits their email on the Razorpay page.
+      const serviceId  = process.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = process.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey  = process.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey && pendingReg.user_email) {
+        // Extract clean name (strip " [Contest Name]" suffix we append)
+        const cleanName = pendingReg.user_name?.includes(' [')
+          ? pendingReg.user_name.split(' [')[0]
+          : (pendingReg.user_name || 'Contestant');
+
+        try {
+          const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              service_id: serviceId,
+              template_id: templateId,
+              user_id: publicKey,
+              template_params: {
+                to_name: cleanName,
+                to_email: pendingReg.user_email,
+                payment_id: paymentId,
+                registration_id: referenceId,
+                amount: amountPaid,
+                custom_message: 'Your payment was received and verified successfully! You can now log in to your Fundfy account.'
+              }
+            })
+          });
+          if (emailRes.ok) {
+            console.log(`📧 Confirmation email sent to ${pendingReg.user_email}`);
+          } else {
+            console.error('EmailJS error:', await emailRes.text());
+          }
+        } catch (emailErr) {
+          // Non-fatal — DB is already updated, just log
+          console.error('Failed to send confirmation email:', emailErr);
+        }
+      } else {
+        console.warn('EmailJS env vars not set — skipping confirmation email');
+      }
+
+      return res.status(200).json({ status: 'ok', message: 'Payment verified and email sent' });
     }
   }
 
