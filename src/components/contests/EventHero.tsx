@@ -104,9 +104,15 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
                 <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
                   {stat.label}
                 </span>
-                <span className="text-xl md:text-2xl font-futuristic font-bold text-white">
-                  {stat.value}
-                </span>
+                {stat.link ? (
+                  <a href={stat.link} target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-futuristic font-bold text-emerald-400 hover:text-emerald-300 underline decoration-emerald-500/30 underline-offset-4 transition-colors">
+                    {stat.value}
+                  </a>
+                ) : (
+                  <span className="text-xl md:text-2xl font-futuristic font-bold text-white">
+                    {stat.value}
+                  </span>
+                )}
               </div>
             );
           })}

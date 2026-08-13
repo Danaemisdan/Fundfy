@@ -37,10 +37,10 @@ export default function Poster() {
         <div className="relative z-10 flex flex-col pt-10 px-6 text-center">
           
           {/* Header Logos - White Background for visibility */}
-          <div className="flex items-center justify-center gap-3 bg-white px-5 py-2.5 rounded-full shadow-lg mb-6 self-center mx-auto max-w-fit">
-            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 w-auto object-contain brightness-0" />
-            <span className="text-gray-300 font-light text-xs">|</span>
-            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-5 w-auto object-contain" />
+          <div className="flex items-center justify-center gap-5 bg-white px-8 py-3.5 rounded-full shadow-lg mb-6 self-center mx-auto max-w-fit">
+            <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain brightness-0" />
+            <span className="text-gray-300 font-light text-xl">|</span>
+            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain" />
           </div>
 
           <div className="flex flex-col items-center justify-center text-center pt-8 sm:pt-10 z-10 w-full px-4">

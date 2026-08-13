@@ -35,10 +35,10 @@ export default function PresentationPoster() {
           
           <div>
             {/* Header Logos */}
-            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 mb-4 max-w-fit shadow-lg">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 w-auto object-contain brightness-0 invert" />
-              <span className="text-gray-500 font-light text-xl">|</span>
-              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-6 w-auto object-contain brightness-0 invert" />
+            <div className="flex items-center gap-6 bg-white/5 backdrop-blur-md px-8 py-3 rounded-[2rem] border border-white/10 mb-6 max-w-fit shadow-lg">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0 invert" />
+              <span className="text-gray-500 font-light text-3xl">|</span>
+              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
 
             <h4 className="text-[12px] tracking-[0.5em] text-gray-400 font-bold uppercase mb-2">
