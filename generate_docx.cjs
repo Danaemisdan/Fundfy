@@ -90,6 +90,9 @@ const doc = new Document({
 });
 
 Packer.toBuffer(doc).then((buffer) => {
-  fs.writeFileSync("WhatsApp_Promos.docx", buffer);
-  console.log("Created WhatsApp_Promos.docx successfully!");
+  if (!fs.existsSync("Generated_Posters")) {
+    fs.mkdirSync("Generated_Posters", { recursive: true });
+  }
+  fs.writeFileSync("Generated_Posters/WhatsApp_Promos.docx", buffer);
+  console.log("Created Generated_Posters/WhatsApp_Promos.docx successfully!");
 });
