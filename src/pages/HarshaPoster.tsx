@@ -31,23 +31,23 @@ export default function HarshaPoster() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/95 pointer-events-none z-0" />
 
         {/* --- TOP SECTION --- */}
-        <div className="relative z-10 flex flex-col pt-10 px-16 text-center">
+        <div className="relative z-10 flex flex-col pt-8 px-16 text-center">
 
-          <h1 className="text-7xl font-black text-white leading-[0.9] tracking-tighter mb-4 font-futuristic">
+          <h1 className="text-7xl font-black text-white leading-[0.9] tracking-tighter mb-2 font-futuristic">
             GLOBAL <br />
             <span className="text-gradient-purple-orange">TALENT</span> <br />
             HUNT 2026
           </h1>
 
-          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-8 mt-2">
+          <h4 className="text-[18px] tracking-[0.2em] text-gray-300 font-bold uppercase mb-4 mt-2">
             SHOWCASE. COMPETE. GET <span className="text-purple-400">DISCOVERED.</span>
           </h4>
           
-          <div className="w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent self-center mb-2" />
+          <div className="w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent self-center mb-1" />
         </div>
 
         {/* --- MIDDLE SECTION (Contest Details) --- */}
-        <div className="relative z-10 flex flex-col px-12 flex-1 justify-center gap-12 py-8">
+        <div className="relative z-10 flex flex-col px-12 flex-1 justify-center gap-6 py-4">
           
           <div className="text-center relative px-2">
             <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-[-0.03em] drop-shadow-2xl">
@@ -104,9 +104,9 @@ export default function HarshaPoster() {
         </div>
 
         {/* --- BOTTOM SECTION (Partners & QR) --- */}
-        <div className="relative z-10 flex flex-col items-center pt-4 w-full">
+        <div className="relative z-10 flex flex-col items-center pt-0 w-full">
           
-          <div className="px-12 w-full mb-6">
+          <div className="px-12 w-full mb-4">
             <div className="relative glass-panel rounded-[2.5rem] p-6 w-full flex items-center justify-between border border-white/20 bg-gradient-to-br from-purple-900/40 to-blue-900/20 backdrop-blur-xl">
               
               <div className="flex flex-col items-start gap-2 pl-4 relative z-10">
