@@ -115,6 +115,8 @@ export default function AdminDashboard() {
 
   const totalRevenue = registrations.reduce((sum, r) => sum + Number(r.amount_paid), 0);
   const totalEntries = registrations.length;
+  const paidEntries = registrations.filter(r => r.payment_id !== 'PENDING').length;
+  const pendingEntries = registrations.filter(r => r.payment_id === 'PENDING').length;
   // Compute dynamic stats per referrer based on registrations table
   const computedReferrers = referrers.map(ref => {
     const refsEntries = registrations.filter(r => r.referral_code === ref.referral_code);
@@ -528,7 +530,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Global Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 text-gray-500 mb-2">
               <IndianRupee className="w-5 h-5" />
@@ -537,18 +539,28 @@ export default function AdminDashboard() {
             <span className="text-4xl font-black text-gray-900">₹{totalRevenue.toLocaleString()}</span>
           </div>
 
-          <div className="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm">
-            <div className="flex items-center gap-3 text-gray-500 mb-2">
+          <div className="bg-white p-6 rounded-[2rem] border border-emerald-200 shadow-sm">
+            <div className="flex items-center gap-3 text-emerald-600 mb-2">
               <Users className="w-5 h-5" />
-              <span className="text-xs font-bold uppercase tracking-widest">Total Entries</span>
+              <span className="text-xs font-bold uppercase tracking-widest">Paid Entries</span>
             </div>
-            <span className="text-4xl font-black text-gray-900">{totalEntries}</span>
+            <span className="text-4xl font-black text-emerald-600">{paidEntries}</span>
+            <p className="text-xs text-gray-400 mt-1">{totalEntries} total</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-[2rem] border border-orange-200 shadow-sm">
+            <div className="flex items-center gap-3 text-orange-500 mb-2">
+              <Users className="w-5 h-5" />
+              <span className="text-xs font-bold uppercase tracking-widest">Pending</span>
+            </div>
+            <span className="text-4xl font-black text-orange-500">{pendingEntries}</span>
+            <p className="text-xs text-gray-400 mt-1">Awaiting verification</p>
           </div>
 
           <div className="bg-white p-6 rounded-[2rem] border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 text-gray-500 mb-2">
               <TrendingUp className="w-5 h-5" />
-              <span className="text-xs font-bold uppercase tracking-widest">Total Commissions</span>
+              <span className="text-xs font-bold uppercase tracking-widest">Commissions</span>
             </div>
             <span className="text-4xl font-black text-red-500">₹{totalCommissionsOwed.toLocaleString()}</span>
           </div>
