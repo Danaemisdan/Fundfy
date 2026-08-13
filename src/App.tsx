@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Poster from './pages/Poster';
 import HarshaPoster from './pages/HarshaPoster';
+import PresentationPoster from './pages/PresentationPoster';
 import { AuthProvider } from './contexts/AuthContext';
 
 import { supabase } from './lib/supabase';
@@ -97,6 +98,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/poster/:id" element={<Poster />} />
         <Route path="/harsha-poster/:id" element={<HarshaPoster />} />
+        <Route path="/presentation-poster/:id" element={<PresentationPoster />} />
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </AuthProvider>
