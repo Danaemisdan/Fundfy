@@ -87,20 +87,20 @@ export default function IDCard() {
               </div>
 
               {/* Bottom: sponsors */}
-              <div className="flex flex-col gap-4 mt-auto bg-white px-6 py-5 rounded-[1.5rem] shadow-xl w-fit">
+              <div className="flex flex-col gap-4 mt-auto bg-white px-6 py-5 rounded-[1.5rem] shadow-xl w-[calc(100%+1.5rem)] -ml-6">
                 <p className="text-[9px] font-bold tracking-[0.3em] text-black/40 uppercase flex items-center gap-2">
                   <span className="w-4 h-[1px] bg-black/20" /> Powered By
                 </p>
-                <div className="flex flex-col gap-5">
-                  <div className="flex items-center gap-6">
+                <div className="flex flex-col gap-4 w-full">
+                  <div className="flex items-center justify-between w-full pr-4">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" 
                       alt="AWS" className="h-6 w-auto object-contain" />
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" 
                       alt="Google Cloud" className="h-5 w-auto object-contain" />
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
-                      alt="IBM" className="h-6 w-auto object-contain" />
+                      alt="IBM" className="h-5 w-auto object-contain" />
                   </div>
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center justify-between w-full">
                     <img src="/Partners/JobFinderAI.png" alt="JobFinderAI" className="h-5 w-auto object-contain" />
                     <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain" />
                     <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain" />
