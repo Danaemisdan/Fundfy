@@ -36,7 +36,7 @@ export default function IDCard() {
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* The ID Card Container with glowing gradient border */}
-      <div className="relative group perspective-1000">
+      <div id="id-card-element" className="relative group perspective-1000">
         <div 
           className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 rounded-[2.5rem] blur opacity-40 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-gradient-xy"
         />

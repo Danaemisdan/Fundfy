@@ -28,7 +28,7 @@ async function generateIDCards() {
       await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
       await new Promise(r => setTimeout(r, 3000)); // wait for globe + QR
 
-      const card = await page.$('.w-\\[1012px\\]');
+      const card = await page.$('#id-card-element');
       if (!card) {
         console.error(`ERROR: Could not find ID card element for ${ref}`);
         continue;
