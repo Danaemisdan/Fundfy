@@ -323,8 +323,8 @@ export default function AdminDashboard() {
       }
 
       const tempSupabase = createClient(
-        import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        import.meta.env.VITE_SUPABASE_URL || 'https://bmemodyjiphvkisbocuq.supabase.co',
+        import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJtZW1vZHlqaXBodmtpc2JvY3VxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMDUxMTIsImV4cCI6MjEwMTc4MTExMn0.4F30XCRspgXMx6U05xF4JOEFB7XyodYMddIqt6GhROI',
         { auth: { persistSession: false, autoRefreshToken: false } }
       );
       
