@@ -1,83 +1,89 @@
 import React from 'react';
-import { Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
-
-const PARTNERS = [
-  "/Partners/AWS_v2.png",
-  "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-  "/Partners/Epic_Games_logo.svg.webp",
-  "/Partners/BrandForYou.png",
-  "/Partners/DiceArtFilms_v2.png",
-  "/Partners/JobFinderAI.png?v=3",
-  "/Partners/MoreYeahs.png?v=3",
-  "/Partners/XOXO_v2.png",
-  "/Partners/Young_v2.png",
-  "/Partners/TingoAI.png"
-];
-
-function Feature({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
-  return (
-    <div className="flex items-start gap-3 max-w-[200px]">
-      <div className="text-gray-800 mt-1">
-        {React.cloneElement(icon as React.ReactElement, { strokeWidth: 1.5, className: 'w-5 h-5' } as any)}
-      </div>
-      <div>
-        <h4 className="text-[10px] md:text-xs font-bold text-gray-900 mb-0.5 tracking-wide">{title}</h4>
-        <p className="text-[10px] text-gray-500 leading-tight">{desc}</p>
-      </div>
-    </div>
-  );
-}
+import { Mail, MessageCircle, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 px-4 md:px-8 lg:px-16 pb-6 shrink-0 w-full max-w-7xl mx-auto flex flex-col gap-4 mt-20">
+    <footer className="relative w-full bg-[#030303] overflow-hidden pt-24 pb-8 mt-12 sm:mt-24 border-t border-white/10 font-sans">
       
-      {/* Powered By with Marquee */}
-      <div className="w-full bg-white border border-gray-200 rounded-2xl p-4 md:p-6 shadow-sm overflow-hidden flex flex-col">
-        <p className="text-[10px] font-bold text-gray-400 tracking-wider mb-4 ml-2 uppercase">POWERED BY</p>
-        <div className="flex w-full overflow-hidden relative bg-white">
-          <div className="flex w-max manual-marquee space-x-8 md:space-x-12 items-center pr-8 md:pr-12 hover:[animation-play-state:paused]">
-            {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, i) => {
-              let scaleClass = '';
-              if (src.includes('TingoAI')) scaleClass = 'scale-75';
-              if (src.includes('AWS')) scaleClass = 'scale-[1.1]';
-              
-              return (
-                <div key={i} className="w-24 h-12 md:w-32 md:h-16 flex items-center justify-center shrink-0">
-                  <img src={src} alt="Partner Logo" className={`max-w-full max-h-full object-contain transition-opacity mix-blend-multiply ${scaleClass}`} />
-                </div>
-              );
-            })}
+      {/* Blurred Rainbow Gradient Floor (Ruixen-style) */}
+      <div className="absolute inset-x-0 bottom-0 h-[40vh] w-full bg-gradient-to-t from-purple-600/30 via-orange-500/20 to-transparent blur-[80px] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[20vh] w-full bg-gradient-to-t from-blue-500/20 to-transparent blur-[60px] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-[-10%] h-[20vh] w-full bg-gradient-to-t from-emerald-500/20 to-transparent blur-[100px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 flex flex-col gap-12 sm:gap-20">
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          
+          {/* Logo & Brand Info */}
+          <div className="flex flex-col gap-4 lg:col-span-2">
+            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 w-max shadow-xl">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-6 w-auto object-contain brightness-0 invert opacity-90" />
+              <span className="text-white/20 font-light text-xl">|</span>
+              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 w-auto object-contain brightness-0 invert opacity-90" />
+            </div>
+            <p className="mt-2 text-sm text-gray-400 font-medium max-w-sm leading-relaxed">
+              Global Talent Hunt 2026. Showcase your skills, compete globally, and get discovered by industry leaders. Unlocking potential without boundaries.
+            </p>
+          </div>
+
+          {/* Support & Contact */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold tracking-widest uppercase text-xs mb-2">Support & Contact</h3>
+            <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-green-400 transition-colors group w-max">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-green-400/10 group-hover:border-green-400/30 transition-colors">
+                <MessageCircle className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-medium">+91 9505429380</span>
+            </a>
+            <a href="mailto:hello@fundfy.app" className="flex items-center gap-3 text-gray-400 hover:text-purple-400 transition-colors group w-max">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-purple-400/10 group-hover:border-purple-400/30 transition-colors">
+                <Mail className="w-4 h-4" />
+              </div>
+              <span className="text-sm font-medium">hello@fundfy.app</span>
+            </a>
+            <a href="https://linkedin.com/company/fundfy" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors group w-max">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-blue-400/10 group-hover:border-blue-400/30 transition-colors">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <span className="text-sm font-medium">LinkedIn</span>
+            </a>
+          </div>
+
+          {/* Location / Office */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold tracking-widest uppercase text-xs mb-2">Office Address</h3>
+            <a href="https://share.google/vwp4H20a17T0BlmCU" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-gray-400 hover:text-orange-400 transition-colors group w-max max-w-xs">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange-400/10 group-hover:border-orange-400/30 transition-colors">
+                <MapPin className="w-4 h-4" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-medium flex items-center gap-1">
+                  Hyderabad Headquarters
+                  <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                </span>
+                <span className="text-xs text-gray-500 mt-1 leading-relaxed">
+                  Visit us in India's booming tech hub. Click to view on Google Maps.
+                </span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10">
+          <p className="text-xs text-gray-500 font-medium">
+            © {new Date().getFullYear()} Fundfy.app & BrandForYou. All rights reserved.
+          </p>
+          <div className="flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-xs text-gray-500 font-medium uppercase tracking-widest">All systems normal</span>
           </div>
         </div>
-      </div>
 
-      {/* Features Row */}
-      <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between gap-y-6 gap-x-4 p-4 md:p-6 lg:px-8 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm relative z-20">
-        <Feature icon={<Globe2 />} title="GLOBAL EXPOSURE" desc="Get seen by industry leaders worldwide." />
-        <Feature icon={<UserCheck />} title="EXPERT MENTORSHIP" desc="Learn and grow with the best." />
-        <Feature icon={<Gift />} title="AMAZING REWARDS" desc="Win cash prizes and exciting perks." />
-        <Feature icon={<Rocket />} title="CAREER BOOST" desc="Opportunities that take you further." />
-      </div>
-
-      {/* Support Contact Info */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 p-4 md:p-6 bg-white/60 backdrop-blur-md rounded-2xl border border-white/50 shadow-sm relative z-20 text-center md:text-left">
-        <div className="flex flex-col">
-          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Support Email</span>
-          <a href="mailto:hello@fundfy.app" className="text-sm font-semibold text-gray-900 hover:text-purple-600 transition-colors">hello@fundfy.app</a>
-        </div>
-        <div className="hidden md:block w-px h-8 bg-gray-200"></div>
-        <div className="flex flex-col">
-          <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">WhatsApp Support</span>
-          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-gray-900 hover:text-green-600 transition-colors">+91 9505429380</a>
-        </div>
-      </div>
-
-      {/* Bottom Pill */}
-      <div className="w-full bg-[#11131c] rounded-full py-3 md:py-4 flex items-center justify-center gap-4 text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/90 uppercase overflow-hidden relative">
-        <span>TALENT HAS NO BOUNDARIES.</span>
-        <span className="text-purple-400">THIS IS YOUR STAGE.</span>
       </div>
     </footer>
   );

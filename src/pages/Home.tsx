@@ -6,6 +6,7 @@ import { MotionButton } from '../components/ui/MotionButton';
 import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
+import Footer from '../components/layout/Footer';
 const PARTNERS = [
   "/Partners/AWS_v2.png",
   "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
@@ -198,6 +199,7 @@ function Home() {
         </div>
       )}
 
+      <Footer />
     </div>
   );
 }

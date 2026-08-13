@@ -14,6 +14,7 @@ import EventTimeline from '../components/contests/EventTimeline';
 import EventJudging from '../components/contests/EventJudging';
 import EventFAQ from '../components/contests/EventFAQ';
 import EventRegistration from '../components/contests/EventRegistration';
+import Footer from '../components/layout/Footer';
 
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -137,6 +138,8 @@ export default function ContestLayout() {
         {/* 8. Registration */}
         <EventRegistration data={config} theme={config.theme} />
       </main>
+
+      <Footer />
 
       {/* Sticky Register Button (Only if not coming soon) */}
       {config.status !== 'COMING_SOON' && (
