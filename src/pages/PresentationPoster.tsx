@@ -65,28 +65,29 @@ export default function PresentationPoster() {
               </p>
             </div>
 
-            {/* Benefits List */}
-            <div className="mt-2 flex flex-col gap-3 max-w-3xl">
-              <div className="flex items-start gap-4">
-                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_15px_rgba(16,185,129,0.8)] mt-1"></div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-black text-white tracking-widest uppercase">Assured Internships & Jobs</span>
-                  <span className="text-gray-400 text-sm font-medium">Every single participant secures an internship or job placement.</span>
+            {/* Benefits Banner */}
+            <div className="mt-4 relative overflow-hidden bg-gradient-to-r from-emerald-900/80 via-emerald-800/80 to-emerald-900/80 rounded-3xl p-[2px] w-full max-w-3xl shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
+              <div className="bg-[#050505]/95 backdrop-blur-2xl rounded-[1.4rem] py-6 px-8 w-full flex flex-col items-start justify-center relative z-10 border border-emerald-500/30">
+                
+                <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-black tracking-[0.4em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                  For Every Participant
+                </span>
+                
+                <span className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 tracking-tight uppercase mb-2 drop-shadow-2xl leading-tight">
+                  Assured Internships & Interviews
+                </span>
+                
+                <div className="flex items-center gap-3 mt-1">
+                  <span className="text-emerald-400 font-bold uppercase tracking-widest text-sm">
+                    + Lifetime JobFinderAI
+                  </span>
+                  <span className="text-gray-600">|</span>
+                  <span className="text-purple-400 font-bold uppercase tracking-widest text-sm">
+                    + Free Momentum EDU+
+                  </span>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-purple-400 to-purple-600 shadow-[0_0_15px_rgba(168,85,247,0.8)] mt-1"></div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-black text-white tracking-widest uppercase">Free Momentum EDU+</span>
-                  <span className="text-gray-400 text-sm font-medium">Lifetime access to your personal AI learning companion.</span>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_0_15px_rgba(59,130,246,0.8)] mt-1"></div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-black text-white tracking-widest uppercase">Lifetime JobFinderAI</span>
-                  <span className="text-gray-400 text-sm font-medium">Unlock the premium AI recruitment ecosystem forever.</span>
-                </div>
+
               </div>
             </div>
             
