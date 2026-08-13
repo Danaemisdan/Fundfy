@@ -22,23 +22,23 @@ export default function PresentationPoster() {
       {/* 1920x1080 Canvas (16:9 Presentation Ratio) */}
       <div className="w-[1920px] h-[1080px] relative overflow-hidden flex bg-[#050505]">
         
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/60 pointer-events-none z-0" />
+
         {/* The Globe Background (centered to fill the empty space) */}
-        <div className="absolute inset-0 w-full h-[110%] top-[-5%] pointer-events-none z-0 opacity-85 flex items-center justify-center mix-blend-screen">
+        <div className="absolute inset-0 w-full h-[110%] top-[-5%] pointer-events-none z-0 opacity-100 flex items-center justify-center mix-blend-screen">
           <Globe />
         </div>
-
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/60 pointer-events-none z-0" />
 
         {/* --- LEFT CONTENT SECTION --- */}
         <div className="relative z-10 flex flex-col justify-between w-[50%] h-full pt-16 pb-32 pl-32 pr-8">
           
           <div>
             {/* Header Logos */}
-            <div className="flex items-center gap-6 bg-white/10 backdrop-blur-md px-10 py-4 rounded-[2rem] border border-white/20 mb-6 max-w-fit shadow-lg">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-16 w-auto object-contain" />
-              <span className="text-gray-500 font-light text-3xl">|</span>
-              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-16 w-auto object-contain" />
+            <div className="flex items-center gap-6 bg-white px-8 py-3 rounded-full mb-8 max-w-fit shadow-lg ml-0 -translate-x-3">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0" />
+              <span className="text-gray-300 font-light text-3xl">|</span>
+              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain" />
             </div>
 
 
@@ -77,8 +77,8 @@ export default function PresentationPoster() {
                   Assured Internships & Interviews
                 </span>
                 
-                <div className="flex items-center justify-center w-full mt-2">
-                  <span className="text-emerald-400 font-bold uppercase tracking-widest text-[11px] text-center max-w-lg leading-relaxed">
+                <div className="flex items-center gap-3 mt-2">
+                  <span className="text-emerald-400 font-bold uppercase tracking-widest text-[11px] leading-relaxed max-w-lg">
                     Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
                   </span>
                 </div>
