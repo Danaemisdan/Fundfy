@@ -135,26 +135,50 @@ export default function Dashboard() {
         </div>
 
         {role === 'user' ? (
-          <div className="bg-white border border-gray-200 rounded-[2rem] shadow-sm p-8">
-            <h2 className="text-xl font-bold mb-6">My Registrations</h2>
+          <div className="bg-[#11131c] text-white border border-white/10 rounded-[2rem] shadow-2xl p-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+            
+            <h2 className="text-2xl font-black mb-8 relative z-10 tracking-tight">My Active Registrations</h2>
+            
             {userRegistrations.length > 0 ? (
-              <div className="flex flex-col gap-4">
-                {userRegistrations.map((reg, i) => (
-                  <div key={i} className="flex justify-between items-center p-4 border border-gray-100 rounded-xl bg-gray-50">
-                    <div>
-                      <h3 className="font-bold text-gray-900">{reg.contest_name}</h3>
-                      <p className="text-sm text-gray-500">Amount Paid: ₹{reg.amount_paid}</p>
+              <div className="flex flex-col gap-6 relative z-10">
+                {userRegistrations.map((reg, i) => {
+                  const hasContest = reg.user_name?.includes(' [');
+                  const contestName = hasContest 
+                    ? reg.user_name.split(' [')[1].replace(']', '') 
+                    : 'Global Talent Hunt 2026';
+                  const isPaid = Number(reg.amount_paid) > 0;
+
+                  return (
+                    <div key={i} className="flex flex-col md:flex-row justify-between items-start md:items-center p-6 md:p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-sm group hover:bg-white/10 transition-colors">
+                      <div className="flex flex-col gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="px-3 py-1 bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                            {isPaid ? 'PAID ENTRY' : 'FREE ENTRY'}
+                          </span>
+                          <span className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                            {reg.payment_id}
+                          </span>
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">{contestName}</h3>
+                        <div className="flex items-center gap-2 mt-2">
+                          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                          <p className="text-sm text-gray-300 font-medium">First Cohort Starts: <span className="text-white font-bold">30th of August 2026</span></p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-col items-start md:items-end mt-6 md:mt-0 gap-2">
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Amount Paid</span>
+                        <span className="text-xl font-black text-white">₹{reg.amount_paid}</span>
+                      </div>
                     </div>
-                    <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider">
-                      {reg.payment_status}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-500 mb-4">You haven't registered for any contests yet.</p>
-                <button onClick={() => navigate('/')} className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-bold uppercase tracking-widest text-xs transition-colors">
+              <div className="text-center py-12 relative z-10 bg-white/5 border border-white/10 rounded-2xl">
+                <p className="text-gray-400 mb-6 font-medium">You haven't registered for any contests yet.</p>
+                <button onClick={() => navigate('/')} className="px-8 py-4 bg-white text-black hover:bg-gray-200 rounded-full font-black uppercase tracking-widest text-xs transition-colors">
                   Explore Contests
                 </button>
               </div>
