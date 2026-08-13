@@ -77,13 +77,9 @@ export default function PresentationPoster() {
                   Assured Internships & Interviews
                 </span>
                 
-                <div className="flex items-center gap-3 mt-1">
-                  <span className="text-emerald-400 font-bold uppercase tracking-widest text-sm">
-                    Lifetime JobFinderAI
-                  </span>
-                  <span className="text-gray-600">|</span>
-                  <span className="text-purple-400 font-bold uppercase tracking-widest text-sm">
-                    + Free Momentum EDU+
+                <div className="flex items-center justify-center w-full mt-2">
+                  <span className="text-emerald-400 font-bold uppercase tracking-widest text-[11px] text-center max-w-lg leading-relaxed">
+                    Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
                   </span>
                 </div>
 

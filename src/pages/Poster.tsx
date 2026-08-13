@@ -90,8 +90,8 @@ export default function Poster() {
                   <span className="text-emerald-400 mr-2">FOR EVERY PARTICIPANT:</span><br/>
                   Assured Internships & Interviews
                 </span>
-                <span className="text-[10px] sm:text-xs font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
-                  With Lifetime JobFinderAI & Momentum EDU+
+                <span className="text-[9px] sm:text-[10px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1 leading-relaxed max-w-[250px] sm:max-w-xs">
+                  Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
                 </span>
               </div>
             </div>

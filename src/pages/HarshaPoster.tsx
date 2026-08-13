@@ -79,8 +79,8 @@ export default function HarshaPoster() {
                   <span className="text-emerald-400 mr-2">FOR EVERY PARTICIPANT:</span><br/>
                   Assured Internships & Interviews
                 </span>
-                <span className="text-[13px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
-                  With Lifetime JobFinderAI & Momentum EDU+
+                <span className="text-[11px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1 leading-relaxed max-w-[320px] text-center">
+                  Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
                 </span>
               </div>
             </div>
