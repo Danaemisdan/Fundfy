@@ -52,46 +52,43 @@ export default function IDCard() {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-40 pointer-events-none" />
 
           {/* ── CONTENT ── */}
-          <div className="relative z-10 flex h-full p-10 mt-4">
+          <div className="relative z-10 flex h-full p-12">
             
             {/* LEFT SECTION */}
-            <div className="flex flex-col justify-between w-[55%]">
+            <div className="flex flex-col w-[55%] h-full pr-8">
               
               {/* Top: logos */}
-              <div className="flex flex-col gap-6">
-                <div className="flex items-center gap-6">
-                  <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-9 w-auto object-contain brightness-0 invert opacity-90" />
-                  <span className="w-px h-6 bg-white/20" />
-                  <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-9 w-auto object-contain brightness-0 invert opacity-90" />
-                </div>
-                <div className="flex items-center">
-                  <p className="text-[12px] font-black tracking-[0.4em] text-white/80 uppercase">
-                    GLOBAL TALENT HUNT 2026
-                  </p>
-                </div>
+              <div className="flex items-center gap-6 mb-8">
+                <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
+                <span className="w-px h-6 bg-white/20" />
+                <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
               </div>
 
-              {/* Middle: person info */}
-              <div className="flex flex-col gap-4">
-                <div className="flex items-center">
-                  <span className="inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase max-w-fit border border-white/20 text-white/70">
-                    {person.designation}
-                  </span>
-                </div>
+              {/* Title & Designation */}
+              <div className="flex flex-col gap-3 mb-6">
+                <p className="text-[11px] font-black tracking-[0.4em] text-white/80 uppercase">
+                  GLOBAL TALENT HUNT 2026
+                </p>
+                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase max-w-fit border border-white/20 text-white/70">
+                  {person.designation}
+                </span>
+              </div>
 
-                <h2 className="text-[64px] font-black text-white leading-tight tracking-tight mt-2">
+              {/* Name & ID */}
+              <div className="flex flex-col mb-auto">
+                <h2 className="text-[64px] font-black text-white leading-[1.1] tracking-tight">
                   {person.name}
                 </h2>
-
-                <div className="flex flex-col mt-4">
-                  <span className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase mb-1">Identification Number</span>
+                
+                <div className="flex flex-col mt-8">
+                  <span className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase mb-1.5">Identification Number</span>
                   <span className="text-2xl font-mono font-medium text-white tracking-widest">{person.employeeId}</span>
                 </div>
               </div>
 
               {/* Bottom: sponsors */}
-              <div className="flex flex-col gap-4">
-                <p className="text-[10px] font-bold tracking-[0.3em] text-white/50 uppercase flex items-center gap-2">
+              <div className="flex flex-col gap-4 mt-auto">
+                <p className="text-[9px] font-bold tracking-[0.3em] text-white/50 uppercase flex items-center gap-2">
                   <span className="w-4 h-[1px] bg-white/30" /> Powered By
                 </p>
                 <div className="flex items-center gap-6">
@@ -112,27 +109,27 @@ export default function IDCard() {
             </div>
 
             {/* RIGHT SECTION - QR Code & Meta */}
-            <div className="flex flex-col items-center justify-center gap-8 flex-1 border-l border-white/5 pl-10">
+            <div className="flex flex-col items-center justify-between h-full flex-1 border-l border-white/10 pl-10">
               
               {/* QR code */}
-              <div className="flex flex-col items-center gap-5 w-full">
-                <div className="bg-white rounded-3xl p-4 shadow-xl">
+              <div className="flex flex-col items-center w-full mt-4">
+                <div className="bg-white rounded-[2rem] p-5 shadow-2xl">
                   <img src={qrUrl} alt="Referral QR" className="w-[180px] h-[180px] rounded-xl" />
                 </div>
 
-                <div className="flex flex-col items-center gap-2 mt-4 text-center">
+                <div className="flex flex-col items-center gap-2 mt-6 text-center">
                   <p className="text-[10px] font-black tracking-[0.4em] text-white/50 uppercase">Scan to Register</p>
-                  <p className="text-[12px] font-mono font-medium text-white/80">{referralUrl}</p>
+                  <p className="text-[11px] font-mono font-medium text-white/80">{referralUrl}</p>
                 </div>
               </div>
 
               {/* Event info */}
-              <div className="flex flex-col items-center gap-1.5 text-center mt-auto">
-                <span className="text-[10px] font-black tracking-[0.4em] text-white/30 uppercase">First Cohort</span>
-                <span className="text-2xl font-black text-white tracking-widest">
+              <div className="flex flex-col items-center gap-1.5 text-center mb-2">
+                <span className="text-[9px] font-black tracking-[0.4em] text-white/30 uppercase">First Cohort</span>
+                <span className="text-2xl font-black text-white tracking-widest mt-1">
                   30 AUG 2026
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-white/30 tracking-widest mt-2 uppercase bg-white/5 px-3 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-white/30 tracking-widest mt-3 uppercase bg-white/5 px-4 py-1.5 rounded-full">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" /> fundfy.app
                 </span>
               </div>
