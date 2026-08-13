@@ -38,35 +38,59 @@ function ScrollToTop() {
 }
 
 function ReferralTracker() {
-  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  // Only read the ref param — don't depend on the whole location object.
+  // This means the effect only re-runs when the actual ?ref= value changes,
+  // not on every route navigation.
+  const ref = searchParams.get('ref');
 
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const ref = searchParams.get('ref');
+    if (!ref) return;
 
-    if (ref) {
-      // Always store it so the user gets the discount during registration
-      sessionStorage.setItem('referral_code', ref);
+    // ── 1. Always persist the code so the registration discount works ──
+    sessionStorage.setItem('referral_code', ref);
 
-      const trackClick = async () => {
-        try {
-          // First try RPC
-          const { error: rpcError } = await supabase.rpc('increment_click', { ref_code: ref });
-          if (rpcError) {
-            // Fallback to select + update
-            const { data: profile } = await supabase.from('profiles').select('id, clicks').eq('referral_code', ref.toUpperCase()).single();
-            if (profile) {
-              await supabase.from('profiles').update({ clicks: (profile.clicks || 0) + 1 }).eq('id', profile.id);
-            }
-          }
-        } catch (err) {
-          console.error('Failed to track referral click:', err);
-        }
-      };
+    // ── 2. Session-level dedup: one count per ref code per browser tab session ──
+    const sessionKey = `clicked_ref_${ref}`;
+    if (sessionStorage.getItem(sessionKey)) return;
 
-      trackClick();
+    // ── 3. Device-level dedup: 24 h cooldown per ref code per device ──
+    const localKey = `clicked_ref_ts_${ref}`;
+    const lastTracked = Number(localStorage.getItem(localKey) || 0);
+    const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+    if (Date.now() - lastTracked < TWENTY_FOUR_HOURS) {
+      // Already counted recently — still mark session so we don't keep checking
+      sessionStorage.setItem(sessionKey, 'true');
+      return;
     }
-  }, [location]);
+
+    const trackClick = async () => {
+      try {
+        const { error: rpcError } = await supabase.rpc('increment_click', { ref_code: ref });
+        if (rpcError) {
+          // RPC not available — fallback to manual select + update
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('id, clicks')
+            .eq('referral_code', ref.toUpperCase())
+            .single();
+          if (profile) {
+            await supabase
+              .from('profiles')
+              .update({ clicks: (profile.clicks || 0) + 1 })
+              .eq('id', profile.id);
+          }
+        }
+        // Mark as tracked so we don't double-count
+        sessionStorage.setItem(sessionKey, 'true');
+        localStorage.setItem(localKey, String(Date.now()));
+      } catch (err) {
+        console.error('Failed to track referral click:', err);
+      }
+    };
+
+    trackClick();
+  }, [ref]); // ← only re-runs if the actual ref VALUE changes
 
   return null;
 }
