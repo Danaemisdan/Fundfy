@@ -59,9 +59,9 @@ export default function IDCard() {
               
               {/* Top: logos */}
               <div className="flex items-center gap-6 mb-8">
-                <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
+                <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain opacity-100" />
                 <span className="w-px h-6 bg-white/20" />
-                <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
+                <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain opacity-100" />
               </div>
 
               {/* Title & Designation */}
@@ -69,7 +69,7 @@ export default function IDCard() {
                 <p className="text-[11px] font-black tracking-[0.4em] text-white/80 uppercase">
                   GLOBAL TALENT HUNT 2026
                 </p>
-                <span className="inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase max-w-fit border border-white/20 text-white/70">
+                <span className="inline-flex items-center text-[11px] font-black tracking-[0.3em] uppercase max-w-fit text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400 drop-shadow-sm">
                   {person.designation}
                 </span>
               </div>
@@ -93,17 +93,17 @@ export default function IDCard() {
                 </p>
                 <div className="flex items-center gap-6">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" 
-                    alt="AWS" className="h-6 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                    alt="AWS" className="h-6 w-auto object-contain opacity-100 drop-shadow-sm" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" 
-                    alt="Google Cloud" className="h-5 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                    alt="Google Cloud" className="h-5 w-auto object-contain opacity-100 drop-shadow-sm" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
-                    alt="IBM" className="h-6 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                    alt="IBM" className="h-6 w-auto object-contain opacity-100 drop-shadow-sm" />
                 </div>
                 <div className="flex items-center gap-5 mt-1">
-                  <img src="/Partners/JobFinderAI.png" alt="JobFinderAI" className="h-5 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
-                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
-                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
-                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-4 w-auto object-contain brightness-0 invert opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/JobFinderAI.png" alt="JobFinderAI" className="h-5 w-auto object-contain opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain opacity-100 drop-shadow-sm" />
+                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-4 w-auto object-contain opacity-100 drop-shadow-sm" />
                 </div>
               </div>
             </div>
@@ -129,8 +129,8 @@ export default function IDCard() {
                 <span className="text-2xl font-black text-white tracking-widest mt-1">
                   30 AUG 2026
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-white/30 tracking-widest mt-3 uppercase bg-white/5 px-4 py-1.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500" /> fundfy.app
+                <span className="inline-flex items-center text-[10px] font-bold text-white/30 tracking-widest mt-3 uppercase bg-white/5 px-4 py-1.5 rounded-full">
+                  fundfy.app
                 </span>
               </div>
             </div>
