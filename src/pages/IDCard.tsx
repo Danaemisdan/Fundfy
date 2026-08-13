@@ -69,7 +69,7 @@ export default function IDCard() {
                 <p className="text-[11px] font-black tracking-[0.4em] text-white/80 uppercase">
                   GLOBAL TALENT HUNT 2026
                 </p>
-                <span className="inline-flex items-center text-[11px] font-black tracking-[0.3em] uppercase max-w-fit text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400 drop-shadow-sm">
+                <span className="inline-flex items-center text-[11px] font-black tracking-[0.3em] uppercase max-w-fit text-white">
                   {person.designation}
                 </span>
               </div>
