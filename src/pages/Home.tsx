@@ -193,7 +193,7 @@ function Home() {
       </div>
 
       {/* CONTESTS SHOWCASE (Scroll down) */}
-      {!refCode && (
+      {!refCode && !contestId && (
         <div id="contests" className="relative z-10 w-full bg-white">
           <ContestShowcase />
         </div>
