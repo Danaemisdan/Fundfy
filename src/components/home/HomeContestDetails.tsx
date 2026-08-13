@@ -13,10 +13,10 @@ const SHARED_TIMELINE = [
 ];
 
 const PRIZES = [
-  { place: '1st Place', amount: '₹20 Lakhs', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
-  { place: '2nd Place', amount: '₹15 Lakhs', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
-  { place: '3rd Place', amount: '₹10 Lakhs', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
-  { place: 'Top 10',   amount: '₹5 Lakhs each', bg: 'bg-white border border-gray-200', text: 'text-black', badge: 'bg-gray-200 text-black' },
+  { place: '1st Place', amount: '$15,000', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
+  { place: '2nd Place', amount: '$10,000', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: '3rd Place', amount: '$5,000',  bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: 'Top 10',   amount: '$2,000 each', bg: 'bg-white border border-gray-200', text: 'text-black', badge: 'bg-gray-200 text-black' },
 ];
 
 const PARTICIPANT_PERKS = [
@@ -98,7 +98,7 @@ export default function HomeContestDetails({ contestId }: Props) {
             <div className="flex flex-col">
               <span className="text-sm font-bold tracking-[0.2em] text-gray-500 uppercase mb-4 block">The Rewards</span>
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.95]">
-                ₹50 Lakhs<br /><span className="text-gray-400">Prize Pool.</span>
+                $50,000<br /><span className="text-gray-400">Prize Pool.</span>
               </h2>
             </div>
             <div className="max-w-sm">
