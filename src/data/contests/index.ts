@@ -30,7 +30,6 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Industry-Specific AI Upskilling', description: 'Learn how to leverage AI directly in YOUR industry, plus master essential communication skills.' },
       { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
@@ -116,12 +115,13 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications utilizing cutting-edge Generative AI tools. Whether you are architecting a revolutionary productivity tool, an autonomous smart assistant, or an entirely new software paradigm, we want to see how you leverage LLMs and APIs to solve high-impact, real-world problems. Show the world what AI can achieve in the hands of visionary developers.',
+    description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
     whyParticipate: [
-      { title: 'Build an incredible portfolio', description: 'Deploy a cutting edge AI app that will wow top employers.' },
-      { title: 'Showcase your AI skills', description: 'Demonstrate your ability to leverage LLMs and AI APIs in real-world scenarios.' },
-      { title: 'Compete globally', description: 'Test your engineering chops against top talent worldwide.' },
-      { title: 'Receive lifetime tools', description: 'Every participant receives lifetime access to premium tools.' }
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
@@ -152,22 +152,23 @@ export const CONTESTS: ContestConfig[] = [
     ],
     rewards: [
       {
-        title: 'OVERALL WINNERS',
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
+        items: [
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
         items: [
           { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
           { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
           { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
     ],
@@ -202,8 +203,14 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Powered by JobFinderAI, this challenge is designed to revolutionize the global recruitment industry. Your mission is to architect an outstanding AI-driven job application ecosystem or a hyper-intelligent resume generator. Maximize application success rates by leveraging smart data matching, automated tailoring, and predictive hiring algorithms. Build the future of hiring and redefine how talent meets opportunity.',
-    whyParticipate: [],
+    description: 'Powered by JobFinderAI, this challenge is designed to revolutionize recruitment. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
+    whyParticipate: [
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
+    ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
@@ -227,22 +234,23 @@ export const CONTESTS: ContestConfig[] = [
     ],
     rewards: [
       {
-        title: 'OVERALL WINNERS',
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
+        items: [
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
         items: [
           { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
           { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
           { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
     ],
@@ -277,8 +285,14 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools to forge stunning, production-ready 3D assets. From sci-fi vehicles and intricate fantasy props to hyper-realistic architectural elements, your challenge is to demonstrate how AI can drastically accelerate texturing, unwrapping, and conceptual phases while maintaining flawless, industry-standard topology.',
-    whyParticipate: [],
+    description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
+    whyParticipate: [
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
+    ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
@@ -302,22 +316,23 @@ export const CONTESTS: ContestConfig[] = [
     ],
     rewards: [
       {
-        title: 'OVERALL WINNERS',
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
+        items: [
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
         items: [
           { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
           { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
           { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
     ],
@@ -352,8 +367,14 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. Sculpt, texture, and rig a next-gen 3D character that belongs in a AAA game or blockbuster film. We demand incredible attention to detail across anatomy, clothing, and micro-expressions. Integrate cutting-edge AI workflows for concept generation and advanced material creation to bring your vision to life.',
-    whyParticipate: [],
+    description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
+    whyParticipate: [
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
+    ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
@@ -377,22 +398,23 @@ export const CONTESTS: ContestConfig[] = [
     ],
     rewards: [
       {
-        title: 'OVERALL WINNERS',
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
+        items: [
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
         items: [
           { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
           { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
           { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
     ],
@@ -427,8 +449,14 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Design the future of the web. Your challenge is to craft stunning, user-centric interfaces and breathtaking web experiences that redefine modern digital standards. Focus on premium aesthetics like glassmorphism, fluid micro-interactions, flawless typography scales, and highly accessible color palettes. Evolve your wireframes into hyper-polished, high-fidelity prototypes that leave users in absolute awe of your digital craftsmanship.',
-    whyParticipate: [],
+    description: 'Design the future of the web. Craft stunning interfaces and breathtaking web experiences. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
+    whyParticipate: [
+      { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
+      { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
+      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
+      { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
+      { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
+    ],
     timeline: [
       { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
@@ -452,22 +480,23 @@ export const CONTESTS: ContestConfig[] = [
     ],
     rewards: [
       {
-        title: 'OVERALL WINNERS',
+        title: 'EVERY SINGLE PARTICIPANT RECEIVES',
         theme: 'premium',
+        items: [
+          { title: 'Assured Internship / Job Support' },
+          { title: 'Confirmed Interview' },
+          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Lifetime FREE JobFinderAI Premium' }
+        ]
+      },
+      {
+        title: 'OVERALL WINNERS',
+        theme: 'light',
         items: [
           { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
           { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
           { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
-        ]
-      },
-      {
-        title: 'EVERY PARTICIPANT RECEIVES',
-        theme: 'light',
-        items: [
-          { title: 'Verified Global Participation Certificate' },
-          { title: 'Lifetime FREE JobFinderAI Premium Subscription' },
-          { title: '$500 AWS Cloud Credits for Deployment' }
         ]
       }
     ],

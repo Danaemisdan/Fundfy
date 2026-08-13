@@ -31,11 +31,11 @@ export default function PresentationPoster() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent pointer-events-none z-0" />
 
         {/* --- LEFT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-between w-[60%] h-full py-16 pl-24 pr-12">
+        <div className="relative z-10 flex flex-col justify-between w-[55%] h-full py-16 pl-24 pr-12">
           
           <div>
             {/* Header Logos */}
-            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 mb-8 max-w-fit">
+            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 mb-8 max-w-fit shadow-lg">
               <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-6 w-auto object-contain brightness-0 invert" />
               <span className="text-gray-500 font-light text-xl">|</span>
               <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-8 w-auto object-contain brightness-0 invert" />
@@ -50,12 +50,12 @@ export default function PresentationPoster() {
               <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
             </h1>
             
-            <p className="text-lg font-bold tracking-[0.3em] text-white/70 uppercase mt-4 mb-12">
+            <p className="text-lg font-bold tracking-[0.3em] text-white/70 uppercase mt-4 mb-10">
               Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
             </p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             <div className="relative">
               <h2 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-tight drop-shadow-2xl max-w-3xl">
                 {contest.title}
@@ -65,59 +65,69 @@ export default function PresentationPoster() {
               </p>
             </div>
 
-            {contest.id === 'ai-education-innovation-contest' ? (
-              <div className="relative overflow-hidden bg-gradient-to-r from-emerald-900/90 via-emerald-800/90 to-emerald-900/90 rounded-[2rem] p-[2px] w-full max-w-3xl shadow-[0_0_40px_rgba(16,185,129,0.3)] mt-4">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
-                <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[2rem] py-6 px-8 w-full flex flex-col items-start relative z-10 border border-emerald-500/20">
-                  <span className="px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-[12px] font-black tracking-[0.4em] rounded-full uppercase border border-emerald-500/20 mb-3 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                    FOR EVERY PARTICIPANT
-                  </span>
-                  <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 tracking-tight uppercase mb-2 drop-shadow-lg leading-tight">
-                    Assured Internships & Interviews
-                  </span>
-                  <span className="text-lg font-bold text-emerald-400/90 tracking-wide uppercase">
-                    With Lifetime JobFinderAI & Momentum EDU+
-                  </span>
+            {/* Benefits List */}
+            <div className="mt-4 flex flex-col gap-4 max-w-3xl">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                  <span className="text-2xl">💼</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-white uppercase tracking-wider">Assured Internships & Jobs</span>
+                  <span className="text-gray-400 text-sm">Every single participant secures an internship or job placement.</span>
                 </div>
               </div>
-            ) : (
-              <div className="glass-panel bg-orange-500/10 backdrop-blur-md rounded-2xl p-6 w-full max-w-3xl border border-orange-500/30 shadow-[0_0_20px_rgba(249,115,22,0.15)] mt-4">
-                <span className="text-2xl font-bold text-orange-400 tracking-wide">
-                  AWS is sponsoring $5,000 for each winner*
-                </span>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-white uppercase tracking-wider">Free Momentum EDU+</span>
+                  <span className="text-gray-400 text-sm">Lifetime access to your personal AI learning companion.</span>
+                </div>
               </div>
-            )}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold text-white uppercase tracking-wider">Lifetime JobFinderAI</span>
+                  <span className="text-gray-400 text-sm">Unlock the premium AI recruitment ecosystem forever.</span>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
 
         {/* --- RIGHT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-center items-end w-[40%] h-full py-16 pr-24 pl-12 gap-12">
+        <div className="relative z-10 flex flex-col justify-center items-end w-[45%] h-full py-16 pr-24 pl-4 gap-8">
           
-          <div className="bg-white/95 backdrop-blur-xl rounded-[3rem] py-10 px-12 w-full max-w-lg flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.15)] transform hover:scale-105 transition-transform duration-500">
-            <span className="text-xl font-black tracking-[0.5em] text-gray-500 uppercase mb-4">Prize Pool</span>
-            <span className="text-8xl font-black text-black whitespace-nowrap tracking-tight leading-none">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-10 w-full max-w-lg flex flex-col items-center justify-center text-center shadow-[0_0_60px_rgba(255,255,255,0.05)] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+            <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-2">Prize Pool</span>
+            <span className="text-7xl font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
               ₹50 LAKHS
             </span>
           </div>
 
-          <div className="relative glass-panel rounded-[3rem] p-8 w-full max-w-lg flex flex-col items-center border border-white/20 bg-gradient-to-br from-purple-900/60 to-blue-900/40 backdrop-blur-2xl shadow-[0_0_50px_rgba(168,85,247,0.2)] overflow-hidden">
+          <div className="relative glass-panel rounded-[2rem] p-8 w-full max-w-lg flex flex-col items-center border border-white/20 bg-gradient-to-br from-purple-900/60 to-blue-900/40 backdrop-blur-3xl shadow-[0_0_50px_rgba(168,85,247,0.3)] overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-500/20 to-transparent pointer-events-none" />
             
-            <div className="flex flex-col items-center gap-2 relative z-10 text-center mb-8">
-              <span className="text-sm font-bold tracking-[0.4em] text-purple-300 uppercase">The World Is Watching</span>
-              <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 tracking-tight">
+            <div className="flex flex-col items-center gap-1 relative z-10 text-center mb-6">
+              <span className="text-xs font-bold tracking-[0.4em] text-purple-300 uppercase">The World Is Watching</span>
+              <span className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 tracking-tight">
                 PROVE YOUR WORTH
               </span>
             </div>
 
             <div className="flex items-center gap-8 relative z-10">
-              <div className="w-48 h-48 bg-white rounded-3xl p-3 shadow-[0_0_40px_rgba(255,255,255,0.2)] relative">
+              <div className="w-40 h-40 bg-white rounded-3xl p-3 shadow-[0_0_40px_rgba(255,255,255,0.2)] relative">
                 <div className="absolute inset-0 border-2 border-purple-500/50 rounded-3xl animate-pulse pointer-events-none" />
                 <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-2xl" />
               </div>
               <div className="flex flex-col gap-4">
-                <span className="text-lg font-black tracking-[0.4em] text-white/90 uppercase">Scan to<br/>Apply</span>
-                <div className="bg-white text-black px-8 py-3 rounded-full text-sm font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)] text-center">
+                <span className="text-base font-black tracking-[0.4em] text-white/90 uppercase leading-snug">Scan to<br/>Apply</span>
+                <div className="bg-white text-black px-6 py-3 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)] text-center cursor-pointer">
                   Apply Now
                 </div>
               </div>

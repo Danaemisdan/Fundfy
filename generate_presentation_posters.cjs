@@ -12,7 +12,8 @@ const referrers = [
   'shrishtipaagal',
   'harshasai',
   'dannyk.virtualex',
-  'admin'
+  'admin',
+  'chandra'
 ];
 
 const contests = [

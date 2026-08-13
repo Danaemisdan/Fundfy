@@ -81,28 +81,20 @@ export default function Poster() {
               </span>
             </div>
             
-            {contest.id === 'ai-education-innovation-contest' ? (
-              <div className="relative overflow-hidden bg-gradient-to-r from-emerald-900/90 via-emerald-800/90 to-emerald-900/90 rounded-[1.5rem] p-[2px] w-full shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
-                <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[1.5rem] py-4 px-4 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
-                  <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
-                    FOR EVERY PARTICIPANT
-                  </span>
-                  <span className="text-[1.1rem] sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
-                    Assured Internships & Interviews
-                  </span>
-                  <span className="text-[10px] sm:text-xs font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
-                    With Lifetime JobFinderAI & Momentum EDU+
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <div className="glass-panel bg-orange-500/10 backdrop-blur-md rounded-xl p-3 w-full flex items-center justify-center text-center border border-orange-500/30 shadow-[0_0_15px_rgba(249,115,22,0.15)]">
-                <span className="text-xs sm:text-sm font-bold text-orange-400 tracking-wide">
-                  AWS is sponsoring $5,000 for each winner*
+            <div className="relative overflow-hidden bg-gradient-to-r from-emerald-900/90 via-emerald-800/90 to-emerald-900/90 rounded-[1.5rem] p-[2px] w-full shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-transparent to-emerald-400/20 animate-pulse" />
+              <div className="bg-[#050505]/95 backdrop-blur-xl rounded-[1.5rem] py-4 px-4 w-full flex flex-col items-center justify-center text-center relative z-10 border border-emerald-500/20">
+                <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-black tracking-[0.3em] rounded-full uppercase border border-emerald-500/20 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                  FOR EVERY PARTICIPANT
+                </span>
+                <span className="text-[1.1rem] sm:text-xl font-black bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 tracking-tight uppercase mb-1 drop-shadow-lg leading-tight">
+                  Assured Internships & Interviews
+                </span>
+                <span className="text-[10px] sm:text-xs font-bold text-emerald-400/90 tracking-wide uppercase mt-1">
+                  With Lifetime JobFinderAI & Momentum EDU+
                 </span>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Powered By Sponsors */}
