@@ -36,7 +36,7 @@ export default function PresentationPoster() {
           <div>
             {/* Header Logos */}
             <div className="flex items-center gap-6 bg-white px-8 py-3 rounded-full mb-8 max-w-fit shadow-lg ml-0 -translate-x-3">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain brightness-0" />
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
               <span className="text-gray-300 font-light text-3xl">|</span>
               <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain" />
             </div>
@@ -52,8 +52,7 @@ export default function PresentationPoster() {
               <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase">
                 Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
               </p>
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-500/20 to-transparent border border-purple-500/30 rounded-full backdrop-blur-sm">
-                <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse mr-3 shadow-[0_0_10px_rgba(192,132,252,0.8)]"></div>
+              <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-purple-500/20 to-transparent border border-purple-500/30 rounded-full backdrop-blur-sm">
                 <span className="text-purple-200 text-xs font-bold tracking-[0.3em] uppercase">
                   FIRST COHORT STARTS <span className="text-white">30TH AUG 2026</span>
                 </span>
@@ -108,7 +107,7 @@ export default function PresentationPoster() {
               </span>
               <ul className="flex flex-col gap-5 text-white/90 text-lg font-medium tracking-wide">
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Get Global Exposure</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Win Exciting Rewards</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Massive Prize Pool</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Top Opportunities with Leading Studios</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Certificates for All Participants</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Build Your Portfolio & Network</li>
