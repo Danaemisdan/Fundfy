@@ -39,10 +39,9 @@ export default function ContestShowcase({ referrerMode = false, referralCode = '
                   const finalRef = (referrerMode && referralCode) ? referralCode : existingRef;
                   
                   if (finalRef) {
-                    navigate(`/contests/${contest.id}?ref=${finalRef}`);
+                    navigate(`/contest/${contest.id}?ref=${finalRef}`);
                   } else {
-                    navigate(`/contests/${contest.id}`);
-                  }
+                    navigate(`/contest/${contest.id}`);                  }
                 }}
                 className="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-gray-200 hover:bg-[#f4f4f4] cursor-pointer transition-colors px-4 md:px-8 -mx-4 md:-mx-8"
               >

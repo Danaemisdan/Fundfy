@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useParams, useSearchParams, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import ContestLayout from './pages/ContestLayout';
 import SplashScreen from './components/SplashScreen';
@@ -15,6 +15,16 @@ import PresentationPoster from './pages/PresentationPoster';
 import { AuthProvider } from './contexts/AuthContext';
 
 import { supabase } from './lib/supabase';
+
+// Redirect /contests/:id?ref=xxx → /?contest=:id&ref=xxx
+// so users land on the home page and only hit the contest page via "Register Now"
+function ContestRedirect() {
+  const { id } = useParams<{ id: string }>();
+  const [searchParams] = useSearchParams();
+  const ref = searchParams.get('ref');
+  const target = `/?contest=${id}${ref ? `&ref=${ref}` : ''}`;
+  return <Navigate to={target} replace />;
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -91,7 +101,8 @@ function App() {
       {showSplash && <SplashScreen />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contests/:id" element={<ContestLayout />} />
+        <Route path="/contests/:id" element={<ContestRedirect />} />
+        <Route path="/contest/:id" element={<ContestLayout />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/signin" element={<SignIn />} />
