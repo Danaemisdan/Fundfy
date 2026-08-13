@@ -127,9 +127,6 @@ export default function PresentationPoster() {
               </div>
               <div className="flex flex-col gap-4">
                 <span className="text-base font-black tracking-[0.4em] text-white/90 uppercase leading-snug">Scan to<br/>Apply</span>
-                <div className="bg-white text-black px-6 py-3 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)] text-center cursor-pointer">
-                  Apply Now
-                </div>
               </div>
             </div>
           </div>

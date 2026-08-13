@@ -106,9 +106,6 @@ export default function HarshaPoster() {
                 <span className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-1 tracking-tight">
                   PROVE YOUR WORTH
                 </span>
-                <div className="mt-2 bg-white text-black px-8 py-3 rounded-full text-base font-black uppercase tracking-[0.2em]">
-                  Apply Now
-                </div>
               </div>
 
               <div className="flex flex-col items-center gap-3 relative z-10 pr-4">

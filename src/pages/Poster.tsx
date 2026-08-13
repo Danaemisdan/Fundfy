@@ -121,17 +121,14 @@ export default function Poster() {
                 <span className="text-xl sm:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 mb-1 tracking-tight">
                   PROVE YOUR WORTH
                 </span>
-                <div className="mt-1 bg-white text-black px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                  Apply Now
-                </div>
               </div>
 
-              <div className="flex flex-col items-center gap-2 relative z-10 pr-1">
-                <div className="w-20 h-20 bg-white rounded-2xl p-1.5 shadow-[0_0_25px_rgba(255,255,255,0.3)] relative">
+              <div className="flex flex-col items-center gap-3 relative z-10">
+                <div className="w-24 sm:w-28 h-24 sm:h-28 bg-white rounded-2xl p-2 relative shadow-[0_0_25px_rgba(255,255,255,0.3)]">
                   <div className="absolute inset-0 border border-purple-500/30 rounded-2xl animate-pulse pointer-events-none" />
                   <img src={qrCodeUrl} alt="QR Code" className="w-full h-full rounded-xl" />
                 </div>
-                <span className="text-[7px] font-black tracking-[0.3em] text-white/70 uppercase">Scan to apply</span>
+                <span className="text-[10px] sm:text-xs font-black tracking-[0.3em] text-white/70 uppercase">Scan to apply</span>
               </div>
             </div>
           </div>
