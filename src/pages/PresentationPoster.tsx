@@ -31,67 +31,61 @@ export default function PresentationPoster() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent pointer-events-none z-0" />
 
         {/* --- LEFT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-between w-[55%] h-full py-16 pl-24 pr-12">
+        <div className="relative z-10 flex flex-col justify-between w-[55%] h-full pt-12 pb-28 pl-24 pr-12">
           
           <div>
             {/* Header Logos */}
-            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 mb-8 max-w-fit shadow-lg">
-              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-6 w-auto object-contain brightness-0 invert" />
+            <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 mb-4 max-w-fit shadow-lg">
+              <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 w-auto object-contain brightness-0 invert" />
               <span className="text-gray-500 font-light text-xl">|</span>
-              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-8 w-auto object-contain brightness-0 invert" />
+              <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-6 w-auto object-contain brightness-0 invert" />
             </div>
 
-            <h4 className="text-[14px] tracking-[0.5em] text-gray-400 font-bold uppercase mb-4">
+            <h4 className="text-[12px] tracking-[0.5em] text-gray-400 font-bold uppercase mb-2">
               PRESENTS
             </h4>
 
-            <h1 className="text-7xl font-black text-white leading-[0.95] tracking-tighter mb-4 font-futuristic">
+            <h1 className="text-6xl font-black text-white leading-[0.95] tracking-tighter mb-2 font-futuristic">
               GLOBAL <br />
               <span className="text-gradient-purple-orange">TALENT</span> HUNT 2026
             </h1>
             
-            <p className="text-lg font-bold tracking-[0.3em] text-white/70 uppercase mt-4 mb-10">
+            <p className="text-base font-bold tracking-[0.3em] text-white/70 uppercase mt-2 mb-6">
               Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
             </p>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <div className="relative">
-              <h2 className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-tight drop-shadow-2xl max-w-3xl">
+              <h2 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 leading-[1.1] mb-2 tracking-tight drop-shadow-2xl max-w-3xl">
                 {contest.title}
               </h2>
-              <p className="text-2xl text-gray-400 font-bold tracking-[0.2em] uppercase">
+              <p className="text-xl text-gray-400 font-bold tracking-[0.2em] uppercase">
                 {contest.subtitle}
               </p>
             </div>
 
             {/* Benefits List */}
-            <div className="mt-4 flex flex-col gap-4 max-w-3xl">
+            <div className="mt-2 flex flex-col gap-3 max-w-3xl">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                  <span className="text-2xl">💼</span>
-                </div>
+                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 shadow-[0_0_15px_rgba(16,185,129,0.8)] mt-1"></div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-white uppercase tracking-wider">Assured Internships & Jobs</span>
-                  <span className="text-gray-400 text-sm">Every single participant secures an internship or job placement.</span>
+                  <span className="text-xl font-black text-white tracking-widest uppercase">Assured Internships & Jobs</span>
+                  <span className="text-gray-400 text-sm font-medium">Every single participant secures an internship or job placement.</span>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
-                  <span className="text-2xl">🤖</span>
-                </div>
+                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-purple-400 to-purple-600 shadow-[0_0_15px_rgba(168,85,247,0.8)] mt-1"></div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-white uppercase tracking-wider">Free Momentum EDU+</span>
-                  <span className="text-gray-400 text-sm">Lifetime access to your personal AI learning companion.</span>
+                  <span className="text-xl font-black text-white tracking-widest uppercase">Free Momentum EDU+</span>
+                  <span className="text-gray-400 text-sm font-medium">Lifetime access to your personal AI learning companion.</span>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-                  <span className="text-2xl">⚡</span>
-                </div>
+                <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_0_15px_rgba(59,130,246,0.8)] mt-1"></div>
                 <div className="flex flex-col">
-                  <span className="text-xl font-bold text-white uppercase tracking-wider">Lifetime JobFinderAI</span>
-                  <span className="text-gray-400 text-sm">Unlock the premium AI recruitment ecosystem forever.</span>
+                  <span className="text-xl font-black text-white tracking-widest uppercase">Lifetime JobFinderAI</span>
+                  <span className="text-gray-400 text-sm font-medium">Unlock the premium AI recruitment ecosystem forever.</span>
                 </div>
               </div>
             </div>
@@ -100,11 +94,11 @@ export default function PresentationPoster() {
         </div>
 
         {/* --- RIGHT CONTENT SECTION --- */}
-        <div className="relative z-10 flex flex-col justify-center items-end w-[45%] h-full py-16 pr-24 pl-4 gap-8">
+        <div className="relative z-10 flex flex-col justify-center items-end w-[45%] h-full pt-12 pb-28 pr-24 pl-4 gap-10">
           
-          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-10 w-full max-w-lg flex flex-col items-center justify-center text-center shadow-[0_0_60px_rgba(255,255,255,0.05)] relative overflow-hidden">
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-8 w-full max-w-lg flex flex-col items-center justify-center text-center shadow-[0_0_60px_rgba(255,255,255,0.05)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-2">Prize Pool</span>
+            <span className="text-base font-black tracking-[0.5em] text-gray-300 uppercase mb-2">Prize Pool</span>
             <span className="text-7xl font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
               ₹50 LAKHS
             </span>
