@@ -35,11 +35,11 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration Opens', date: 'Phase 1', description: 'Sign up and get instant access to premium resources and platforms.' },
-      { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
-      { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
-      { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+      { title: 'Registration & Instant Access', date: 'Phase 1', description: 'Sign up and get instant access to Momentum EDU+ and premium learning tools.' },
+      { title: 'Masterclasses & Upskilling', date: 'Phase 2', description: 'Learn AI, communication skills, and discover industry-specific AI use-cases.' },
+      { title: 'AI-Hosted Contest', date: 'Phase 3', description: 'Compete in our revolutionary contest hosted entirely by AI to showcase your new skills.' },
+      { title: 'Grooming & Resume Building', date: 'Phase 4', description: 'Get your resume polished, communication refined, and become fully job-ready.' },
+      { title: 'Assured Placements & Support', date: 'Phase 5', description: 'We support you completely to get a job, internship, startup funding, or recognition.' }
     ],
     judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
@@ -59,7 +59,6 @@ export const CONTESTS: ContestConfig[] = [
     resources: [
       { title: 'Momentum EDU+', description: 'Your personal AI companion for upskilling.' },
       { title: 'JobFinderAI', description: 'Lifetime free access to the recruitment platform.' },
-      { title: 'Fundfy.app', description: 'Find funds, sponsorships, grants, and investors for your startup.' },
       { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' }
     ],
     rewards: [
