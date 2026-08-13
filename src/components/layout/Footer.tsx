@@ -47,17 +47,17 @@ export default function Footer() {
             {/* Location / Office */}
             <div className="flex flex-col gap-4">
               <h3 className="text-white font-bold tracking-widest uppercase text-xs mb-2">Office Address</h3>
-              <a href="https://share.google/vwp4H20a17T0BlmCU" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-gray-400 hover:text-orange-400 transition-colors group w-max max-w-xs">
+              <a href="https://share.google/4TGJF54Hkhj2t1QF1" target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-gray-400 hover:text-orange-400 transition-colors group w-max max-w-xs">
                 <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-orange-400/10 group-hover:border-orange-400/30 transition-colors">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-medium flex items-center gap-1 text-white">
-                    Hyderabad Headquarters
+                    Delhi Headquarters
                     <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all text-orange-400" />
                   </span>
                   <span className="text-xs text-gray-500 mt-1 leading-relaxed">
-                    Visit us in India's booming tech hub. Click to view on Google Maps.
+                    Khasra No. 266, UGF, Block-4, Doctor Ambedkar Nagar, Chandan Hola, New Delhi, Delhi 110062. Click to view on Google Maps.
                   </span>
                 </div>
               </a>
@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 pb-2 font-mono text-xs uppercase tracking-wider text-gray-500">
             <span>© {new Date().getFullYear()} Fundfy.app & BrandForYou.</span>
-            <span>Hyderabad · India</span>
+            <span>New Delhi · India</span>
           </div>
         </div>
       </RuixenGradientFooter>
