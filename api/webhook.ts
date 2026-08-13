@@ -76,12 +76,12 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ message: 'Missing payment_id in payload' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || 'https://bmemodyjiphvkisbocuq.supabase.co';
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   
-  if (!supabaseUrl || !supabaseServiceKey) {
-     console.error("Supabase service key missing");
-     return res.status(500).json({ message: 'Supabase config missing' });
+  if (!supabaseServiceKey) {
+     console.error("SUPABASE_SERVICE_ROLE_KEY missing from Vercel env vars");
+     return res.status(500).json({ message: 'SUPABASE_SERVICE_ROLE_KEY not set in Vercel Environment Variables' });
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
