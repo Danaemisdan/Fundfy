@@ -8,7 +8,7 @@ const contests = [
   '3d-asset-design-contest',
   'digital-character-design-contest',
   'web-experience-design-contest',
-  'ai-education-innovation-contest'
+  'career-accelerator-program'
 ];
 
 const BASE_URL = 'http://localhost:4173/harsha-poster';

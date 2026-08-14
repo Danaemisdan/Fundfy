@@ -755,7 +755,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
           className="p-6 md:p-8 overflow-y-auto flex-1 text-sm md:text-base text-gray-600 leading-relaxed font-medium space-y-4"
         >
           <p className="font-bold text-gray-900 text-lg">Participant Agreement</p>
-          <p>By registering, you agree to the following conditions for all Global Talent Hunt contests (AI Innovation, 3D Asset Design, Web Experience Design, Digital Character Design, Career Accelerator, and AI Education).</p>
+          <p>By registering, you agree to the following conditions for all Global Talent Hunt contests (AI Innovation, 3D Asset Design, Web Experience Design, Digital Character Design, Career Accelerator, and Career Accelerator Program).</p>
           
           <ul className="list-disc pl-5 space-y-3 mt-4">
             <li><strong>Original Work & AI Tools:</strong> All submissions must be your original work. While generative AI is encouraged where applicable, it must demonstrate significant personal contribution, problem-solving, and creativity.</li>

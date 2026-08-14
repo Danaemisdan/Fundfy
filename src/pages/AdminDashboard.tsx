@@ -826,7 +826,8 @@ export default function AdminDashboard() {
                   }
                   const hasContest = r.user_name.includes(' [');
                   const displayName = hasContest ? r.user_name.split(' [')[0] : r.user_name;
-                  const contestName = hasContest ? r.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
+                  const rawContest = hasContest ? r.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
+                  const contestName = rawContest === 'AI Education Innovation Contest' ? 'Career Accelerator Program' : rawContest;
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">
@@ -897,7 +898,8 @@ export default function AdminDashboard() {
                   }
                   const hasContest = reg.user_name.includes(' [');
                   const displayName = hasContest ? reg.user_name.split(' [')[0] : reg.user_name;
-                  const contestName = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
+                  const rawContest = hasContest ? reg.user_name.split(' [')[1].replace(']', '') : 'Unknown (Old Entry)';
+                  const contestName = rawContest === 'AI Education Innovation Contest' ? 'Career Accelerator Program' : rawContest;
                   
                   return (
                     <tr key={i} className="hover:bg-gray-50/50">

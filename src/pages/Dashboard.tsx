@@ -143,9 +143,10 @@ export default function Dashboard() {
               <div className="flex flex-col gap-6 relative z-10">
                 {userRegistrations.map((reg, i) => {
                   const hasContest = reg.user_name?.includes(' [');
-                  const contestName = hasContest 
+                  const rawContest = hasContest 
                     ? reg.user_name.split(' [')[1].replace(']', '') 
                     : 'Global Talent Hunt 2026';
+                  const contestName = rawContest === 'AI Education Innovation Contest' ? 'Career Accelerator Program' : rawContest;
                   const isPaid = Number(reg.amount_paid) > 0;
 
                   return (

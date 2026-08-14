@@ -2,9 +2,9 @@ import type { ContestConfig } from '../../types/contest';
 
 export const CONTESTS: ContestConfig[] = [
   {
-    id: 'ai-education-innovation-contest',
+    id: 'career-accelerator-program',
     status: 'OPEN',
-    title: 'AI Education Innovation Contest',
+    title: 'Career Accelerator Program',
     subtitle: 'The future of learning and career growth.',
     category: 'Education',
     difficulty: 'All Levels',
@@ -17,7 +17,7 @@ export const CONTESTS: ContestConfig[] = [
     },
     artworkType: 'EDU',
 
-    seo: { title: 'AI Education Innovation Contest', description: '', ogImage: '' },
+    seo: { title: 'Career Accelerator Program', description: '', ogImage: '/contests/career-accelerator-program.jpg' },
     registrationFee: 100,
     currency: 'INR',
     paymentRequired: true,
@@ -26,7 +26,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Location', value: 'Google Maps', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Transform your future with the ultimate AI Education challenge. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
+    description: 'Transform your future with the Career Accelerator Program. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
