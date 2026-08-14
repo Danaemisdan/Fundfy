@@ -4,7 +4,6 @@ const path = require('path');
 
 const contests = [
   'ai-innovation-contest',
-  'career-accelerator-contest',
   '3d-asset-design-contest',
   'digital-character-design-contest',
   'web-experience-design-contest',

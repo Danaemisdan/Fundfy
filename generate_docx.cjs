@@ -13,11 +13,6 @@ const contests = [
     copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the AI Innovation Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
   },
   {
-    id: 'career-accelerator-contest',
-    name: 'Career Accelerator Contest',
-    copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the Career Accelerator Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
-  },
-  {
     id: '3d-asset-design-contest',
     name: '3D Asset Design Contest',
     copy: "𝗚𝗟𝗢𝗕𝗔𝗟 𝗧𝗔𝗟𝗘𝗡𝗧 𝗛𝗨𝗡𝗧 𝟮𝟬𝟮𝟲 🌏 is LIVE! \nEnter the 3D Asset Design Contest powered by AWS, Google Cloud, and IBM. Compete for a massive 🏆 ₹𝟱𝟬 𝗟𝗔𝗞𝗛𝗦 prize pool and unlock 𝗔𝘀𝘀𝘂𝗿𝗲𝗱 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽𝘀 & 𝗣𝗹𝗮𝗰𝗲𝗺𝗲𝗻𝘁 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 for every participant! 💼✨\nSecure your entry here:\n"
