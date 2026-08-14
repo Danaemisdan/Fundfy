@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function ContestShowcase({ referrerMode = false, referralCode = '' }: { referrerMode?: boolean, referralCode?: string }) {
+export default function ContestShowcase({ referrerMode = false, referralCode = '', homepageOnly = false }: { referrerMode?: boolean, referralCode?: string, homepageOnly?: boolean }) {
   const navigate = useNavigate();
+  const displayContests = homepageOnly ? CONTESTS.filter(c => c.id === 'career-accelerator-program') : CONTESTS;
 
   return (
     <section className={`w-full relative z-10 ${referrerMode ? 'bg-transparent pt-12 pb-16' : 'bg-white pt-24 pb-32'}`}>
@@ -25,7 +26,7 @@ export default function ContestShowcase({ referrerMode = false, referralCode = '
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 relative z-20">
         <div className="flex flex-col border-t-4 border-black">
-          {CONTESTS.map((contest, index) => {
+          {displayContests.map((contest, index) => {
             return (
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
