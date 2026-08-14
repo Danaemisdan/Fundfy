@@ -28,12 +28,7 @@ const Globe: React.FC = () => {
             animation: "earthRotate 40s linear infinite",
           }}
         >
-          {/* Stars */}
-          <div className="absolute left-[10%] top-[20%] w-[1%] h-[1%] bg-white rounded-full" style={{ animation: "twinkling 3s infinite" }} />
-          <div className="absolute left-[35%] top-[15%] w-[0.8%] h-[0.8%] bg-white rounded-full" style={{ animation: "twinkling-long 4s infinite" }} />
-          <div className="absolute left-[80%] top-[30%] w-[1.2%] h-[1.2%] bg-white rounded-full" style={{ animation: "twinkling-fast 1.5s infinite" }} />
-          <div className="absolute left-[20%] top-[70%] w-[1%] h-[1%] bg-white rounded-full" style={{ animation: "twinkling-slow 2s infinite" }} />
-          <div className="absolute left-[70%] top-[80%] w-[0.8%] h-[0.8%] bg-white rounded-full" style={{ animation: "twinkling 3s infinite" }} />
+
         </div>
       </div>
     </>

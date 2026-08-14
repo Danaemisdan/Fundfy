@@ -27,6 +27,14 @@ function ContestRedirect() {
   return <Navigate to={target} replace />;
 }
 
+// Redirect old ai-education-innovation-contest links → career-accelerator-program
+function OldEducationRedirect() {
+  const [searchParams] = useSearchParams();
+  const ref = searchParams.get('ref');
+  const target = `/contest/career-accelerator-program${ref ? `?ref=${ref}` : ''}`;
+  return <Navigate to={target} replace />;
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -127,6 +135,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contests/:id" element={<ContestRedirect />} />
+        <Route path="/contest/ai-education-innovation-contest" element={<OldEducationRedirect />} />
         <Route path="/contest/:id" element={<ContestLayout />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/success" element={<RegisterSuccess />} />

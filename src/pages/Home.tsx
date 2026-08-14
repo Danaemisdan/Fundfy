@@ -77,6 +77,7 @@ function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 pointer-events-none z-0" />
         
 
+        <RightGlobe />
 
         {/* HEADER */}
         <header className="relative z-10 flex flex-row justify-between items-center px-4 md:px-8 lg:px-16 pt-6 shrink-0">
