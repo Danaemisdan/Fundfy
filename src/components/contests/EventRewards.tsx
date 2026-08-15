@@ -17,12 +17,12 @@ export default function EventRewards({ data }: { data: any }) {
               The Rewards
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.95]">
-              $50,000 Prize Pool.
+              $50,000 Support Fund.
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-xl text-gray-600 font-medium">
-              Significant cash prizes, premium credits, and career-defining opportunities.
+              We back the best — startup grants, career support, and meaningful opportunities for every participant.
             </p>
           </div>
         </div>

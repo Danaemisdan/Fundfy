@@ -13,9 +13,9 @@ const SHARED_TIMELINE = [
 ];
 
 const PRIZES = [
-  { place: '1st Place', amount: '$15,000', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
-  { place: '2nd Place', amount: '$10,000', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
-  { place: '3rd Place', amount: '$5,000',  bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: '1st Finalist', amount: '$15,000', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
+  { place: '2nd Finalist', amount: '$10,000', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: '3rd Finalist', amount: '$5,000',  bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
   { place: 'Top 10',   amount: '$2,000 each', bg: 'bg-white border border-gray-200', text: 'text-black', badge: 'bg-gray-200 text-black' },
 ];
 
@@ -89,21 +89,21 @@ export default function HomeContestDetails({ contestId }: Props) {
         </div>
       </div>
 
-      {/* ── PRIZE POOL ── */}
+      {/* —— SUPPORT FUND —— */}
       <div className="w-full bg-white text-black py-24 md:py-32 border-t-4 border-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
 
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mb-24">
             <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-[0.2em] text-gray-500 uppercase mb-4 block">The Rewards</span>
+              <span className="text-sm font-bold tracking-[0.2em] text-gray-500 uppercase mb-4 block">Recognition & Support</span>
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.95]">
-                $50,000<br /><span className="text-gray-400">Prize Pool.</span>
+                $50,000<br /><span className="text-gray-400">Support Fund.</span>
               </h2>
             </div>
             <div className="max-w-sm">
               <p className="text-xl text-gray-600 font-medium">
-                Significant cash prizes, premium credits, and career-defining opportunities — for every single participant.
+                We back the best — through grants, startup support, mentorship, and career-defining opportunities for every participant.
               </p>
             </div>
           </div>

@@ -107,7 +107,7 @@ export default function PresentationPoster() {
               </span>
               <ul className="flex flex-col gap-5 text-white/90 text-lg font-medium tracking-wide">
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Get Global Exposure</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Massive Prize Pool</li>
+                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Startup Support Fund</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Top Opportunities with Leading Studios</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Certificates for All Participants</li>
                 <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Build Your Portfolio & Network</li>
@@ -117,7 +117,7 @@ export default function PresentationPoster() {
           ) : (
             <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-              <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-3">Prize Pool</span>
+              <span className="text-lg font-black tracking-[0.5em] text-gray-300 uppercase mb-3">Support Fund</span>
               <span className="text-[5.5rem] font-black text-white whitespace-nowrap tracking-tight leading-none drop-shadow-lg">
                 ₹50 LAKHS
               </span>

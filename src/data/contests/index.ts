@@ -22,7 +22,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Support Fund', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -73,13 +73,13 @@ export const CONTESTS: ContestConfig[] = [
         ]
       },
       {
-        title: 'OVERALL WINNERS',
+        title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -110,7 +110,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Support Fund', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -127,7 +127,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+      { title: 'Global Finals & Recognition', date: 'Phase 5', description: 'Top performers present to VIP judges and industry leaders for recognition, grants, and career-defining opportunities.' }
     ],
     judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
@@ -161,13 +161,13 @@ export const CONTESTS: ContestConfig[] = [
         ]
       },
       {
-        title: 'OVERALL WINNERS',
+        title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -198,7 +198,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Support Fund', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -215,7 +215,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+      { title: 'Global Finals & Recognition', date: 'Phase 5', description: 'Top performers present to VIP judges and industry leaders for recognition, grants, and career-defining opportunities.' }
     ],
     judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
@@ -243,13 +243,13 @@ export const CONTESTS: ContestConfig[] = [
         ]
       },
       {
-        title: 'OVERALL WINNERS',
+        title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -280,7 +280,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Support Fund', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -297,7 +297,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+      { title: 'Global Finals & Recognition', date: 'Phase 5', description: 'Top performers present to VIP judges and industry leaders for recognition, grants, and career-defining opportunities.' }
     ],
     judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
@@ -325,13 +325,13 @@ export const CONTESTS: ContestConfig[] = [
         ]
       },
       {
-        title: 'OVERALL WINNERS',
+        title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -362,7 +362,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Prize Pool', value: '$50,000' },
+      { label: 'Support Fund', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -379,7 +379,7 @@ export const CONTESTS: ContestConfig[] = [
       { title: 'Kickoff & Masterclasses', date: 'Phase 2', description: 'Join exclusive live sessions with industry experts to learn the tools.' },
       { title: 'Build Phase', date: 'Phase 3', description: 'Develop your project with 24/7 technical support and mentorship.' },
       { title: 'Submission Deadline', date: 'Phase 4', description: 'Submit your code, presentation, and video pitch for evaluation.' },
-      { title: 'Global Finals & Awards', date: 'Phase 5', description: 'Top teams pitch live to VIP judges for the massive prize pool.' }
+      { title: 'Global Finals & Recognition', date: 'Phase 5', description: 'Top performers present to VIP judges and industry leaders for recognition, grants, and career-defining opportunities.' }
     ],
     judgingCriteria: [
       { name: 'Innovation & Creativity', weight: '30%', description: 'How novel and original is the approach? Does it break new ground?' },
@@ -407,13 +407,13 @@ export const CONTESTS: ContestConfig[] = [
         ]
       },
       {
-        title: 'OVERALL WINNERS',
+        title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: '1st Place Grand Prize', value: '1ST' },
-          { title: '$10,000 USD', description: '2nd Place Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: '3rd Place Bronze', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed among 10 Honorable Mentions', value: 'TOP 10' }
+          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],

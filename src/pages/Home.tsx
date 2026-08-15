@@ -136,9 +136,9 @@ function Home() {
                   </div>
                 </div>
                 <div className="py-2">
-                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">PRIZE POOL</p>
+                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">SUPPORT FUND</p>
                   <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-white leading-none mt-1 flex items-baseline gap-3">
-                    {currency === 'INR' ? '₹50 Lakhs' : '$10,000'}
+                    {currency === 'INR' ? '₹50 Lakhs' : '$50,000'}
                   </h2>
                 </div>
               </div>
