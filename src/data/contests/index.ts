@@ -22,7 +22,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Support Fund', value: '$50,000' },
+      { label: 'Get Backed', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -76,9 +76,9 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
@@ -110,7 +110,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Support Fund', value: '$50,000' },
+      { label: 'Get Backed', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -164,9 +164,9 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
@@ -198,7 +198,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Support Fund', value: '$50,000' },
+      { label: 'Get Backed', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -246,9 +246,9 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
@@ -280,7 +280,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Support Fund', value: '$50,000' },
+      { label: 'Get Backed', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -328,9 +328,9 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
@@ -362,7 +362,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Support Fund', value: '$50,000' },
+      { label: 'Get Backed', value: '$50,000' },
       { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -410,9 +410,9 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Startup Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Startup Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Startup Grant — 3rd Finalist', value: '3RD' },
+          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
           { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }

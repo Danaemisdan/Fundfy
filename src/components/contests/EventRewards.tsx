@@ -17,12 +17,12 @@ export default function EventRewards({ data }: { data: any }) {
               The Rewards
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.95]">
-              $50,000 Support Fund.
+              ₹50 Lakhs in Backing.
             </h2>
           </div>
           <div className="max-w-sm">
             <p className="text-xl text-gray-600 font-medium">
-              We back the best — startup grants, career support, and meaningful opportunities for every participant.
+              We don't just reward — we back the best talent, startups &amp; ideas with grants, opportunities, and career support.
             </p>
           </div>
         </div>

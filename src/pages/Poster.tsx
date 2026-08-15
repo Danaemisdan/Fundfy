@@ -74,7 +74,7 @@ export default function Poster() {
           {/* Prize Pool & Credits */}
           <div className="flex flex-col gap-3 w-full relative z-10">
             <div className="bg-white rounded-[2rem] py-6 px-4 w-full flex flex-col items-center justify-center text-center shadow-[0_0_50px_rgba(255,255,255,0.2)] relative overflow-hidden">
-              <span className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase mb-2 relative z-10">Support Fund</span>
+              <span className="text-[10px] font-black tracking-[0.4em] text-gray-500 uppercase mb-2 relative z-10">GET BACKED</span>
               <span className="text-5xl sm:text-6xl font-black text-black whitespace-nowrap relative z-10 tracking-tight">
                 ₹50 LAKHS
               </span>
