@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Talent Hunt 2026 — Career Accelerator Program</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #030303;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @page { size: 1920px 1080px; margin: 0; }
+
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* ── Utilities ── */
+    .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: #4b5563;
+    }
+    .grad {
+      background: linear-gradient(135deg, #c084fc 0%, #818cf8 45%, #fb923c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grad-green {
+      background: linear-gradient(135deg, #34d399, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+
+    /* ═══════════════════════════════════════
+       SLIDE 1 — COVER
+    ═══════════════════════════════════════ */
+    .s1 {
+      background: #030303;
+      display: flex;
+      flex-direction: column;
+      padding: 72px 100px;
+    }
+    .s1-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -56%);
+      width: 1400px; height: 1100px;
+      background: radial-gradient(ellipse at center,
+        rgba(168,85,247,0.14) 0%,
+        rgba(59,130,246,0.08) 38%,
+        transparent 68%);
+      pointer-events: none;
+    }
+    .s1-grain {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.3; pointer-events: none;
+    }
+    /* top bar */
+    .s1-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .s1-logo-wrap { display: flex; align-items: center; gap: 14px; }
+    .s1-logo-icon {
+      width: 42px; height: 42px;
+      background: white; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 900; color: #030303;
+    }
+    .s1-logo-name {
+      font-size: 22px; font-weight: 800; color: white; letter-spacing: -0.02em;
+    }
+    .s1-logo-name span { color: #374151; }
+    .s1-logo-sub {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.35em;
+      text-transform: uppercase; color: #374151;
+    }
+    .s1-tagline-top {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.3em;
+      text-transform: uppercase; color: #374151;
+    }
+    /* hero text */
+    .s1-main {
+      flex: 1; display: flex; flex-direction: column;
+      justify-content: center; position: relative; z-index: 2;
+    }
+    .s1-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.45em;
+      text-transform: uppercase; color: #4b5563; margin-bottom: 28px;
+    }
+    .s1-title {
+      font-size: 168px; font-weight: 900;
+      line-height: 0.86; letter-spacing: -0.045em;
+      color: white;
+    }
+    .s1-title .talent {
+      background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #fb923c 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .s1-title .yr {
+      font-weight: 300; color: #1f2937; letter-spacing: -0.04em;
+    }
+    .s1-badge-row {
+      display: flex; align-items: center; gap: 20px; margin-top: 40px;
+    }
+    .s1-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 14px 32px;
+      font-size: 18px; font-weight: 700; letter-spacing: 0.04em;
+      color: white; text-transform: uppercase;
+    }
+    .s1-cohort {
+      font-size: 14px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #374151;
+    }
+    /* bottom */
+    .s1-foot {
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .s1-powered {
+      display: flex; align-items: center; gap: 18px;
+    }
+    .s1-powered .lbl {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.35em;
+      text-transform: uppercase; color: #374151;
+    }
+    .s1-powered .pname {
+      font-size: 15px; font-weight: 800;
+      color: #374151; letter-spacing: 0.04em;
+    }
+    .s1-powered .dot { color: #1f2937; font-size: 18px; }
+    .s1-url {
+      font-size: 20px; font-weight: 700;
+      color: #374151; letter-spacing: 0.02em;
+    }
+
+
+    /* ═══════════════════════════════════════
+       SLIDE 2 — EVERY PARTICIPANT GETS BACKED
+    ═══════════════════════════════════════ */
+    .s2 { background: #050505; display: flex; }
+
+    .s2-left {
+      width: 680px; flex-shrink: 0;
+      background: #030303;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      padding: 100px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+    }
+    .s2-left::after {
+      content: '';
+      position: absolute; right: -1px; top: 10%; bottom: 10%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.12), transparent);
+    }
+    .s2-heading {
+      font-size: 84px; font-weight: 900;
+      line-height: 0.88; letter-spacing: -0.035em;
+      color: white; margin-top: 20px;
+    }
+    .s2-sub {
+      font-size: 20px; font-weight: 500; color: #6b7280;
+      margin-top: 32px; line-height: 1.65;
+    }
+    .s2-callout {
+      margin-top: 48px;
+      padding: 22px 28px;
+      background: rgba(16,185,129,0.07);
+      border-left: 3px solid #10b981;
+    }
+    .s2-callout p {
+      font-size: 16px; font-weight: 600; color: #6ee7b7; line-height: 1.6;
+    }
+    .s2-callout strong { color: #10b981; }
+
+    .s2-right {
+      flex: 1;
+      padding: 80px 90px 80px 72px;
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 20px;
+      position: relative;
+    }
+    .s2-glow {
+      position: absolute; top: 50%; right: -60px;
+      transform: translateY(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(16,185,129,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .perk {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 36px;
+      display: flex; align-items: center; gap: 28px;
+      position: relative; z-index: 1;
+      transition: border-color 0.2s;
+    }
+    .perk-num {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; color: #10b981;
+    }
+    .perk-body {}
+    .perk-title {
+      font-size: 26px; font-weight: 800; color: white;
+      letter-spacing: -0.015em;
+    }
+    .perk-desc {
+      font-size: 14px; font-weight: 500; color: #6b7280; margin-top: 5px;
+    }
+
+
+    /* ═══════════════════════════════════════
+       SLIDE 3 — PROGRAM JOURNEY
+    ═══════════════════════════════════════ */
+    .s3 {
+      background: #030303;
+      display: flex; flex-direction: column;
+      padding: 80px 100px 90px;
+    }
+    .s3-glow {
+      position: absolute; bottom: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 1400px; height: 600px;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .s3-hd {
+      text-align: center; margin-bottom: 72px; position: relative; z-index: 2;
+    }
+    .s3-title {
+      font-size: 72px; font-weight: 900;
+      letter-spacing: -0.035em; color: white; margin-top: 16px;
+      line-height: 1;
+    }
+    /* horizontal line */
+    .s3-track {
+      position: absolute;
+      top: 250px; left: 175px; right: 175px;
+      height: 1px; background: rgba(255,255,255,0.08);
+      z-index: 1;
+    }
+    .s3-phases {
+      display: flex; align-items: flex-start;
+      position: relative; z-index: 2; flex: 1;
+    }
+    .phase {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 0 16px;
+    }
+    .ph-dot {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--c);
+      background: #030303;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: var(--c);
+      margin-bottom: 32px; position: relative; z-index: 3;
+      box-shadow: 0 0 20px var(--gs);
+    }
+    .ph-title {
+      font-size: 22px; font-weight: 800; color: white;
+      letter-spacing: -0.01em; margin-bottom: 14px; line-height: 1.2;
+    }
+    .ph-desc {
+      font-size: 14px; font-weight: 500; color: #6b7280;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════
+       SLIDE 4 — GET BACKED (GRANTS)
+    ═══════════════════════════════════════ */
+    .s4 { background: #030303; display: flex; }
+
+    .s4-left {
+      width: 660px; flex-shrink: 0;
+      padding: 100px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .s4-left::after {
+      content: '';
+      position: absolute; right: -1px; top: 10%; bottom: 10%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.12), transparent);
+    }
+    .s4-amount {
+      font-size: 120px; font-weight: 900;
+      line-height: 0.82; letter-spacing: -0.045em;
+      color: white; margin-top: 20px;
+    }
+    .s4-amount-label {
+      font-size: 56px; font-weight: 300;
+      letter-spacing: -0.03em; color: #1f2937;
+    }
+    .s4-in {
+      font-size: 32px; font-weight: 800;
+      letter-spacing: -0.01em; color: #c084fc; margin-top: 8px;
+    }
+    .s4-note {
+      margin-top: 44px; font-size: 17px; font-weight: 500;
+      color: #6b7280; line-height: 1.75; max-width: 440px;
+    }
+    .s4-note strong { color: #e5e7eb; font-weight: 700; }
+    .s4-glow {
+      position: absolute; top: 50%; left: -80px;
+      transform: translateY(-50%);
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(168,85,247,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .s4-right {
+      flex: 1; padding: 80px 88px 80px 64px;
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 16px;
+      position: relative;
+    }
+    .grant {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 26px 36px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      position: relative; z-index: 1;
+    }
+    .grant.top {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(168,85,247,0.25);
+    }
+    .grant-left { display: flex; align-items: center; gap: 20px; }
+    .grant-badge {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.06); color: #6b7280;
+    }
+    .grant.top .grant-badge {
+      background: rgba(168,85,247,0.2); color: #c084fc;
+    }
+    .grant-label {
+      font-size: 16px; font-weight: 600; color: #9ca3af;
+    }
+    .grant-amt {
+      font-size: 44px; font-weight: 900;
+      letter-spacing: -0.025em; color: white;
+    }
+    .grant.top .grant-amt {
+      background: linear-gradient(135deg, #c084fc, #818cf8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grant-amt-pool {
+      font-size: 32px; font-weight: 900;
+      letter-spacing: -0.02em; color: white; text-align: right;
+    }
+    .grant-amt-sub {
+      font-size: 13px; font-weight: 600; color: #4b5563;
+    }
+
+
+    /* ═══════════════════════════════════════
+       SLIDE 5 — JOIN NOW
+    ═══════════════════════════════════════ */
+    .s5 {
+      background: #030303;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 100px 120px;
+      position: relative;
+    }
+    .s5-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1400px; height: 900px;
+      background: radial-gradient(ellipse at center,
+        rgba(168,85,247,0.12) 0%,
+        rgba(59,130,246,0.07) 35%,
+        transparent 65%);
+      pointer-events: none;
+    }
+    .s5-eyebrow {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: #10b981; margin-bottom: 28px;
+      position: relative; z-index: 2;
+    }
+    .s5-main {
+      font-size: 128px; font-weight: 900;
+      letter-spacing: -0.045em; color: white;
+      line-height: 0.88; position: relative; z-index: 2;
+    }
+    .s5-url {
+      font-size: 88px; font-weight: 900;
+      letter-spacing: -0.04em;
+      position: relative; z-index: 2; margin-top: 20px;
+    }
+    .s5-url .dim { color: #1f2937; }
+    .s5-stats {
+      display: flex; align-items: center; gap: 48px;
+      margin-top: 52px; position: relative; z-index: 2;
+    }
+    .s5-stat { text-align: center; }
+    .s5-stat-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.35em;
+      text-transform: uppercase; color: #374151; margin-bottom: 10px;
+    }
+    .s5-stat-val {
+      font-size: 22px; font-weight: 800; color: #e5e7eb;
+    }
+    .s5-stat-val.green { color: #10b981; }
+    .s5-divider { width: 1px; height: 44px; background: rgba(255,255,255,0.08); }
+
+    /* bottom partners strip */
+    .s5-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 72px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px;
+    }
+    .s5-strip .lbl {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.35em;
+      text-transform: uppercase; color: #374151;
+    }
+    .s5-strip .pn {
+      font-size: 14px; font-weight: 800;
+      color: #374151; letter-spacing: 0.04em;
+    }
+    .s5-strip .dot { color: #1f2937; }
+  </style>
+</head>
+<body>
+
+
+<!-- ═══════════════════════════ SLIDE 1 ═══════════════════════════ -->
+<div class="slide s1">
+  <div class="s1-glow"></div>
+  <div class="s1-grain"></div>
+
+  <!-- Top bar -->
+  <div class="s1-bar">
+    <div class="s1-logo-wrap">
+      <div class="s1-logo-icon">F</div>
+      <div>
+        <div class="s1-logo-name">Fundfy<span>.app</span></div>
+        <div class="s1-logo-sub">Presents</div>
+      </div>
+    </div>
+    <div class="s1-tagline-top">SHOWCASE · COMPETE · GET DISCOVERED</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="s1-main">
+    <div class="s1-eyebrow">Global Talent Hunt 2026</div>
+    <div class="s1-title">
+      GLOBAL<br>
+      <span class="talent">TALENT</span><br>
+      HUNT <span class="yr">2026</span>
+    </div>
+    <div class="s1-badge-row">
+      <div class="s1-badge">Career Accelerator Program</div>
+      <div class="s1-cohort">Global Online &nbsp;·&nbsp; First Cohort: 30th Aug 2026 &nbsp;·&nbsp; ₹100 to Register</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="s1-foot">
+    <div class="s1-powered">
+      <span class="lbl">Powered by</span>
+      <span class="pname">AWS</span>
+      <span class="dot">·</span>
+      <span class="pname">Google Cloud</span>
+      <span class="dot">·</span>
+      <span class="pname">IBM</span>
+      <span class="dot">·</span>
+      <span class="pname">Epic Games</span>
+      <span class="dot">·</span>
+      <span class="pname">JobFinderAI</span>
+      <span class="dot">·</span>
+      <span class="pname">DiceArtFilms</span>
+    </div>
+    <div class="s1-url">fundfy.app</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ SLIDE 2 ═══════════════════════════ -->
+<div class="slide s2">
+
+  <!-- Left panel -->
+  <div class="s2-left">
+    <div class="label">For Every Participant</div>
+    <div class="s2-heading">
+      Everyone<br>Gets<br><span class="grad-green">Backed.</span>
+    </div>
+    <div class="s2-sub">
+      You don't need to win to benefit.<br>
+      Every participant walks away<br>with real, tangible value.
+    </div>
+    <div class="s2-callout">
+      <p>Just <strong>₹100 to register.</strong> No conditions.<br>
+      These are <strong>guaranteed for all who participate.</strong></p>
+    </div>
+  </div>
+
+  <!-- Right panel: Perks -->
+  <div class="s2-right">
+    <div class="s2-glow"></div>
+
+    <div class="perk">
+      <div class="perk-num">01</div>
+      <div class="perk-body">
+        <div class="perk-title">Assured Internship / Job Support</div>
+        <div class="perk-desc">Every participant receives assured career support — internships, placements, or job referrals.</div>
+      </div>
+    </div>
+
+    <div class="perk">
+      <div class="perk-num">02</div>
+      <div class="perk-body">
+        <div class="perk-title">Confirmed Interview</div>
+        <div class="perk-desc">Skip the queue. You secure a real interview just by participating — no additional requirements.</div>
+      </div>
+    </div>
+
+    <div class="perk">
+      <div class="perk-num">03</div>
+      <div class="perk-body">
+        <div class="perk-title">Lifetime FREE JobFinderAI Premium</div>
+        <div class="perk-desc">Permanent access to our premium AI-driven job matching platform — yours to keep forever.</div>
+      </div>
+    </div>
+
+    <div class="perk">
+      <div class="perk-num">04</div>
+      <div class="perk-body">
+        <div class="perk-title">Fundfy.app Free Forever</div>
+        <div class="perk-desc">Find funding, grants, sponsorships &amp; investors for your startup — free for life.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ SLIDE 3 ═══════════════════════════ -->
+<div class="slide s3">
+  <div class="s3-glow"></div>
+
+  <!-- Header -->
+  <div class="s3-hd">
+    <div class="label">The Program</div>
+    <div class="s3-title">From Registration to <span class="grad">Recognition.</span></div>
+  </div>
+
+  <!-- Connector line -->
+  <div class="s3-track"></div>
+
+  <!-- Phases -->
+  <div class="s3-phases">
+
+    <div class="phase">
+      <div class="ph-dot" style="--c:rgba(192,132,252,0.9);--gs:rgba(192,132,252,0.15)">01</div>
+      <div class="ph-title">Register<br>&amp; Access</div>
+      <div class="ph-desc">Sign up for ₹100. Get immediate access to Fundfy.app and premium tools.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-dot" style="--c:rgba(129,140,248,0.9);--gs:rgba(129,140,248,0.15)">02</div>
+      <div class="ph-title">AI Masterclasses<br>&amp; Upskilling</div>
+      <div class="ph-desc">Learn AI tools, communication skills, and industry-specific AI use-cases from top experts.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-dot" style="--c:rgba(96,165,250,0.9);--gs:rgba(96,165,250,0.15)">03</div>
+      <div class="ph-title">AI-Hosted<br>Contest</div>
+      <div class="ph-desc">Compete in our revolutionary AI-hosted contest to showcase your newly acquired skills.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-dot" style="--c:rgba(251,146,60,0.9);--gs:rgba(251,146,60,0.15)">04</div>
+      <div class="ph-title">Grooming<br>&amp; Resume</div>
+      <div class="ph-desc">Get your resume polished, communication refined, and become 100% interview-ready.</div>
+    </div>
+
+    <div class="phase">
+      <div class="ph-dot" style="--c:rgba(52,211,153,0.9);--gs:rgba(52,211,153,0.15)">05</div>
+      <div class="ph-title">Assured Placements<br>&amp; Support</div>
+      <div class="ph-desc">We support you to land a job, internship, startup funding, or global recognition.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════ SLIDE 4 ═══════════════════════════ -->
+<div class="slide s4">
+
+  <!-- Left: Amount -->
+  <div class="s4-left">
+    <div class="s4-glow"></div>
+    <div class="label" style="position:relative;z-index:2">For Top Performers</div>
+    <div class="s4-amount" style="position:relative;z-index:2;">
+      ₹50<br><span class="s4-amount-label">Lakhs</span>
+    </div>
+    <div class="s4-in" style="position:relative;z-index:2;">in Backing.</div>
+    <div class="s4-note" style="position:relative;z-index:2;">
+      We <strong>don't give prizes.</strong><br>
+      We <strong>back the best talent</strong> — through startup grants, career opportunities, and meaningful support for those who truly stand out.
+    </div>
+  </div>
+
+  <!-- Right: Grant tiers -->
+  <div class="s4-right">
+    <div class="label" style="margin-bottom:28px;position:relative;z-index:2">Backing Grants — Top Performers</div>
+
+    <div class="grant top">
+      <div class="grant-left">
+        <span class="grant-badge">1ST</span>
+        <span class="grant-label">Backing Grant — Top Performer</span>
+      </div>
+      <div class="grant-amt">$15,000</div>
+    </div>
+
+    <div class="grant">
+      <div class="grant-left">
+        <span class="grant-badge">2ND</span>
+        <span class="grant-label">Backing Grant — Runner Up</span>
+      </div>
+      <div class="grant-amt">$10,000</div>
+    </div>
+
+    <div class="grant">
+      <div class="grant-left">
+        <span class="grant-badge">3RD</span>
+        <span class="grant-label">Backing Grant — 3rd Finalist</span>
+      </div>
+      <div class="grant-amt">$5,000</div>
+    </div>
+
+    <div class="grant">
+      <div class="grant-left">
+        <span class="grant-badge">TOP 10</span>
+        <span class="grant-label">Distributed across Top 10 Finalists as Startup Support</span>
+      </div>
+      <div>
+        <div class="grant-amt-pool">$20,000</div>
+        <div class="grant-amt-sub">Pool</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:18px 24px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);position:relative;z-index:1;">
+      <p style="font-size:13px;font-weight:600;color:#4b5563;line-height:1.7;">
+        All participants receive <span style="color:#10b981;font-weight:700;">assured career support</span>, confirmed interviews, and lifetime access to JobFinderAI + Fundfy.app — regardless of rank.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════ SLIDE 5 ═══════════════════════════ -->
+<div class="slide s5">
+  <div class="s5-glow"></div>
+
+  <div class="s5-eyebrow">Register Today · Just ₹100</div>
+
+  <div class="s5-main">
+    Your Career.<br><span class="grad">Accelerated.</span>
+  </div>
+
+  <div class="s5-url">
+    <span class="dim">fundfy</span><span class="grad">.app</span>
+  </div>
+
+  <div class="s5-stats">
+    <div class="s5-stat">
+      <div class="s5-stat-label">Registration Fee</div>
+      <div class="s5-stat-val green">₹100 Only</div>
+    </div>
+    <div class="s5-divider"></div>
+    <div class="s5-stat">
+      <div class="s5-stat-label">First Cohort</div>
+      <div class="s5-stat-val">30th Aug 2026</div>
+    </div>
+    <div class="s5-divider"></div>
+    <div class="s5-stat">
+      <div class="s5-stat-label">Mode</div>
+      <div class="s5-stat-val">Global Online</div>
+    </div>
+    <div class="s5-divider"></div>
+    <div class="s5-stat">
+      <div class="s5-stat-label">Deadline</div>
+      <div class="s5-stat-val">Nov 30, 2026</div>
+    </div>
+    <div class="s5-divider"></div>
+    <div class="s5-stat">
+      <div class="s5-stat-label">Backing Available</div>
+      <div class="s5-stat-val">₹50 Lakhs</div>
+    </div>
+  </div>
+
+  <!-- Partners strip -->
+  <div class="s5-strip">
+    <span class="lbl">Powered by</span>
+    <span class="pn">AWS</span>
+    <span class="dot">·</span>
+    <span class="pn">Google Cloud</span>
+    <span class="dot">·</span>
+    <span class="pn">IBM</span>
+    <span class="dot">·</span>
+    <span class="pn">Epic Games</span>
+    <span class="dot">·</span>
+    <span class="lbl">Hosted by</span>
+    <span class="pn">Fundfy.app</span>
+    <span class="dot">·</span>
+    <span class="pn">JobFinderAI</span>
+    <span class="dot">·</span>
+    <span class="pn">DiceArtFilms</span>
+    <span class="dot">·</span>
+    <span class="pn">BrandForYou</span>
+  </div>
+
+</div>
+
+
+</body>
+</html>

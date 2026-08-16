@@ -91,7 +91,7 @@ export default function Poster() {
                   Assured Internships & Interviews
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-bold text-emerald-400/90 tracking-wide uppercase mt-1 leading-relaxed max-w-[250px] sm:max-w-xs">
-                  Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
+                  Lifetime free access to JobFinderAI and <span className="text-white/60">Fundfy.app — find funding, grants &amp; investors forever free</span>
                 </span>
               </div>
             </div>

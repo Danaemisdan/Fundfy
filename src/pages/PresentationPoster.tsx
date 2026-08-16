@@ -86,7 +86,7 @@ export default function PresentationPoster() {
                 
                 <div className="flex items-center gap-3 mt-2">
                   <span className="text-emerald-400 font-bold uppercase tracking-widest text-[11px] leading-relaxed max-w-lg">
-                    Lifetime free access to JobFinderAI and Momentum EDU+ <span className="text-white/60">for upskilling on any skill</span>
+                    Lifetime free access to JobFinderAI and <span className="text-white/60">Fundfy.app — find funding, grants &amp; investors forever free</span>
                   </span>
                 </div>
 

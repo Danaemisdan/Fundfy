@@ -30,12 +30,11 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
     timeline: [
-      { title: 'Registration & Access', date: 'Phase 1', description: 'Sign up and get access to Momentum EDU+ and premium learning tools.' },
+      { title: 'Registration & Access', date: 'Phase 1', description: 'Sign up and get immediate access to Fundfy.app and premium learning tools.' },
       { title: 'Masterclasses & Upskilling', date: 'Phase 2', description: 'Learn AI, communication skills, and discover industry-specific AI use-cases.' },
       { title: 'AI-Hosted Contest', date: 'Phase 3', description: 'Compete in our revolutionary contest hosted entirely by AI to showcase your new skills.' },
       { title: 'Grooming & Resume Building', date: 'Phase 4', description: 'Get your resume polished, communication refined, and become fully job-ready.' },
@@ -57,7 +56,6 @@ export const CONTESTS: ContestConfig[] = [
       { q: 'Do I need prior AI experience?', a: 'Not at all. The contest includes comprehensive upskilling.' }
     ],
     resources: [
-      { title: 'Momentum EDU+', description: 'Your personal AI companion for upskilling.' },
       { title: 'JobFinderAI', description: 'Lifetime free access to the recruitment platform.' },
       { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' }
     ],
@@ -68,7 +66,7 @@ export const CONTESTS: ContestConfig[] = [
         items: [
           { title: 'Assured Internship / Job Support' },
           { title: 'Confirmed Interview' },
-          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Fundfy.app Free Forever' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]
       },
@@ -118,7 +116,6 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
@@ -156,7 +153,7 @@ export const CONTESTS: ContestConfig[] = [
         items: [
           { title: 'Assured Internship / Job Support' },
           { title: 'Confirmed Interview' },
-          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Fundfy.app Free Forever' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]
       },
@@ -206,7 +203,6 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
@@ -238,7 +234,7 @@ export const CONTESTS: ContestConfig[] = [
         items: [
           { title: 'Assured Internship / Job Support' },
           { title: 'Confirmed Interview' },
-          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Fundfy.app Free Forever' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]
       },
@@ -288,7 +284,6 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
@@ -320,7 +315,7 @@ export const CONTESTS: ContestConfig[] = [
         items: [
           { title: 'Assured Internship / Job Support' },
           { title: 'Confirmed Interview' },
-          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Fundfy.app Free Forever' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]
       },
@@ -370,7 +365,6 @@ export const CONTESTS: ContestConfig[] = [
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
-      { title: 'Momentum EDU+ Access', description: 'Get access to your personal AI learning companion that teaches you anything.' },
       { title: 'JobFinderAI Free Forever', description: 'Lifetime access to our premium AI-driven job matching ecosystem.' },
       { title: 'Fundfy.app Access', description: 'Find funds, sponsorships, grants, and investors if you are building a startup.' }
     ],
@@ -402,7 +396,7 @@ export const CONTESTS: ContestConfig[] = [
         items: [
           { title: 'Assured Internship / Job Support' },
           { title: 'Confirmed Interview' },
-          { title: 'Momentum EDU+ AI Companion Access' },
+          { title: 'Fundfy.app Free Forever' },
           { title: 'Lifetime FREE JobFinderAI Premium' }
         ]
       },
