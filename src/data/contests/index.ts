@@ -23,7 +23,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Get Backed', value: '$50,000' },
-      { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
+      { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
     description: 'Transform your future with the Career Accelerator Program. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
@@ -111,7 +111,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Get Backed', value: '$50,000' },
-      { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
+      { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
     description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
@@ -199,7 +199,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Get Backed', value: '$50,000' },
-      { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
+      { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
     description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
@@ -281,7 +281,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Get Backed', value: '$50,000' },
-      { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
+      { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
     description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
@@ -363,7 +363,7 @@ export const CONTESTS: ContestConfig[] = [
     paymentRequired: true,
     statistics: [
       { label: 'Get Backed', value: '$50,000' },
-      { label: 'Location', value: 'New Delhi', link: 'https://share.google/vwp4H20a17T0BlmCU' },
+      { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
     description: 'Design the future of the web. Craft stunning interfaces and breathtaking web experiences. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
