@@ -63,7 +63,7 @@ export default function HarshaPoster() {
           {/* Prize Pool */}
           <div className="flex flex-col gap-4 w-full relative z-10 items-center px-12">
             <div className="bg-white rounded-[2rem] py-6 px-8 w-full flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.2)]">
-              <span className="text-lg font-black tracking-[0.4em] text-gray-500 uppercase mb-2">GET BACKED</span>
+              <span className="text-lg font-black tracking-[0.4em] text-gray-500 uppercase mb-2">GRANTS & FUNDING</span>
               <span className="text-7xl font-black text-black whitespace-nowrap tracking-tight">
                 ₹50 LAKHS
               </span>

@@ -22,7 +22,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Get Backed', value: '$50,000' },
+      { label: 'Grants & Funding', value: '$50,000' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -108,7 +108,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Get Backed', value: '$50,000' },
+      { label: 'Grants & Funding', value: '$50,000' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -195,7 +195,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Get Backed', value: '$50,000' },
+      { label: 'Grants & Funding', value: '$50,000' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -276,7 +276,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Get Backed', value: '$50,000' },
+      { label: 'Grants & Funding', value: '$50,000' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -357,7 +357,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Get Backed', value: '$50,000' },
+      { label: 'Grants & Funding', value: '$50,000' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],

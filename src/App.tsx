@@ -13,6 +13,8 @@ import Poster from './pages/Poster';
 import HarshaPoster from './pages/HarshaPoster';
 import PresentationPoster from './pages/PresentationPoster';
 import IDCard from './pages/IDCard';
+import PresentationPDF from './pages/PresentationPDF';
+import MOUPDF from './pages/MOUPDF';
 import { AuthProvider } from './contexts/AuthContext';
 
 import { supabase } from './lib/supabase';
@@ -146,6 +148,8 @@ function App() {
         <Route path="/presentation-poster/:id" element={<PresentationPoster />} />
         <Route path="/id-card/:ref" element={<IDCard />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/pdf-presentation" element={<PresentationPDF />} />
+        <Route path="/pdf-mou" element={<MOUPDF />} />
       </Routes>
     </AuthProvider>
   );

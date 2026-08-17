@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { MotionButton } from '../components/ui/MotionButton';
-import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket } from 'lucide-react';
+import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket, Wallet } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
 import HomeContestDetails from '../components/home/HomeContestDetails';
@@ -132,11 +132,11 @@ function Home() {
               <div className="flex items-center gap-4 md:gap-5 glass-panel rounded-2xl md:rounded-3xl pr-6 md:pr-8">
                 <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-white/10 p-[2px] shrink-0 border border-white/20">
                   <div className="w-full h-full bg-black/20 rounded-[14px] md:rounded-[22px] flex items-center justify-center backdrop-blur-sm">
-                    <Trophy className="w-6 h-6 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
+                    <Wallet className="w-6 h-6 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
                 <div className="py-2">
-                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">GET BACKED</p>
+                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">GRANTS & FUNDING</p>
                   <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-white leading-none mt-1 flex items-baseline gap-3">
                     {currency === 'INR' ? '₹50 Lakhs' : '$50,000'}
                   </h2>
