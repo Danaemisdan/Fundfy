@@ -21,14 +21,13 @@ function MouFooter() {
     <div className="fixed bottom-0 left-0 w-full h-[80px] bg-white flex items-center justify-between px-16 border-t border-gray-200 z-50 print:fixed print:bottom-0">
       <div className="flex items-center gap-6">
         <span className="text-[10px] text-black/40 tracking-[0.4em] font-black uppercase whitespace-nowrap">Powered By</span>
-        <div className="flex items-center gap-6 border-l border-gray-300 pl-6">
+        <div className="flex items-center gap-7 border-l border-gray-300 pl-6">
+          <img src="/Partners/AWS_v2.png" className="h-8 w-auto object-contain opacity-70 grayscale" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" className="h-4 w-auto object-contain opacity-70 grayscale" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" className="h-5 w-auto object-contain opacity-70 grayscale" />
           <img src="/Partners/JobFinderAI.png" className="h-5 w-auto object-contain opacity-70 grayscale" />
-          <img src="/Partners/MoreYeahs.png" className="h-5 w-auto object-contain opacity-70 grayscale" />
-          <img src="/Partners/AWS_v2.png" className="h-5 w-auto object-contain opacity-70 grayscale" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" className="h-5 w-auto object-contain opacity-70 grayscale" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" className="h-4 w-auto object-contain opacity-70 grayscale" />
-          <img src="/Partners/Epic_Games_logo.svg.webp" className="h-5 w-auto object-contain opacity-70 grayscale" />
-          <img src="/Partners/TingoAI.png" className="h-5 w-auto object-contain opacity-70 grayscale" />
+          <img src="/Partners/MoreYeahs.png" className="h-4 w-auto object-contain opacity-70 grayscale" />
+          <img src="/Partners/TingoAI.png" className="h-6 w-auto object-contain opacity-70 grayscale" />
           <span className="text-xs font-semibold text-gray-400">& 20+ Global Partners</span>
         </div>
       </div>
@@ -76,15 +75,15 @@ export default function MOUPDF() {
                   <div className="text-[16px] text-slate-700 leading-[1.8] space-y-8 text-justify">
                     
                     <p>
-                      <strong>This Memorandum of Understanding</strong> ("MOU" or "Agreement") is entered into as of <strong>[Effective Date]</strong>, by and between:
+                      <strong>This Memorandum of Understanding</strong> ("MOU" or "Agreement") is entered into as of <strong>17th August 2026</strong>, by and between:
                     </p>
 
                     <p>
-                      <strong>Fundfy.app</strong> (in association with BrandForYou), having its principal place of business at [Address], hereinafter referred to as "Fundfy" or "First Party",
+                      <strong>Fundfy.app</strong> (in association with BrandForYou), represented by <strong>Danny K</strong> (Director at Fundfy), hereinafter referred to as "Fundfy" or "First Party",
                     </p>
                     <p className="text-center font-bold">AND</p>
                     <p>
-                      <strong>[Partner Name]</strong>, having its principal place of business at [Address], hereinafter referred to as "Partner" or "Second Party".
+                      <strong>CodeQuesters</strong>, represented by <strong>Mehul Agarwal</strong>, hereinafter referred to as "Partner" or "Second Party".
                     </p>
 
                     <p className="italic">
@@ -109,6 +108,9 @@ export default function MOUPDF() {
                     <p>
                       <strong>1.2</strong> The Partner shall act as an official registration partner for the Global Talent Hunt 2026, utilizing their network, resources, and promotional channels to drive user registrations.
                     </p>
+                    <p>
+                      <strong>1.3</strong> Fundfy retains full ownership, intellectual property rights, and control over the Global Talent Hunt 2026 contest. However, this agreement signifies a long-term, collaborative partnership between both Parties that goes beyond a purely transactional basis.
+                    </p>
 
                     <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 2: Mutual Goals & Targets</h3>
                     <p>
@@ -120,16 +122,22 @@ export default function MOUPDF() {
                     <p>
                       <strong>2.3</strong> Fundfy commits to providing all necessary promotional materials, tracking infrastructure, and platform support to facilitate this goal.
                     </p>
+                    <p>
+                      <strong>2.4</strong> This partnership officially commences on 17th August 2026. Both Parties commit to working closely together on a day-to-day basis to monitor progress and drive consistent, daily results.
+                    </p>
+                    <p>
+                      <strong>2.5</strong> <strong>Jagadeesh K</strong> shall act as the dedicated Point of Contact (POC) for the Partner. Jagadeesh K will be responsible for handling all queries, providing regular updates, and assisting with day-to-day operational requirements.
+                    </p>
 
                     <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 3: Revenue Sharing & Compensation</h3>
                     <p>
-                      <strong>3.1</strong> In consideration of the promotional efforts and successful conversions, the Partner shall receive a direct revenue share of thirty percent (30%) for every completed and paid registration generated through their unique referral link.
+                      <strong>3.1</strong> In consideration of the promotional efforts and successful conversions, the Partner shall receive a direct revenue share of thirty percent (30%) of the ₹100 registration fee for every completed and paid registration generated through their unique referral link.
                     </p>
                     <p>
-                      <strong>3.2</strong> Commissions shall be tracked transparently via the Partner Dashboard provided by Fundfy.
+                      <strong>3.2</strong> The Partner will be provided with a unique referral link and secure login credentials to a dedicated Partner Dashboard panel, allowing them to transparently track all registrations and commissions in real time.
                     </p>
                     <p>
-                      <strong>3.3</strong> Payments shall be disbursed according to a standard accounting schedule upon reaching the minimum payout threshold.
+                      <strong>3.3</strong> Accrued commissions shall be calculated and paid out to the Partner in full at the end of every week.
                     </p>
 
                     <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 4: Brand Visibility & Recognition</h3>
@@ -140,55 +148,42 @@ export default function MOUPDF() {
                       <strong>4.2</strong> The Partner's brand, logo, and name will be featured, announced, and celebrated at every official event, webinar, and contest conducted by Fundfy.app and BrandForYou.
                     </p>
                     <p>
-                      <strong>4.3</strong> This visibility is intended to cement the Partner's status as a long-term strategic ally, rather than a mere affiliate.
+                      <strong>4.3</strong> This visibility is intended to cement the Partner's status as a long-term strategic ally.
                     </p>
 
-                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 5: Intellectual Property</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 5: Term & Termination</h3>
                     <p>
-                      <strong>5.1</strong> Each Party retains all rights, title, and interest in and to their respective intellectual property, trademarks, and logos.
+                      <strong>5.1</strong> This MOU shall commence on 17th August 2026 and remain in full force and effect until terminated by either Party.
                     </p>
                     <p>
-                      <strong>5.2</strong> Fundfy grants the Partner a non-exclusive, revocable license to use Fundfy's trademarks solely for the promotional purposes outlined in this Agreement.
+                      <strong>5.2</strong> Either Party may terminate this Agreement without cause by providing thirty (30) days' written notice to the other Party.
+                    </p>
+                    <p>
+                      <strong>5.3</strong> Upon termination, all pending weekly commissions accrued prior to the termination date shall be paid in full to the Partner.
                     </p>
 
-                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 6: Confidentiality</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 6: Confidentiality & Governing Law</h3>
                     <p>
                       <strong>6.1</strong> Both Parties agree to maintain the confidentiality of any proprietary information, business strategies, and user data shared during the course of this partnership.
                     </p>
                     <p>
-                      <strong>6.2</strong> The obligations of confidentiality shall survive the termination of this MOU.
-                    </p>
-
-                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 7: Term & Termination</h3>
-                    <p>
-                      <strong>7.1</strong> This MOU shall commence on the Effective Date and remain in full force and effect until terminated by either Party.
-                    </p>
-                    <p>
-                      <strong>7.2</strong> Either Party may terminate this Agreement without cause by providing thirty (30) days' written notice to the other Party.
-                    </p>
-                    <p>
-                      <strong>7.3</strong> Upon termination, all pending commissions accrued prior to the termination date shall be paid in full to the Partner.
-                    </p>
-
-                    <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 8: Governing Law</h3>
-                    <p>
-                      <strong>8.1</strong> This Agreement shall be governed by and construed in accordance with the laws of the applicable jurisdiction. Any disputes arising out of or in connection with this MOU shall be resolved amicably through good-faith negotiations.
+                      <strong>6.2</strong> This Agreement shall be governed by and construed in accordance with the laws of the applicable jurisdiction. Any disputes shall be resolved amicably through good-faith negotiations.
                     </p>
 
                     <div className="mt-24 flex justify-between items-end border-t border-gray-300 pt-12" style={{ pageBreakInside: 'avoid' }}>
                       <div>
                         <p className="font-bold text-slate-900 text-lg mb-8">IN WITNESS WHEREOF,</p>
                         <div className="w-80 border-b-2 border-slate-400 mb-2"></div>
-                        <p className="font-black text-slate-900 text-xl">Fundfy.app</p>
-                        <p className="text-slate-500 font-medium">Authorized Signatory</p>
-                        <p className="text-slate-500 text-sm mt-2">Date: ____________________</p>
+                        <p className="font-black text-slate-900 text-xl">Danny K</p>
+                        <p className="text-slate-500 font-medium">Director, Fundfy.app</p>
+                        <p className="text-slate-500 text-sm mt-2">Date: 17th August 2026</p>
                       </div>
                       <div>
                         <p className="font-bold text-slate-900 text-lg mb-8 text-transparent">IN WITNESS WHEREOF,</p>
                         <div className="w-80 border-b-2 border-slate-400 mb-2"></div>
-                        <p className="font-black text-slate-900 text-xl">The Partner</p>
-                        <p className="text-slate-500 font-medium">Authorized Signatory</p>
-                        <p className="text-slate-500 text-sm mt-2">Date: ____________________</p>
+                        <p className="font-black text-slate-900 text-xl">Mehul Agarwal</p>
+                        <p className="text-slate-500 font-medium">CodeQuesters</p>
+                        <p className="text-slate-500 text-sm mt-2">Date: 17th August 2026</p>
                       </div>
                     </div>
                     

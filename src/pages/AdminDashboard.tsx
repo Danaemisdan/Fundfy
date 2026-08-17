@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { supabase } from '../lib/supabase';
+import { supabase, supabaseUrl, supabaseAnonKey } from '../lib/supabase';
 import { createClient } from '@supabase/supabase-js';
 import { CONTESTS } from '../data/contests';
 import { ShieldAlert, Users, TrendingUp, IndianRupee, Loader2 } from 'lucide-react';
@@ -143,8 +143,8 @@ export default function AdminDashboard() {
     try {
       // 1. Create a temporary supabase client so we don't overwrite the admin's session
       const tempSupabase = createClient(
-        import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        supabaseUrl,
+        supabaseAnonKey,
         { auth: { persistSession: false, autoRefreshToken: false } }
       );
       
@@ -211,8 +211,8 @@ export default function AdminDashboard() {
     setIsAddingContestant(true);
     try {
       const tempSupabase = createClient(
-        import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        supabaseUrl,
+        supabaseAnonKey,
         { auth: { persistSession: false, autoRefreshToken: false } }
       );
       
