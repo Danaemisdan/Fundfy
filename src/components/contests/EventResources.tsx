@@ -25,7 +25,7 @@ export default function EventResources({ data }: { data: any }) {
             Premium Resources.
           </h2>
           <p className="text-xl text-blue-200 font-medium max-w-xl">
-            Unlock thousands of dollars worth of premium APIs, infrastructure credits, and masterclasses just by registering.
+            Unlock thousands of rupees worth of premium APIs, infrastructure credits, and masterclasses just by registering.
           </p>
         </div>
 

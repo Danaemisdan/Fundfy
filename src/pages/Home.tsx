@@ -85,7 +85,7 @@ function Home() {
     <div className="w-full font-sans relative overflow-x-hidden bg-white">
       
       {/* ORIGINAL HOMEPAGE - 100vh EXACTLY AS IT WAS */}
-      <div className="min-h-screen w-full bg-[#030303] animated-gradient-bg flex flex-col justify-between overflow-hidden relative rounded-b-[2rem] md:rounded-b-[3rem] shadow-2xl z-20">
+      <div className="min-h-screen w-full bg-[#030303] animated-gradient-bg flex flex-col justify-between overflow-hidden relative z-20">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20 pointer-events-none z-0" />
         
 
@@ -96,6 +96,8 @@ function Home() {
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
             <div className="flex items-center gap-1.5 md:gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
               <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
+              <span className="text-gray-400 font-medium text-xs md:text-sm">×</span>
+              <img src="/Partners/Brandforyoufull.png" alt="Brand for you" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
             <div className="w-[1px] h-6 bg-white/30 hidden md:block opacity-50 ml-1"></div>
             <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-400 leading-tight group-hover:text-purple-400 transition-colors uppercase tracking-[0.2em]">
@@ -146,9 +148,9 @@ function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col justify-center mt-0.5">
-                  <p className="text-[9px] md:text-[10px] font-semibold tracking-wider text-white/50 uppercase mb-0.5">GRANTS & FUNDING</p>
-                  <h2 className="text-xl md:text-2xl font-bold font-futuristic text-white leading-none">
-                    {currency === 'INR' ? '₹50 Lakhs' : '$50,000'}
+                  <p className="text-xs md:text-sm font-bold tracking-[0.15em] text-purple-400 uppercase mb-1">FUNDING TO FUEL YOUR STARTUP</p>
+                  <h2 className="text-5xl md:text-6xl font-black font-futuristic text-white leading-none">
+                    ₹50 Lakhs
                   </h2>
                 </div>
               </div>
@@ -159,7 +161,7 @@ function Home() {
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="w-[75%] h-[75%] object-contain mt-1" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">
-                  GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">$5,000</span> IN CREDITS
+                  GIVING AWAY <span className="text-orange-400 text-[11px] md:text-sm">₹5 Lakhs</span> IN CREDITS
                 </p>
               </div>
             </motion.div>
@@ -195,9 +197,20 @@ function Home() {
           </div>
 
           {/* Features Row */}
-          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between gap-y-6 gap-x-4 p-4 md:p-6 lg:px-8 glass-card rounded-2xl relative z-20">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between gap-y-6 gap-x-4 p-4 md:p-6 lg:px-8 glass-card rounded-2xl relative z-20 items-center">
             <Feature icon={<Globe2 className="text-purple-400" />} title="GLOBAL EXPOSURE" desc="Get seen by industry leaders worldwide." />
             <Feature icon={<UserCheck className="text-purple-400" />} title="EXPERT MENTORSHIP" desc="Learn and grow with the best." />
+            
+            {/* The 5th Important Item */}
+            <Feature 
+              className="col-span-2 md:col-auto" 
+              titleClassName="text-emerald-400 font-bold"
+              iconWrapperClass="bg-emerald-500/10 border-emerald-500/30 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+              icon={<Trophy className="text-emerald-400" />} 
+              title="EVERY PARTICIPANT GETS" 
+              desc="Assured internships, interviews & lifetime tools." 
+            />
+
             <Feature icon={<Gift className="text-purple-400" />} title="AMAZING REWARDS" desc="Win cash prizes and exciting perks." />
             <Feature icon={<Rocket className="text-purple-400" />} title="CAREER BOOST" desc="Opportunities that take you further." />
           </div>
@@ -218,12 +231,6 @@ function Home() {
         </main>
       )}
 
-      {/* CONTESTS SHOWCASE (Scroll down) */}
-      {!refCode && !contestId && (
-        <div id="contests" className="relative z-10 w-full bg-white">
-          <ContestShowcase homepageOnly />
-        </div>
-      )}
 
       {/* Roadmap + Prize Pool — always shown */}
       <div className="relative z-10 w-full">
@@ -240,14 +247,14 @@ function Home() {
   );
 }
 
-function Feature({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+function Feature({ icon, title, desc, className = '', titleClassName = 'text-white', iconWrapperClass = 'bg-white/10 border-white/20 text-gray-100' }: { icon: React.ReactNode, title: string, desc: string, className?: string, titleClassName?: string, iconWrapperClass?: string }) {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-gray-100">
+    <div className={`flex flex-col gap-2 ${className}`}>
+      <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 ${iconWrapperClass}`}>
         {React.cloneElement(icon as React.ReactElement, { className: 'w-4 h-4' } as any)}
       </div>
       <div>
-        <h3 className="text-xs font-bold text-white tracking-wider">{title}</h3>
+        <h3 className={`text-xs font-bold tracking-wider ${titleClassName}`}>{title}</h3>
         <p className="text-[10px] text-white/50 mt-1">{desc}</p>
       </div>
     </div>

@@ -257,7 +257,9 @@ export default function Register() {
         </Link>
         <div className="hidden md:flex items-center gap-2 md:gap-3">
           <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0" />
-          </div>
+          <span className="text-gray-400 font-medium text-sm md:text-base">×</span>
+          <img src="/Partners/Brandforyoufull.png" alt="Brand for you" className="h-5 md:h-7 w-auto object-contain shrink-0" />
+        </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-12 md:py-20">
@@ -758,7 +760,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
           <ul className="list-disc pl-5 space-y-3 mt-4">
             <li><strong>Original Work & AI Tools:</strong> All submissions must be your original work. While generative AI is encouraged where applicable, it must demonstrate significant personal contribution, problem-solving, and creativity.</li>
             <li><strong>Eligibility:</strong> You must meet the criteria for your selected contest(s) and submit your projects before the designated deadlines.</li>
-            <li><strong>Recognition & Grants:</strong> The $50,000 support fund distribution and finalist recognition are determined exclusively by the official judges, whose decisions are final.</li>
+            <li><strong>Recognition & Grants:</strong> The ₹50 Lakhs support fund distribution and finalist recognition are determined exclusively by the official judges, whose decisions are final.</li>
             <li><strong>Conduct:</strong> Professionalism is required. Any plagiarism or cheating will result in immediate disqualification.</li>
             <li><strong>Rights:</strong> You retain ownership of your work, but grant Global Talent Hunt permission to showcase your projects for promotional and educational purposes.</li>
           </ul>

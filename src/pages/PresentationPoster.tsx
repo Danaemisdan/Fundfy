@@ -37,7 +37,9 @@ export default function PresentationPoster() {
             {/* Header Logos */}
             <div className="flex items-center gap-6 bg-white px-8 py-3 rounded-full mb-8 max-w-fit shadow-lg ml-0 -translate-x-3">
               <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-10 w-auto object-contain" />
-              </div>
+              <span className="text-gray-300 font-light">×</span>
+              <img src="/Partners/Brandforyoufull.png" alt="Brand For You" className="h-8 w-auto object-contain" />
+            </div>
 
 
 
@@ -50,9 +52,9 @@ export default function PresentationPoster() {
               <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase">
                 Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
               </p>
-              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 border border-white/20 rounded-full backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-br from-purple-900/60 to-blue-900/40 border border-white/20 rounded-full backdrop-blur-3xl shadow-[0_0_30px_rgba(168,85,247,0.4)]">
                 <span className="text-white text-sm font-black tracking-[0.3em] uppercase flex items-center gap-2">
-                  📅 FIRST COHORT STARTS <span className="text-yellow-300">30TH AUG 2026</span>
+                  FIRST COHORT STARTS <span className="text-yellow-300">30TH AUG 2026</span>
                 </span>
               </div>
             </div>
@@ -92,30 +94,13 @@ export default function PresentationPoster() {
         {/* --- RIGHT CONTENT SECTION --- */}
         <div className="relative z-10 flex flex-col justify-center items-center w-[50%] h-full pt-16 pb-32 pr-32 pl-12 gap-12">
           
-          {ref === 'chinni' ? (
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col justify-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-              <span className="text-xl font-black tracking-[0.3em] text-[#ffb000] uppercase mb-6 flex items-center gap-4">
-                <span className="text-white/50">→</span> WHY PARTICIPATE? <span className="text-white/50">←</span>
-              </span>
-              <ul className="flex flex-col gap-5 text-white/90 text-lg font-medium tracking-wide">
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Get Global Exposure</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Grants & Funding — Opportunities</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Top Opportunities with Leading Studios</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Certificates for All Participants</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Build Your Portfolio & Network</li>
-                <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 rounded-full bg-[#ffb000] shadow-[0_0_10px_rgba(255,176,0,0.8)]" /> Learn, Grow & Succeed</li>
-              </ul>
-            </div>
-          ) : (
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-              <span className="text-[4rem] font-black text-white whitespace-nowrap tracking-tight leading-[1.1] drop-shadow-lg uppercase">
-                UP TO ₹50 LAKHS
-              </span>
-              <span className="text-xl font-black tracking-[0.3em] text-gray-300 uppercase mt-2">IN GRANTS & FUNDING</span>
-            </div>
-          )}
+          <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+            <span className="text-[4rem] font-black text-white whitespace-nowrap tracking-tight leading-[1.1] drop-shadow-lg uppercase">
+              ₹50 LAKHS
+            </span>
+            <span className="text-xl font-black tracking-[0.3em] text-gray-300 uppercase mt-2">FUNDING TO FUEL YOUR STARTUP</span>
+          </div>
 
           <div className="relative glass-panel rounded-[2.5rem] p-10 w-full max-w-lg flex flex-col items-center border border-white/20 bg-gradient-to-br from-purple-900/60 to-blue-900/40 backdrop-blur-3xl shadow-[0_0_60px_rgba(168,85,247,0.4)] overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent pointer-events-none" />
@@ -146,14 +131,14 @@ export default function PresentationPoster() {
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-8 object-contain" />
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="h-8 object-contain" />
               <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="h-6 object-contain" />
+              <img src="/Partners/TechMahindra.png" className="h-10 scale-[1.3] object-contain ml-2 mr-2" alt="Tech Mahindra" />
+              <img src="/Partners/Foxconn.svg" className="h-6 object-contain" alt="Foxconn" />
             </div>
           </div>
           
           <div className="flex items-center gap-8 border-l border-gray-300 pl-8">
             <span className="text-xs text-black/40 tracking-[0.4em] font-black uppercase whitespace-nowrap">Partners</span>
             <div className="flex items-center gap-6 opacity-100">
-              <img src="/Partners/TechMahindra.png" className="h-10 scale-[1.3] object-contain ml-2 mr-2" alt="Tech Mahindra" />
-              <img src="/Partners/Foxconn.svg" className="h-6 object-contain" alt="Foxconn" />
               <img src="/Partners/DiceArtFilms_v2.png" className="h-8 object-contain" alt="Dice Art" />
               <img src="/Partners/JobFinderAI.png?v=3" className="h-7 object-contain" alt="JobFinderAI" />
               <img src="/Partners/MoreYeahs.png?v=3" className="h-7 object-contain" alt="MoreYeahs" />

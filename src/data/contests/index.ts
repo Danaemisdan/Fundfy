@@ -22,7 +22,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Grants & Funding', value: '$50,000' },
+      { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -75,10 +75,10 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
+          { title: '₹15 Lakhs', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '₹10 Lakhs', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '₹5 Lakhs', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
+          { title: '₹20 Lakhs Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -109,7 +109,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Grants & Funding', value: '$50,000' },
+      { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -162,10 +162,10 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
+          { title: '₹15 Lakhs', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '₹10 Lakhs', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '₹5 Lakhs', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
+          { title: '₹20 Lakhs Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -196,7 +196,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Grants & Funding', value: '$50,000' },
+      { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -243,10 +243,10 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
+          { title: '₹15 Lakhs', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '₹10 Lakhs', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '₹5 Lakhs', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
+          { title: '₹20 Lakhs Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -277,7 +277,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Grants & Funding', value: '$50,000' },
+      { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -324,10 +324,10 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
+          { title: '₹15 Lakhs', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '₹10 Lakhs', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '₹5 Lakhs', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
+          { title: '₹20 Lakhs Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],
@@ -358,7 +358,7 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Grants & Funding', value: '$50,000' },
+      { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
@@ -405,10 +405,10 @@ export const CONTESTS: ContestConfig[] = [
         title: 'TOP PERFORMERS',
         theme: 'light',
         items: [
-          { title: '$15,000 USD', description: 'Backing Grant — Top Performer', value: '1ST' },
-          { title: '$10,000 USD', description: 'Backing Grant — Runner Up', value: '2ND' },
-          { title: '$5,000 USD', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
-          { title: '$20,000 USD Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
+          { title: '₹15 Lakhs', description: 'Backing Grant — Top Performer', value: '1ST' },
+          { title: '₹10 Lakhs', description: 'Backing Grant — Runner Up', value: '2ND' },
+          { title: '₹5 Lakhs', description: 'Backing Grant — 3rd Finalist', value: '3RD' },
+          { title: '₹20 Lakhs Pool', description: 'Distributed across Top 10 Finalists as Startup Support', value: 'TOP 10' }
         ]
       }
     ],

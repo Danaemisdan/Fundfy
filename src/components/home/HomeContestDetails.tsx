@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 import { CONTESTS } from '../../data/contests';
 
 // Shared timeline (same across all contests)
@@ -13,10 +13,10 @@ const SHARED_TIMELINE = [
 ];
 
 const PRIZES = [
-  { place: '1st Finalist', amount: '$15,000', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
-  { place: '2nd Finalist', amount: '$10,000', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
-  { place: '3rd Finalist', amount: '$5,000',  bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
-  { place: 'Top 10',   amount: '$2,000 each', bg: 'bg-white border border-gray-200', text: 'text-black', badge: 'bg-gray-200 text-black' },
+  { place: '1st Finalist', amount: '₹15 Lakhs', bg: 'bg-black', text: 'text-white', badge: 'bg-white text-black' },
+  { place: '2nd Finalist', amount: '₹10 Lakhs', bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: '3rd Finalist', amount: '₹5 Lakhs',  bg: 'bg-[#f4f4f4]', text: 'text-black', badge: 'bg-black text-white' },
+  { place: 'Top 10',   amount: '₹2 Lakhs', bg: 'bg-white border border-gray-200', text: 'text-black', badge: 'bg-gray-200 text-black' },
 ];
 
 const PARTICIPANT_PERKS = [
@@ -38,47 +38,55 @@ export default function HomeContestDetails({ contestId }: Props) {
     <div className="w-full bg-white">
 
       {/* ── ROADMAP ── */}
+      {/* ── ROADMAP ── */}
       <div className="w-full bg-[#050505] text-white py-24 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 md:px-16">
+        <div className="max-w-3xl mx-auto px-6 md:px-16">
 
-          <div className="flex flex-col items-center text-center mb-20">
-            <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-gray-500 mb-4">Roadmap</h2>
+          <div className="flex flex-col items-center text-center mb-16">
+            <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-blue-500 mb-4">Roadmap</h2>
             <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">Important Dates</h3>
-            {contest && (
-              <p className="mt-4 text-gray-400 font-medium text-lg max-w-xl">{contest.subtitle}</p>
-            )}
+            <p className="mt-4 text-gray-400 font-medium text-lg max-w-xl">
+              The first cohort will begin from 1st September 2026.
+            </p>
           </div>
 
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/20 transform md:-translate-x-1/2" />
-
-            <div className="flex flex-col gap-16">
+          <div className="max-w-lg mx-auto">
+            <div className="flex flex-col">
               {timeline.map((item: any, i: number) => {
-                const isEven = i % 2 === 0;
+                const isCompleted = i === 0;
+                const isActive = i === 1;
+
+                const circleColor = isCompleted ? 'bg-blue-600 border-blue-600' : isActive ? 'bg-[#050505] border-blue-500' : 'bg-[#050505] border-white/20';
+                const iconColor = isCompleted ? 'text-white' : isActive ? 'text-blue-500' : 'text-gray-500';
+                
                 return (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    className={`flex flex-col md:flex-row items-start md:items-center relative w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
+                    className="relative pl-12 pb-10 last:pb-0"
                   >
-                    {/* Dot */}
-                    <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-white border-[4px] border-[#050505] rounded-none transform -translate-x-1/2 z-10 mt-1 md:mt-0" />
+                    {/* Segment Line */}
+                    {i !== timeline.length - 1 && (
+                      <div className={`absolute left-[11px] top-[24px] bottom-[-8px] w-[2px] ${isCompleted ? 'bg-blue-600' : 'bg-white/10'}`} />
+                    )}
 
-                    {/* Date badge */}
-                    <div className={`w-full md:w-1/2 flex ${isEven ? 'md:justify-start pl-12 md:pl-16' : 'md:justify-end pl-12 md:pl-0 md:pr-16'}`}>
-                      <span className="text-white font-bold tracking-[0.2em] text-[10px] uppercase border-2 border-white/20 hover:border-white transition-colors px-4 py-2 bg-[#050505]">
-                        {item.date}
-                      </span>
+                    {/* Icon Circle */}
+                    <div className={`absolute left-0 top-0 w-6 h-6 rounded-full border-2 flex items-center justify-center z-10 ${circleColor}`}>
+                      {isCompleted ? (
+                        <Check className={`w-3.5 h-3.5 ${iconColor} stroke-[3]`} />
+                      ) : (
+                        <Clock className={`w-3.5 h-3.5 ${iconColor} stroke-[2.5]`} />
+                      )}
                     </div>
 
                     {/* Content */}
-                    <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'md:items-end md:text-right pl-12 md:pl-0 md:pr-16 mt-6 md:mt-0' : 'md:items-start md:text-left pl-12 md:pl-16 mt-6 md:mt-0'}`}>
-                      <h4 className="text-3xl font-black text-white tracking-tight mb-2">{item.title}</h4>
-                      <p className="text-gray-400 font-medium leading-relaxed max-w-sm">{item.description}</p>
+                    <div className="flex flex-col -mt-1">
+                      <span className="text-gray-500 font-medium text-[13px] mb-1">{item.date}</span>
+                      <h4 className="text-xl font-bold text-white mb-2 leading-tight">{item.title}</h4>
+                      <p className="text-gray-400 font-medium text-[15px] leading-relaxed max-w-md">{item.description}</p>
                     </div>
                   </motion.div>
                 );

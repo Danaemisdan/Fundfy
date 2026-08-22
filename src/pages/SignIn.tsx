@@ -38,8 +38,10 @@ export default function SignIn() {
       <div className="w-full max-w-md glass-panel rounded-[2rem] p-8 md:p-12 relative overflow-hidden z-10">
         
         <div className="flex justify-center mb-8">
-          <div className="bg-white px-6 py-3 rounded-2xl shadow-lg">
+          <div className="bg-white px-6 py-3 rounded-2xl shadow-lg flex items-center justify-center gap-2 md:gap-3">
             <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain" />
+            <span className="text-gray-400 font-medium text-sm">×</span>
+            <img src="/Partners/Brandforyoufull.png" alt="Brand for you" className="h-8 w-auto object-contain" />
           </div>
         </div>
 

@@ -745,7 +745,7 @@ function TermsModal({ onClose, onAccept }: { onClose: () => void, onAccept: () =
           <ul className="list-disc pl-5 space-y-3 mt-4">
             <li><strong>Original Work & AI Tools:</strong> All submissions must be your original work. While generative AI is encouraged where applicable, it must demonstrate significant personal contribution, problem-solving, and creativity.</li>
             <li><strong>Eligibility:</strong> You must meet the criteria for your selected contest(s) and submit your projects before the designated deadlines.</li>
-            <li><strong>Recognition & Grants:</strong> The $50,000 support fund distribution and finalist recognition are determined exclusively by the official judges, whose decisions are final.</li>
+            <li><strong>Recognition & Grants:</strong> The ₹50 Lakhs support fund distribution and finalist recognition are determined exclusively by the official judges, whose decisions are final.</li>
             <li><strong>Conduct:</strong> Professionalism is required. Any plagiarism or cheating will result in immediate disqualification.</li>
             <li><strong>Rights:</strong> You retain ownership of your work, but grant Global Talent Hunt permission to showcase your projects for promotional and educational purposes.</li>
           </ul>

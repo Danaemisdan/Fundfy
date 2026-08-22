@@ -287,10 +287,10 @@ function Slide3() {
 ═══════════════════════════════════════════ */
 function Slide4() {
   const grants = [
-    { tier: '1ST', label: 'Startup Grant — Top Performer', amount: '$15,000', top: true },
-    { tier: '2ND', label: 'Startup Grant — Runner Up', amount: '$10,000', top: false },
-    { tier: '3RD', label: 'Startup Grant — 3rd Finalist', amount: '$5,000', top: false },
-    { tier: 'TOP 10', label: 'Pool — Distributed across Top 10 Finalists', amount: '$20,000', top: false },
+    { tier: '1ST', label: 'Startup Grant — Top Performer', amount: '₹15 Lakhs', top: true },
+    { tier: '2ND', label: 'Startup Grant — Runner Up', amount: '₹10 Lakhs', top: false },
+    { tier: '3RD', label: 'Startup Grant — 3rd Finalist', amount: '₹5 Lakhs', top: false },
+    { tier: 'TOP 10', label: 'Pool — Distributed across Top 10 Finalists', amount: '₹20 Lakhs', top: false },
   ];
   return (
     <div id="slide-4" className="w-[1920px] h-[1080px] relative overflow-hidden flex">
