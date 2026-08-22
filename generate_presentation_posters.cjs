@@ -24,7 +24,7 @@ const contests = [
   'career-accelerator-program'
 ];
 
-const BASE_URL = 'http://localhost:4173/presentation-poster';
+const BASE_URL = 'http://localhost:5173/presentation-poster';
 
 async function generatePosters() {
   console.log('Launching browser for presentation posters...');
@@ -71,7 +71,7 @@ async function generatePosters() {
           continue;
         }
 
-        const screenshotPath = path.join(referrerDir, `${contest}-presentation.png`);
+        const screenshotPath = path.join(referrerDir, `${contest}-new-presentation.png`);
         
         // Take screenshot of only the poster box
         await posterElement.screenshot({ path: screenshotPath });

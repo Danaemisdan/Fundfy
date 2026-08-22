@@ -13,8 +13,6 @@ export default function Footer() {
             <div className="flex flex-col gap-4 lg:col-span-2">
               <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/10 w-max shadow-xl">
                 <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-6 w-auto object-contain brightness-0 invert opacity-90" />
-                <span className="text-white/20 font-light text-xl">|</span>
-                <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-7 w-auto object-contain brightness-0 invert opacity-90" />
               </div>
               <p className="mt-2 text-sm text-gray-400 font-medium max-w-sm leading-relaxed">
                 Global Talent Hunt 2026. Showcase your skills, compete globally, and get discovered by industry leaders. Unlocking potential without boundaries.
@@ -67,7 +65,7 @@ export default function Footer() {
 
           {/* Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-6 pb-2 font-mono text-xs uppercase tracking-wider text-gray-500">
-            <span>© {new Date().getFullYear()} Fundfy.app & BrandForYou.</span>
+            <span>© {new Date().getFullYear()} Fundfy.app.</span>
             <span>New Delhi · India</span>
           </div>
         </div>

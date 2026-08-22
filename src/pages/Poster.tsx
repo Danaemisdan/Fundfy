@@ -39,9 +39,7 @@ export default function Poster() {
           {/* Header Logos */}
           <div className="flex items-center justify-center gap-6 bg-white/10 backdrop-blur-md px-10 py-4 rounded-[2rem] border border-white/20 shadow-lg mb-6 self-center mx-auto max-w-fit">
             <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-14 w-auto object-contain" />
-            <span className="text-gray-500 font-light text-2xl">|</span>
-            <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-16 w-auto object-contain" />
-          </div>
+            </div>
 
           <div className="flex flex-col items-center justify-center text-center pt-8 sm:pt-10 z-10 w-full px-4">
             
@@ -137,7 +135,7 @@ export default function Poster() {
           <div className="w-full bg-white/95 backdrop-blur-xl flex flex-col gap-3 items-center py-5 px-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
             <span className="text-[8px] text-black/40 tracking-[0.3em] font-bold uppercase whitespace-nowrap">Our Partners</span>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 opacity-100 w-full px-2 max-w-sm">
-              <img src="/Partners/BrandForYou.png" className="h-6 object-contain" alt="BrandForYou" />
+              
               <img src="/Partners/Epic_Games_logo.svg.webp" className="h-6 object-contain" alt="Epic Games" />
               <img src="/Partners/DiceArtFilms_v2.png" className="h-6 object-contain" alt="Dice Art" />
               <img src="/Partners/JobFinderAI.png?v=3" className="h-5 object-contain" alt="JobFinderAI" />

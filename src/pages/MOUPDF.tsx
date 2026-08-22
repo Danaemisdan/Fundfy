@@ -6,9 +6,7 @@ function MouHeader() {
     <div className="fixed top-0 left-0 w-full h-[120px] bg-white border-b border-gray-100 z-50 flex items-center justify-between px-16 print:fixed print:top-0">
       <div className="flex items-center gap-6">
         <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain" />
-        <span className="text-gray-300 font-light text-3xl">|</span>
-        <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-8 w-auto object-contain" />
-      </div>
+        </div>
       <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">
         Strategic Partnership Agreement
       </div>
@@ -79,7 +77,7 @@ export default function MOUPDF() {
                     </p>
 
                     <p>
-                      <strong>Fundfy.app</strong> (in association with BrandForYou), represented by <strong>Danny K</strong> (Director at Fundfy), hereinafter referred to as "Fundfy" or "First Party",
+                      <strong>Fundfy.app</strong>  represented by <strong>Danny K</strong> (Director at Fundfy), hereinafter referred to as "Fundfy" or "First Party",
                     </p>
                     <p className="text-center font-bold">AND</p>
                     <p>
@@ -145,7 +143,7 @@ export default function MOUPDF() {
                       <strong>4.1</strong> The Partner shall be officially recognized as a core strategic driver of the Fundfy ecosystem.
                     </p>
                     <p>
-                      <strong>4.2</strong> The Partner's brand, logo, and name will be featured, announced, and celebrated at every official event, webinar, and contest conducted by Fundfy.app and BrandForYou.
+                      <strong>4.2</strong> The Partner's brand, logo, and name will be featured, announced, and celebrated at every official event, webinar, and contest conducted by Fundfy.app .
                     </p>
                     <p>
                       <strong>4.3</strong> This visibility is intended to cement the Partner's status as a long-term strategic ally.

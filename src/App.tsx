@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import ContestLayout from './pages/ContestLayout';
 import SplashScreen from './components/SplashScreen';
 
-import Register from './pages/Register';
+// import Register from './pages/Register';
 import RegisterSuccess from './pages/RegisterSuccess';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
@@ -139,7 +139,7 @@ function App() {
         <Route path="/contests/:id" element={<ContestRedirect />} />
         <Route path="/contest/ai-education-innovation-contest" element={<OldEducationRedirect />} />
         <Route path="/contest/:id" element={<ContestLayout />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Navigate to="/#registration-section" replace />} />
         <Route path="/register/success" element={<RegisterSuccess />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />

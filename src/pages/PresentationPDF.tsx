@@ -15,7 +15,7 @@ function PartnerStrip() {
       </div>
       <div className="flex items-center gap-7 border-l border-gray-300 pl-7">
         <span className="text-[10px] text-black/40 tracking-[0.4em] font-black uppercase whitespace-nowrap">Partners</span>
-        <img src="/Partners/BrandForYou.png" className="h-7 object-contain" alt="BrandForYou" />
+        
         <img src="/Partners/DiceArtFilms_v2.png" className="h-7 object-contain" alt="Dice Art" />
         <img src="/Partners/JobFinderAI.png?v=3" className="h-6 object-contain" alt="JobFinderAI" />
         <img src="/Partners/MoreYeahs.png?v=3" className="h-6 object-contain" alt="MoreYeahs" />
@@ -78,9 +78,7 @@ function TopLogos() {
   return (
     <div className="absolute top-12 left-16 z-40 flex items-center gap-6 bg-white px-8 py-3 rounded-full shadow-lg border border-gray-100">
       <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain" />
-      <span className="text-gray-300 font-light text-3xl">|</span>
-      <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-8 w-auto object-contain" />
-    </div>
+      </div>
   );
 }
 

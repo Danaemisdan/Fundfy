@@ -57,7 +57,8 @@ export const CONTESTS: ContestConfig[] = [
     ],
     resources: [
       { title: 'JobFinderAI', description: 'Lifetime free access to the recruitment platform.' },
-      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' }
+      { title: 'Premium APIs', description: 'Full access to cutting edge LLM models and cloud APIs for the duration of the hackathon.' },
+      { title: 'Masterclasses', description: 'Exclusive access to expert-led sessions on AI, product building, and startup growth.' }
     ],
     rewards: [
       {

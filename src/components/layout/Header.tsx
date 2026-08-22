@@ -10,9 +10,7 @@ export default function Header({ registrationUrl = "/register", buttonText = "RE
       <Link to={logoUrl} className="flex items-center gap-1.5 md:gap-3 cursor-pointer group">
         <div className="flex items-center gap-1.5 md:gap-3">
           <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
-          <span className="text-gray-300 font-light hidden md:block">|</span>
-          <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
-        </div>
+          </div>
         <div className="w-[1px] h-6 bg-gray-300 hidden md:block opacity-50 ml-1"></div>
         <div className="hidden md:block text-[9px] font-bold text-gray-500 leading-tight group-hover:text-purple-500 transition-colors uppercase tracking-[0.2em]">
           PRESENTS<br />

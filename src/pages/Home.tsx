@@ -8,12 +8,20 @@ import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
 import HomeContestDetails from '../components/home/HomeContestDetails';
 import Footer from '../components/layout/Footer';
+
+// Added for single page flow
+import { getContestConfig } from '../data/contests';
+import EventHero from '../components/contests/EventHero';
+import EventAbout from '../components/contests/EventAbout';
+import EventWhyParticipate from '../components/contests/EventWhyParticipate';
+import EventResources from '../components/contests/EventResources';
+import RegistrationSection from '../components/RegistrationSection';
 const PARTNERS = [
   "/Partners/AWS_v2.png",
   "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
   "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-  "/Partners/Epic_Games_logo.svg.webp",
-  "/Partners/BrandForYou.png",
+  "/Partners/TechMahindra.png",
+  "/Partners/Foxconn.svg",
   "/Partners/DiceArtFilms_v2.png",
   "/Partners/JobFinderAI.png?v=3",
   "/Partners/MoreYeahs.png?v=3",
@@ -36,20 +44,17 @@ function Home() {
   const [searchParams] = useSearchParams();
   const contestId = searchParams.get('contest');
   const refCode = searchParams.get('ref');
+
+  // Load config for Career Accelerator Program
+  const config = getContestConfig('career-accelerator-program');
   useEffect(() => {
     // Tracking is handled globally by App.tsx
   }, [refCode]);
 
   const handleRegisterClick = () => {
-    if (contestId) {
-      navigate(`/contest/${contestId}${refCode ? `?ref=${refCode}` : ''}`);
-    } else {
-      const el = document.getElementById('contests');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        navigate(`/register${refCode ? `?ref=${refCode}` : ''}`);
-      }
+    const el = document.getElementById('registration-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   };
   const delayBase = !sessionStorage.getItem('hasSeenSplash') ? 6.2 : 0;
@@ -67,6 +72,13 @@ function Home() {
 
   useEffect(() => {
     sessionStorage.setItem('hasVisitedHome', 'true');
+    // Handle hash navigation
+    if (window.location.hash === '#registration-section') {
+      setTimeout(() => {
+        const el = document.getElementById('registration-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 500); // Wait for render
+    }
   }, []);
 
   return (
@@ -84,8 +96,6 @@ function Home() {
           <Link to="/" className="flex items-center gap-2 md:gap-3 cursor-pointer group">
             <div className="flex items-center gap-1.5 md:gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
               <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-4 md:h-7 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
-              <span className="text-black/20 font-light hidden md:block">|</span>
-              <img src="/Partners/Brandforyoufull.png" alt="BrandForYou" className="h-5 md:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform" />
             </div>
             <div className="w-[1px] h-6 bg-white/30 hidden md:block opacity-50 ml-1"></div>
             <div className="hidden md:block text-[7px] md:text-[9px] font-bold text-gray-400 leading-tight group-hover:text-purple-400 transition-colors uppercase tracking-[0.2em]">
@@ -127,24 +137,24 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: delayBase + 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5 relative z-20"
+              className="mt-10 mb-6 md:mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 relative z-20"
             >
-              <div className="flex items-center gap-4 md:gap-5 glass-panel rounded-2xl md:rounded-3xl pr-6 md:pr-8">
-                <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-white/10 p-[2px] shrink-0 border border-white/20">
-                  <div className="w-full h-full bg-black/20 rounded-[14px] md:rounded-[22px] flex items-center justify-center backdrop-blur-sm">
-                    <Wallet className="w-6 h-6 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
+              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-full pr-6 md:pr-8 pl-2 py-2 border border-white/10">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 p-[2px] shrink-0 border border-white/20">
+                  <div className="w-full h-full bg-black/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <Wallet className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
-                <div className="py-2">
-                  <p className="text-[10px] md:text-sm font-semibold tracking-wider text-white/50 uppercase">GRANTS & FUNDING</p>
-                  <h2 className="text-3xl md:text-5xl font-bold font-futuristic text-white leading-none mt-1 flex items-baseline gap-3">
+                <div className="flex flex-col justify-center mt-0.5">
+                  <p className="text-[9px] md:text-[10px] font-semibold tracking-wider text-white/50 uppercase mb-0.5">GRANTS & FUNDING</p>
+                  <h2 className="text-xl md:text-2xl font-bold font-futuristic text-white leading-none">
                     {currency === 'INR' ? '₹50 Lakhs' : '$50,000'}
                   </h2>
                 </div>
               </div>
               
               {/* AWS Credits Pill */}
-              <div className="sm:ml-2 flex items-center gap-2 md:gap-3 glass-panel rounded-full pr-3 md:pr-4 pl-1.5 py-1">
+              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-full pr-5 md:pr-6 pl-2 py-2 border border-white/10">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden bg-white rounded-full shadow-inner shrink-0">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="w-[75%] h-[75%] object-contain mt-1" />
                 </div>
@@ -167,17 +177,17 @@ function Home() {
           {/* Powered By - Static */}
           <div className="w-full bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 lg:p-10 shadow-xl flex flex-col overflow-hidden">
             <p className="text-[10px] md:text-xs font-bold text-black/50 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between items-center gap-y-6 gap-x-4 md:gap-x-3 lg:gap-x-5 w-full px-2 md:px-0">
+            <div className="flex flex-nowrap justify-between items-center gap-x-3 md:gap-x-4 lg:gap-x-5 w-full overflow-x-auto no-scrollbar px-2 md:px-0 pb-2">
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
-                if (src.includes('TingoAI')) scaleClass = 'scale-75';
+                if (src.includes('TingoAI')) scaleClass = 'scale-90';
                 if (src.includes('AWS')) scaleClass = 'scale-[1.3]';
-                if (src.includes('IBM')) scaleClass = 'scale-90';
-                if (src.includes('BrandForYou')) scaleClass = 'scale-125';
+                if (src.includes('IBM')) scaleClass = 'scale-[0.65]';
+                if (src.includes('TechMahindra')) scaleClass = 'scale-[1.5]';
                 
                 return (
-                  <div key={i} className="h-6 sm:h-7 md:h-8 lg:h-9 flex items-center justify-center shrink-0 px-2 md:px-0">
-                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[100px] md:max-w-[120px] lg:max-w-[140px] object-contain ${scaleClass}`} />
+                  <div key={i} className="h-4 sm:h-5 md:h-6 lg:h-7 flex items-center justify-center shrink-0">
+                    <img src={src} alt="Partner Logo" className={`h-full w-auto max-w-[70px] md:max-w-[90px] lg:max-w-[110px] object-contain ${scaleClass}`} />
                   </div>
                 );
               })}
@@ -194,6 +204,20 @@ function Home() {
         </motion.footer>
       </div>
 
+      {/* Career Accelerator Program Content */}
+      {config && (
+        <main className="w-full relative z-10 flex flex-col bg-[#050505]">
+          <EventHero data={config} theme={config.theme} onRegisterClick={handleRegisterClick} />
+          <EventAbout data={config} />
+          {config.whyParticipate && config.whyParticipate.length > 0 && (
+            <EventWhyParticipate data={config} />
+          )}
+          {config.resources && config.resources.length > 0 && (
+            <EventResources data={config} />
+          )}
+        </main>
+      )}
+
       {/* CONTESTS SHOWCASE (Scroll down) */}
       {!refCode && !contestId && (
         <div id="contests" className="relative z-10 w-full bg-white">
@@ -205,6 +229,11 @@ function Home() {
       <div className="relative z-10 w-full">
         <HomeContestDetails contestId={contestId} />
       </div>
+
+
+
+      {/* Registration Section */}
+      <RegistrationSection id="registration-section" />
 
       <Footer />
     </div>

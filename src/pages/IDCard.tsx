@@ -61,7 +61,7 @@ export default function IDCard() {
               <div className="flex items-center gap-6 mb-8">
                 <img src="/Partners/Fundfy.png" alt="Fundfy" className="h-10 w-auto object-contain opacity-100" />
                 <span className="w-px h-6 bg-white/20" />
-                <img src="/Partners/BrandForYou.png" alt="BrandForYou" className="h-10 w-auto object-contain opacity-100" />
+                
               </div>
 
               {/* Title & Designation */}

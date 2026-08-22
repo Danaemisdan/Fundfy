@@ -129,7 +129,7 @@ export default function HarshaPoster() {
             </div>
             <div className="flex items-center gap-3 opacity-100 px-2 justify-center w-full max-w-full">
               <img src="/Partners/Fundfy.app.png" className="h-14 object-contain" alt="Fundfy" />
-              <img src="/Partners/BrandForYou.png" className="h-16 object-contain" alt="BrandForYou" />
+              
               <div className="w-[1px] h-8 bg-gray-300 mx-1 hidden md:block" />
               <img src="/Partners/Dice Art Films.PNG" className="h-6 object-contain" alt="Dice Art Films" />
               <img src="/Partners/Neon Monkey Fest.png" className="h-10 object-contain" alt="Neon Monkey Fest" />

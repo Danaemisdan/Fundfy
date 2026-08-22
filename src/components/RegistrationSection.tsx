@@ -13,7 +13,7 @@ import type { ContestConfig } from '../types/contest';
 // We won't import the standard Header/Footer to keep this a focused onboarding flow,
 // similar to Stripe or Linear. A simple brand header is better for checkout/registration.
 
-export default function Register() {
+export default function RegistrationSection({ id }: { id?: string }) {
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -244,22 +244,9 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50  font-sans selection:bg-purple-200 relative">
+    <div id={id} className="w-full bg-gray-50 font-sans selection:bg-purple-200 relative">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-100/50 via-transparent to-blue-100/50 pointer-events-none z-0" />
       <div className="relative z-10">
-      {/* Minimal Brand Header */}
-      <header className="w-full bg-white shadow-sm border-b border-gray-200 py-6 px-6 md:px-12 sticky top-0 z-50 flex items-center justify-between shadow-sm">
-        <Link to={new URLSearchParams(location.search).get('contest') ? `/contests/${new URLSearchParams(location.search).get('contest')}${new URLSearchParams(location.search).has('ref') ? `?ref=${new URLSearchParams(location.search).get('ref')}` : ''}` : (new URLSearchParams(location.search).has('ref') ? `/?ref=${new URLSearchParams(location.search).get('ref')}` : '/')} className="flex items-center gap-2 group">
-          <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-gray-900 transition-colors" />
-          <span className="font-futuristic font-bold text-xl tracking-tighter text-gray-900">
-            GLOBAL<span className="text-purple-400">TALENT</span>HUNT
-          </span>
-        </Link>
-        <div className="hidden md:flex items-center gap-2 md:gap-3">
-          <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-5 md:h-7 w-auto object-contain shrink-0" />
-          </div>
-      </header>
-
       <main className="max-w-7xl mx-auto px-6 py-12 md:py-20">
         
         <div className="mb-12 max-w-2xl text-left">
@@ -621,13 +608,13 @@ export default function Register() {
                       </div>
                       
                       <div className="mt-4 p-4 bg-gray-50 border border-gray-100 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <div>
+                        <div className="w-full sm:w-auto">
                           <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Having issues?</p>
                           <p className="text-xs text-gray-600">Contact our official support team</p>
                         </div>
-                        <div className="flex flex-col gap-1 items-center sm:items-end">
-                          <a href="mailto:hello@fundfy.app" className="text-xs font-bold text-gray-900 hover:text-purple-600 transition-colors">hello@fundfy.app</a>
-                          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors">WhatsApp: +91 9505429380</a>
+                        <div className="flex flex-col gap-1 items-center sm:items-end shrink-0">
+                          <a href="mailto:hello@fundfy.app" className="text-xs font-bold text-gray-900 hover:text-purple-600 transition-colors whitespace-nowrap">hello@fundfy.app</a>
+                          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors whitespace-nowrap">WhatsApp: +91 9505429380</a>
                         </div>
                       </div>
                     </div>
