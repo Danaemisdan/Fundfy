@@ -52,21 +52,23 @@ export default function SplashScreen() {
                     transition={{ delay: 0.3 }}
                     className="text-xs md:text-sm font-bold tracking-[0.4em] text-gray-400 uppercase"
                   >
-                    CO-PRESENTED BY
+                    POWERED BY
                   </motion.p>
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="grid grid-cols-2 gap-y-12 gap-x-8 place-items-center md:flex md:items-center md:justify-center md:gap-12 lg:gap-16 w-full max-w-4xl px-4"
+                    className="grid grid-cols-2 gap-y-12 gap-x-8 place-items-center md:flex md:items-center md:justify-center md:gap-8 lg:gap-12 w-full max-w-6xl px-4"
                   >
-                    <img src="/Partners/AWS_v2.png" alt="AWS" className="w-24 sm:w-32 md:w-auto md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
-                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="w-28 sm:w-36 md:w-auto md:h-20 lg:h-24 object-contain mix-blend-multiply opacity-90" />
-                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="w-20 sm:w-24 md:w-auto md:h-16 lg:h-20 object-contain mix-blend-multiply opacity-90" />
-                    <div className="w-[1px] h-16 bg-gray-300 hidden md:block"></div>
-                    <img src="/Partners/Epic_Games_logo.svg.webp" alt="Epic Games" className="w-16 sm:w-20 md:w-auto md:h-24 lg:h-28 object-contain mix-blend-multiply opacity-90" />
+                    <img src="/Partners/AWS_v2.png" alt="AWS" className="w-24 sm:w-32 md:w-auto md:h-16 lg:h-20 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-12 bg-gray-300 hidden md:block"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="Google Cloud" className="w-28 sm:w-36 md:w-auto md:h-16 lg:h-20 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-12 bg-gray-300 hidden md:block"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" className="w-20 sm:w-24 md:w-auto md:h-12 lg:h-16 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-12 bg-gray-300 hidden md:block"></div>
+                    <img src="/Partners/TechMahindra.png" alt="Tech Mahindra" className="w-28 sm:w-36 md:w-auto md:h-10 lg:h-12 object-contain mix-blend-multiply opacity-90" />
+                    <div className="w-[1px] h-12 bg-gray-300 hidden md:block"></div>
+                    <img src="/Partners/Foxconn.svg" alt="Foxconn" className="w-24 sm:w-32 md:w-auto md:h-10 lg:h-12 object-contain mix-blend-multiply opacity-90" />
                   </motion.div>
                 </div>
 
