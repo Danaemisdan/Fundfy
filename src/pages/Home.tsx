@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { MotionButton } from '../components/ui/MotionButton';
-import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket, Wallet } from 'lucide-react';
+import { Globe as GlobeIcon, ArrowUpRight, Trophy, Globe2, UserCheck, Gift, Rocket, Banknote } from 'lucide-react';
 import Globe from '../components/ui/globe';
 import ContestShowcase from '../components/home/ContestShowcase';
 import HomeContestDetails from '../components/home/HomeContestDetails';
@@ -141,14 +141,14 @@ function Home() {
               transition={{ duration: 0.8, delay: delayBase + 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10 mb-6 md:mb-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 relative z-20"
             >
-              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-full pr-6 md:pr-8 pl-2 py-2 border border-white/10">
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 p-[2px] shrink-0 border border-white/20">
-                  <div className="w-full h-full bg-black/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                    <Wallet className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={1.5} />
+              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-2xl pr-6 md:pr-8 pl-3 py-3 border border-white/10">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white/10 p-[2px] shrink-0 border border-white/20">
+                  <div className="w-full h-full bg-black/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                    <Banknote className="w-5 h-5 md:w-6 md:h-6 text-white" strokeWidth={1.5} />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center mt-0.5">
-                  <p className="text-xs md:text-sm font-bold tracking-[0.15em] text-purple-400 uppercase mb-1">FUNDING TO FUEL YOUR STARTUP</p>
+                  <p className="text-xs md:text-sm font-bold tracking-[0.15em] text-purple-400 uppercase mb-1">TOTAL SEED GRANT POOL</p>
                   <h2 className="text-5xl md:text-6xl font-black font-futuristic text-white leading-none">
                     ₹50 Lakhs
                   </h2>
@@ -156,8 +156,8 @@ function Home() {
               </div>
               
               {/* AWS Credits Pill */}
-              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-full pr-5 md:pr-6 pl-2 py-2 border border-white/10">
-                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden bg-white rounded-full shadow-inner shrink-0">
+              <div className="flex items-center gap-3 md:gap-4 glass-panel rounded-2xl pr-5 md:pr-6 pl-3 py-3 border border-white/10">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden bg-white rounded-xl shadow-inner shrink-0">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="w-[75%] h-[75%] object-contain mt-1" />
                 </div>
                 <p className="text-[10px] md:text-xs font-bold text-white/90 tracking-wide mt-0.5">

@@ -140,7 +140,9 @@ export default function Register() {
     }
   };
 
-  const hasReferral = !!sessionStorage.getItem('referral_code') || new URLSearchParams(location.search).has('ref');
+  const activeRef = sessionStorage.getItem('referral_code') || new URLSearchParams(location.search).get('ref');
+  const hasReferral = !!activeRef;
+  const isChinni = activeRef === 'chinni';
   const fee = selectedContests.length > 0 ? (hasReferral ? (customFee !== null ? customFee : 100) : 200) : 0;
   const currency = 'INR';
 
@@ -629,7 +631,11 @@ export default function Register() {
                         </div>
                         <div className="flex flex-col gap-1 items-center sm:items-end">
                           <a href="mailto:hello@fundfy.app" className="text-xs font-bold text-gray-900 hover:text-purple-600 transition-colors">hello@fundfy.app</a>
-                          <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors">WhatsApp: +91 9505429380</a>
+                          {isChinni ? (
+                            <a href="https://wa.me/917093364464" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors">WhatsApp: +91 70933 64464</a>
+                          ) : (
+                            <a href="https://wa.me/919505429380" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-900 hover:text-green-600 transition-colors">WhatsApp: +91 9505429380</a>
+                          )}
                         </div>
                       </div>
                     </div>

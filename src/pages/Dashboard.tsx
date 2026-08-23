@@ -220,7 +220,7 @@ export default function Dashboard() {
         ) : (
           <>
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-5">
               <MousePointerClick className="w-24 h-24" />
@@ -235,14 +235,6 @@ export default function Dashboard() {
             </div>
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Paid Entries</span>
             <span className="text-5xl font-black text-gray-900 tracking-tighter">{stats.entries}</span>
-          </div>
-
-          <div className="bg-white p-8 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-5">
-              <Wallet className="w-24 h-24" />
-            </div>
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Earned Commission</span>
-            <span className="text-5xl font-black text-green-500 tracking-tighter">₹{stats.earned.toLocaleString()}</span>
           </div>
         </div>
 
