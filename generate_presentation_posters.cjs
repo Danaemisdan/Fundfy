@@ -59,8 +59,11 @@ async function generatePosters() {
       console.log(`Loading ${url}...`);
       
       try {
-        await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
         
+        // Wait for React to render the poster element
+        await page.waitForSelector('.w-\\[1920px\\]', { timeout: 15000 });
+
         // Wait an extra 2 seconds to ensure fonts, globe, and QR code have fully loaded and rendered
         await new Promise(r => setTimeout(r, 2000));
         

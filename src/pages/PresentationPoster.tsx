@@ -52,9 +52,12 @@ export default function PresentationPoster() {
               <p className="text-xl font-bold tracking-[0.4em] text-white/70 uppercase">
                 Showcase. Compete. Get <span className="text-purple-400">Discovered.</span>
               </p>
-              <div className="inline-flex items-center px-6 py-2.5 bg-gradient-to-br from-purple-900/60 to-blue-900/40 border border-white/20 rounded-full backdrop-blur-3xl shadow-[0_0_30px_rgba(168,85,247,0.4)]">
-                <span className="text-white text-sm font-black tracking-[0.3em] uppercase flex items-center gap-2">
-                  FIRST COHORT STARTS <span className="text-yellow-300">30TH AUG 2026</span>
+              <div className="inline-flex items-center px-8 py-3.5 bg-[#0a0a0f]/90 border border-white/10 rounded-full backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10" />
+                <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
+                <div className="absolute bottom-0 right-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
+                <span className="relative z-10 text-white/90 text-[13px] font-black tracking-[0.3em] uppercase flex items-center gap-3">
+                  FIRST COHORT STARTS <span className="text-yellow-400 drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]">30TH AUG 2026</span>
                 </span>
               </div>
             </div>
@@ -81,7 +84,7 @@ export default function PresentationPoster() {
                 
                 <div className="flex items-center">
                   <span className="text-emerald-300 font-semibold tracking-[0.1em] text-sm leading-relaxed">
-                    Lifetime free access to JobFinderAI &amp; Fundfy.app — unlocking funding &amp; grants.
+                    Lifetime free access to JobFinderAI &amp; Fundfy.app — unlocking funding, grants, jobs, &amp; internships.
                   </span>
                 </div>
 
@@ -99,7 +102,9 @@ export default function PresentationPoster() {
             <span className="text-[4rem] font-black text-white whitespace-nowrap tracking-tight leading-[1.1] drop-shadow-lg uppercase">
               ₹50 LAKHS
             </span>
-            <span className="text-xl font-black tracking-[0.3em] text-gray-300 uppercase mt-2">FUNDING TO FUEL YOUR STARTUP</span>
+            <span className="text-[13px] md:text-sm font-black tracking-[0.2em] text-gray-300 uppercase mt-3 text-center max-w-[85%] leading-relaxed">
+              WE'RE INVESTING IN IDEAS AND PEOPLE RATHER THAN JUST STARTUPS
+            </span>
           </div>
 
           <div className="relative glass-panel rounded-[2.5rem] p-10 w-full max-w-lg flex flex-col items-center border border-white/20 bg-gradient-to-br from-purple-900/60 to-blue-900/40 backdrop-blur-3xl shadow-[0_0_60px_rgba(168,85,247,0.4)] overflow-hidden">
