@@ -14,6 +14,7 @@ import HarshaPoster from './pages/HarshaPoster';
 import PresentationPoster from './pages/PresentationPoster';
 import IDCard from './pages/IDCard';
 import PresentationPDF from './pages/PresentationPDF';
+import PresentationPDFNew from './pages/PresentationPDF_new';
 import MOUPDF from './pages/MOUPDF';
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -149,6 +150,7 @@ function App() {
         <Route path="/id-card/:ref" element={<IDCard />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/pdf-presentation" element={<PresentationPDF />} />
+        <Route path="/pdf-presentation-new" element={<PresentationPDFNew />} />
         <Route path="/pdf-mou" element={<MOUPDF />} />
       </Routes>
     </AuthProvider>
