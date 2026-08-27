@@ -57,7 +57,7 @@ export default function PresentationPoster() {
                 <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
                 <div className="absolute bottom-0 right-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
                 <span className="relative z-10 text-white/90 text-[13px] font-black tracking-[0.3em] uppercase flex items-center gap-3">
-                  FIRST COHORT STARTS <span className="text-yellow-400 drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]">30TH AUG 2026</span>
+                  FIRST COHORT STARTS <span className="text-white bg-white/10 border border-white/20 px-3 py-1 rounded-lg tracking-[0.2em] shadow-sm">30TH AUG 2026</span>
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function PresentationPoster() {
               ₹50 LAKHS
             </span>
             <span className="text-[13px] md:text-sm font-black tracking-[0.2em] text-gray-300 uppercase mt-3 text-center max-w-[85%] leading-relaxed">
-              FUNDING & GRANTS FOR EVERYONE
+              FUNDING & GRANTS FOR BEST PERFORMERS
             </span>
           </div>
 
