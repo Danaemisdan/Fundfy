@@ -86,19 +86,7 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           className="w-full max-w-3xl grid grid-cols-3 gap-2 md:gap-4 border-t border-white/10 pt-8 mt-auto mx-auto"
         >
           {data.statistics.map((stat: any, idx: number) => {
-            if (stat.label === 'Registration') {
-              return (
-                <div key={idx} className="flex flex-col items-center justify-center text-center">
-                  <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">
-                    {stat.label}
-                  </span>
-                  <span className="text-xl md:text-2xl font-futuristic font-bold text-white flex items-center gap-2">
-                    <span className="line-through text-gray-500 opacity-60 text-sm">₹200</span>
-                    ₹100
-                  </span>
-                </div>
-              );
-            }
+
             return (
               <div key={idx} className="flex flex-col items-center justify-center text-center">
                 <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">

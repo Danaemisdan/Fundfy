@@ -321,10 +321,7 @@ export default function RegistrationSection({ id }: { id?: string }) {
                           </span>
                           <div className="mt-2">
                             <div className="flex flex-col items-end justify-center shrink-0 ml-4">
-                              <div className="flex items-center gap-2">
-                                <span className="text-gray-400 line-through text-xs font-medium">₹200</span>
-                                <span className="text-green-500 font-bold text-sm">₹100</span>
-                              </div>
+                              <span className="text-sm font-bold text-gray-900">₹100</span>
                             </div>
                           </div>
                           {getBadge()}
@@ -513,10 +510,7 @@ export default function RegistrationSection({ id }: { id?: string }) {
                             <div className="flex justify-between items-start gap-4">
                               <span className="text-gray-900 text-sm font-bold truncate max-w-[200px] sm:max-w-xs">{c.title}</span>
                               <div className="flex flex-col items-end justify-center shrink-0 ml-4">
-                                <div className="flex items-center gap-2">
-                                  <span className="text-xs text-gray-400 line-through">₹200</span>
-                                  <span className="text-sm font-bold text-green-500 shrink-0">₹100</span>
-                                </div>
+                                <span className="text-sm font-bold text-gray-900 shrink-0">₹100</span>
                               </div>
                             </div>
                             {hasReferral && (
