@@ -103,7 +103,7 @@ export default function PresentationPoster() {
               ₹50 LAKHS
             </span>
             <span className="text-[13px] md:text-sm font-black tracking-[0.2em] text-gray-300 uppercase mt-3 text-center max-w-[85%] leading-relaxed">
-              STARTUP FUNDING & GRANTS
+              FUNDING & GRANTS FOR EVERYONE
             </span>
           </div>
 
