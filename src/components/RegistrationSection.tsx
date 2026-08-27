@@ -143,7 +143,7 @@ export default function RegistrationSection({ id }: { id?: string }) {
   const activeRef = sessionStorage.getItem('referral_code') || new URLSearchParams(location.search).get('ref');
   const hasReferral = !!activeRef;
   const isChinni = activeRef === 'chinni';
-  const fee = selectedContests.length > 0 ? (hasReferral ? (customFee !== null ? customFee : 100) : 200) : 0;
+  const fee = selectedContests.length > 0 ? (customFee !== null ? customFee : 100) : 0;
   const currency = 'INR';
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -320,14 +320,12 @@ export default function RegistrationSection({ id }: { id?: string }) {
                             {contest.category}
                           </span>
                           <div className="mt-2">
-                            {hasReferral ? (
+                            <div className="flex flex-col items-end justify-center shrink-0 ml-4">
                               <div className="flex items-center gap-2">
                                 <span className="text-gray-400 line-through text-xs font-medium">₹200</span>
-                                <span className="text-green-400 font-bold text-sm">₹100</span>
+                                <span className="text-green-500 font-bold text-sm">₹100</span>
                               </div>
-                            ) : (
-                              <span className="text-sm font-bold text-gray-900">₹200</span>
-                            )}
+                            </div>
                           </div>
                           {getBadge()}
                         </div>
@@ -513,15 +511,13 @@ export default function RegistrationSection({ id }: { id?: string }) {
                         {selectedContests.map(c => (
                           <div key={c.id} className="flex flex-col gap-1">
                             <div className="flex justify-between items-start gap-4">
-                              <span className="text-sm font-bold text-gray-900 leading-tight">{c.title}</span>
-                              {hasReferral ? (
-                                <div className="flex flex-col items-end">
+                              <span className="text-gray-900 text-sm font-bold truncate max-w-[200px] sm:max-w-xs">{c.title}</span>
+                              <div className="flex flex-col items-end justify-center shrink-0 ml-4">
+                                <div className="flex items-center gap-2">
                                   <span className="text-xs text-gray-400 line-through">₹200</span>
-                                  <span className="text-sm font-bold text-green-400 shrink-0">₹100</span>
+                                  <span className="text-sm font-bold text-green-500 shrink-0">₹100</span>
                                 </div>
-                              ) : (
-                                <span className="text-sm font-medium text-gray-500 shrink-0">₹200</span>
-                              )}
+                              </div>
                             </div>
                             {hasReferral && (
                               <span className="text-[10px] font-bold text-green-400 uppercase tracking-widest bg-green-500/10 w-fit px-2 py-0.5 rounded mt-1">50% Referral Discount Applied</span>
