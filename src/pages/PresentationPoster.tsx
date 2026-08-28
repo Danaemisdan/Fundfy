@@ -100,10 +100,10 @@ export default function PresentationPoster() {
           <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
             <span className={`font-black whitespace-nowrap tracking-tight leading-[1.1] uppercase ${ref === 'chinni' ? 'text-[3.2rem] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 drop-shadow-[0_0_20px_rgba(167,139,250,0.4)]' : 'text-[4rem] text-white drop-shadow-lg'}`}>
-              {ref === 'chinni' ? 'MOMENTUM EDU+' : '₹50 LAKHS'}
+              {ref === 'chinni' ? 'FREE AI EDUCATION' : '₹50 LAKHS'}
             </span>
             <span className={`text-[13px] md:text-sm font-black tracking-[0.2em] uppercase mt-3 text-center max-w-[85%] leading-relaxed ${ref === 'chinni' ? 'text-indigo-200 drop-shadow-sm' : 'text-gray-300'}`}>
-              {ref === 'chinni' ? '100% FREE AI-POWERED EDUCATION' : 'FUNDING & GRANTS FOR BEST PERFORMERS'}
+              {ref === 'chinni' ? 'JOIN THE FREE WEBINAR' : 'FUNDING & GRANTS FOR BEST PERFORMERS'}
             </span>
           </div>
 
