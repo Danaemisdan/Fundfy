@@ -99,11 +99,11 @@ export default function PresentationPoster() {
           
           <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] p-10 w-full max-w-xl flex flex-col items-center justify-center text-center shadow-[0_0_80px_rgba(255,255,255,0.08)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-            <span className="text-[4rem] font-black text-white whitespace-nowrap tracking-tight leading-[1.1] drop-shadow-lg uppercase">
-              ₹50 LAKHS
+            <span className={`font-black text-white whitespace-nowrap tracking-tight leading-[1.1] drop-shadow-lg uppercase ${ref === 'chinni' ? 'text-5xl' : 'text-[4rem]'}`}>
+              {ref === 'chinni' ? 'MOMENTUM EDU+' : '₹50 LAKHS'}
             </span>
             <span className="text-[13px] md:text-sm font-black tracking-[0.2em] text-gray-300 uppercase mt-3 text-center max-w-[85%] leading-relaxed">
-              FUNDING & GRANTS FOR BEST PERFORMERS
+              {ref === 'chinni' ? '100% FREE AI-POWERED EDUCATION' : 'FUNDING & GRANTS FOR BEST PERFORMERS'}
             </span>
           </div>
 
