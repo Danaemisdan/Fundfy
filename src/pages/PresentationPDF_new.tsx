@@ -86,7 +86,9 @@ function TopLogos() {
   return (
     <div className="absolute top-12 left-16 z-40 flex items-center gap-6 bg-white px-8 py-3 rounded-full shadow-lg border border-gray-100">
       <img src="/Partners/Fundfy.app.png" alt="Fundfy" className="h-8 w-auto object-contain" />
-      </div>
+      <div className="w-[1px] h-6 bg-gray-200"></div>
+      <img src="/Partners/BrandForYou.png" alt="Brand For You" className="h-10 w-auto object-contain" />
+    </div>
   );
 }
 
@@ -310,7 +312,7 @@ function Slide4() {
       <PartnerStrip />
       
       {/* LEFT COLUMN: Header & Perks */}
-      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-4">
+      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-24">
         <div className="mb-12">
           <div className="inline-flex items-center gap-3 px-6 py-2 bg-purple-50 border border-purple-200 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
@@ -352,43 +354,18 @@ function Slide4() {
       {/* RIGHT COLUMN: The Grants Masonry Grid */}
       <div className="relative z-10 w-[55%] h-full flex flex-col justify-center pr-32 pl-4 mt-8">
         
-        {/* 1st Prize (Hero Card) */}
-        <div className="w-full bg-white rounded-[2rem] p-10 mb-8 border border-purple-100 relative overflow-hidden" style={{ boxShadow: '0 30px 60px rgba(168,85,247,0.1)' }}>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          <div className="flex justify-between items-center relative z-10">
-            <div className="flex flex-col">
-              <span className="inline-block bg-purple-600 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-6">1ST FINALIST</span>
-              <span className="text-[80px] font-black text-slate-900 leading-none tracking-tighter">₹15 Lakhs</span>
-              <span className="text-[20px] font-bold text-slate-500 mt-4">Startup Grant & Opportunities</span>
-            </div>
-            <div className="w-40 h-40 flex items-center justify-center shrink-0 rounded-full bg-purple-50 border-[8px] border-purple-100 text-[64px]">🏆</div>
+        <div className="w-full h-full max-h-[700px] bg-white rounded-[3rem] p-16 border border-purple-100 relative overflow-hidden flex flex-col items-center justify-center text-center" style={{ boxShadow: '0 40px 80px rgba(168,85,247,0.1)' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+          
+          <div className="relative z-10">
+            <div className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-purple-50 border-[8px] border-purple-100 text-[56px] mb-10 shadow-lg">🚀</div>
+            <h3 className="text-[120px] font-black text-slate-900 leading-none tracking-tighter mb-8 drop-shadow-sm">₹50 <span className="text-gradient-purple-orange text-[90px]">Lakhs</span></h3>
+            <p className="text-[28px] font-bold text-slate-600 leading-tight max-w-lg mx-auto">
+              Total funding pool reserved for the <strong className="text-slate-900 font-black">builders and visionaries</strong> who truly deserve it.
+            </p>
           </div>
-        </div>
-
-        {/* 2nd & 3rd Prizes */}
-        <div className="flex gap-8 w-full mb-8">
-          <div className="flex-1 bg-white rounded-[2rem] p-8 border border-blue-100 shadow-[0_20px_40px_rgba(59,130,246,0.06)] relative overflow-hidden">
-            <span className="inline-block bg-blue-500 text-white text-[12px] font-black tracking-[0.3em] uppercase px-4 py-1.5 rounded-full w-max mb-6">2ND FINALIST</span>
-            <div className="text-[54px] font-black text-slate-900 leading-none tracking-tighter mb-3">₹10 Lakhs</div>
-            <div className="text-[16px] font-bold text-slate-500">Startup Grant & Opportunities</div>
-          </div>
-          <div className="flex-1 bg-white rounded-[2rem] p-8 border border-sky-100 shadow-[0_20px_40px_rgba(14,165,233,0.06)] relative overflow-hidden">
-            <span className="inline-block bg-sky-500 text-white text-[12px] font-black tracking-[0.3em] uppercase px-4 py-1.5 rounded-full w-max mb-6">3RD FINALIST</span>
-            <div className="text-[54px] font-black text-slate-900 leading-none tracking-tighter mb-3">₹5 Lakhs</div>
-            <div className="text-[16px] font-bold text-slate-500">Startup Grant & Opportunities</div>
-          </div>
-        </div>
-
-        {/* Top 10 */}
-        <div className="w-full bg-white rounded-[2rem] p-8 border border-emerald-100 shadow-[0_20px_40px_rgba(16,185,129,0.06)] flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <div className="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-100 flex items-center justify-center text-[32px]">🏅</div>
-            <div className="flex flex-col">
-              <span className="text-[14px] font-black tracking-[0.3em] text-emerald-600 uppercase mb-1">TOP 10 FINALISTS</span>
-              <span className="text-[18px] font-bold text-slate-500">Guaranteed Grant per Finalist</span>
-            </div>
-          </div>
-          <div className="text-[54px] font-black text-slate-900 leading-none tracking-tighter">₹2 Lakhs</div>
         </div>
 
       </div>
