@@ -351,18 +351,19 @@ function Slide4() {
         </div>
       </div>
 
-      {/* RIGHT COLUMN: The Grants Masonry Grid */}
+      {/* RIGHT COLUMN: 50 Lakhs Pool */}
       <div className="relative z-10 w-[55%] h-full flex flex-col justify-center pr-32 pl-4 mt-8">
         
-        <div className="w-full h-full max-h-[700px] bg-white rounded-[3rem] p-16 border border-purple-100 relative overflow-hidden flex flex-col items-center justify-center text-center" style={{ boxShadow: '0 40px 80px rgba(168,85,247,0.1)' }}>
+        <div className="w-full bg-white rounded-[2.5rem] p-12 border border-purple-100 relative overflow-hidden flex flex-col" style={{ boxShadow: '0 30px 60px rgba(168,85,247,0.08)' }}>
           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
           
-          <div className="relative z-10">
-            <div className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-purple-50 border-[8px] border-purple-100 text-[56px] mb-10 shadow-lg">🚀</div>
-            <h3 className="text-[120px] font-black text-slate-900 leading-none tracking-tighter mb-8 drop-shadow-sm">₹50 <span className="text-gradient-purple-orange text-[90px]">Lakhs</span></h3>
-            <p className="text-[28px] font-bold text-slate-600 leading-tight max-w-lg mx-auto">
+          <div className="relative z-10 flex flex-col">
+            <span className="inline-block bg-purple-600 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-8">GRANT POOL</span>
+            <div className="flex flex-col mb-6">
+              <span className="text-[110px] font-black text-slate-900 leading-none tracking-tighter">₹50 <span className="text-gradient-purple-orange text-[85px]">Lakhs</span></span>
+            </div>
+            <p className="text-[24px] font-medium text-slate-500 leading-relaxed max-w-md">
               Total funding pool reserved for the <strong className="text-slate-900 font-black">builders and visionaries</strong> who truly deserve it.
             </p>
           </div>
