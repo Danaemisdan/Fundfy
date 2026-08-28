@@ -314,15 +314,15 @@ function Slide4() {
         <div className="mb-12">
           <div className="inline-flex items-center gap-3 px-6 py-2 bg-purple-50 border border-purple-200 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            <span className="text-[14px] font-black tracking-[0.3em] uppercase text-purple-700">Total Seed Grant Pool</span>
+            <span className="text-[14px] font-black tracking-[0.3em] uppercase text-purple-700">Momentum EDU+</span>
           </div>
           
-          <h2 style={{ fontSize: '130px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em', textShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
-            ₹50 <br /><span className="text-gradient-purple-orange">LAKHS</span>
+          <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em', textShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
+            FREE AI <br /><span className="text-gradient-purple-orange">EDUCATION</span>
           </h2>
           
           <p className="text-[22px] font-medium text-slate-600 mt-8 leading-relaxed max-w-xl">
-            We don't just reward — <strong className="text-slate-900 font-black">we back the best talent, startups & ideas</strong> with seed funding, opportunities, and elite career support.
+            <strong className="text-slate-900 font-black">Join the free webinar</strong> to unlock 100% free access to Momentum EDU+ and kickstart your AI journey.
           </p>
         </div>
 

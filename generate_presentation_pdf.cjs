@@ -5,7 +5,7 @@ const fs = require('fs');
 const SLIDE_H = 1080;
 const SLIDE_W = 1920;
 const TOTAL_SLIDES = 5;
-const PORT = 4175;
+const PORT = process.env.PORT || 4175;
 const TMP_DIR = path.resolve(__dirname, '.tmp_slides');
 
 (async () => {
@@ -37,8 +37,8 @@ const TMP_DIR = path.resolve(__dirname, '.tmp_slides');
 
   await slidePage.setViewport({ width: SLIDE_W, height: SLIDE_H, deviceScaleFactor: 1 });
 
-  console.log(`📄 Loading http://localhost:${PORT}/pdf-presentation ...`);
-  await slidePage.goto(`http://localhost:${PORT}/pdf-presentation`, {
+  console.log(`📄 Loading http://localhost:${PORT}/pdf-presentation-new ...`);
+  await slidePage.goto(`http://localhost:${PORT}/pdf-presentation-new`, {
     waitUntil: 'networkidle0',
     timeout: 30000,
   });
@@ -116,7 +116,7 @@ const TMP_DIR = path.resolve(__dirname, '.tmp_slides');
   });
   await new Promise(r => setTimeout(r, 1000));
 
-  const outputPath = path.resolve(__dirname, 'GlobalTalentHunt2026_Presentation.pdf');
+  const outputPath = path.resolve(__dirname, 'GlobalTalentHunt2026_Presentation_new.pdf');
 
   await composePage.pdf({
     path: outputPath,
@@ -132,6 +132,6 @@ const TMP_DIR = path.resolve(__dirname, '.tmp_slides');
   fs.rmSync(TMP_DIR, { recursive: true });
 
   const sizeMB = (fs.statSync(outputPath).size / 1024 / 1024).toFixed(2);
-  console.log(`\n✅ PDF ready: GlobalTalentHunt2026_Presentation.pdf (${sizeMB} MB)`);
+  console.log(`\n✅ PDF ready: GlobalTalentHunt2026_Presentation_new.pdf (${sizeMB} MB)`);
   console.log(`📁 ${outputPath}`);
 })();
