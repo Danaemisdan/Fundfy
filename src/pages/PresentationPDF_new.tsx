@@ -312,12 +312,8 @@ function Slide4() {
       <PartnerStrip />
       
       {/* LEFT COLUMN: Header & Perks */}
-      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-24">
+      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-4">
         <div className="mb-12">
-          <div className="inline-flex items-center gap-3 px-6 py-2 bg-purple-50 border border-purple-200 rounded-full mb-8">
-            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            <span className="text-[14px] font-black tracking-[0.3em] uppercase text-purple-700">Momentum EDU+</span>
-          </div>
           
           <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em', textShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
             FREE AI <br /><span className="text-gradient-purple-orange">EDUCATION</span>
@@ -359,13 +355,30 @@ function Slide4() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
           
           <div className="relative z-10 flex flex-col">
-            <span className="inline-block bg-purple-600 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-8">GRANT POOL</span>
-            <div className="flex flex-col mb-6">
+            <span className="inline-block bg-purple-600 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-6">GRANT POOL</span>
+            <div className="flex flex-col mb-4">
               <span className="text-[110px] font-black text-slate-900 leading-none tracking-tighter">₹50 <span className="text-gradient-purple-orange text-[85px]">Lakhs</span></span>
             </div>
-            <p className="text-[24px] font-medium text-slate-500 leading-relaxed max-w-md">
+            <p className="text-[22px] font-medium text-slate-500 leading-relaxed max-w-md mb-8">
               Total funding pool reserved for the <strong className="text-slate-900 font-black">builders and visionaries</strong> who truly deserve it.
             </p>
+            
+            <div className="flex flex-col gap-4">
+              {[
+                "Zero Equity Seed Funding",
+                "Guaranteed Grants for Finalists",
+                "Global Investor Network Access"
+              ].map((pointer, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span className="text-[18px] font-bold text-slate-700">{pointer}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
