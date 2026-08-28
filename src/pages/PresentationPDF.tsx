@@ -55,19 +55,40 @@ function DarkBg({ flip = false }: { flip?: boolean }) {
   );
 }
 
-/* ─── glassmorphism card ─── */
+/* ─── CSS-only background for light theme slides ─── */
+function LightBg({ flip = false }: { flip?: boolean }) {
+  return (
+    <>
+      <div className="absolute inset-0 bg-[#fafafa] z-0" />
+      <div className="absolute z-0 pointer-events-none" style={{
+        top: '10%', [flip ? 'left' : 'right']: '-10%',
+        width: '800px', height: '800px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, rgba(59,130,246,0.04) 40%, transparent 70%)',
+        filter: 'blur(40px)',
+      }} />
+      <div className="absolute z-0 pointer-events-none" style={{
+        bottom: '-10%', [flip ? 'right' : 'left']: '10%',
+        width: '600px', height: '600px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%)',
+        filter: 'blur(60px)',
+      }} />
+    </>
+  );
+}
+
+/* ─── glassmorphism card (updated for light theme) ─── */
 function GlassCard({ children, className = '', style = {} }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
     <div className={`relative overflow-hidden ${className}`} style={{
-      background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
-      backdropFilter: 'blur(24px)',
-      WebkitBackdropFilter: 'blur(24px)',
-      border: '1px solid rgba(255,255,255,0.12)',
+      background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 100%)',
+      backdropFilter: 'blur(32px)',
+      WebkitBackdropFilter: 'blur(32px)',
+      border: '1px solid rgba(255,255,255,0.8)',
       borderRadius: '1.5rem',
-      boxShadow: '0 0 60px rgba(255,255,255,0.04)',
+      boxShadow: '0 10px 40px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02)',
       ...style,
     }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent)' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent)' }} />
       {children}
     </div>
   );
@@ -217,35 +238,35 @@ function Slide3() {
   ];
   return (
     <div id="slide-3" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col items-center justify-center">
-      <DarkBg />
+      <LightBg />
       <TopLogos />
       <PartnerStrip />
       <div className="relative z-10 w-full px-20 mt-[-40px]">
         <div className="text-center mb-24">
           <p className="text-[12px] font-black tracking-[0.45em] uppercase text-gray-500 mb-6">The Program Journey</p>
-          <h2 className="text-[85px] font-black text-white tracking-tighter">
+          <h2 className="text-[85px] font-black text-slate-900 tracking-tighter">
             From Registration to <span className="text-gradient-purple-orange">Recognition.</span>
           </h2>
         </div>
         
         <div className="relative flex justify-center w-full mt-10 gap-6">
           {/* Connecting Line behind the circles */}
-          <div className="absolute top-[32px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0" />
+          <div className="absolute top-[32px] left-[10%] right-[10%] h-[2px] bg-gradient-to-r from-transparent via-gray-200 to-transparent z-0" />
           
           {steps.map((s) => (
             <div key={s.n} className="flex flex-col items-center w-[300px] relative z-10">
               {/* The "Pointer" Circle */}
               <div style={{ 
                 width: '64px', height: '64px', borderRadius: '50%', 
-                background: '#050505', border: `2px solid ${s.color}`, color: s.color, 
+                background: '#ffffff', border: `2px solid ${s.color}`, color: s.color, 
                 display: 'flex', alignItems: 'center', justifyContent: 'center', 
                 fontSize: '22px', fontWeight: 900, marginBottom: '32px', 
-                boxShadow: `0 0 30px ${s.color}50, inset 0 0 15px ${s.color}30`,
+                boxShadow: `0 4px 15px rgba(0,0,0,0.05)`,
                 position: 'relative', zIndex: 2
               }}>
                 {s.n}
                 {/* Inner dot */}
-                <div style={{ position: 'absolute', top: '-6px', right: '-6px', width: '12px', height: '12px', borderRadius: '50%', background: s.color, boxShadow: `0 0 10px ${s.color}` }} />
+                <div style={{ position: 'absolute', top: '-6px', right: '-6px', width: '12px', height: '12px', borderRadius: '50%', background: s.color, boxShadow: `0 2px 5px ${s.color}60` }} />
               </div>
               
               {/* Vertical connector line from circle to card */}
@@ -254,23 +275,23 @@ function Slide3() {
               {/* The Card */}
               <div style={{ 
                 width: '100%', 
-                background: 'linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0.95) 100%)', 
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(250,250,250,0.95) 100%)', 
                 backdropFilter: 'blur(24px)', 
-                border: '1px solid rgba(255,255,255,0.05)', 
+                border: '1px solid rgba(0,0,0,0.06)', 
                 borderTop: `2px solid ${s.color}`, 
                 borderRadius: '1.5rem', 
                 padding: '2.5rem 1.5rem', 
                 textAlign: 'center', 
                 position: 'relative', 
-                boxShadow: `0 20px 40px rgba(0,0,0,0.6), 0 -10px 40px ${s.color}15`,
+                boxShadow: `0 20px 40px rgba(0,0,0,0.04), 0 2px 6px ${s.color}15`,
                 display: 'flex', flexDirection: 'column'
               }}>
-                <div style={{ position: 'absolute', top: 0, left: '20%', right: '20%', height: '1px', background: `linear-gradient(to right, transparent, ${s.color}, transparent)`, opacity: 0.8 }} />
+                <div style={{ position: 'absolute', top: 0, left: '20%', right: '20%', height: '1px', background: `linear-gradient(to right, transparent, ${s.color}, transparent)`, opacity: 0.3 }} />
                 
-                <h3 style={{ fontSize: '24px', fontWeight: 900, color: 'white', lineHeight: 1.2, marginBottom: '16px', whiteSpace: 'pre-line', letterSpacing: '-0.02em' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 900, color: '#111827', lineHeight: 1.2, marginBottom: '16px', whiteSpace: 'pre-line', letterSpacing: '-0.02em' }}>
                   {s.title}
                 </h3>
-                <p style={{ fontSize: '15px', fontWeight: 500, color: '#9ca3af', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '15px', fontWeight: 500, color: '#64748b', lineHeight: 1.6 }}>
                   {s.desc}
                 </p>
               </div>
@@ -286,42 +307,97 @@ function Slide3() {
    SLIDE 4 — GET BACKED
 ═══════════════════════════════════════════ */
 function Slide4() {
-  const grants = [
-    { tier: '1ST', label: 'Startup Grant — Top Performer', amount: '₹15 Lakhs', top: true },
-    { tier: '2ND', label: 'Startup Grant — Runner Up', amount: '₹10 Lakhs', top: false },
-    { tier: '3RD', label: 'Startup Grant — 3rd Finalist', amount: '₹5 Lakhs', top: false },
-    { tier: 'TOP 10', label: 'Pool — Distributed across Top 10 Finalists', amount: '₹20 Lakhs', top: false },
-  ];
   return (
     <div id="slide-4" className="w-[1920px] h-[1080px] relative overflow-hidden flex">
-      <DarkBg />
+      <DarkBg flip />
       <TopLogos />
       <PartnerStrip />
-      {/* Left */}
-      <div className="relative z-10 flex flex-col justify-center w-[42%] h-full pl-32 pr-8 pb-32 pt-16">
-        <p className="text-[11px] font-black tracking-[0.45em] uppercase text-gray-500 mb-4">For Top Performers</p>
-        <div style={{ fontSize: '120px', fontWeight: 900, color: 'white', lineHeight: 0.82, letterSpacing: '-0.045em' }}>₹50<br /><span style={{ fontSize: '56px', fontWeight: 300, color: '#1f2937', letterSpacing: '-0.03em' }}>Lakhs</span></div>
-        <div className="text-[32px] font-black text-gradient-purple-orange mt-2 mb-10 tracking-tight">in Funding.</div>
-        <p className="text-lg font-medium text-gray-400 leading-[1.75] max-w-md">
-          We <span className="text-white font-bold">don't give prizes.</span><br />
-          We <span className="text-white font-bold">fund the best talent</span> — through grants, opportunities, and meaningful career support.
-        </p>
-      </div>
-      {/* Right */}
-      <div className="relative z-10 flex flex-col justify-center w-[58%] h-full pr-28 pl-6 pb-24 gap-4">
-        <p className="text-[11px] font-black tracking-[0.45em] uppercase text-gray-500 mb-2">Startup Grants</p>
-        {grants.map(g => (
-          <GlassCard key={g.tier} style={{ padding: '1.5rem 2.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', ...(g.top ? { border: '1px solid rgba(168,85,247,0.3)', boxShadow: '0 0 40px rgba(168,85,247,0.15)' } : {}) }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', position: 'relative', zIndex: 1 }}>
-              <span style={{ fontSize: '10px', fontWeight: 900, letterSpacing: '0.2em', textTransform: 'uppercase', borderRadius: '100px', padding: '6px 14px', background: g.top ? 'rgba(168,85,247,0.2)' : 'rgba(255,255,255,0.06)', color: g.top ? '#c084fc' : '#6b7280' }}>{g.tier}</span>
-              <span style={{ fontSize: '17px', fontWeight: 600, color: '#9ca3af' }}>{g.label}</span>
-            </div>
-            <span className={g.top ? 'text-gradient-purple-orange' : ''} style={{ fontSize: '44px', fontWeight: 900, letterSpacing: '-0.025em', color: g.top ? undefined : 'white', position: 'relative', zIndex: 1 }}>{g.amount}</span>
-          </GlassCard>
-        ))}
-        <div style={{ marginTop: '8px', border: '1px solid rgba(16,185,129,0.2)', background: 'rgba(16,185,129,0.05)', borderRadius: '1rem', padding: '14px 24px' }}>
-          <p style={{ fontSize: '13px', fontWeight: 600, color: 'rgba(110,231,183,0.7)', lineHeight: 1.7 }}>All participants receive <span style={{ color: '#10b981', fontWeight: 700 }}>assured career support</span>, confirmed interviews, and lifetime access to JobFinderAI + Fundfy.app — regardless of rank.</p>
+      
+      {/* Left Column */}
+      <div className="relative z-10 flex flex-col justify-center w-[45%] h-full pl-[7rem] pr-12 pb-24 pt-20">
+        
+        {/* Header Section */}
+        <div className="mb-10">
+          <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-purple-500/20 to-transparent border border-purple-500/30 rounded-full mb-6">
+            <span className="text-purple-200 text-[11px] font-black tracking-[0.4em] uppercase">TOTAL SEED GRANT POOL</span>
+          </div>
+          
+          <div style={{ fontSize: '120px', fontWeight: 900, color: 'white', lineHeight: 0.85, letterSpacing: '-0.04em' }}>
+            ₹50<br /><span className="text-gradient-purple-orange" style={{ fontSize: '90px' }}>LAKHS</span>
+          </div>
+          
+          <p className="text-[19px] font-medium text-gray-400 mt-8 leading-[1.7] max-w-[480px]">
+            We don't just reward — <span className="text-white font-bold">we back the best talent, startups & ideas</span> with seed funding, opportunities, and elite career support.
+          </p>
         </div>
+
+        {/* 4 Perks Grid */}
+        <div className="grid grid-cols-1 gap-4 max-w-[500px]">
+          {[
+            { title: 'Direct Seed Funding', desc: 'To launch & scale your ideas', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+            { title: 'Assured Placements', desc: 'Fast-tracked elite interviews', icon: 'M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3' },
+            { title: 'Exclusive Mentorship', desc: 'From global tech leaders', icon: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2 M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8 M23 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75' },
+            { title: 'Lifetime Premium', desc: 'JobFinderAI & Fundfy.app', icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z' }
+          ].map((perk, i) => (
+            <div key={i} className="flex items-center gap-5 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={perk.icon} /></svg>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-white font-bold text-[17px] tracking-wide">{perk.title}</span>
+                <span className="text-gray-400 font-medium text-[13px]">{perk.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right Column - Prizes */}
+      <div className="relative z-10 flex flex-col justify-center w-[55%] h-full pr-[7rem] pl-8 pb-32 gap-6 pt-[6rem]">
+        
+        {/* 1st Finalist */}
+        <div className="relative overflow-hidden rounded-[2rem] p-10 bg-gradient-to-br from-purple-900/40 to-blue-900/20 border border-purple-500/30 shadow-[0_20px_60px_rgba(168,85,247,0.15)] flex justify-between items-center w-full">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50 pointer-events-none" />
+          
+          <div className="flex flex-col relative z-10">
+            <span className="inline-block w-max px-5 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-[11px] font-black tracking-[0.3em] uppercase mb-6">1ST FINALIST</span>
+            <div className="text-[72px] font-black text-white leading-none tracking-tighter mb-3 drop-shadow-lg">₹15 Lakhs</div>
+            <span className="text-purple-200/80 font-bold text-[16px] tracking-wide">Startup Grant & Opportunities</span>
+          </div>
+
+          <div className="relative z-10 w-40 h-40 rounded-full bg-gradient-to-br from-yellow-400/20 to-orange-500/20 border border-yellow-500/30 flex items-center justify-center shadow-[0_0_40px_rgba(250,204,21,0.2)] mr-4">
+            <span className="text-[4rem] text-yellow-400 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]">🏆</span>
+          </div>
+        </div>
+
+        {/* 2nd & 3rd Finalists Side by Side */}
+        <div className="flex gap-6 w-full">
+          {[
+            { tier: '2ND FINALIST', amt: '₹10 Lakhs' },
+            { tier: '3RD FINALIST', amt: '₹5 Lakhs' }
+          ].map((prize, i) => (
+            <div key={i} className="flex-1 rounded-[2rem] p-8 bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_10px_40px_rgba(0,0,0,0.1)] flex flex-col justify-center">
+              <span className="inline-block w-max px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[10px] font-black tracking-[0.3em] uppercase mb-4">{prize.tier}</span>
+              <div className="text-[52px] font-black text-white leading-none tracking-tighter mb-2">{prize.amt}</div>
+              <span className="text-gray-400 font-medium text-[14px]">Startup Grant & Opportunities</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Top 10 Finalists */}
+        <div className="rounded-[2rem] px-8 py-6 bg-gradient-to-r from-emerald-900/30 to-emerald-900/10 border border-emerald-500/30 backdrop-blur-md shadow-[0_10px_40px_rgba(16,185,129,0.1)] flex items-center justify-between w-full mt-2">
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+              <span className="text-3xl drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">🏅</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-emerald-400 text-[11px] font-black tracking-[0.3em] uppercase mb-1">TOP 10 FINALISTS</span>
+              <span className="text-gray-300 font-medium text-[15px]">Guaranteed Grant per Finalist</span>
+            </div>
+          </div>
+          <div className="text-[48px] font-black text-white leading-none tracking-tighter drop-shadow-md">₹2 Lakhs</div>
+        </div>
+
       </div>
     </div>
   );
@@ -334,47 +410,47 @@ function Slide5() {
   const qr = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent('https://fundfy.app/?contest=career-accelerator-program&ref=chinni')}&color=000000&bgcolor=ffffff`;
   return (
     <div id="slide-5" className="w-[1920px] h-[1080px] relative overflow-hidden flex">
-      <DarkBg flip />
+      <LightBg flip />
       <TopLogos />
       <PartnerStrip />
       
       {/* Left */}
       <div className="relative z-10 flex flex-col justify-center w-[55%] h-full pl-32 pr-10 pb-32 pt-16">
-        <p className="text-[11px] font-black tracking-[0.45em] uppercase text-emerald-400 mb-6">Register Today</p>
-        <h2 style={{ fontSize: '100px', fontWeight: 900, color: 'white', lineHeight: 0.85, letterSpacing: '-0.045em', marginBottom: '1.5rem' }}>
+        <p className="text-[11px] font-black tracking-[0.45em] uppercase text-emerald-500 mb-6">Register Today</p>
+        <h2 style={{ fontSize: '100px', fontWeight: 900, color: '#0f172a', lineHeight: 0.85, letterSpacing: '-0.045em', marginBottom: '1.5rem' }}>
           Your Career.<br /><span className="text-gradient-purple-orange">Accelerated.</span>
         </h2>
         <div className="flex gap-10 mt-6 mb-10">
           {[{ label: 'Registration', val: '₹100 Only', green: true }, { label: 'First Cohort', val: '30th Aug 2026', green: false }, { label: 'Mode', val: 'Global Online', green: false }, { label: 'Deadline', val: 'Nov 30, 2026', green: false }].map((s, i, arr) => (
             <React.Fragment key={s.label}>
-              {i > 0 && <div style={{ width: '1px', background: 'rgba(255,255,255,0.08)', alignSelf: 'stretch' }} />}
+              {i > 0 && <div style={{ width: '1px', background: 'rgba(0,0,0,0.08)', alignSelf: 'stretch' }} />}
               <div>
-                <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#374151', marginBottom: '8px' }}>{s.label}</div>
-                <div style={{ fontSize: '20px', fontWeight: 900, color: s.green ? '#10b981' : 'white' }}>{s.val}</div>
+                <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#64748b', marginBottom: '8px' }}>{s.label}</div>
+                <div style={{ fontSize: '20px', fontWeight: 900, color: s.green ? '#059669' : '#0f172a' }}>{s.val}</div>
               </div>
             </React.Fragment>
           ))}
         </div>
-        <div style={{ background: 'linear-gradient(to right, rgba(6,78,59,0.8), rgba(6,95,70,0.8))', borderRadius: '1.5rem', padding: '2px', maxWidth: '600px', boxShadow: '0 0 40px rgba(16,185,129,0.15)' }}>
-          <div style={{ background: 'rgba(5,5,5,0.95)', backdropFilter: 'blur(24px)', borderRadius: '1.4rem', padding: '1.25rem 2rem', border: '1px solid rgba(16,185,129,0.3)' }}>
-            <span style={{ display: 'inline-block', background: 'rgba(16,185,129,0.1)', color: '#34d399', fontSize: '10px', fontWeight: 900, letterSpacing: '0.4em', textTransform: 'uppercase', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '100px', padding: '4px 14px', marginBottom: '8px' }}>Assured Placements & Support</span>
-            <p style={{ fontSize: '22px', fontWeight: 900, color: 'white', textTransform: 'uppercase', lineHeight: 1.3 }}><span style={{ color: '#10b981' }}>FOR EVERY PARTICIPANT:</span><br />Assured Internships & Interviews</p>
+        <div style={{ background: 'linear-gradient(to right, rgba(16,185,129,0.1), rgba(16,185,129,0.05))', borderRadius: '1.5rem', padding: '2px', maxWidth: '600px', border: '1px solid rgba(16,185,129,0.2)' }}>
+          <div style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(24px)', borderRadius: '1.4rem', padding: '1.25rem 2rem' }}>
+            <span style={{ display: 'inline-block', background: 'rgba(16,185,129,0.1)', color: '#059669', fontSize: '10px', fontWeight: 900, letterSpacing: '0.4em', textTransform: 'uppercase', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '100px', padding: '4px 14px', marginBottom: '8px' }}>Assured Placements & Support</span>
+            <p style={{ fontSize: '22px', fontWeight: 900, color: '#0f172a', textTransform: 'uppercase', lineHeight: 1.3 }}><span style={{ color: '#059669' }}>FOR EVERY PARTICIPANT:</span><br />Assured Internships & Interviews</p>
           </div>
         </div>
       </div>
       {/* Right: QR */}
       <div className="relative z-10 flex flex-col justify-center items-center w-[45%] h-full pr-28 pl-8 pb-24">
-        <div style={{ position: 'relative', background: 'linear-gradient(135deg, rgba(88,28,135,0.6), rgba(30,58,138,0.4))', backdropFilter: 'blur(32px)', WebkitBackdropFilter: 'blur(32px)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '2rem', padding: '3rem', width: '100%', maxWidth: '560px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 0 50px rgba(168,85,247,0.3)', overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent)' }} />
-          <span className="text-xs font-bold tracking-[0.4em] text-purple-300 uppercase mb-2 relative z-10">Ready To Transform?</span>
-          <span className="text-3xl font-black text-white tracking-tight mb-8 relative z-10">START YOUR JOURNEY</span>
+        <div style={{ position: 'relative', background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(250,250,250,0.85))', backdropFilter: 'blur(32px)', WebkitBackdropFilter: 'blur(32px)', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '2rem', padding: '3rem', width: '100%', maxWidth: '560px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.04)', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent)' }} />
+          <span className="text-xs font-bold tracking-[0.4em] text-purple-500 uppercase mb-2 relative z-10">Ready To Transform?</span>
+          <span className="text-3xl font-black text-slate-900 tracking-tight mb-8 relative z-10">START YOUR JOURNEY</span>
           <div className="flex items-center gap-10 relative z-10">
-            <div style={{ width: '180px', height: '180px', background: 'white', borderRadius: '1.5rem', padding: '12px', boxShadow: '0 0 40px rgba(255,255,255,0.15)' }}>
+            <div style={{ width: '180px', height: '180px', background: 'white', borderRadius: '1.5rem', padding: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
               <img src={qr} alt="QR Code" style={{ width: '100%', height: '100%', borderRadius: '1rem' }} />
             </div>
             <div>
-              <p className="text-base font-black tracking-[0.4em] text-white/90 uppercase leading-snug mb-2">Scan to<br />Apply</p>
-              <p className="text-sm font-bold text-purple-300">fundfy.app</p>
+              <p className="text-base font-black tracking-[0.4em] text-slate-800 uppercase leading-snug mb-2">Scan to<br />Apply</p>
+              <p className="text-sm font-bold text-purple-600">fundfy.app</p>
             </div>
           </div>
         </div>

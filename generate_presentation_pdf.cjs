@@ -5,7 +5,7 @@ const fs = require('fs');
 const SLIDE_H = 1080;
 const SLIDE_W = 1920;
 const TOTAL_SLIDES = 5;
-const PORT = 4175;
+const PORT = process.env.PORT || 4175;
 const TMP_DIR = path.resolve(__dirname, '.tmp_slides');
 
 (async () => {
