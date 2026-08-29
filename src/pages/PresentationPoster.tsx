@@ -56,8 +56,8 @@ export default function PresentationPoster() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10" />
                 <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-70" />
                 <div className="absolute bottom-0 right-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-70" />
-                <span className="relative z-10 text-white/90 text-[13px] font-black tracking-[0.3em] uppercase flex items-center gap-3">
-                  FIRST COHORT STARTS <span className="text-yellow-400 drop-shadow-[0_0_12px_rgba(250,204,21,0.4)]">30TH AUG 2026</span>
+                <span className="relative z-10 text-white/90 text-[13px] font-black tracking-[0.3em] uppercase flex items-center gap-4">
+                  FIRST COHORT STARTS <span className="px-5 py-2 bg-white/10 border border-white/20 rounded-xl text-white drop-shadow-md">30TH AUG 2026</span>
                 </span>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function PresentationPoster() {
               {ref === 'chinni' ? 'FREE AI EDUCATION' : '₹50 LAKHS'}
             </span>
             <span className={`text-[13px] md:text-sm font-black tracking-[0.2em] uppercase mt-3 text-center max-w-[85%] leading-relaxed ${ref === 'chinni' ? 'text-indigo-200 drop-shadow-sm' : 'text-gray-300'}`}>
-              {ref === 'chinni' ? 'JOIN THE WEBINAR TO UNLOCK MOMENTUM EDU+' : 'WE\'RE INVESTING IN IDEAS AND PEOPLE RATHER THAN JUST STARTUPS'}
+              {ref === 'chinni' ? 'JOIN THE WEBINAR TO UNLOCK MOMENTUM EDU+' : 'FUNDING EXCEPTIONAL PEOPLE AND BOLD IDEAS, NOT JUST STARTUPS'}
             </span>
           </div>
 
