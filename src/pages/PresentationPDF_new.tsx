@@ -137,11 +137,11 @@ function Slide1() {
 
           <div className="flex flex-col items-center gap-10 relative z-10">
             <div className="w-64 h-64 bg-white rounded-[2rem] p-4 shadow-[0_0_60px_rgba(255,255,255,0.2)]">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Ffundfy.app%2F%3Fcontest%3Dcareer-accelerator-program%26ref%3Dchinni&color=000000&bgcolor=ffffff" alt="QR Code" className="w-full h-full rounded-xl" />
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Ffundfy.app%2Fc%2Fchinni&color=000000&bgcolor=ffffff" alt="QR Code" className="w-full h-full rounded-xl" />
             </div>
             <div className="flex flex-col items-center gap-3 text-center">
               <span className="text-2xl font-black tracking-[0.5em] text-white/90 uppercase leading-snug">Scan to Apply</span>
-              <span className="text-lg font-bold tracking-widest text-purple-400">fundfy.app</span>
+              <span className="text-lg font-bold tracking-widest text-purple-400">fundfy.app/c/chinni</span>
             </div>
           </div>
         </div>
@@ -245,11 +245,11 @@ function Slide2() {
 ═══════════════════════════════════════════ */
 function Slide3() {
   const steps = [
-    { n: '01', title: 'Registration\n& Access', desc: 'First, secure your spot to instantly unlock Fundfy.app\'s premium tools and career resources.', color: '#a855f7' },
-    { n: '02', title: 'Expert\nMasterclasses', desc: 'Next, build your foundation through hands-on training in AI tools and strategic communication.', color: '#3b82f6' },
-    { n: '03', title: 'Global\nCompetition', desc: 'Then, put your skills to the test on a global stage in our revolutionary AI-evaluated contest.', color: '#0ea5e9' },
-    { n: '04', title: 'Career\nRefinement', desc: 'Afterward, we help you stand out by polishing your resume and conducting intensive interview prep.', color: '#f59e0b' },
-    { n: '05', title: 'Placements\n& Funding', desc: 'Finally, step into your future with direct pathways to top-tier jobs, internships, or seed funding.', color: '#10b981' },
+    { n: '01', title: 'Registration\n& Access', points: ['Secure your spot', 'Unlock premium tools'], color: '#a855f7' },
+    { n: '02', title: 'Expert\nMasterclasses', points: ['Hands-on AI training', 'Strategic communication'], color: '#3b82f6' },
+    { n: '03', title: 'Global\nCompetition', points: ['Compete globally', 'AI-evaluated contest'], color: '#0ea5e9' },
+    { n: '04', title: 'Career\nRefinement', points: ['Resume polishing', 'Intensive interview prep'], color: '#f59e0b' },
+    { n: '05', title: 'Placements\n& Funding', points: ['Top-tier job pathways', 'Secure seed funding'], color: '#10b981' },
   ];
   return (
     <div id="slide-3" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col items-center justify-center">
@@ -281,8 +281,15 @@ function Slide3() {
                 </div>
               </div>
               <div style={{ background: 'white', border: `1px solid rgba(0,0,0,0.06)`, borderTop: `4px solid ${s.color}`, borderRadius: '1.5rem', padding: '2rem 1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
-                <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#0f172a', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1rem', whiteSpace: 'pre-line' }}>{s.title}</h3>
-                <p style={{ fontSize: '15px', fontWeight: 500, color: '#64748b', lineHeight: 1.6 }}>{s.desc}</p>
+                <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#0f172a', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.25rem', whiteSpace: 'pre-line' }}>{s.title}</h3>
+                <ul className="flex flex-col gap-2.5">
+                  {s.points.map((pt, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <span style={{ color: s.color, fontWeight: 'bold' }}>•</span>
+                      <span style={{ fontSize: '15px', fontWeight: 600, color: '#64748b', lineHeight: 1.3 }}>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             
@@ -391,7 +398,7 @@ function Slide4() {
    SLIDE 5 — JOIN NOW (Light Theme)
 ═══════════════════════════════════════════ */
 function Slide5() {
-  const qr = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent('https://fundfy.app/?contest=career-accelerator-program&ref=chinni')}&color=000000&bgcolor=ffffff`;
+  const qr = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent('https://fundfy.app/c/chinni')}&color=000000&bgcolor=ffffff`;
   return (
     <div id="slide-5" className="w-[1920px] h-[1080px] relative overflow-hidden flex items-center justify-center pt-16">
       <LightBg flip />
@@ -465,7 +472,7 @@ function Slide5() {
 
             <div className="mt-10 flex items-center gap-3 relative z-10 bg-slate-50 px-8 py-4 rounded-full border border-slate-200">
               <span className="text-[20px] font-medium text-slate-500">or visit</span>
-              <span className="text-[22px] font-bold text-slate-900 tracking-wide">fundfy.app</span>
+              <span className="text-[22px] font-bold text-slate-900 tracking-wide">fundfy.app/c/chinni</span>
             </div>
           </div>
         </div>
