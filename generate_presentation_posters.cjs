@@ -13,7 +13,12 @@ const referrers = [
   'harshasai',
   'dannyk.virtualex',
   'admin',
-  'chandra'
+  'chandra',
+  'originevents',
+  'codequesters',
+  'studentspot',
+  'haricart',
+  'nexgennexus'
 ];
 
 const contests = [
@@ -24,7 +29,7 @@ const contests = [
   'career-accelerator-program'
 ];
 
-const BASE_URL = 'http://localhost:5173/presentation-poster';
+const BASE_URL = 'http://localhost:5174/presentation-poster';
 
 async function generatePosters() {
   console.log('Launching browser for presentation posters...');
