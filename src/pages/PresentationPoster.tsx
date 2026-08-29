@@ -103,7 +103,7 @@ export default function PresentationPoster() {
               {ref === 'chinni' ? 'FREE AI EDUCATION' : '₹50 LAKHS'}
             </span>
             <span className={`text-[13px] md:text-sm font-black tracking-[0.2em] uppercase mt-3 text-center max-w-[85%] leading-relaxed ${ref === 'chinni' ? 'text-indigo-200 drop-shadow-sm' : 'text-gray-300'}`}>
-              {ref === 'chinni' ? 'JOIN THE WEBINAR TO UNLOCK MOMENTUM EDU+' : 'FUNDING EXCEPTIONAL PEOPLE AND BOLD IDEAS, NOT JUST STARTUPS'}
+              {ref === 'chinni' ? 'JOIN THE WEBINAR TO UNLOCK MOMENTUM EDU+' : 'FUNDING EXCEPTIONAL INDIVIDUALS, BOLD IDEAS, AND STARTUPS'}
             </span>
           </div>
 
