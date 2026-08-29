@@ -312,20 +312,20 @@ function Slide4() {
       <PartnerStrip />
       
       {/* LEFT COLUMN: Header & Perks */}
-      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-4">
-        <div className="mb-12">
+      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-16">
+        <div className="mb-8">
           
           <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em', textShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
             FREE AI <br /><span className="text-gradient-purple-orange">EDUCATION</span>
           </h2>
           
-          <p className="text-[22px] font-medium text-slate-600 mt-8 leading-relaxed max-w-xl">
+          <p className="text-[22px] font-medium text-slate-600 mt-6 leading-relaxed max-w-xl">
             <strong className="text-slate-900 font-black">Join the free webinar</strong> to unlock 100% free access to Momentum EDU+ and kickstart your AI journey.
           </p>
         </div>
 
         {/* Winners Package List */}
-        <div className="flex flex-col gap-6 w-full max-w-xl">
+        <div className="flex flex-col gap-4 w-full max-w-xl">
           {[
             { title: "Direct Seed Funding", sub: "To launch & scale your ideas", color: "#a855f7" },
             { title: "Assured Placements", sub: "Fast-tracked elite interviews", color: "#3b82f6" },
