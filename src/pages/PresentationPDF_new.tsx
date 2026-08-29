@@ -155,23 +155,8 @@ function Slide1() {
 function LightBg({ flip = false }: { flip?: boolean }) {
   return (
     <>
-      <div className="absolute inset-0 bg-slate-50 z-0" />
-      {/* Main purple/blue orb */}
-      <div className="absolute z-0 pointer-events-none" style={{
-        top: '50%', [flip ? 'left' : 'right']: '-10%',
-        transform: 'translateY(-50%)',
-        width: '900px', height: '900px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, rgba(59,130,246,0.08) 40%, transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
-      {/* Secondary accent orb */}
-      <div className="absolute z-0 pointer-events-none" style={{
-        top: '-10%', [flip ? 'right' : 'left']: '20%',
-        width: '600px', height: '600px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%)',
-        filter: 'blur(60px)',
-      }} />
-      <div className="absolute inset-0 z-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+      <div className="absolute inset-0 bg-[#fbfcfd] z-0" />
+      <div className="absolute inset-0 z-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
     </>
   );
 }
@@ -181,10 +166,10 @@ function LightBg({ flip = false }: { flip?: boolean }) {
 ═══════════════════════════════════════════ */
 function Slide2() {
   const perks = [
-    { n: '01', title: 'Assured Career Support', desc: 'Guaranteed guidance towards top-tier internships, full-time roles, and expert mentorship.', color: '#a855f7', glow: 'rgba(168,85,247,0.2)', bg: 'rgba(168,85,247,0.05)' },
-    { n: '02', title: 'Priority Interview Access', desc: 'Fast-track your job hunt with direct interview shortlists from our global partner network.', color: '#3b82f6', glow: 'rgba(59,130,246,0.2)', bg: 'rgba(59,130,246,0.05)' },
-    { n: '03', title: 'Enterprise AI Career Tools', desc: "Lifetime access to JobFinderAI's premium suite for resume optimization and mock interviews.", color: '#f59e0b', glow: 'rgba(245,158,11,0.2)', bg: 'rgba(245,158,11,0.05)' },
-    { n: '04', title: 'Startup Ecosystem Access', desc: 'Connect with leading VCs, secure seed grants, and launch your vision on the Fundfy platform.', color: '#10b981', glow: 'rgba(16,185,129,0.2)', bg: 'rgba(16,185,129,0.05)' },
+    { n: '01', title: 'Assured Career Support', desc: 'Guaranteed guidance towards top-tier internships, full-time roles, and expert mentorship.' },
+    { n: '02', title: 'Priority Interview Access', desc: 'Fast-track your job hunt with direct interview shortlists from our global partner network.' },
+    { n: '03', title: 'Enterprise AI Career Tools', desc: "Lifetime access to JobFinderAI's premium suite for resume optimization and mock interviews." },
+    { n: '04', title: 'Startup Ecosystem Access', desc: 'Connect with leading VCs, secure seed grants, and launch your vision on the Fundfy platform.' },
   ];
   return (
     <div id="slide-2" className="w-[1920px] h-[1080px] relative overflow-hidden flex">
@@ -197,14 +182,13 @@ function Slide2() {
         <div>
           <p className="text-[12px] font-black tracking-[0.45em] uppercase text-slate-500 mb-6 drop-shadow-sm">Our Commitment</p>
           <h2 className="text-[100px] leading-[0.9] font-black text-slate-900 tracking-tighter mb-10">
-            Empowering<br/>Builders &<br/><span className="text-gradient-purple-orange">Visionaries.</span>
+            Empowering<br/>Builders &<br/><span className="text-slate-800">Visionaries.</span>
           </h2>
         </div>
         
-        <div style={{ background: 'white', borderRadius: '1.5rem', padding: '2rem 2.5rem', maxWidth: '520px', boxShadow: '0 20px 40px rgba(0,0,0,0.05), 0 0 40px rgba(79,70,229,0.05)', border: '1px solid rgba(79,70,229,0.15)', position: 'relative' }}>
-          <div style={{ position: 'absolute', top: 0, left: '20%', right: '20%', height: '2px', background: 'linear-gradient(to right, transparent, #4f46e5, transparent)', opacity: 0.3 }} />
-          <span style={{ display: 'inline-block', background: 'rgba(79,70,229,0.1)', color: '#4f46e5', fontSize: '12px', fontWeight: 900, letterSpacing: '0.4em', textTransform: 'uppercase', borderRadius: '100px', padding: '6px 16px', marginBottom: '16px', border: '1px solid rgba(79,70,229,0.2)' }}>Universal Support</span>
-          <p style={{ fontSize: '22px', fontWeight: 600, color: '#475569', lineHeight: 1.6 }}>A supportive ecosystem designed to elevate <span style={{ color: '#4f46e5', fontWeight: 800 }}>every single applicant.</span></p>
+        <div style={{ background: 'white', borderRadius: '1.5rem', padding: '2rem 2.5rem', maxWidth: '520px', boxShadow: '0 20px 40px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.06)' }}>
+          <span style={{ display: 'inline-block', background: '#f1f5f9', color: '#334155', fontSize: '12px', fontWeight: 900, letterSpacing: '0.4em', textTransform: 'uppercase', borderRadius: '100px', padding: '6px 16px', marginBottom: '16px', border: '1px solid #e2e8f0' }}>Universal Support</span>
+          <p style={{ fontSize: '22px', fontWeight: 600, color: '#475569', lineHeight: 1.6 }}>A supportive ecosystem designed to elevate <span style={{ color: '#0f172a', fontWeight: 800 }}>every single applicant.</span></p>
         </div>
       </div>
       
@@ -216,18 +200,17 @@ function Slide2() {
               padding: '3rem 2.5rem', 
               background: 'white', 
               borderRadius: '2rem', 
-              boxShadow: `0 20px 40px rgba(0,0,0,0.04), 0 0 40px ${p.glow}`, 
-              border: `1px solid rgba(0,0,0,0.05)`,
-              borderTop: `4px solid ${p.color}`,
+              boxShadow: `0 20px 40px rgba(0,0,0,0.03)`, 
+              border: `1px solid rgba(0,0,0,0.04)`,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'flex-start'
             }}>
               <div style={{ 
                 width: '72px', height: '72px', borderRadius: '1rem', 
-                background: p.bg, border: `1px solid ${p.color}30`, 
+                background: '#f8fafc', border: `1px solid #f1f5f9`, 
                 display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                fontSize: '26px', fontWeight: 900, color: p.color, 
+                fontSize: '26px', fontWeight: 900, color: '#334155', 
                 marginBottom: '1.5rem'
               }}>{p.n}</div>
               <div style={{ fontSize: '28px', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.015em', lineHeight: 1.2, marginBottom: '1rem' }}>{p.title}</div>
@@ -245,11 +228,11 @@ function Slide2() {
 ═══════════════════════════════════════════ */
 function Slide3() {
   const steps = [
-    { n: '01', title: 'Registration\n& Access', points: ['Secure your spot', 'Unlock premium tools'], color: '#a855f7' },
-    { n: '02', title: 'Expert\nMasterclasses', points: ['Hands-on AI training', 'Strategic communication'], color: '#3b82f6' },
-    { n: '03', title: 'Global\nCompetition', points: ['Compete globally', 'AI-evaluated contest'], color: '#0ea5e9' },
-    { n: '04', title: 'Career\nRefinement', points: ['Resume polishing', 'Intensive interview prep'], color: '#f59e0b' },
-    { n: '05', title: 'Placements\n& Funding', points: ['Top-tier job pathways', 'Secure seed funding'], color: '#10b981' },
+    { n: '01', title: 'Registration\n& Access', points: ['Secure your spot', 'Unlock premium tools'] },
+    { n: '02', title: 'Expert\nMasterclasses', points: ['Hands-on AI training', 'Strategic communication'] },
+    { n: '03', title: 'Global\nCompetition', points: ['Compete globally', 'AI-evaluated contest'] },
+    { n: '04', title: 'Career\nRefinement', points: ['Resume polishing', 'Intensive interview prep'] },
+    { n: '05', title: 'Placements\n& Funding', points: ['Top-tier job pathways', 'Secure seed funding'] },
   ];
   return (
     <div id="slide-3" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col items-center justify-center">
@@ -261,7 +244,7 @@ function Slide3() {
       <div className="relative z-10 flex flex-col items-center text-center w-full px-20 mb-20 mt-[-20px]">
         <p className="text-[14px] font-black tracking-[0.45em] uppercase text-slate-500 mb-4 drop-shadow-sm">Journey To Success</p>
         <h2 style={{ fontSize: '90px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.03em' }}>
-          How The Program <span className="text-gradient-purple-orange">Works.</span>
+          How The Program <span className="text-slate-800">Works.</span>
         </h2>
       </div>
 
@@ -269,23 +252,22 @@ function Slide3() {
       <div className="relative z-10 flex items-start justify-center w-full px-24 gap-6">
         
         {/* Glow Track Background */}
-        <div className="absolute top-[36px] left-[150px] right-[150px] h-[4px] bg-gradient-to-r from-purple-400 via-blue-400 to-emerald-400 opacity-40 z-0 rounded-full" />
+        <div className="absolute top-[36px] left-[150px] right-[150px] h-[2px] bg-slate-200 z-0" />
         
         {steps.map((s, i, arr) => (
           <React.Fragment key={s.n}>
             <div className="flex flex-col relative z-10 flex-1 group">
               <div className="flex items-center gap-4 mb-8">
-                <div style={{ width: '76px', height: '76px', borderRadius: '50%', background: 'white', border: `4px solid ${s.color}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 900, color: s.color, boxShadow: `0 0 30px ${s.color}40`, position: 'relative' }}>
-                  <div style={{ position: 'absolute', inset: -8, borderRadius: '50%', border: `1px solid ${s.color}40`, animation: 'spin 10s linear infinite' }} />
+                <div style={{ width: '76px', height: '76px', borderRadius: '50%', background: 'white', border: `2px solid #e2e8f0`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 900, color: '#334155', position: 'relative' }}>
                   {s.n}
                 </div>
               </div>
-              <div style={{ background: 'white', border: `1px solid rgba(0,0,0,0.06)`, borderTop: `4px solid ${s.color}`, borderRadius: '1.5rem', padding: '2rem 1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.04)' }}>
+              <div style={{ background: 'white', border: `1px solid rgba(0,0,0,0.06)`, borderRadius: '1.5rem', padding: '2rem 1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.03)' }}>
                 <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#0f172a', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.25rem', whiteSpace: 'pre-line' }}>{s.title}</h3>
                 <ul className="flex flex-col gap-2.5">
                   {s.points.map((pt, j) => (
                     <li key={j} className="flex items-start gap-2">
-                      <span style={{ color: s.color, fontWeight: 'bold' }}>•</span>
+                      <span style={{ color: '#94a3b8', fontWeight: 'bold' }}>•</span>
                       <span style={{ fontSize: '15px', fontWeight: 600, color: '#64748b', lineHeight: 1.3 }}>{pt}</span>
                     </li>
                   ))}
@@ -322,8 +304,8 @@ function Slide4() {
       <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-16">
         <div className="mb-8">
           
-          <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em', textShadow: '0 10px 40px rgba(0,0,0,0.05)' }}>
-            FREE AI <br /><span className="text-gradient-purple-orange">EDUCATION</span>
+          <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em' }}>
+            FREE AI <br /><span className="text-slate-800">EDUCATION</span>
           </h2>
           
           <p className="text-[22px] font-medium text-slate-600 mt-6 leading-relaxed max-w-xl">
@@ -334,14 +316,14 @@ function Slide4() {
         {/* Winners Package List */}
         <div className="flex flex-col gap-4 w-full max-w-xl">
           {[
-            { title: "Direct Seed Funding", sub: "To launch & scale your ideas", color: "#a855f7" },
-            { title: "Assured Placements", sub: "Fast-tracked elite interviews", color: "#3b82f6" },
-            { title: "Exclusive Mentorship", sub: "From global tech leaders", color: "#f59e0b" },
-            { title: "Lifetime Premium", sub: "JobFinderAI & Fundfy.app", color: "#10b981" }
+            { title: "Direct Seed Funding", sub: "To launch & scale your ideas" },
+            { title: "Assured Placements", sub: "Fast-tracked elite interviews" },
+            { title: "Exclusive Mentorship", sub: "From global tech leaders" },
+            { title: "Lifetime Premium", sub: "JobFinderAI & Fundfy.app" }
           ].map((perk, i) => (
             <div key={i} className="flex items-center gap-6 bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
-              <div className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0" style={{ background: `${perk.color}15`, border: `1px solid ${perk.color}30` }}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={perk.color} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0 bg-slate-50 border border-slate-200">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
@@ -357,14 +339,11 @@ function Slide4() {
       {/* RIGHT COLUMN: 50 Lakhs Pool */}
       <div className="relative z-10 w-[55%] h-full flex flex-col justify-center pr-32 pl-4 mt-8">
         
-        <div className="w-full bg-white rounded-[2.5rem] p-12 border border-purple-100 relative overflow-hidden flex flex-col" style={{ boxShadow: '0 30px 60px rgba(168,85,247,0.08)' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-          
+        <div className="w-full bg-white rounded-[2.5rem] p-12 border border-slate-200 relative overflow-hidden flex flex-col shadow-[0_30px_60px_rgba(0,0,0,0.04)]">
           <div className="relative z-10 flex flex-col">
-            <span className="inline-block bg-purple-600 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-6">GRANT POOL</span>
+            <span className="inline-block bg-slate-800 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-6">GRANT POOL</span>
             <div className="flex flex-col mb-4">
-              <span className="text-[110px] font-black text-slate-900 leading-none tracking-tighter">₹50 <span className="text-gradient-purple-orange text-[85px]">Lakhs</span></span>
+              <span className="text-[110px] font-black text-slate-900 leading-none tracking-tighter">₹50 <span className="text-slate-800 text-[85px]">Lakhs</span></span>
             </div>
             <p className="text-[22px] font-medium text-slate-500 leading-relaxed max-w-md mb-8">
               Total funding pool reserved for the <strong className="text-slate-900 font-black">builders and visionaries</strong> who truly deserve it.
@@ -377,8 +356,8 @@ function Slide4() {
                 "Global Investor Network Access"
               ].map((pointer, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
@@ -410,16 +389,16 @@ function Slide5() {
         
         {/* Left Side Content */}
         <div className="flex flex-col flex-1 pr-10">
-          <p className="text-[14px] font-black tracking-[0.45em] uppercase text-emerald-600 mb-6 drop-shadow-sm">Next Steps</p>
+          <p className="text-[14px] font-black tracking-[0.45em] uppercase text-slate-500 mb-6 drop-shadow-sm">Next Steps</p>
           <h2 style={{ fontSize: '120px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
-            Your Career.<br /><span className="text-gradient-purple-orange">Accelerated.</span>
+            Your Career.<br /><span className="text-slate-800">Accelerated.</span>
           </h2>
           
           <p className="text-[22px] font-medium text-slate-600 max-w-2xl leading-relaxed mb-12">
             This is more than a competition. It is a <strong className="text-slate-900 font-bold">global launchpad</strong> for your future. Secure your spot, access premium tools instantly, and start building.
           </p>
           
-          <div className="flex items-center justify-between bg-white border border-slate-200 rounded-[2rem] p-10 w-full max-w-4xl shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
+          <div className="flex items-center justify-between bg-white border border-slate-200 rounded-[2rem] p-10 w-full max-w-4xl shadow-[0_20px_50px_rgba(0,0,0,0.03)]">
             {[{ label: 'Fee', val: '₹100', sub: 'Only', highlight: true }, 
               { label: 'Start', val: '1st Sep', sub: '2026', highlight: false }, 
               { label: 'Format', val: 'Global', sub: 'Online', highlight: false }, 
@@ -428,7 +407,7 @@ function Slide5() {
               <React.Fragment key={s.label}>
                 <div className="flex flex-col">
                   <div className="text-[12px] font-bold tracking-[0.35em] uppercase text-slate-400 mb-3">{s.label}</div>
-                  <div style={{ fontSize: '42px', fontWeight: 900, color: s.highlight ? '#10b981' : '#0f172a', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.val}</div>
+                  <div style={{ fontSize: '42px', fontWeight: 900, color: '#0f172a', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.val}</div>
                   <div className="text-[18px] font-medium text-slate-500 mt-2">{s.sub}</div>
                 </div>
                 {i < arr.length - 1 && <div className="w-[1px] h-20 bg-slate-200 mx-2" />}
@@ -448,12 +427,11 @@ function Slide5() {
             display: 'flex', 
             flexDirection: 'column', 
             alignItems: 'center', 
-            boxShadow: '0 30px 60px rgba(0,0,0,0.08), 0 0 80px rgba(168,85,247,0.1)', 
+            boxShadow: '0 30px 60px rgba(0,0,0,0.04)', 
             overflow: 'hidden' 
           }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: 'linear-gradient(to right, #a855f7, #3b82f6)' }} />
             
-            <span className="text-[15px] font-black tracking-[0.4em] text-purple-600 uppercase mb-3 relative z-10">Scan To Apply</span>
+            <span className="text-[15px] font-black tracking-[0.4em] text-slate-500 uppercase mb-3 relative z-10">Scan To Apply</span>
             <span className="text-[44px] font-black text-slate-900 tracking-tight mb-10 relative z-10 leading-none">JOIN TODAY</span>
             
             <div style={{ 
@@ -462,7 +440,7 @@ function Slide5() {
               background: 'white', 
               borderRadius: '2rem', 
               padding: '16px', 
-              boxShadow: '0 10px 30px rgba(0,0,0,0.06)',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
               border: '1px solid #e2e8f0',
               position: 'relative',
               zIndex: 10
