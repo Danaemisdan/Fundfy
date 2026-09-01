@@ -3,7 +3,7 @@ import { useParams, Navigate, useSearchParams } from 'react-router-dom';
 
 // Referrer data — add all referrers here
 const REFERRERS: Record<string, { name: string; designation: string; employeeId: string }> = {
-  chinni:            { name: 'Chinni Ganapathi',    designation: 'Chief Marketing Officer', employeeId: 'GTH-2026-001' },
+  chinni:            { name: 'Chinni Ganapathi',    designation: 'Chief Technology Officer', employeeId: 'GTH-2026-001' },
   hgnma50:           { name: 'Ambassador',           designation: 'Brand Ambassador',       employeeId: 'GTH-2026-002' },
   uiapm3492:         { name: 'Ambassador',           designation: 'Brand Ambassador',       employeeId: 'GTH-2026-003' },
   shruti1:           { name: 'Shruti',               designation: 'Campus Ambassador',      employeeId: 'GTH-2026-004' },
@@ -87,32 +87,29 @@ export default function IDCard() {
               </div>
 
               {/* Bottom: sponsors */}
-              <div className="flex flex-col gap-3 mt-auto bg-white px-5 py-4 rounded-[1.5rem] shadow-xl w-[calc(100%+1.5rem)] -ml-6">
+              <div className="flex flex-col gap-3 mt-auto bg-white px-6 py-4 rounded-[1.5rem] shadow-xl w-max -ml-6">
                 <p className="text-[8px] font-bold tracking-[0.3em] text-black/40 uppercase flex items-center gap-2">
                   <span className="w-4 h-[1px] bg-black/20" /> Powered By
                 </p>
                 
                 {/* Tech Sponsors */}
-                <div className="flex items-center gap-6 mb-1">
+                <div className="flex items-center gap-7 mb-1">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" 
-                    alt="AWS" className="h-5 w-auto object-contain" />
+                    alt="AWS" className="h-6 w-auto object-contain" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" 
-                    alt="Google Cloud" className="h-4 w-auto object-contain" />
+                    alt="Google Cloud" className="h-5 w-auto object-contain" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" 
-                    alt="IBM" className="h-5 w-auto object-contain" />
+                    alt="IBM" className="h-6 w-auto object-contain" />
                 </div>
                 
                 {/* Startup/Partner Sponsors */}
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-                  <img src="/Partners/JobFinderAI.png" alt="JobFinder" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-3 w-auto object-contain" />
-                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-3 w-auto object-contain" />
-                  <img src="/Partners/Zoza_v2.png" alt="Zoza AI" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/XOXO_v2.png" alt="XOXO" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/Young_v2.png" alt="Young Coders" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/Aurora%20OS.png" alt="Aurora OS" className="h-4 w-auto object-contain" />
-                  <img src="/Partners/Neon%20Monkey%20Fest.png" alt="Neon Monkey Fest" className="h-4 w-auto object-contain" />
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <img src="/Partners/JobFinderAI.png" alt="JobFinder" className="h-5 w-auto object-contain" />
+                  <img src="/Partners/DiceArtFilms_v2.png" alt="Dice Art Films" className="h-5 w-auto object-contain" />
+                  <img src="/Partners/MoreYeahs.png" alt="MoreYeahs" className="h-4 w-auto object-contain" />
+                  <img src="/Partners/TingoAI.png" alt="Tingo" className="h-4 w-auto object-contain" />
+                  <img src="/Partners/XOXO_v2.png" alt="XOXO" className="h-5 w-auto object-contain" />
+                  <img src="/Partners/Young_v2.png" alt="Young Coders" className="h-5 w-auto object-contain" />
                 </div>
               </div>
             </div>

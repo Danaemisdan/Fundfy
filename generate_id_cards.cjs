@@ -16,8 +16,8 @@ async function generateIDCards() {
     sessionStorage.setItem('hasSeenSplash', 'true');
   });
 
-  // ID card canvas = 1012×638px — set scale 2 for high-res
-  await page.setViewport({ width: 1012, height: 638, deviceScaleFactor: 2 });
+  // ID card canvas = 1012×638px — set scale 4 for high-res 4K
+  await page.setViewport({ width: 1012, height: 638, deviceScaleFactor: 4 });
 
   if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 

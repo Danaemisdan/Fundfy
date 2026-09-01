@@ -1,5 +1,6 @@
 import React from 'react';
 import Globe from '../components/ui/globe';
+import { GraduationCap, Trophy, Rocket, Briefcase, Target, Users, Sparkles } from 'lucide-react';
 
 /* 🏁 shared partner logo strip 🏁 */
 function PartnerStrip() {
@@ -67,15 +68,17 @@ function DarkBg({ flip = false }: { flip?: boolean }) {
 function GlassCard({ children, className = '', style = {} }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
     <div className={`relative overflow-hidden ${className}`} style={{
-      background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
-      backdropFilter: 'blur(24px)',
-      WebkitBackdropFilter: 'blur(24px)',
-      border: '1px solid rgba(255,255,255,0.12)',
+      background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
+      backdropFilter: 'blur(32px)',
+      WebkitBackdropFilter: 'blur(32px)',
+      border: '1px solid rgba(255,255,255,0.08)',
       borderRadius: '1.5rem',
-      boxShadow: '0 0 60px rgba(255,255,255,0.04)',
+      boxShadow: '0 20px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2)',
       ...style,
     }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent)' }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent)' }} />
+      {/* Subtle colorful inner glow for that "sexy" tech feel without being messy */}
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(800px circle at 50% 0%, rgba(124,58,237,0.05), transparent)', pointerEvents: 'none' }} />
       {children}
     </div>
   );
@@ -141,7 +144,7 @@ function Slide1() {
             </div>
             <div className="flex flex-col items-center gap-3 text-center">
               <span className="text-2xl font-black tracking-[0.5em] text-white/90 uppercase leading-snug">Scan to Apply</span>
-              <span className="text-lg font-bold tracking-widest text-purple-400">fundfy.app/c/chinni</span>
+              <span className="text-lg font-bold tracking-widest text-purple-400">fundfy.app/chinni</span>
             </div>
           </div>
         </div>
@@ -165,59 +168,74 @@ function LightBg({ flip = false }: { flip?: boolean }) {
    SLIDE 2 — EVERYONE GETS FUNDED (Light Theme)
 ═══════════════════════════════════════════ */
 function Slide2() {
-  const perks = [
-    { n: '01', title: 'Assured Career Support', desc: 'Guaranteed guidance towards top-tier internships, full-time roles, and expert mentorship.' },
-    { n: '02', title: 'Priority Interview Access', desc: 'Fast-track your job hunt with direct interview shortlists from our global partner network.' },
-    { n: '03', title: 'Enterprise AI Career Tools', desc: "Lifetime access to JobFinderAI's premium suite for resume optimization and mock interviews." },
-    { n: '04', title: 'Startup Ecosystem Access', desc: 'Connect with leading VCs, secure seed grants, and launch your vision on the Fundfy platform.' },
-  ];
   return (
-    <div id="slide-2" className="w-[1920px] h-[1080px] relative overflow-hidden flex">
-      <LightBg />
+    <div id="slide-2" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col justify-center bg-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(124,58,237,0.05)_0%,transparent_70%)] pointer-events-none" />
       <TopLogos />
       <PartnerStrip />
       
-      {/* Left */}
-      <div className="relative z-10 flex flex-col justify-center w-[45%] h-full pl-32 pr-8 pb-32 pt-16">
-        <div>
-          <p className="text-[12px] font-black tracking-[0.45em] uppercase text-slate-500 mb-6 drop-shadow-sm">Our Commitment</p>
-          <h2 className="text-[100px] leading-[0.9] font-black text-slate-900 tracking-tighter mb-10">
-            Empowering<br/>Builders &<br/><span className="text-slate-800">Visionaries.</span>
-          </h2>
-        </div>
-        
-        <div style={{ background: 'white', borderRadius: '1.5rem', padding: '2rem 2.5rem', maxWidth: '520px', boxShadow: '0 20px 40px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.06)' }}>
-          <span style={{ display: 'inline-block', background: '#f1f5f9', color: '#334155', fontSize: '12px', fontWeight: 900, letterSpacing: '0.4em', textTransform: 'uppercase', borderRadius: '100px', padding: '6px 16px', marginBottom: '16px', border: '1px solid #e2e8f0' }}>Universal Support</span>
-          <p style={{ fontSize: '22px', fontWeight: 600, color: '#475569', lineHeight: 1.6 }}>A supportive ecosystem designed to elevate <span style={{ color: '#0f172a', fontWeight: 800 }}>every single applicant.</span></p>
-        </div>
+      {/* Header */}
+      <div className="relative z-10 w-full px-32 mt-10 mb-12 flex flex-col items-center text-center">
+        <p className="text-[14px] font-black tracking-[0.45em] uppercase text-purple-600 mb-4 drop-shadow-sm">Program Overview</p>
+        <h2 className="text-[90px] leading-[0.9] font-black text-slate-900 tracking-tighter mb-4">
+          What is the <span className="text-gradient-purple-orange">Global Talent Hunt?</span>
+        </h2>
+        <p className="text-[22px] font-medium text-slate-600 max-w-3xl leading-relaxed">
+          The ultimate career accelerator program designed to bridge the gap between world-class education and top-tier industry placements.
+        </p>
       </div>
       
-      {/* Right - 2x2 Grid */}
-      <div className="relative z-10 flex flex-col justify-center w-[55%] h-full pr-32 pl-12 pb-24">
-        <div className="grid grid-cols-2 gap-8 w-full mt-10">
-          {perks.map((p) => (
-            <div key={p.n} className="flex flex-col relative z-10" style={{ 
-              padding: '3rem 2.5rem', 
-              background: 'white', 
-              borderRadius: '2rem', 
-              boxShadow: `0 20px 40px rgba(0,0,0,0.03)`, 
-              border: `1px solid rgba(0,0,0,0.04)`,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-start'
-            }}>
-              <div style={{ 
-                width: '72px', height: '72px', borderRadius: '1rem', 
-                background: '#f8fafc', border: `1px solid #f1f5f9`, 
-                display: 'flex', alignItems: 'center', justifyContent: 'center', 
-                fontSize: '26px', fontWeight: 900, color: '#334155', 
-                marginBottom: '1.5rem'
-              }}>{p.n}</div>
-              <div style={{ fontSize: '28px', fontWeight: 900, color: '#0f172a', letterSpacing: '-0.015em', lineHeight: 1.2, marginBottom: '1rem' }}>{p.title}</div>
-              <div style={{ fontSize: '17px', fontWeight: 500, color: '#64748b', lineHeight: 1.6 }}>{p.desc}</div>
+      {/* 3-Column Bento Grid - Light Theme with Polish */}
+      <div className="relative z-10 px-32 flex gap-8 h-[480px]">
+        
+        {/* Pillar 1 */}
+        <div className="flex-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_30px_60px_rgba(168,85,247,0.08)] transition-transform duration-300 hover:-translate-y-2">
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-purple-100 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-10 flex flex-col relative z-10 shadow-[inset_0_0_30px_rgba(255,255,255,1),inset_0_2px_10px_rgba(255,255,255,0.8)] overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-purple-400/20 blur-[50px] rounded-full pointer-events-none" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-purple-50 border border-purple-200 flex items-center justify-center mb-8 shadow-[0_10px_20px_rgba(168,85,247,0.15),inset_0_2px_5px_rgba(255,255,255,1)]">
+              <GraduationCap size={32} className="text-purple-600 drop-shadow-[0_2px_4px_rgba(168,85,247,0.3)]" strokeWidth={2.5} />
             </div>
-          ))}
+            <h3 className="text-[32px] font-black text-slate-900 tracking-tight mb-4 leading-none relative z-10">01. The Education</h3>
+            <p className="text-[18px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
+              Unlock <strong className="text-slate-900">100% free lifetime access</strong> to Momentum EDU+ and enterprise AI career tools. Learn directly from global tech leaders through exclusive masterclasses.
+            </p>
+          </div>
         </div>
+
+        {/* Pillar 2 */}
+        <div className="flex-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_30px_60px_rgba(59,130,246,0.08)] transition-transform duration-300 hover:-translate-y-2">
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-100 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-10 flex flex-col relative z-10 shadow-[inset_0_0_30px_rgba(255,255,255,1),inset_0_2px_10px_rgba(255,255,255,0.8)] overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-400/20 blur-[50px] rounded-full pointer-events-none" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-blue-50 border border-blue-200 flex items-center justify-center mb-8 shadow-[0_10px_20px_rgba(59,130,246,0.15),inset_0_2px_5px_rgba(255,255,255,1)]">
+              <Trophy size={32} className="text-blue-600 drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]" strokeWidth={2.5} />
+            </div>
+            <h3 className="text-[32px] font-black text-slate-900 tracking-tight mb-4 leading-none relative z-10">02. The Competition</h3>
+            <p className="text-[18px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
+              Showcase your skills on a <strong className="text-slate-900">global stage</strong>. Participate in high-stakes, AI-evaluated challenges designed to push your boundaries and identify true visionaries.
+            </p>
+          </div>
+        </div>
+
+        {/* Pillar 3 */}
+        <div className="flex-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_30px_60px_rgba(16,185,129,0.08)] transition-transform duration-300 hover:-translate-y-2">
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-100 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-10 flex flex-col relative z-10 shadow-[inset_0_0_30px_rgba(255,255,255,1),inset_0_2px_10px_rgba(255,255,255,0.8)] overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-emerald-400/20 blur-[50px] rounded-full pointer-events-none" />
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-emerald-50 border border-emerald-200 flex items-center justify-center mb-8 shadow-[0_10px_20px_rgba(16,185,129,0.15),inset_0_2px_5px_rgba(255,255,255,1)]">
+              <Rocket size={32} className="text-emerald-600 drop-shadow-[0_2px_4px_rgba(16,185,129,0.3)]" strokeWidth={2.5} />
+            </div>
+            <h3 className="text-[32px] font-black text-slate-900 tracking-tight mb-4 leading-none relative z-10">03. The Outcome</h3>
+            <p className="text-[18px] text-slate-600 font-medium leading-relaxed mb-6 relative z-10">
+              Fast-track your career with <strong className="text-slate-900">assured placements</strong> and priority interview shortlists. Top performers gain access to zero-equity seed funding and VC networks.
+            </p>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
@@ -235,49 +253,52 @@ function Slide3() {
     { n: '05', title: 'Placements\n& Funding', points: ['Top-tier job pathways', 'Secure seed funding'] },
   ];
   return (
-    <div id="slide-3" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col items-center justify-center">
-      <LightBg />
+    <div id="slide-3" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col items-center justify-center bg-black">
+      <DarkBg />
       <TopLogos />
       <PartnerStrip />
       
       {/* Header */}
       <div className="relative z-10 flex flex-col items-center text-center w-full px-20 mb-20 mt-[-20px]">
-        <p className="text-[14px] font-black tracking-[0.45em] uppercase text-slate-500 mb-4 drop-shadow-sm">Journey To Success</p>
-        <h2 style={{ fontSize: '90px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.03em' }}>
-          How The Program <span className="text-slate-800">Works.</span>
+        <p className="text-[14px] font-black tracking-[0.45em] uppercase text-purple-400 mb-4 drop-shadow-sm">Journey To Success</p>
+        <h2 style={{ fontSize: '90px', fontWeight: 900, color: '#fff', lineHeight: 0.9, letterSpacing: '-0.03em', textShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
+          How The Program <span className="text-gradient-purple-orange">Works.</span>
         </h2>
       </div>
 
       {/* Steps Track */}
       <div className="relative z-10 flex items-start justify-center w-full px-24 gap-6">
         
-        {/* Glow Track Background */}
-        <div className="absolute top-[36px] left-[150px] right-[150px] h-[2px] bg-slate-200 z-0" />
+        {/* Glowing Dashed Track Line */}
+        <div className="absolute top-[36px] left-[150px] right-[150px] h-0 border-t-[3px] border-dashed border-purple-500/50 z-0 shadow-[0_0_15px_rgba(168,85,247,0.8)]" />
         
         {steps.map((s, i, arr) => (
           <React.Fragment key={s.n}>
-            <div className="flex flex-col relative z-10 flex-1 group">
-              <div className="flex items-center gap-4 mb-8">
-                <div style={{ width: '76px', height: '76px', borderRadius: '50%', background: 'white', border: `2px solid #e2e8f0`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 900, color: '#334155', position: 'relative' }}>
+            <div className={`flex flex-col relative z-10 flex-1 group ${i % 2 !== 0 ? 'mt-24' : ''}`}>
+              <div className="flex items-center gap-4 mb-8 relative">
+                {i % 2 !== 0 && (
+                  <div className="absolute left-[38px] bottom-full w-[2px] h-[70px] bg-gradient-to-b from-purple-500/50 to-transparent z-[-1]" />
+                )}
+                <div style={{ width: '76px', height: '76px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(30,15,50,1), rgba(15,20,40,1))', backdropFilter: 'blur(10px)', border: `2px solid rgba(168,85,247,0.8)`, boxShadow: '0 0 40px rgba(168,85,247,0.4), inset 0 0 20px rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 900, color: '#fff', position: 'relative' }}>
                   {s.n}
                 </div>
               </div>
-              <div style={{ background: 'white', border: `1px solid rgba(0,0,0,0.06)`, borderRadius: '1.5rem', padding: '2rem 1.5rem', boxShadow: '0 20px 40px rgba(0,0,0,0.03)' }}>
-                <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#0f172a', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.25rem', whiteSpace: 'pre-line' }}>{s.title}</h3>
+              <GlassCard style={{ padding: '2rem 1.5rem', background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)', borderTop: '1px solid rgba(168,85,247,0.3)' }}>
+                <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#fff', lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '1.25rem', whiteSpace: 'pre-line' }}>{s.title}</h3>
                 <ul className="flex flex-col gap-2.5">
                   {s.points.map((pt, j) => (
                     <li key={j} className="flex items-start gap-2">
-                      <span style={{ color: '#94a3b8', fontWeight: 'bold' }}>•</span>
-                      <span style={{ fontSize: '15px', fontWeight: 600, color: '#64748b', lineHeight: 1.3 }}>{pt}</span>
+                      <span style={{ color: '#a855f7', fontWeight: 'bold' }}>•</span>
+                      <span style={{ fontSize: '15px', fontWeight: 600, color: 'rgba(255,255,255,0.7)', lineHeight: 1.3 }}>{pt}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </GlassCard>
             </div>
             
             {i < arr.length - 1 && (
-              <div className="flex items-center justify-center pt-8 z-10">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <div className="flex items-center justify-center pt-8 z-10 w-0 opacity-0">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -295,75 +316,99 @@ function Slide3() {
 ═══════════════════════════════════════════ */
 function Slide4() {
   return (
-    <div id="slide-4" className="w-[1920px] h-[1080px] relative overflow-hidden flex pt-12 pb-24">
-      <LightBg />
+    <div id="slide-4" className="w-[1920px] h-[1080px] relative overflow-hidden flex flex-col justify-center bg-slate-50">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(59,130,246,0.05)_0%,transparent_60%)] pointer-events-none" />
       <TopLogos />
       <PartnerStrip />
       
-      {/* LEFT COLUMN: Header & Perks */}
-      <div className="relative z-10 w-[45%] h-full flex flex-col justify-center pl-32 pr-12 mt-16">
-        <div className="mb-8">
-          
-          <h2 style={{ fontSize: '110px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.04em' }}>
-            FREE AI <br /><span className="text-slate-800">EDUCATION</span>
-          </h2>
-          
-          <p className="text-[22px] font-medium text-slate-600 mt-6 leading-relaxed max-w-xl">
-            <strong className="text-slate-900 font-black">Join the free webinar</strong> to unlock 100% free access to Momentum EDU+ and kickstart your AI journey.
-          </p>
-        </div>
-
-        {/* Winners Package List */}
-        <div className="flex flex-col gap-4 w-full max-w-xl">
-          {[
-            { title: "Direct Seed Funding", sub: "To launch & scale your ideas" },
-            { title: "Assured Placements", sub: "Fast-tracked elite interviews" },
-            { title: "Exclusive Mentorship", sub: "From global tech leaders" },
-            { title: "Lifetime Premium", sub: "JobFinderAI & Fundfy.app" }
-          ].map((perk, i) => (
-            <div key={i} className="flex items-center gap-6 bg-white p-5 rounded-2xl border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
-              <div className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0 bg-slate-50 border border-slate-200">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-slate-900 font-black text-[22px] tracking-tight leading-none mb-2">{perk.title}</span>
-                <span className="text-slate-500 text-[16px] font-medium leading-none">{perk.sub}</span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="relative z-10 w-full px-32 mt-12 mb-10 text-center">
+        <p className="text-[14px] font-black tracking-[0.45em] uppercase text-purple-600 mb-4 drop-shadow-sm">Grants & Rewards</p>
+        <h2 className="text-[90px] leading-[0.9] font-black text-slate-900 tracking-tighter mb-2">
+          Your Vision. <span className="text-gradient-purple-orange">Fully Funded.</span>
+        </h2>
       </div>
 
-      {/* RIGHT COLUMN: 50 Lakhs Pool */}
-      <div className="relative z-10 w-[55%] h-full flex flex-col justify-center pr-32 pl-4 mt-8">
+      {/* Modern 21st.dev Bento Grid - Light Theme Polish */}
+      <div className="relative z-10 px-32 w-full grid grid-cols-3 grid-rows-2 gap-6 h-[550px] mb-12">
         
-        <div className="w-full bg-white rounded-[2.5rem] p-12 border border-slate-200 relative overflow-hidden flex flex-col shadow-[0_30px_60px_rgba(0,0,0,0.04)]">
-          <div className="relative z-10 flex flex-col">
-            <span className="inline-block bg-slate-800 text-white text-[14px] font-black tracking-[0.3em] uppercase px-5 py-2 rounded-full w-max mb-6">GRANT POOL</span>
-            <div className="flex flex-col mb-4">
-              <span className="text-[110px] font-black text-slate-900 leading-none tracking-tighter">₹50 <span className="text-slate-800 text-[85px]">Lakhs</span></span>
-            </div>
-            <p className="text-[22px] font-medium text-slate-500 leading-relaxed max-w-md mb-8">
-              Total funding pool reserved for the <strong className="text-slate-900 font-black">builders and visionaries</strong> who truly deserve it.
-            </p>
+        {/* HUGE Top Card - 50 Lakhs Grant Pool spans 2 columns */}
+        <div className="col-span-2 row-span-1 relative rounded-[2.5rem] p-[1px] overflow-hidden group shadow-[0_30px_80px_rgba(168,85,247,0.15)] transition-transform duration-300 hover:-translate-y-1">
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 via-orange-300 to-purple-400 opacity-80" />
+          <div className="w-full h-full bg-white/80 backdrop-blur-2xl rounded-[2.4rem] p-12 flex flex-col justify-center relative z-10 overflow-hidden shadow-[inset_0_0_40px_rgba(255,255,255,1)]">
+            {/* Mesh/Grid background effect inside card - Light */}
+            <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:40px_40px]" />
+            <div className="absolute -right-20 -top-20 w-[400px] h-[400px] bg-purple-400/20 blur-[100px] rounded-full pointer-events-none" />
             
-            <div className="flex flex-col gap-4">
-              {[
-                "Zero Equity Seed Funding",
-                "Guaranteed Grants for Finalists",
-                "Global Investor Network Access"
-              ].map((pointer, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#334155" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                  <span className="text-[18px] font-bold text-slate-700">{pointer}</span>
-                </div>
-              ))}
+            <div className="relative z-10">
+              <span className="inline-block bg-white text-purple-700 text-[12px] font-black tracking-[0.3em] uppercase px-4 py-1.5 rounded-full mb-6 border border-purple-200 shadow-sm">The Ultimate Grant Pool</span>
+              <div className="flex items-end gap-6 mb-2">
+                <span className="text-[120px] font-black text-slate-900 leading-[0.8] tracking-tighter">₹50 <span className="text-[85px] bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-orange-500 drop-shadow-sm">Lakhs</span></span>
+              </div>
+              <p className="text-[20px] font-medium text-slate-600 max-w-lg mt-4 leading-relaxed">
+                Total equity-free funding pool reserved strictly for top builders and visionary founders.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Card - Seed Funding */}
+        <div className="col-span-1 row-span-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_20px_50px_rgba(168,85,247,0.08)] transition-transform duration-300 hover:-translate-y-1">
+          {/* Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-300 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-8 flex flex-col justify-between relative z-10 shadow-[inset_0_0_20px_rgba(255,255,255,1)]">
+            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-purple-400/10 blur-[40px] rounded-full pointer-events-none" />
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white to-purple-50 border border-purple-200 flex items-center justify-center shadow-[0_10px_20px_rgba(168,85,247,0.1),inset_0_2px_5px_rgba(255,255,255,1)] relative z-10">
+              <Briefcase size={28} className="text-purple-600 drop-shadow-[0_2px_4px_rgba(168,85,247,0.3)]" strokeWidth={2.5} />
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-[26px] font-black text-slate-900 tracking-tight mb-2 leading-none">Direct Seed Funding</h3>
+              <p className="text-[16px] text-slate-600 font-medium leading-relaxed">Secure capital to launch and scale your ambitious ideas.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Card - Assured Placements */}
+        <div className="col-span-1 row-span-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_20px_50px_rgba(59,130,246,0.08)] transition-transform duration-300 hover:-translate-y-1">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-300 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-8 flex flex-col justify-between relative z-10 shadow-[inset_0_0_20px_rgba(255,255,255,1)]">
+            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-400/10 blur-[40px] rounded-full pointer-events-none" />
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white to-blue-50 border border-blue-200 flex items-center justify-center shadow-[0_10px_20px_rgba(59,130,246,0.1),inset_0_2px_5px_rgba(255,255,255,1)] relative z-10">
+              <Target size={28} className="text-blue-600 drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]" strokeWidth={2.5} />
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-[26px] font-black text-slate-900 tracking-tight mb-2 leading-none">Assured Placements</h3>
+              <p className="text-[16px] text-slate-600 font-medium leading-relaxed">Fast-tracked elite interviews across our global partner network.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Card - Mentorship */}
+        <div className="col-span-1 row-span-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_20px_50px_rgba(236,72,153,0.08)] transition-transform duration-300 hover:-translate-y-1">
+          <div className="absolute inset-0 bg-gradient-to-b from-pink-300 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-8 flex flex-col justify-between relative z-10 shadow-[inset_0_0_20px_rgba(255,255,255,1)]">
+            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-pink-400/10 blur-[40px] rounded-full pointer-events-none" />
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white to-pink-50 border border-pink-200 flex items-center justify-center shadow-[0_10px_20px_rgba(236,72,153,0.1),inset_0_2px_5px_rgba(255,255,255,1)] relative z-10">
+              <Users size={28} className="text-pink-600 drop-shadow-[0_2px_4px_rgba(236,72,153,0.3)]" strokeWidth={2.5} />
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-[26px] font-black text-slate-900 tracking-tight mb-2 leading-none">Exclusive Mentorship</h3>
+              <p className="text-[16px] text-slate-600 font-medium leading-relaxed">Learn directly from global tech leaders and industry experts.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Card - Premium Tools */}
+        <div className="col-span-1 row-span-1 relative rounded-[2rem] p-[1px] overflow-hidden group shadow-[0_20px_50px_rgba(16,185,129,0.08)] transition-transform duration-300 hover:-translate-y-1">
+          <div className="absolute inset-0 bg-gradient-to-b from-emerald-300 to-transparent opacity-80" />
+          <div className="w-full h-full bg-white/70 backdrop-blur-2xl rounded-[2rem] p-8 flex flex-col justify-between relative z-10 shadow-[inset_0_0_20px_rgba(255,255,255,1)]">
+            <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-emerald-400/10 blur-[40px] rounded-full pointer-events-none" />
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white to-emerald-50 border border-emerald-200 flex items-center justify-center shadow-[0_10px_20px_rgba(16,185,129,0.1),inset_0_2px_5px_rgba(255,255,255,1)] relative z-10">
+              <Sparkles size={28} className="text-emerald-600 drop-shadow-[0_2px_4px_rgba(16,185,129,0.3)]" strokeWidth={2.5} />
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-[26px] font-black text-slate-900 tracking-tight mb-2 leading-none">Lifetime Premium</h3>
+              <p className="text-[16px] text-slate-600 font-medium leading-relaxed">100% free access to JobFinderAI and Fundfy.app tools forever.</p>
             </div>
           </div>
         </div>
@@ -379,8 +424,8 @@ function Slide4() {
 function Slide5() {
   const qr = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent('https://fundfy.app/c/chinni')}&color=000000&bgcolor=ffffff`;
   return (
-    <div id="slide-5" className="w-[1920px] h-[1080px] relative overflow-hidden flex items-center justify-center pt-16">
-      <LightBg flip />
+    <div id="slide-5" className="w-[1920px] h-[1080px] relative overflow-hidden flex items-center justify-center pt-16 bg-black">
+      <DarkBg flip />
       <TopLogos />
       <PartnerStrip />
       
@@ -389,16 +434,16 @@ function Slide5() {
         
         {/* Left Side Content */}
         <div className="flex flex-col flex-1 pr-10">
-          <p className="text-[14px] font-black tracking-[0.45em] uppercase text-slate-500 mb-6 drop-shadow-sm">Next Steps</p>
-          <h2 style={{ fontSize: '120px', fontWeight: 900, color: '#0f172a', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
-            Your Career.<br /><span className="text-slate-800">Accelerated.</span>
+          <p className="text-[14px] font-black tracking-[0.45em] uppercase text-purple-400 mb-6 drop-shadow-sm">Next Steps</p>
+          <h2 style={{ fontSize: '120px', fontWeight: 900, color: '#fff', lineHeight: 0.9, letterSpacing: '-0.03em', marginBottom: '1.5rem', textShadow: '0 10px 40px rgba(0,0,0,0.5)' }}>
+            Your Career.<br /><span className="text-gradient-purple-orange">Accelerated.</span>
           </h2>
           
-          <p className="text-[22px] font-medium text-slate-600 max-w-2xl leading-relaxed mb-12">
-            This is more than a competition. It is a <strong className="text-slate-900 font-bold">global launchpad</strong> for your future. Secure your spot, access premium tools instantly, and start building.
+          <p className="text-[22px] font-medium text-slate-300 max-w-2xl leading-relaxed mb-12">
+            This is more than a competition. It is a <strong className="text-white font-bold">global launchpad</strong> for your future. Secure your spot, access premium tools instantly, and start building.
           </p>
           
-          <div className="flex items-center justify-between bg-white border border-slate-200 rounded-[2rem] p-10 w-full max-w-4xl shadow-[0_20px_50px_rgba(0,0,0,0.03)]">
+          <GlassCard className="flex items-center justify-between w-full max-w-4xl" style={{ padding: '2.5rem' }}>
             {[{ label: 'Fee', val: '₹100', sub: 'Only', highlight: true }, 
               { label: 'Start', val: '1st Sep', sub: '2026', highlight: false }, 
               { label: 'Format', val: 'Global', sub: 'Online', highlight: false }, 
@@ -406,33 +451,22 @@ function Slide5() {
              ].map((s, i, arr) => (
               <React.Fragment key={s.label}>
                 <div className="flex flex-col">
-                  <div className="text-[12px] font-bold tracking-[0.35em] uppercase text-slate-400 mb-3">{s.label}</div>
-                  <div style={{ fontSize: '42px', fontWeight: 900, color: '#0f172a', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.val}</div>
-                  <div className="text-[18px] font-medium text-slate-500 mt-2">{s.sub}</div>
+                  <div className="text-[12px] font-bold tracking-[0.35em] uppercase text-white/50 mb-3">{s.label}</div>
+                  <div style={{ fontSize: '42px', fontWeight: 900, color: '#fff', lineHeight: 1, letterSpacing: '-0.02em' }}>{s.val}</div>
+                  <div className="text-[18px] font-medium text-slate-300 mt-2">{s.sub}</div>
                 </div>
-                {i < arr.length - 1 && <div className="w-[1px] h-20 bg-slate-200 mx-2" />}
+                {i < arr.length - 1 && <div className="w-[1px] h-20 bg-white/10 mx-2" />}
               </React.Fragment>
             ))}
-          </div>
+          </GlassCard>
         </div>
 
         {/* Right Side QR */}
         <div className="flex flex-col items-center justify-center shrink-0">
-          <div style={{ 
-            position: 'relative', 
-            background: 'white', 
-            border: '1px solid rgba(0,0,0,0.06)', 
-            borderRadius: '2.5rem', 
-            padding: '4rem', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            boxShadow: '0 30px 60px rgba(0,0,0,0.04)', 
-            overflow: 'hidden' 
-          }}>
+          <GlassCard className="flex flex-col items-center" style={{ padding: '4rem' }}>
             
-            <span className="text-[15px] font-black tracking-[0.4em] text-slate-500 uppercase mb-3 relative z-10">Scan To Apply</span>
-            <span className="text-[44px] font-black text-slate-900 tracking-tight mb-10 relative z-10 leading-none">JOIN TODAY</span>
+            <span className="text-[15px] font-black tracking-[0.4em] text-purple-300 uppercase mb-3 relative z-10">Scan To Apply</span>
+            <span className="text-[44px] font-black text-white tracking-tight mb-10 relative z-10 leading-none">JOIN TODAY</span>
             
             <div style={{ 
               width: '320px', 
@@ -440,19 +474,18 @@ function Slide5() {
               background: 'white', 
               borderRadius: '2rem', 
               padding: '16px', 
-              boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
-              border: '1px solid #e2e8f0',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
               position: 'relative',
               zIndex: 10
             }}>
               <img src={qr} alt="QR Code" style={{ width: '100%', height: '100%', borderRadius: '1.25rem', objectFit: 'contain' }} />
             </div>
 
-            <div className="mt-10 flex items-center gap-3 relative z-10 bg-slate-50 px-8 py-4 rounded-full border border-slate-200">
-              <span className="text-[20px] font-medium text-slate-500">or visit</span>
-              <span className="text-[22px] font-bold text-slate-900 tracking-wide">fundfy.app/c/chinni</span>
+            <div className="mt-10 flex items-center gap-3 relative z-10 bg-white/10 px-8 py-4 rounded-full border border-white/20 backdrop-blur-md">
+              <span className="text-[20px] font-medium text-slate-300">or visit</span>
+              <span className="text-[22px] font-bold text-white tracking-wide">fundfy.app/chinni</span>
             </div>
-          </div>
+          </GlassCard>
         </div>
         
       </div>

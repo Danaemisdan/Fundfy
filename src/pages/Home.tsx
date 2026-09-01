@@ -179,7 +179,7 @@ function Home() {
           {/* Powered By - Static */}
           <div className="w-full bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 lg:p-10 shadow-xl flex flex-col overflow-hidden">
             <p className="text-[10px] md:text-xs font-bold text-black/50 tracking-wider mb-6 ml-2 uppercase text-center md:text-left">POWERED BY</p>
-            <div className="flex flex-nowrap justify-between items-center gap-x-3 md:gap-x-4 lg:gap-x-5 w-full overflow-x-auto no-scrollbar px-2 md:px-0 pb-2">
+            <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-4 md:gap-x-6 lg:gap-x-8 w-full px-2 md:px-0 pb-2">
               {PARTNERS.map((src, i) => {
                 let scaleClass = '';
                 if (src.includes('TingoAI')) scaleClass = 'scale-90';

@@ -3,22 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const referrers = [
-  'hgnma50',
-  'uiapm3492',
-  'shruti1',
-  'shruti',
-  'chinni',
-  'uhg0192ha',
-  'shrishtipaagal',
-  'harshasai',
-  'dannyk.virtualex',
-  'admin',
-  'chandra',
-  'originevents',
-  'codequesters',
-  'studentspot',
-  'haricart',
-  'nexgennexus'
+  'rohini'
 ];
 
 const contests = [
@@ -29,7 +14,7 @@ const contests = [
   'career-accelerator-program'
 ];
 
-const BASE_URL = 'http://localhost:5174/presentation-poster';
+const BASE_URL = 'http://localhost:5173/presentation-poster';
 
 async function generatePosters() {
   console.log('Launching browser for presentation posters...');

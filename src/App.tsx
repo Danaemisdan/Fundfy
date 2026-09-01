@@ -38,6 +38,12 @@ function OldEducationRedirect() {
   return <Navigate to={target} replace />;
 }
 
+// Redirect /:refCode → /?contest=career-accelerator-program&ref=:refCode
+function ReferralRedirect() {
+  const { refCode } = useParams<{ refCode: string }>();
+  return <Navigate to={`/?contest=career-accelerator-program&ref=${refCode}`} replace />;
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -152,6 +158,7 @@ function App() {
         <Route path="/pdf-presentation" element={<PresentationPDF />} />
         <Route path="/pdf-presentation-new" element={<PresentationPDFNew />} />
         <Route path="/pdf-mou" element={<MOUPDF />} />
+        <Route path="/:refCode" element={<ReferralRedirect />} />
       </Routes>
     </AuthProvider>
   );
