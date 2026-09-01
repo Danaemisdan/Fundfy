@@ -73,7 +73,7 @@ export default function MOUPDF() {
                   <div className="text-[16px] text-slate-700 leading-[1.8] space-y-8 text-justify">
                     
                     <p>
-                      <strong>This Memorandum of Understanding</strong> ("MOU" or "Agreement") is entered into as of <strong>17th August 2026</strong>, by and between:
+                      <strong>This Memorandum of Understanding</strong> ("MOU" or "Agreement") is entered into as of <strong>18th August 2026</strong>, by and between:
                     </p>
 
                     <p>
@@ -81,7 +81,7 @@ export default function MOUPDF() {
                     </p>
                     <p className="text-center font-bold">AND</p>
                     <p>
-                      <strong>CodeQuesters</strong>, represented by <strong>Mehul Agarwal</strong>, hereinafter referred to as "Partner" or "Second Party".
+                      <strong>Hari Krishna Nageswaram</strong>, an independent content creator and influencer, hereinafter referred to as "Partner" or "Second Party".
                     </p>
 
                     <p className="italic">
@@ -121,7 +121,7 @@ export default function MOUPDF() {
                       <strong>2.3</strong> Fundfy commits to providing all necessary promotional materials, tracking infrastructure, and platform support to facilitate this goal.
                     </p>
                     <p>
-                      <strong>2.4</strong> This partnership officially commences on 17th August 2026. Both Parties commit to working closely together on a day-to-day basis to monitor progress and drive consistent, daily results.
+                      <strong>2.4</strong> This partnership officially commences on 18th August 2026. Both Parties commit to working closely together on a day-to-day basis to monitor progress and drive consistent, daily results.
                     </p>
                     <p>
                       <strong>2.5</strong> <strong>Jagadeesh K</strong> shall act as the dedicated Point of Contact (POC) for the Partner. Jagadeesh K will be responsible for handling all queries, providing regular updates, and assisting with day-to-day operational requirements.
@@ -151,7 +151,7 @@ export default function MOUPDF() {
 
                     <h3 className="text-xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-widest border-b border-gray-200 pb-2">Article 5: Term & Termination</h3>
                     <p>
-                      <strong>5.1</strong> This MOU shall commence on 17th August 2026 and remain in full force and effect until terminated by either Party.
+                      <strong>5.1</strong> This MOU shall commence on 18th August 2026 and remain in full force and effect until terminated by either Party.
                     </p>
                     <p>
                       <strong>5.2</strong> Either Party may terminate this Agreement without cause by providing thirty (30) days' written notice to the other Party.
@@ -174,14 +174,14 @@ export default function MOUPDF() {
                         <div className="w-80 border-b-2 border-slate-400 mb-2"></div>
                         <p className="font-black text-slate-900 text-xl">Danny K</p>
                         <p className="text-slate-500 font-medium">Director, Fundfy.app</p>
-                        <p className="text-slate-500 text-sm mt-2">Date: 17th August 2026</p>
+                        <p className="text-slate-500 text-sm mt-2">Date: 18th August 2026</p>
                       </div>
                       <div>
                         <p className="font-bold text-slate-900 text-lg mb-8 text-transparent">IN WITNESS WHEREOF,</p>
                         <div className="w-80 border-b-2 border-slate-400 mb-2"></div>
-                        <p className="font-black text-slate-900 text-xl">Mehul Agarwal</p>
-                        <p className="text-slate-500 font-medium">CodeQuesters</p>
-                        <p className="text-slate-500 text-sm mt-2">Date: 17th August 2026</p>
+                        <p className="font-black text-slate-900 text-xl">Hari Krishna Nageswaram</p>
+                        <p className="text-slate-500 font-medium">Independent Influencer</p>
+                        <p className="text-slate-500 text-sm mt-2">Date: 18th August 2026</p>
                       </div>
                     </div>
                     

@@ -3,19 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const referrers = [
-  'hgnma50',
-  'uiapm3492',
-  'shruti1',
-  'shruti',
-  'chinni',
-  'uhg0192ha',
-  'shrishtipaagal',
-  'harshasai',
-  'dannyk.virtualex',
-  'admin',
-  'chandra',
-  'gonthini',
-  'sanjaysumanth'
+  'rohini'
 ];
 
 const contests = [

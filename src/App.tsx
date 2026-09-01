@@ -14,6 +14,7 @@ import HarshaPoster from './pages/HarshaPoster';
 import PresentationPoster from './pages/PresentationPoster';
 import IDCard from './pages/IDCard';
 import PresentationPDF from './pages/PresentationPDF';
+import PresentationPDFNew from './pages/PresentationPDF_new';
 import MOUPDF from './pages/MOUPDF';
 import { AuthProvider } from './contexts/AuthContext';
 
@@ -35,6 +36,12 @@ function OldEducationRedirect() {
   const ref = searchParams.get('ref');
   const target = `/contest/career-accelerator-program${ref ? `?ref=${ref}` : ''}`;
   return <Navigate to={target} replace />;
+}
+
+// Redirect /:refCode → /?contest=career-accelerator-program&ref=:refCode
+function ReferralRedirect() {
+  const { refCode } = useParams<{ refCode: string }>();
+  return <Navigate to={`/?contest=career-accelerator-program&ref=${refCode}`} replace />;
 }
 
 function ScrollToTop() {
@@ -149,7 +156,9 @@ function App() {
         <Route path="/id-card/:ref" element={<IDCard />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/pdf-presentation" element={<PresentationPDF />} />
+        <Route path="/pdf-presentation-new" element={<PresentationPDFNew />} />
         <Route path="/pdf-mou" element={<MOUPDF />} />
+        <Route path="/:refCode" element={<ReferralRedirect />} />
       </Routes>
     </AuthProvider>
   );

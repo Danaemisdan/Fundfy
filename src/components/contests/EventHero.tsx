@@ -86,7 +86,6 @@ export default function EventHero({ data, theme, onRegisterClick }: { data: any,
           className="w-full max-w-3xl grid grid-cols-3 gap-2 md:gap-4 border-t border-white/10 pt-8 mt-auto mx-auto"
         >
           {data.statistics.map((stat: any, idx: number) => {
-
             return (
               <div key={idx} className="flex flex-col items-center justify-center text-center">
                 <span className="text-[10px] md:text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">

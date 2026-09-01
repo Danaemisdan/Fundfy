@@ -27,7 +27,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Transform your future with the Career Accelerator Program. For just ₹100, you are securing a massive career upgrade. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
+    description: 'Transform your future with the Career Accelerator Program. Upskill in AI and discover powerful AI use cases tailored to your specific industry. We focus heavily on communication skills and real-world readiness to make you unstoppable.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
@@ -115,7 +115,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
+    description: 'Welcome to the ultimate AI App Creation challenge. Your mission is to engineer the next generation of applications. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
@@ -203,7 +203,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
+    description: 'Merge traditional 3D modeling pipelines with next-gen generative AI tools. Every participant gets assured internships, interviews, and lifetime access to our premium AI upskilling and recruitment tools.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
@@ -285,7 +285,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
+    description: 'Push the absolute boundaries of digital identity in this elite character modeling challenge. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
@@ -367,7 +367,7 @@ export const CONTESTS: ContestConfig[] = [
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
     ],
-    description: 'Design the future of the web. Craft stunning interfaces and breathtaking web experiences. For just ₹100, you are securing a massive career upgrade. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
+    description: 'Design the future of the web. Craft stunning interfaces and breathtaking web experiences. Every participant gets assured internships, interviews, and lifetime access to our premium tools.',
     whyParticipate: [
       { title: 'Assured Placements & Support', description: 'Every participant receives assured internships, jobs, or comprehensive career support.' },
       { title: 'Confirmed Interview', description: 'Skip the line. You secure an interview just for participating.' },
