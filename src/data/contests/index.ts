@@ -22,7 +22,6 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Registration', value: '₹100' },
       { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
@@ -110,7 +109,6 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Registration', value: '₹100' },
       { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
@@ -198,7 +196,6 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Registration', value: '₹100' },
       { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
@@ -280,7 +277,6 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Registration', value: '₹100' },
       { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
@@ -362,7 +358,6 @@ export const CONTESTS: ContestConfig[] = [
     currency: 'INR',
     paymentRequired: true,
     statistics: [
-      { label: 'Registration', value: '₹100' },
       { label: 'Grants & Funding', value: '₹50 Lakhs' },
       { label: 'Mode', value: 'Global Online' },
       { label: 'Deadline', value: 'Nov 30, 2026' }
