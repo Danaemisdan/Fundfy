@@ -3,7 +3,7 @@ import { useParams, Navigate, useSearchParams } from 'react-router-dom';
 
 // Referrer data — add all referrers here
 const REFERRERS: Record<string, { name: string; designation: string; employeeId: string }> = {
-  chinni:            { name: 'Chinni Ganapathi',    designation: 'Chief Technology Officer', employeeId: 'GTH-2026-001' },
+  chinni:            { name: 'N Chinni Ganapathi',    designation: 'Chief Technology Officer', employeeId: 'GTH-2026-001' },
   hgnma50:           { name: 'Ambassador',           designation: 'Brand Ambassador',       employeeId: 'GTH-2026-002' },
   uiapm3492:         { name: 'Ambassador',           designation: 'Brand Ambassador',       employeeId: 'GTH-2026-003' },
   shruti1:           { name: 'Shruti',               designation: 'Campus Ambassador',      employeeId: 'GTH-2026-004' },
