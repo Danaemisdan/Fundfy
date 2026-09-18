@@ -2,10 +2,10 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const referrers = ['chinni'];  // only Chinni for now; add more to generate more
+const referrers = ['srinivasarao', 'vamsikrishna', 'ramesh', 'venkat', 'rajesh'];
 
 const BASE_URL = 'http://localhost:4173/id-card';
-const OUTPUT_DIR = path.join(__dirname, 'Employee ID');
+const OUTPUT_DIR = path.join(__dirname, 'employees');
 
 async function generateIDCards() {
   console.log('Launching browser for ID card generation...');

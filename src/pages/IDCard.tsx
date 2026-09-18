@@ -14,6 +14,11 @@ const REFERRERS: Record<string, { name: string; designation: string; employeeId:
   'dannyk.virtualex':{ name: 'Danny K',              designation: 'Marketing Partner',      employeeId: 'GTH-2026-009' },
   admin:             { name: 'Admin',                designation: 'Administrator',          employeeId: 'GTH-2026-000' },
   chandra:           { name: 'Chandra',              designation: 'Brand Ambassador',       employeeId: 'GTH-2026-010' },
+  srinivasarao:      { name: 'Srinivasarao',         designation: 'Employee',               employeeId: 'GTH-2026-011' },
+  vamsikrishna:      { name: 'Vamsikrishna',         designation: 'Employee',               employeeId: 'GTH-2026-012' },
+  ramesh:            { name: 'Ramesh',               designation: 'Employee',               employeeId: 'GTH-2026-013' },
+  venkat:            { name: 'Venkat',               designation: 'Employee',               employeeId: 'GTH-2026-014' },
+  rajesh:            { name: 'Rajesh',               designation: 'Employee',               employeeId: 'GTH-2026-015' },
 };
 
 export default function IDCard() {
