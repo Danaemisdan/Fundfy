@@ -19,6 +19,7 @@ const REFERRERS: Record<string, { name: string; designation: string; employeeId:
   ramesh:            { name: 'Ramesh',               designation: 'Employee',               employeeId: 'GTH-2026-013' },
   venkat:            { name: 'Venkat',               designation: 'Employee',               employeeId: 'GTH-2026-014' },
   rajesh:            { name: 'Rajesh',               designation: 'Employee',               employeeId: 'GTH-2026-015' },
+  rohini:            { name: 'Rohini',               designation: 'Employee',               employeeId: 'GTH-2026-016' },
 };
 
 export default function IDCard() {

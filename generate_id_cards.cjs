@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const referrers = ['srinivasarao', 'vamsikrishna', 'ramesh', 'venkat', 'rajesh'];
+const referrers = ['rohini'];
 
 const BASE_URL = 'http://localhost:4173/id-card';
 const OUTPUT_DIR = path.join(__dirname, 'employees');
