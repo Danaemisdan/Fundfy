@@ -96,7 +96,7 @@ export default function Register() {
     password: '',
     confirmPassword: '',
     phone: '',
-    role: '' as 'student' | 'professional' | '',
+    role: '' as 'student' | 'professional' | 'hiring' | '',
     linkedin: '',
     portfolio: '',
     github: ''
@@ -450,6 +450,7 @@ export default function Register() {
                         <option value="" disabled>Select your role</option>
                         <option value="student">Student</option>
                         <option value="professional">Professional</option>
+                        <option value="hiring">Hiring (All categories)</option>
                       </select>
                       <svg className="w-4 h-4 text-gray-400 absolute right-4 top-3.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
